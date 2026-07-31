@@ -1,0 +1,1 @@
+These documents contain useful current-state audit evidence but are not authoritative for architecture, scope, pricing, platform or release-one decisions. Where they conflict with the approved Stage 2 package, definitive blueprint or Prototype v1 build prompt, the later approved documents govern.

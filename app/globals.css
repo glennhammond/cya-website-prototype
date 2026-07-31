@@ -1,0 +1,112 @@
+@import "tailwindcss";
+
+:root {
+  --cya-teal: #17535b;
+  --cya-teal-dark: #103f45;
+  --cya-gold: #bd964a;
+  --cya-mist: #f4f6f5;
+  --cya-white: #ffffff;
+  --cya-ink: #253336;
+  --cya-body: #596467;
+  --cya-divider: #dde5e3;
+  --cya-aqua: #39aeb8;
+  --cya-error: #a33b3b;
+
+  --cya-radius-control: 12px;
+  --cya-radius-card: 20px;
+  --cya-shadow-card: 0 8px 24px rgba(16, 63, 69, 0.08);
+  --cya-focus-ring: 0 0 0 3px rgba(57, 174, 184, 0.55);
+  --cya-container-max: 1280px;
+}
+
+@theme inline {
+  --color-teal: var(--cya-teal);
+  --color-teal-dark: var(--cya-teal-dark);
+  --color-gold: var(--cya-gold);
+  --color-mist: var(--cya-mist);
+  --color-white: var(--cya-white);
+  --color-ink: var(--cya-ink);
+  --color-body: var(--cya-body);
+  --color-divider: var(--cya-divider);
+  --color-aqua: var(--cya-aqua);
+  --color-error: var(--cya-error);
+
+  --font-heading: var(--font-urbanist), Arial, sans-serif;
+  --font-body: var(--font-open-sans), Arial, sans-serif;
+
+  --radius-control: var(--cya-radius-control);
+  --radius-card: var(--cya-radius-card);
+  --shadow-card: var(--cya-shadow-card);
+  --container-max: var(--cya-container-max);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--cya-mist);
+  color: var(--cya-ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading);
+  color: var(--cya-teal-dark);
+  line-height: 1.12;
+  font-weight: 700;
+}
+
+a {
+  color: inherit;
+}
+
+/* Visible focus for keyboard users; consistent across interactive elements. */
+:focus-visible {
+  outline: none;
+  box-shadow: var(--cya-focus-ring);
+  border-radius: 4px;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -100%;
+  z-index: 100;
+  background: var(--cya-teal-dark);
+  color: var(--cya-white);
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--cya-radius-control);
+  font-family: var(--font-body);
+  font-weight: 600;
+  transition: top 0.15s ease;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

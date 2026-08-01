@@ -30,7 +30,7 @@ export function SiteHeader() {
             rel="noopener noreferrer"
             className="text-sm font-bold text-ink hover:text-teal"
           >
-            Member sign-in
+            Member sign-in<span className="sr-only"> (opens in a new tab)</span>
           </a>
           <CtaLink href={primaryCTA.href} variant="primary" className="whitespace-nowrap">
             <span className="min-[1350px]:hidden">{primaryCTAShort}</span>

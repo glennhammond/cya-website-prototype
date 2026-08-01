@@ -30,7 +30,7 @@ export function SiteFooter() {
             </Link>
           ))}
           <a href={memberSignInHref} target="_blank" rel="noopener noreferrer" className="text-sm text-white/85 hover:text-white">
-            Member sign-in
+            Member sign-in<span className="sr-only"> (opens in a new tab)</span>
           </a>
           <Link href="/consultation" className="text-sm text-white/85 hover:text-white">
             Book a wellbeing consultation

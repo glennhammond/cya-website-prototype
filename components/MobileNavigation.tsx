@@ -121,7 +121,7 @@ export function MobileNavigation() {
               onClick={() => close(false)}
               className="block min-h-11 rounded-[var(--radius-control)] px-3 py-3 text-base font-bold text-ink"
             >
-              Member sign-in
+              Member sign-in<span className="sr-only"> (opens in a new tab)</span>
             </a>
           </div>
           <CtaLink href={primaryCTA.href} variant="primary" className="mt-4 w-full">

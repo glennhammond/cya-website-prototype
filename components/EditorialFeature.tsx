@@ -1,7 +1,8 @@
 import { Container, Section, Kicker } from "@/components/Primitives";
 import { CtaLink } from "@/components/CtaLink";
 import { EvidencePlaceholder } from "@/components/EvidencePlaceholder";
-import type { CTA } from "@/lib/types";
+import { ImageMedia } from "@/components/ImageMedia";
+import type { CTA, MediaAsset } from "@/lib/types";
 
 export function EditorialFeature({
   kicker,
@@ -10,6 +11,8 @@ export function EditorialFeature({
   cta,
   tone = "white",
   reverse = false,
+  image,
+  imageCaption,
   placeholderVariant = "workplace",
   placeholderCaption = "Photography placeholder.",
   children,
@@ -20,6 +23,8 @@ export function EditorialFeature({
   cta?: CTA;
   tone?: "white" | "mist";
   reverse?: boolean;
+  image?: MediaAsset;
+  imageCaption?: string;
   placeholderVariant?: "movement" | "conference" | "studio" | "workplace" | "portrait" | "gathering";
   placeholderCaption?: string;
   children?: React.ReactNode;
@@ -41,7 +46,11 @@ export function EditorialFeature({
               </div>
             )}
           </div>
-          <EvidencePlaceholder variant={placeholderVariant} caption={placeholderCaption} aspect="4/3" />
+          {image ? (
+            <ImageMedia asset={image} caption={imageCaption} />
+          ) : (
+            <EvidencePlaceholder variant={placeholderVariant} caption={placeholderCaption} aspect="4/3" />
+          )}
         </div>
       </Container>
     </Section>

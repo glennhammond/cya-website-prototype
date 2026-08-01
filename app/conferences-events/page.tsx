@@ -15,6 +15,7 @@ import {
   logistics,
   closingCTA,
 } from "@/content/conferences";
+import { media } from "@/content/media";
 
 export const metadata: Metadata = {
   title: "Conferences and Events",
@@ -26,11 +27,7 @@ export default function ConferencesEventsPage() {
   return (
     <>
       <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Conferences and events" }]} />
-      <Hero
-        intro={conferencesHero}
-        placeholderVariant="conference"
-        placeholderCaption="Photography placeholder — a conference wellbeing activation."
-      />
+      <Hero intro={conferencesHero} image={media.conferencesHero} />
       <FeatureGrid
         kicker="Where CYA fits into the agenda"
         heading="Support the moment the agenda needs."
@@ -60,8 +57,7 @@ export default function ConferencesEventsPage() {
         heading={studioAccessFeature.heading}
         body={studioAccessFeature.body}
         cta={{ label: "See Wellbeing Studio", href: "/wellbeing-studio", variant: "secondary" }}
-        placeholderVariant="studio"
-        placeholderCaption="Photography placeholder — Wellbeing Studio on a delegate's device."
+        image={media.conferencesStudioAccess}
       />
       <FeatureGrid kicker="Delivery logistics" heading="What CYA confirms before the day." items={logistics} tone="white" columns={4} />
 

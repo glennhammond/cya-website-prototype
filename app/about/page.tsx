@@ -6,6 +6,8 @@ import { CTASection } from "@/components/CTASection";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Section, Container, Kicker } from "@/components/Primitives";
 import { EvidencePlaceholder } from "@/components/EvidencePlaceholder";
+import { ImageMedia } from "@/components/ImageMedia";
+import { media } from "@/content/media";
 import {
   aboutHero,
   worldviewFeature,
@@ -27,19 +29,14 @@ export default function AboutPage() {
   return (
     <>
       <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "About" }]} />
-      <Hero
-        intro={aboutHero}
-        placeholderVariant="portrait"
-        placeholderCaption="Photography placeholder — Debby Lewis."
-      />
+      <Hero intro={aboutHero} image={media.aboutHero} />
       <EditorialFeature
         kicker={worldviewFeature.kicker}
         heading={worldviewFeature.heading}
         body={worldviewFeature.body}
         cta={worldviewFeature.cta}
         tone="mist"
-        placeholderVariant="gathering"
-        placeholderCaption="Photography placeholder — a mixed-confidence group, mid-session."
+        image={media.aboutWorldview}
       />
 
       <Section tone="white" id="origin">
@@ -70,8 +67,7 @@ export default function AboutPage() {
         body={deliveryPhilosophy.body}
         tone="white"
         reverse
-        placeholderVariant="workplace"
-        placeholderCaption="Photography placeholder — coordinated delivery in practice."
+        image={media.aboutDelivery}
       />
 
       <Section tone="mist">
@@ -82,11 +78,9 @@ export default function AboutPage() {
               <h2 className="mt-3 text-[28px] sm:text-[34px]">{facilitatorNetwork.heading}</h2>
               <p className="mt-4 text-lg leading-relaxed text-body">{facilitatorNetwork.body}</p>
             </div>
-            <EvidencePlaceholder
-              variant="gathering"
-              caption="Facilitator register placeholder — representative coverage only."
-              status="evidence-required"
-              note="Individual profiles publish only once credentials, insurance and permissions are verified."
+            <ImageMedia
+              asset={media.aboutFacilitator}
+              caption="Representative facilitator only — not a directory. Individual profiles publish once credentials, insurance and permissions are verified."
             />
           </div>
         </Container>

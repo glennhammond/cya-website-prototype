@@ -24,6 +24,12 @@
 .DS_Store
 *.pem
 
+# Provisional image library: large (300MB+), unapproved for publication, and
+# includes images with unverified/undocumented consent (see
+# Docs/CYA_Prototype_v1_Image_Audit.md). Only the curated, cropped
+# derivatives in public/images/selected/ are committed.
+/public/images/source/
+
 # debug
 npm-debug.log*
 yarn-debug.log*

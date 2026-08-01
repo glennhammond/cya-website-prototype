@@ -19,6 +19,7 @@ import {
   closingCTA,
 } from "@/content/programs";
 import { exampleYear } from "@/content/home";
+import { media } from "@/content/media";
 
 export const metadata: Metadata = {
   title: "Programs",
@@ -30,18 +31,13 @@ export default function ProgramsPage() {
   return (
     <>
       <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Programs" }]} />
-      <Hero
-        intro={programsHero}
-        placeholderVariant="workplace"
-        placeholderCaption="Photography placeholder — a recurring program in action."
-      />
+      <Hero intro={programsHero} image={media.programsHero} />
       <EditorialFeature
         kicker={whyContinuity.kicker}
         heading={whyContinuity.heading}
         body={whyContinuity.body}
         tone="mist"
-        placeholderVariant="gathering"
-        placeholderCaption="Photography placeholder — the same team, a different week."
+        image={media.programsContinuity}
       />
       <OfferProgression
         kicker="Choose the level of continuity that fits"
@@ -58,8 +54,7 @@ export default function ProgramsPage() {
         body={multiSiteFeature.body}
         tone="white"
         reverse
-        placeholderVariant="workplace"
-        placeholderCaption="Photography placeholder — coordinated delivery across sites."
+        image={media.programsMultiSite}
       />
       <FeatureGrid kicker="Investment factors" heading="What shapes the investment." body="No fixed pricing is published here. These are the variables CYA works through with you during a consultation." items={investmentFactors} tone="mist" columns={3} />
 

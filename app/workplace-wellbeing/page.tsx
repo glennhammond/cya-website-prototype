@@ -13,6 +13,7 @@ import {
   logisticsFeature,
   closingCTA,
 } from "@/content/workplace-wellbeing";
+import { media } from "@/content/media";
 
 export const metadata: Metadata = {
   title: "Workplace Wellbeing",
@@ -24,11 +25,7 @@ export default function WorkplaceWellbeingPage() {
   return (
     <>
       <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Workplace wellbeing" }]} />
-      <Hero
-        intro={workplaceHero}
-        placeholderVariant="workplace"
-        placeholderCaption="Photography placeholder — a session adapted to a real workplace."
-      />
+      <Hero intro={workplaceHero} image={media.workplaceWellbeingHero} />
       <FeatureGrid
         kicker="Start by need"
         heading="What would be useful for your people right now?"
@@ -57,8 +54,7 @@ export default function WorkplaceWellbeingPage() {
         heading={processFeature.heading}
         body={processFeature.body}
         cta={processFeature.cta}
-        placeholderVariant="portrait"
-        placeholderCaption="Photography placeholder — Debby Lewis or a CYA facilitator."
+        image={media.debbyTeacherPortrait}
       />
       <EditorialFeature
         kicker={logisticsFeature.kicker}
@@ -66,8 +62,7 @@ export default function WorkplaceWellbeingPage() {
         body={logisticsFeature.body}
         tone="white"
         reverse
-        placeholderVariant="gathering"
-        placeholderCaption="Photography placeholder — a team session in progress."
+        image={media.workplaceWellbeingLunchLearn}
       />
       <CTASection
         kicker={closingCTA.kicker}

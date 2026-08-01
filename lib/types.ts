@@ -13,6 +13,21 @@ export type EvidenceStatus =
   | "legal-review"
   | "placeholder";
 
+/**
+ * A curated photograph from the provisional image library (public/images/source/),
+ * cropped into public/images/selected/. See Docs/CYA_Prototype_v1_Image_Mapping.md
+ * for the full selection rationale. None of this library's publication consent is
+ * documented, so every asset carries an EvidenceStatus and a review-mode-only note.
+ */
+export interface MediaAsset {
+  src: string;
+  width: number;
+  height: number;
+  alt: string;
+  status: EvidenceStatus;
+  note?: string;
+}
+
 export interface Evidenced<T> {
   value: T;
   status: EvidenceStatus;

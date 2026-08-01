@@ -16,6 +16,7 @@ import {
   relatedUseCases,
   closingCTA,
 } from "@/content/movement";
+import { media } from "@/content/media";
 
 export const metadata: Metadata = {
   title: "Movement",
@@ -33,18 +34,13 @@ export default function MovementPage() {
           { label: "Movement" },
         ]}
       />
-      <Hero
-        intro={movementHero}
-        placeholderVariant="movement"
-        placeholderCaption="Photography placeholder — movement adapted to a real workplace."
-      />
+      <Hero intro={movementHero} image={media.movementHero} />
       <EditorialFeature
         kicker={whoItsFor.kicker}
         heading={whoItsFor.heading}
         body={whoItsFor.body}
         tone="mist"
-        placeholderVariant="gathering"
-        placeholderCaption="Photography placeholder — a mixed-ability group session."
+        image={media.movementGroupIndustrial}
       />
       <FeatureGrid kicker="Useful formats" heading="However much time you have to give it." items={usefulFormats} tone="white" columns={4} />
       <FeatureGrid kicker="What to expect" heading="What participants can expect." items={whatToExpect} tone="mist" columns={4} />
@@ -54,8 +50,7 @@ export default function MovementPage() {
         body={inclusionFeature.body}
         tone="white"
         reverse
-        placeholderVariant="portrait"
-        placeholderCaption="Photography placeholder — a facilitator offering a modification."
+        image={media.movementFacilitatorAdjustment}
       />
       <FeatureGrid kicker="Delivery options" heading="Onsite, online or across several locations." items={deliveryOptions} tone="mist" columns={3} />
 

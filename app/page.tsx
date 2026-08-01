@@ -20,6 +20,7 @@ import {
   closingCTA,
 } from "@/content/home";
 import { caseStudies } from "@/content/proof";
+import { media } from "@/content/media";
 
 export const metadata: Metadata = {
   title: "Corporate Yoga Australia — Start with one useful moment",
@@ -30,7 +31,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
-      <Hero intro={homeHero} placeholderVariant="workplace" placeholderCaption="Photography placeholder — a real workplace, mid-session." />
+      <Hero intro={homeHero} image={media.homeHero} />
       <PathwaySelector
         kicker={pathwayHeading.kicker}
         heading={pathwayHeading.heading}
@@ -42,8 +43,7 @@ export default function Home() {
         heading={oneOffFeature.heading}
         body={oneOffFeature.body}
         cta={oneOffFeature.cta}
-        placeholderVariant="movement"
-        placeholderCaption="Photography placeholder — a single, well-run session."
+        image={media.homeOneOff}
       />
       <OfferProgression
         kicker={progressionHeading.kicker}

@@ -5,6 +5,7 @@ import { CTASection } from "@/components/CTASection";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Container, Section, Kicker } from "@/components/Primitives";
 import { proofHero, proofPrinciples, caseStudies, proofStandards } from "@/content/proof";
+import { media } from "@/content/media";
 
 export const metadata: Metadata = {
   title: "Proof",
@@ -16,11 +17,7 @@ export default function ProofPage() {
   return (
     <>
       <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Proof" }]} />
-      <Hero
-        intro={proofHero}
-        placeholderVariant="gathering"
-        placeholderCaption="Photography placeholder — a client team CYA has worked with."
-      />
+      <Hero intro={proofHero} image={media.proofHero} />
 
       <Section tone="mist">
         <Container>

@@ -19,6 +19,7 @@ import {
   progressionLevels,
   closingCTA,
 } from "@/content/wellbeing-studio";
+import { media } from "@/content/media";
 
 export const metadata: Metadata = {
   title: "Wellbeing Studio",
@@ -50,8 +51,7 @@ export default function WellbeingStudioPage() {
         body={employeeValueFeature.body}
         cta={employeeValueFeature.cta}
         tone="white"
-        placeholderVariant="portrait"
-        placeholderCaption="Photography placeholder — an employee using Wellbeing Studio."
+        image={media.studioEmployeeHome}
       />
       <EditorialFeature
         kicker={employerValueFeature.kicker}

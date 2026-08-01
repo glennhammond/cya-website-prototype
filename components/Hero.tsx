@@ -1,14 +1,19 @@
 import { Container, Kicker } from "@/components/Primitives";
 import { CtaLink } from "@/components/CtaLink";
 import { EvidencePlaceholder } from "@/components/EvidencePlaceholder";
-import type { PageIntro } from "@/lib/types";
+import { ImageMedia } from "@/components/ImageMedia";
+import type { MediaAsset, PageIntro } from "@/lib/types";
 
 export function Hero({
   intro,
+  image,
+  imageCaption,
   placeholderVariant = "workplace",
   placeholderCaption = "Photography placeholder — real workplaces, real people, real work.",
 }: {
   intro: PageIntro;
+  image?: MediaAsset;
+  imageCaption?: string;
   placeholderVariant?: "movement" | "conference" | "studio" | "workplace" | "portrait" | "gathering";
   placeholderCaption?: string;
 }) {
@@ -28,13 +33,17 @@ export function Hero({
           </div>
         )}
       </div>
-      <EvidencePlaceholder
-        variant={placeholderVariant}
-        caption={placeholderCaption}
-        aspect="4/3"
-        status="placeholder"
-        note="A targeted photo shoot follows prototype review (blueprint §33)."
-      />
+      {image ? (
+        <ImageMedia asset={image} caption={imageCaption} priority />
+      ) : (
+        <EvidencePlaceholder
+          variant={placeholderVariant}
+          caption={placeholderCaption}
+          aspect="4/3"
+          status="placeholder"
+          note="A targeted photo shoot follows prototype review (blueprint §33)."
+        />
+      )}
     </Container>
   );
 }

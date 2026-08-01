@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import { Hero } from "@/components/Hero";
 import { PathwaySelector } from "@/components/PathwaySelector";
-import { EditorialFeature } from "@/components/EditorialFeature";
 import { OfferProgression } from "@/components/OfferProgression";
-import { ExampleYearView } from "@/components/ExampleYearView";
+import { YearGlance } from "@/components/YearGlance";
 import { WhyCYA } from "@/components/WhyCYA";
 import { ProofPreview } from "@/components/ProofPreview";
 import { StudioPreview } from "@/components/StudioPreview";
@@ -12,10 +11,9 @@ import {
   homeHero,
   pathwayHeading,
   pathwayCards,
-  oneOffFeature,
   progressionHeading,
   offerLevels,
-  exampleYear,
+  yearQuarters,
   whyCYA,
   closingCTA,
 } from "@/content/home";
@@ -38,22 +36,15 @@ export default function Home() {
         body={pathwayHeading.body}
         cards={pathwayCards}
       />
-      <EditorialFeature
-        kicker={oneOffFeature.kicker}
-        heading={oneOffFeature.heading}
-        body={oneOffFeature.body}
-        cta={oneOffFeature.cta}
-        image={media.homeOneOff}
-      />
+      <ProofPreview studies={caseStudies.slice(0, 3)} />
       <OfferProgression
         kicker={progressionHeading.kicker}
         heading={progressionHeading.heading}
         body={progressionHeading.body}
         levels={offerLevels}
       />
-      <ExampleYearView months={exampleYear} />
+      <YearGlance quarters={yearQuarters} />
       <WhyCYA kicker={whyCYA.kicker} heading={whyCYA.heading} points={whyCYA.points} />
-      <ProofPreview studies={caseStudies.slice(0, 3)} />
       <StudioPreview />
       <CTASection
         kicker={closingCTA.kicker}

@@ -25,13 +25,16 @@ export default function ProofPage() {
             <Kicker>Proof principles</Kicker>
             <h2 className="mt-3 text-[28px] sm:text-[34px]">How CYA governs proof.</h2>
           </div>
-          <ul className="mt-8 grid gap-4 sm:grid-cols-2">
-            {proofPrinciples.map((principle) => (
-              <li key={principle} className="rounded-[var(--radius-card)] border border-divider bg-white p-5 text-sm leading-relaxed text-body">
+          <ol className="mt-8 divide-y divide-divider border-t border-b border-divider">
+            {proofPrinciples.map((principle, index) => (
+              <li key={principle} className="flex gap-4 py-4 text-sm leading-relaxed text-body">
+                <span aria-hidden="true" className="shrink-0 font-bold text-gold">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
                 {principle}
               </li>
             ))}
-          </ul>
+          </ol>
         </Container>
       </Section>
 
@@ -53,7 +56,7 @@ export default function ProofPage() {
         </Container>
       </Section>
 
-      <Section tone="mist">
+      <Section tone="white">
         <Container>
           <div className="max-w-2xl">
             <Kicker>Standards</Kicker>

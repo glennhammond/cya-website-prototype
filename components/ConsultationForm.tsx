@@ -49,17 +49,15 @@ const initialState: FormState = {
 
 type Status = "idle" | "submitting" | "success" | "duplicate" | "failure";
 
+// Kept deliberately short (Objective F): first name, work email, organisation,
+// what you're considering, brief context, and privacy consent. Everything
+// else is a genuine optional extra, not a gate to starting the conversation.
 const REQUIRED_FIELDS: { key: keyof FormState; id: string; message: string }[] = [
   { key: "firstName", id: "firstName", message: "Enter your first name" },
-  { key: "lastName", id: "lastName", message: "Enter your last name" },
   { key: "workEmail", id: "workEmail", message: "Enter a work email address" },
   { key: "organisation", id: "organisation", message: "Enter your organisation" },
-  { key: "role", id: "role", message: "Enter your role" },
-  { key: "workforce", id: "workforce", message: "Select an approximate workforce size" },
-  { key: "locations", id: "locations", message: "Tell us your primary location(s)" },
   { key: "interest", id: "interest", message: "Select what you are considering" },
-  { key: "timeframe", id: "timeframe", message: "Select a preferred timeframe" },
-  { key: "deliveryMode", id: "deliveryMode", message: "Select a delivery mode" },
+  { key: "context", id: "context", message: "Tell us a little about what you're planning" },
   { key: "privacyConsent", id: "privacyConsent", message: "Accept the privacy acknowledgement to continue" },
 ];
 
@@ -198,64 +196,70 @@ export function ConsultationForm({ initialInterest }: { initialInterest?: string
       <fieldset className="grid gap-6 sm:grid-cols-2">
         <legend className="sr-only">Your details</legend>
         <TextField id="firstName" label="First name" required value={values.firstName} onChange={(v) => update("firstName", v)} errors={errors} autoComplete="given-name" />
-        <TextField id="lastName" label="Last name" required value={values.lastName} onChange={(v) => update("lastName", v)} errors={errors} autoComplete="family-name" />
+        <TextField id="lastName" label="Last name (optional)" value={values.lastName} onChange={(v) => update("lastName", v)} errors={errors} autoComplete="family-name" />
         <TextField id="workEmail" label="Work email" required type="email" value={values.workEmail} onChange={(v) => update("workEmail", v)} errors={errors} autoComplete="email" />
         <TextField id="phone" label="Phone (optional)" type="tel" value={values.phone} onChange={(v) => update("phone", v)} errors={errors} autoComplete="tel" />
-        <TextField id="organisation" label="Organisation" required value={values.organisation} onChange={(v) => update("organisation", v)} errors={errors} autoComplete="organization" />
-        <TextField id="role" label="Your role" required value={values.role} onChange={(v) => update("role", v)} errors={errors} />
+        <TextField id="organisation" label="Organisation" required value={values.organisation} onChange={(v) => update("organisation", v)} errors={errors} autoComplete="organization" className="sm:col-span-2" />
       </fieldset>
 
-      <fieldset className="mt-8 grid gap-6 sm:grid-cols-2">
-        <legend className="sr-only">Organisation context</legend>
-        <SelectField id="workforce" label="Approximate workforce size" required value={values.workforce} onChange={(v) => update("workforce", v)} errors={errors} options={workforceBands} />
-        <TextField id="locations" label="Primary location(s)" required value={values.locations} onChange={(v) => update("locations", v)} errors={errors} placeholder="e.g. Brisbane and Sydney" />
+      <fieldset className="mt-8 grid gap-6">
+        <legend className="sr-only">What you&apos;re considering</legend>
         <SelectField id="interest" label="What are you considering?" required value={values.interest} onChange={(v) => update("interest", v)} errors={errors} options={interestOptions.map((o) => o.label)} valueMap={interestOptions} />
-        <SelectField id="timeframe" label="Preferred timeframe" required value={values.timeframe} onChange={(v) => update("timeframe", v)} errors={errors} options={timeframeOptions} />
-      </fieldset>
-
-      <fieldset className="mt-8">
-        <legend className="mb-3 text-sm font-bold text-teal-dark" id="deliveryMode-legend">
-          Delivery mode <span aria-hidden="true">*</span>
-        </legend>
-        <div id="deliveryMode" className="flex flex-wrap gap-3" role="radiogroup" aria-labelledby="deliveryMode-legend" aria-describedby={errors.some((e) => e.id === "deliveryMode") ? "deliveryMode-error" : undefined}>
-          {deliveryModes.map((mode) => (
-            <label
-              key={mode}
-              className="flex min-h-11 cursor-pointer items-center gap-2 rounded-full border border-divider bg-white px-4 py-2 text-sm has-[:checked]:border-teal has-[:checked]:bg-mist"
-            >
-              <input
-                type="radio"
-                name="deliveryMode"
-                value={mode}
-                checked={values.deliveryMode === mode}
-                onChange={() => update("deliveryMode", mode)}
-                className="h-4 w-4"
-              />
-              {mode}
-            </label>
-          ))}
-        </div>
-        {errors.some((e) => e.id === "deliveryMode") && (
-          <p id="deliveryMode-error" className="mt-2 text-sm font-semibold text-error">
-            Select a delivery mode
-          </p>
-        )}
-      </fieldset>
-
-      <div className="mt-8 grid gap-6">
         <TextAreaField
           id="context"
-          label="Context and priorities (optional)"
+          label="Tell us a little about what you're planning"
+          required
           value={values.context}
           onChange={(v) => update("context", v)}
-          helpText="Please don't include health, medical or other sensitive personal information here."
+          errors={errors}
+          helpText="A sentence or two is enough to start. Please don't include health, medical or other sensitive personal information here."
         />
-        <TextAreaField
-          id="procurement"
-          label="Procurement constraints (optional)"
-          value={values.procurement}
-          onChange={(v) => update("procurement", v)}
-        />
+      </fieldset>
+
+      <div className="mt-10 border-t border-divider pt-6">
+        <p className="text-sm font-bold text-teal-dark">Optional — helps us prepare, not required to get started</p>
+        <p className="mt-1 text-sm text-body">Add as much or as little of this as you already know.</p>
+
+        <fieldset className="mt-6 grid gap-6 sm:grid-cols-2">
+          <legend className="sr-only">Optional organisation detail</legend>
+          <TextField id="role" label="Your role (optional)" value={values.role} onChange={(v) => update("role", v)} errors={errors} />
+          <SelectField id="workforce" label="Approximate workforce size (optional)" value={values.workforce} onChange={(v) => update("workforce", v)} errors={errors} options={workforceBands} />
+          <TextField id="locations" label="Primary location(s) (optional)" value={values.locations} onChange={(v) => update("locations", v)} errors={errors} placeholder="e.g. Brisbane and Sydney" />
+          <SelectField id="timeframe" label="Preferred timeframe (optional)" value={values.timeframe} onChange={(v) => update("timeframe", v)} errors={errors} options={timeframeOptions} />
+        </fieldset>
+
+        <fieldset className="mt-6">
+          <legend className="mb-3 text-sm font-bold text-teal-dark" id="deliveryMode-legend">
+            Delivery mode (optional)
+          </legend>
+          <div id="deliveryMode" className="flex flex-wrap gap-3" role="radiogroup" aria-labelledby="deliveryMode-legend">
+            {deliveryModes.map((mode) => (
+              <label
+                key={mode}
+                className="flex min-h-11 cursor-pointer items-center gap-2 rounded-full border border-divider bg-white px-4 py-2 text-sm has-[:checked]:border-teal has-[:checked]:bg-mist"
+              >
+                <input
+                  type="radio"
+                  name="deliveryMode"
+                  value={mode}
+                  checked={values.deliveryMode === mode}
+                  onChange={() => update("deliveryMode", mode)}
+                  className="h-4 w-4"
+                />
+                {mode}
+              </label>
+            ))}
+          </div>
+        </fieldset>
+
+        <div className="mt-6">
+          <TextAreaField
+            id="procurement"
+            label="Procurement constraints (optional)"
+            value={values.procurement}
+            onChange={(v) => update("procurement", v)}
+          />
+        </div>
       </div>
 
       <fieldset className="mt-8 space-y-3 border-t border-divider pt-6">
@@ -320,6 +324,7 @@ function TextField({
   type = "text",
   autoComplete,
   placeholder,
+  className = "",
 }: {
   id: string;
   label: string;
@@ -330,10 +335,11 @@ function TextField({
   type?: string;
   autoComplete?: string;
   placeholder?: string;
+  className?: string;
 }) {
   const error = fieldError(errors, id);
   return (
-    <div>
+    <div className={className}>
       <label htmlFor={id} className="mb-1.5 block text-sm font-bold text-teal-dark">
         {label} {required && <span aria-hidden="true">*</span>}
       </label>
@@ -422,17 +428,23 @@ function TextAreaField({
   value,
   onChange,
   helpText,
+  required,
+  errors,
 }: {
   id: string;
   label: string;
   value: string;
   onChange: (value: string) => void;
   helpText?: string;
+  required?: boolean;
+  errors?: FormError[];
 }) {
+  const error = errors ? fieldError(errors, id) : undefined;
+  const describedBy = [helpText ? `${id}-help` : null, error ? `${id}-error` : null].filter(Boolean).join(" ") || undefined;
   return (
     <div>
       <label htmlFor={id} className="mb-1.5 block text-sm font-bold text-teal-dark">
-        {label}
+        {label} {required && <span aria-hidden="true">*</span>}
       </label>
       {helpText && (
         <p id={`${id}-help`} className="mb-1.5 text-sm text-body">
@@ -444,10 +456,17 @@ function TextAreaField({
         name={id}
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        aria-describedby={helpText ? `${id}-help` : undefined}
+        aria-required={required}
+        aria-invalid={Boolean(error)}
+        aria-describedby={describedBy}
         rows={4}
-        className="w-full rounded-[var(--radius-control)] border border-divider bg-white px-4 py-3 text-base text-ink"
+        className={`w-full rounded-[var(--radius-control)] border bg-white px-4 py-3 text-base text-ink ${error ? "border-error" : "border-divider"}`}
       />
+      {error && (
+        <p id={`${id}-error`} className="mt-1.5 text-sm font-semibold text-error">
+          {error}
+        </p>
+      )}
     </div>
   );
 }

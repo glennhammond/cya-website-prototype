@@ -3,7 +3,8 @@ import { Hero } from "@/components/Hero";
 import { EditorialFeature } from "@/components/EditorialFeature";
 import { OfferProgression } from "@/components/OfferProgression";
 import { ExampleYearView } from "@/components/ExampleYearView";
-import { FeatureGrid } from "@/components/FeatureGrid";
+import { StatementList } from "@/components/StatementList";
+import { DividerList } from "@/components/DividerList";
 import { CTASection } from "@/components/CTASection";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Container, Section, Kicker } from "@/components/Primitives";
@@ -13,7 +14,6 @@ import {
   whyContinuity,
   programLevels,
   whatCyaCoordinates,
-  governanceFeature,
   multiSiteFeature,
   investmentFactors,
   closingCTA,
@@ -41,22 +41,34 @@ export default function ProgramsPage() {
       />
       <OfferProgression
         kicker="Choose the level of continuity that fits"
-        heading="Three levels, no compulsory ladder."
-        body="A recurring rhythm creates familiarity. A connected program brings several elements together. An organised year helps coordinate priorities, locations and moments over time."
+        heading="Four levels, no compulsory ladder."
+        body="Each level adds coordination, not a new sales tier. Move between them as your priorities change — there is no minimum to reach before support becomes worthwhile."
         levels={programLevels}
       />
       <ExampleYearView months={exampleYear} />
-      <FeatureGrid kicker="What CYA coordinates" heading="The planning load CYA takes on." items={whatCyaCoordinates} tone="white" columns={3} />
-      <FeatureGrid kicker="Delivery and governance" heading="A program that stays accountable." items={governanceFeature} tone="mist" columns={4} />
+      <StatementList
+        kicker="What CYA coordinates"
+        heading="The planning load CYA takes on."
+        items={whatCyaCoordinates}
+        tone="white"
+        columns={3}
+      />
       <EditorialFeature
         kicker={multiSiteFeature.kicker}
         heading={multiSiteFeature.heading}
         body={multiSiteFeature.body}
-        tone="white"
+        tone="mist"
         reverse
         image={media.programsMultiSite}
       />
-      <FeatureGrid kicker="Investment factors" heading="What shapes the investment." body="No fixed pricing is published here. These are the variables CYA works through with you during a consultation." items={investmentFactors} tone="mist" columns={3} />
+
+      <DividerList
+        kicker="Investment factors"
+        heading="What shapes the investment."
+        body="No fixed pricing is published here. These are the variables CYA works through with you during a consultation."
+        items={investmentFactors}
+        tone="white"
+      />
 
       <Section tone="white">
         <Container>

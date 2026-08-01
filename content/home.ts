@@ -13,7 +13,7 @@ export const homeHero: PageIntro = {
 export const pathwayHeading = {
   kicker: "Choose how to begin",
   heading: "Start with what is useful now.",
-  body: "Choose a focused session, support a conference, establish a recurring rhythm or plan something broader. There is no required starting point.",
+  body: "A single session is a complete offer on its own — fitted to the moment, audience and environment. Repeat what works, or connect it into something broader, whenever that becomes useful.",
 };
 
 export const pathwayCards: PathwayCard[] = [
@@ -49,38 +49,31 @@ export const pathwayCards: PathwayCard[] = [
   },
 ];
 
-export const oneOffFeature = {
-  kicker: "One useful moment",
-  heading: "One-off sessions are valuable in their own right.",
-  body: "A well-designed workplace wellbeing experience doesn't need to be part of a bigger plan to be worthwhile. Movement, mindfulness, workshops and conference activations stand on their own — fitted to the moment, audience and environment CYA is asked to work with.",
-  cta: { label: "Discuss a one-off session", href: "/consultation", variant: "secondary" as const },
-};
-
 export const progressionHeading = {
   kicker: "One useful moment can become a connected program",
   heading: "Build continuity when useful.",
-  body: "There is no required starting point. CYA can support one experience, repeat what works, or coordinate a broader mix across your people and locations. This is optional progression, not a compulsory sales ladder.",
+  body: "There is no required starting point and no compulsory ladder. CYA can support one experience, repeat what works, or coordinate a broader mix across your people and locations.",
 };
 
 export const offerLevels: OfferLevel[] = [
   {
-    title: "One useful moment",
-    description: "A well-designed workplace wellbeing experience that fits the moment, audience and environment.",
+    title: "One session",
+    description: "A focused experience for a team, workplace moment, awareness day or event.",
     proofNeed: "Suitability, facilitator quality, logistics and participant response.",
   },
   {
-    title: "Recurring rhythm",
-    description: "Practical support delivered often enough to become familiar, accessible and easier to sustain.",
+    title: "Ongoing sessions",
+    description: "A familiar live rhythm delivered weekly, fortnightly, monthly or across a short series.",
     proofNeed: "Repeat participation, operational reliability and renewal.",
   },
   {
     title: "Connected program",
-    description: "A coordinated mix of live, digital and learning elements designed around people, locations and priorities.",
+    description: "Live sessions, workshops and Wellbeing Studio content coordinated around workforce needs, locations and priorities.",
     proofNeed: "Program logic, client contribution, coordination and evidence.",
   },
   {
-    title: "Organised year",
-    description: "Planning, delivery and continuity across the year without a fixed package or compulsory commitment.",
+    title: "Annual partnership",
+    description: "Planning, delivery, communications and review organised across the year.",
     proofNeed: "Multi-location capability, governance, review and long-term partnership.",
   },
 ];
@@ -98,6 +91,14 @@ export const exampleYear: YearMonthEntry[] = [
   { month: "October", theme: "Practical skills", formats: ["Workshop series", "Lunch & Learn"] },
   { month: "November", theme: "Planning ahead", formats: ["Year-in-review session", "Next-year planning conversation"] },
   { month: "December", theme: "Closing the year well", formats: ["Wind-down session", "Studio content refresh"] },
+];
+
+/** Four selected quarterly moments for the concise home-page year glance. */
+export const yearQuarters: YearMonthEntry[] = [
+  { month: "Quarter 1", theme: "Reset and re-orientation", formats: ["Return-to-work session", "Goal-setting Lunch & Learn"] },
+  { month: "Quarter 2", theme: "Connection and focus", formats: ["Team wellbeing event", "Mindfulness for busy periods"] },
+  { month: "Quarter 3", theme: "Conference season", formats: ["Conference activation", "Pre/post-event Studio access"] },
+  { month: "Quarter 4", theme: "Planning ahead", formats: ["Workshop series", "Next-year planning conversation"] },
 ];
 
 export const whyCYA = {

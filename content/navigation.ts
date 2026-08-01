@@ -29,6 +29,9 @@ export const primaryCTA: CTA = {
   variant: "primary",
 };
 
+/** Shorter form for the fixed-width header bar; full phrase is used everywhere else. */
+export const primaryCTAShort = "Book a consultation";
+
 export const footerLegalNav: NavItem[] = [
   { label: "Privacy", href: "/privacy" },
   { label: "Terms", href: "/terms" },

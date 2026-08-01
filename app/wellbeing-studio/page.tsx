@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Hero } from "@/components/Hero";
 import { EditorialFeature } from "@/components/EditorialFeature";
 import { FeatureGrid } from "@/components/FeatureGrid";
+import { DividerList } from "@/components/DividerList";
 import { CTASection } from "@/components/CTASection";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Container, Section, Kicker } from "@/components/Primitives";
@@ -65,10 +66,10 @@ export default function WellbeingStudioPage() {
       />
 
       <div id="member-experience">
-        <FeatureGrid kicker="Member walkthrough" heading="What's inside the member experience." items={memberExperience} tone="white" columns={4} />
+        <FeatureGrid kicker="Member walkthrough" heading="What's inside the member experience." items={memberExperience} tone="white" compact columns={4} />
       </div>
-      <FeatureGrid kicker="Live and on-demand model" heading="How content reaches employees." items={liveOnDemandModel} tone="mist" columns={3} />
-      <FeatureGrid kicker="Implementation" heading="Getting your organisation started." items={implementation} tone="white" columns={3} />
+      <DividerList kicker="Live and on-demand model" heading="How content reaches employees." items={liveOnDemandModel} tone="mist" />
+      <DividerList kicker="Implementation" heading="Getting your organisation started." items={implementation} tone="white" />
 
       <EditorialFeature
         kicker={privacyFeature.kicker}
@@ -103,7 +104,7 @@ export default function WellbeingStudioPage() {
         </Container>
       </Section>
 
-      <Section tone="mist">
+      <Section tone="white">
         <Container>
           <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
             <EvidencePlaceholder

@@ -5,7 +5,7 @@ import { site } from "@/content/site";
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-divider bg-teal-dark text-white">
+    <footer id="site-footer" className="border-t border-divider bg-teal-dark text-white">
       <Container className="grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4">
         <div className="sm:col-span-2 lg:col-span-1">
           {/* eslint-disable-next-line @next/next/no-img-element */}

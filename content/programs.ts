@@ -19,36 +19,34 @@ export const whyContinuity = {
 
 export const programLevels: OfferLevel[] = [
   {
-    title: "Recurring rhythm",
-    description: "Practical support delivered often enough to become familiar, accessible and easier to sustain.",
+    title: "One session",
+    description: "A focused experience for a team, workplace moment, awareness day or event.",
+    proofNeed: "Suitability, facilitator quality, logistics and participant response.",
+  },
+  {
+    title: "Ongoing sessions",
+    description: "A familiar live rhythm delivered weekly, fortnightly, monthly or across a short series.",
     proofNeed: "Repeat participation, operational reliability and renewal.",
   },
   {
     title: "Connected program",
-    description: "A coordinated mix of live, digital and learning elements designed around people, locations and priorities.",
+    description: "Live sessions, workshops and Wellbeing Studio content coordinated around workforce needs, locations and priorities.",
     proofNeed: "Program logic, client contribution, coordination and evidence.",
   },
   {
-    title: "Organised year",
-    description: "Planning, delivery and continuity across the year without a fixed package or compulsory commitment.",
+    title: "Annual partnership",
+    description: "Planning, delivery, communications and review organised across the year.",
     proofNeed: "Multi-location capability, governance, review and long-term partnership.",
   },
 ];
 
 export const whatCyaCoordinates: FeatureItem[] = [
-  { title: "Planning", body: "Shaping a calendar of moments around your priorities and dates." },
-  { title: "Facilitator coordination", body: "Matching facilitators to locations, formats and availability." },
+  { title: "Planning", body: "Shaping a calendar of moments around your priorities and dates, with one named CYA contact." },
+  { title: "Facilitator coordination", body: "Matching facilitators to locations, formats and availability against confirmed standards." },
   { title: "Communications support", body: "Practical materials to help your team promote participation." },
   { title: "National delivery", body: "Coordinated scheduling across multiple sites and states." },
   { title: "Wellbeing Studio integration", body: "Connecting live moments to ongoing digital access." },
-  { title: "Review and reporting", body: "Aggregate, privacy-safe visibility into participation and delivery." },
-];
-
-export const governanceFeature: FeatureItem[] = [
-  { title: "A named point of contact", body: "One CYA contact coordinating delivery on your behalf." },
-  { title: "Confirmed facilitator standards", body: "Facilitators matched against location, discipline and availability." },
-  { title: "Regular review points", body: "Scheduled check-ins to adjust the plan as priorities change." },
-  { title: "Privacy-safe reporting", body: "Aggregate participation visibility, never individual activity." },
+  { title: "Review and reporting", body: "Regular check-ins and aggregate, privacy-safe visibility — never individual activity." },
 ];
 
 export const multiSiteFeature = {

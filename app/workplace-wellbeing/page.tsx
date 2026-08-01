@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Hero } from "@/components/Hero";
 import { FeatureGrid } from "@/components/FeatureGrid";
+import { StatementList } from "@/components/StatementList";
+import { DividerList } from "@/components/DividerList";
 import { EditorialFeature } from "@/components/EditorialFeature";
 import { CTASection } from "@/components/CTASection";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
@@ -26,7 +28,7 @@ export default function WorkplaceWellbeingPage() {
     <>
       <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Workplace wellbeing" }]} />
       <Hero intro={workplaceHero} image={media.workplaceWellbeingHero} />
-      <FeatureGrid
+      <StatementList
         kicker="Start by need"
         heading="What would be useful for your people right now?"
         items={needs}
@@ -41,13 +43,12 @@ export default function WorkplaceWellbeingPage() {
         compact
         columns={4}
       />
-      <FeatureGrid
+      <DividerList
         kicker="Modalities"
         heading="Ingredients CYA adapts to the brief — not the whole product."
-        body="Modalities are ingredients, not the main product architecture. CYA selects and adapts them to the workplace situation."
+        body="Modalities are ingredients, not the main product architecture."
         items={modalities}
         tone="mist"
-        columns={3}
       />
       <EditorialFeature
         kicker={processFeature.kicker}

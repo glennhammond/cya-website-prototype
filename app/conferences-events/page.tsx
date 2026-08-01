@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Hero } from "@/components/Hero";
 import { FeatureGrid } from "@/components/FeatureGrid";
+import { DividerList } from "@/components/DividerList";
 import { EditorialFeature } from "@/components/EditorialFeature";
 import { CTASection } from "@/components/CTASection";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
@@ -44,13 +45,12 @@ export default function ConferencesEventsPage() {
         tone="white"
         columns={3}
       />
-      <FeatureGrid
+      <DividerList
         kicker="Example event rhythm"
         heading="An illustrative run sheet, not a fixed package."
         body="This example does not imply a required sequence or duration — CYA designs around your actual agenda."
         items={eventRhythm}
         tone="mist"
-        columns={3}
       />
       <EditorialFeature
         kicker={studioAccessFeature.kicker}
@@ -59,9 +59,9 @@ export default function ConferencesEventsPage() {
         cta={{ label: "See Wellbeing Studio", href: "/wellbeing-studio", variant: "secondary" }}
         image={media.conferencesStudioAccess}
       />
-      <FeatureGrid kicker="Delivery logistics" heading="What CYA confirms before the day." items={logistics} tone="white" columns={4} />
+      <DividerList kicker="Delivery logistics" heading="What CYA confirms before the day." items={logistics} tone="mist" />
 
-      <Section tone="mist">
+      <Section tone="white">
         <Container>
           <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
             <EvidencePlaceholder

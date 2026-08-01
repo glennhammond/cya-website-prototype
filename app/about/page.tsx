@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Hero } from "@/components/Hero";
 import { EditorialFeature } from "@/components/EditorialFeature";
-import { FeatureGrid } from "@/components/FeatureGrid";
+import { StatementList } from "@/components/StatementList";
 import { CTASection } from "@/components/CTASection";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Section, Container, Kicker } from "@/components/Primitives";
@@ -59,7 +59,7 @@ export default function AboutPage() {
         </Container>
       </Section>
 
-      <FeatureGrid kicker="How CYA works" heading="A consistent method, an adapted result." items={howCyaWorks} tone="mist" columns={4} />
+      <StatementList kicker="How CYA works" heading="A consistent method, an adapted result." items={howCyaWorks} tone="mist" columns={2} />
 
       <EditorialFeature
         kicker={deliveryPhilosophy.kicker}

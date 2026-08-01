@@ -9,7 +9,7 @@ import type { YearMonthEntry } from "@/lib/types";
  */
 export function ExampleYearView({ months }: { months: YearMonthEntry[] }) {
   return (
-    <Section tone="mist" ariaLabel="Example Wellbeing Year">
+    <Section tone="mist" ariaLabel="Example Wellbeing Year" id="example-year">
       <Container>
         <div className="max-w-2xl">
           <Kicker>Example Wellbeing Year</Kicker>

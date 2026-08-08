@@ -9,6 +9,7 @@ export const conferencesHero: PageIntro = {
     { label: "Discuss your conference", href: "/consultation?interest=conference", variant: "primary" },
     { label: "Explore activation formats", href: "#formats", variant: "secondary" },
   ],
+  meta: ["15-minute resets to full-day streams", "National facilitator delivery"],
 };
 
 export const agendaMoments: FeatureItem[] = [

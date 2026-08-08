@@ -43,7 +43,7 @@ export function NavDropdown({ item }: { item: NavItem }) {
         aria-expanded={open}
         aria-controls={`nav-dropdown-${item.href}`}
         onClick={() => setOpen((prev) => !prev)}
-        className="flex cursor-pointer items-center gap-1 rounded-[var(--radius-control)] px-2 py-2 text-sm font-bold text-ink hover:text-teal"
+        className="flex cursor-pointer items-center gap-1 whitespace-nowrap rounded-[var(--radius-control)] px-2 py-2 text-sm font-bold text-ink hover:text-teal"
       >
         {item.label}
         <ChevronIcon open={open} />

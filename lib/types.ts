@@ -61,6 +61,8 @@ export interface PageIntro {
   heading: string;
   body: string;
   actions?: CTA[];
+  /** Short format/context chips shown near the fold (e.g. "Onsite or online"). */
+  meta?: string[];
 }
 
 export interface PathwayCard {
@@ -68,6 +70,7 @@ export interface PathwayCard {
   description: string;
   href: string;
   cta: string;
+  image: MediaAsset;
 }
 
 export interface OfferLevel {

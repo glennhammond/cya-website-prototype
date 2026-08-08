@@ -121,14 +121,6 @@ export const media = {
     status: "evidence-required",
     note: PERMISSION_NOTE,
   },
-  proofHero: {
-    src: "/images/selected/cya-proof-hero-group-practice.webp",
-    width: 1600,
-    height: 1200,
-    alt: "A small group mid-stretch during a facilitator-led session.",
-    status: "evidence-required",
-    note: "Generic mood image — not evidence for any specific case study below. " + PERMISSION_NOTE,
-  },
   aboutHero: {
     src: "/images/selected/cya-about-debby-lewis-portrait.webp",
     width: 1600,

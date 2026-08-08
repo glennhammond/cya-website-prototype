@@ -6,6 +6,7 @@ export const aboutHero: PageIntro = {
   heading: "Workplace wellbeing for real people and real working days.",
   body: "CYA grew from Debby Lewis's experience using movement and meditation in a high-pressure HR environment. The business was founded in 2014 to make practical wellbeing more accessible at work.",
   actions: [{ label: "Meet CYA", href: "#origin", variant: "primary" }],
+  meta: ["Founded 2014", "National facilitator network"],
 };
 
 export const worldviewFeature = {

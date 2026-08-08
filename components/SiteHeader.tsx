@@ -20,7 +20,7 @@ export function SiteHeader() {
 
         <div className={`shrink-0 items-center gap-2.5 ${NAV_BREAKPOINT}`}>
           {utilityNav.map((item) => (
-            <Link key={item.href} href={item.href} className="text-sm font-bold text-ink hover:text-teal">
+            <Link key={item.href} href={item.href} className="whitespace-nowrap text-sm font-bold text-ink hover:text-teal">
               {item.label}
             </Link>
           ))}
@@ -28,7 +28,7 @@ export function SiteHeader() {
             href={memberSignInHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm font-bold text-ink hover:text-teal"
+            className="whitespace-nowrap text-sm font-bold text-ink hover:text-teal"
           >
             Member sign-in<span className="sr-only"> (opens in a new tab)</span>
           </a>
@@ -55,7 +55,7 @@ function DesktopNavigation() {
             <li key={item.href}>
               <Link
                 href={item.href}
-                className="block rounded-[var(--radius-control)] px-2 py-2 text-sm font-bold text-ink hover:text-teal"
+                className="block whitespace-nowrap rounded-[var(--radius-control)] px-2 py-2 text-sm font-bold text-ink hover:text-teal"
               >
                 {item.label}
               </Link>

@@ -8,7 +8,7 @@ function EvidencedBlock({ label, item }: { label: string; item: Evidenced<string
   return (
     <div className="border-t border-divider py-6 first:border-t-0 first:pt-0">
       <div className="flex flex-wrap items-center justify-between gap-2">
-        <h3 className="text-lg text-teal-dark">{label}</h3>
+        <h3 className="text-heading-sm text-teal-dark">{label}</h3>
         <EvidenceBadge status={item.status} note={item.note} />
       </div>
       <p className="mt-2 text-base leading-relaxed text-body">{item.value}</p>

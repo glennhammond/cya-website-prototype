@@ -9,6 +9,7 @@ export const movementHero: PageIntro = {
     { label: "Discuss a movement session", href: "/consultation?interest=one-off", variant: "primary" },
     { label: "Explore mindfulness and workshops", href: "/workplace-wellbeing", variant: "secondary" },
   ],
+  meta: ["Individual or group", "Onsite or online", "From 15 minutes"],
 };
 
 export const whoItsFor = {

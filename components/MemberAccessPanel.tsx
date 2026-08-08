@@ -9,7 +9,7 @@ export function MemberAccessPanel() {
       <Container>
         <div className="mx-auto max-w-2xl rounded-[var(--radius-card)] border border-divider bg-mist p-8 text-center">
           <Kicker>Wellbeing Studio members</Kicker>
-          <h1 className="mt-3 text-[28px] sm:text-[34px]">Sign in to Wellbeing Studio</h1>
+          <h1 className="mt-3 text-heading-lg">Sign in to Wellbeing Studio</h1>
           <p className="mt-4 text-lg leading-relaxed text-body">
             Wellbeing Studio member access is handled separately from the CYA consultation process. Sign in
             directly at studio.corporateyoga.com.au to reach live sessions, the practice library and your account.

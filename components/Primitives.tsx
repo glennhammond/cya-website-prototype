@@ -8,7 +8,7 @@ export function Container({
   className?: string;
 }) {
   return (
-    <div className={`mx-auto w-full max-w-[1280px] px-5 sm:px-8 lg:px-10 ${className}`}>
+    <div className={`mx-auto w-full max-w-[1280px] px-6 sm:px-10 lg:px-16 ${className}`}>
       {children}
     </div>
   );
@@ -46,8 +46,21 @@ export function Section({
   );
 }
 
-export function Kicker({ children, tone = "gold" }: { children: ReactNode; tone?: "gold" | "aqua" | "white" }) {
-  const toneClass = tone === "gold" ? "text-gold" : tone === "aqua" ? "text-aqua" : "text-white/80";
+export function Kicker({
+  children,
+  tone = "gold",
+}: {
+  children: ReactNode;
+  tone?: "gold" | "aqua" | "white" | "pale";
+}) {
+  const toneClass =
+    tone === "gold"
+      ? "text-ochre-ink"
+      : tone === "aqua"
+        ? "text-aqua"
+        : tone === "pale"
+          ? "text-logo-pale"
+          : "text-white/80";
   return (
     <p className={`text-xs font-bold uppercase tracking-[0.08em] ${toneClass} font-[family-name:var(--font-body)]`}>
       {children}

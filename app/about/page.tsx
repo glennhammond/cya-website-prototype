@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Hero } from "@/components/Hero";
+import { PageHero } from "@/components/PageHero";
 import { EditorialFeature } from "@/components/EditorialFeature";
 import { StatementList } from "@/components/StatementList";
 import { CTASection } from "@/components/CTASection";
@@ -29,7 +29,7 @@ export default function AboutPage() {
   return (
     <>
       <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "About" }]} />
-      <Hero intro={aboutHero} image={media.aboutHero} />
+      <PageHero intro={aboutHero} image={media.aboutHero} imagePosition="right" />
       <EditorialFeature
         kicker={worldviewFeature.kicker}
         heading={worldviewFeature.heading}
@@ -43,7 +43,7 @@ export default function AboutPage() {
         <Container>
           <div className="max-w-2xl rounded-[var(--radius-card)] border border-divider bg-mist p-8">
             <Kicker>{originStory.kicker}</Kicker>
-            <h2 className="mt-3 text-[28px] sm:text-[34px]">{originStory.heading}</h2>
+            <h2 className="mt-3 text-heading-lg">{originStory.heading}</h2>
             <p className="mt-4 text-lg leading-relaxed text-body">{originStory.body}</p>
             <dl className="mt-6 grid grid-cols-2 gap-4 border-t border-divider pt-6 text-sm">
               <div>
@@ -75,7 +75,7 @@ export default function AboutPage() {
           <div className="grid gap-10 lg:grid-cols-2">
             <div>
               <Kicker>{facilitatorNetwork.kicker}</Kicker>
-              <h2 className="mt-3 text-[28px] sm:text-[34px]">{facilitatorNetwork.heading}</h2>
+              <h2 className="mt-3 text-heading-lg">{facilitatorNetwork.heading}</h2>
               <p className="mt-4 text-lg leading-relaxed text-body">{facilitatorNetwork.body}</p>
             </div>
             <ImageMedia
@@ -97,7 +97,7 @@ export default function AboutPage() {
             />
             <div>
               <Kicker>{professionalStandards.kicker}</Kicker>
-              <h2 className="mt-3 text-[28px] sm:text-[34px]">{professionalStandards.heading}</h2>
+              <h2 className="mt-3 text-heading-lg">{professionalStandards.heading}</h2>
               <p className="mt-4 text-lg leading-relaxed text-body">{professionalStandards.body}</p>
             </div>
           </div>

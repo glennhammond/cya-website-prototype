@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
-import { Hero } from "@/components/Hero";
+import { ProofPageHero } from "@/components/ProofPageHero";
 import { CaseStudyCard } from "@/components/CaseStudyCard";
 import { CTASection } from "@/components/CTASection";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Container, Section, Kicker } from "@/components/Primitives";
 import { proofHero, proofPrinciples, caseStudies, proofStandards } from "@/content/proof";
-import { media } from "@/content/media";
 
 export const metadata: Metadata = {
   title: "Proof",
@@ -17,32 +16,18 @@ export default function ProofPage() {
   return (
     <>
       <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Proof" }]} />
-      <Hero intro={proofHero} image={media.proofHero} />
-
-      <Section tone="mist">
-        <Container>
-          <div className="max-w-2xl">
-            <Kicker>Proof principles</Kicker>
-            <h2 className="mt-3 text-[28px] sm:text-[34px]">How CYA governs proof.</h2>
-          </div>
-          <ol className="mt-8 divide-y divide-divider border-t border-b border-divider">
-            {proofPrinciples.map((principle, index) => (
-              <li key={principle} className="flex gap-4 py-4 text-sm leading-relaxed text-body">
-                <span aria-hidden="true" className="shrink-0 font-bold text-gold">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-                {principle}
-              </li>
-            ))}
-          </ol>
-        </Container>
-      </Section>
+      <ProofPageHero
+        kicker={proofHero.kicker}
+        heading={proofHero.heading}
+        body={proofHero.body}
+        principles={proofPrinciples}
+      />
 
       <Section tone="white">
         <Container>
           <div className="max-w-2xl">
             <Kicker>Featured stories</Kicker>
-            <h2 className="mt-3 text-[28px] sm:text-[34px]">Governed placeholders, not published proof.</h2>
+            <h2 className="mt-3 text-heading-lg">Governed placeholders, not published proof.</h2>
             <p className="mt-4 text-lg leading-relaxed text-body">
               Each story below follows the same governed template. None are publishable until client permission,
               dates and facts are confirmed.
@@ -60,7 +45,7 @@ export default function ProofPage() {
         <Container>
           <div className="max-w-2xl">
             <Kicker>Standards</Kicker>
-            <h2 className="mt-3 text-[28px] sm:text-[34px]">What CYA will and won&rsquo;t claim.</h2>
+            <h2 className="mt-3 text-heading-lg">What CYA will and won&rsquo;t claim.</h2>
           </div>
           <ul className="mt-8 space-y-3">
             {proofStandards.map((standard) => (

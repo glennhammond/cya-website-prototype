@@ -33,7 +33,7 @@ export function StatementList({
       <Container>
         <div className="max-w-2xl">
           <Kicker>{kicker}</Kicker>
-          <h2 className="mt-3 text-[28px] sm:text-[34px]">{heading}</h2>
+          <h2 className="mt-3 text-heading-lg">{heading}</h2>
           {body && <p className="mt-4 text-lg leading-relaxed text-body">{body}</p>}
         </div>
         <dl className={`mt-10 grid gap-8 ${colClass}`}>

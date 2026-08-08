@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Hero } from "@/components/Hero";
+import { PageHero } from "@/components/PageHero";
 import { EditorialFeature } from "@/components/EditorialFeature";
 import { OfferProgression } from "@/components/OfferProgression";
 import { ExampleYearView } from "@/components/ExampleYearView";
@@ -7,8 +7,7 @@ import { StatementList } from "@/components/StatementList";
 import { DividerList } from "@/components/DividerList";
 import { CTASection } from "@/components/CTASection";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
-import { Container, Section, Kicker } from "@/components/Primitives";
-import { EvidencePlaceholder } from "@/components/EvidencePlaceholder";
+import { ProofNote } from "@/components/ProofNote";
 import {
   programsHero,
   whyContinuity,
@@ -31,7 +30,7 @@ export default function ProgramsPage() {
   return (
     <>
       <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Programs" }]} />
-      <Hero intro={programsHero} image={media.programsHero} />
+      <PageHero intro={programsHero} image={media.programsHero} imagePosition="left" />
       <EditorialFeature
         kicker={whyContinuity.kicker}
         heading={whyContinuity.heading}
@@ -70,26 +69,14 @@ export default function ProgramsPage() {
         tone="white"
       />
 
-      <Section tone="white">
-        <Container>
-          <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-            <EvidencePlaceholder
-              variant="workplace"
-              caption="Proof placeholder — recurring and multi-site delivery story."
-              status="evidence-required"
-              note="Requires renewal, attendance/feedback and delivery-learning evidence before publication."
-            />
-            <div>
-              <Kicker>Proof</Kicker>
-              <h2 className="mt-3 text-[28px] sm:text-[34px]">Renewal and delivery learning, evidenced.</h2>
-              <p className="mt-4 text-lg leading-relaxed text-body">
-                Program proof shows recurring and multi-site delivery, renewal and what CYA learned along the way —
-                placeholders here until specific client evidence is confirmed and permissioned.
-              </p>
-            </div>
-          </div>
-        </Container>
-      </Section>
+      <ProofNote
+        reverse
+        placeholderVariant="workplace"
+        placeholderCaption="Proof placeholder — recurring and multi-site delivery story."
+        note="Requires renewal, attendance/feedback and delivery-learning evidence before publication."
+        heading="Renewal and delivery learning, evidenced."
+        body="Program proof shows recurring and multi-site delivery, renewal and what CYA learned along the way — placeholders here until specific client evidence is confirmed and permissioned."
+      />
 
       <CTASection kicker={closingCTA.kicker} heading={closingCTA.heading} body={closingCTA.body} cta={closingCTA.cta} />
     </>

@@ -1,13 +1,12 @@
 import type { Metadata } from "next";
-import { Hero } from "@/components/Hero";
+import { PageHero } from "@/components/PageHero";
 import { FeatureGrid } from "@/components/FeatureGrid";
 import { StatementList } from "@/components/StatementList";
 import { DividerList } from "@/components/DividerList";
 import { EditorialFeature } from "@/components/EditorialFeature";
 import { CTASection } from "@/components/CTASection";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
-import { Container, Section, Kicker } from "@/components/Primitives";
-import { EvidencePlaceholder } from "@/components/EvidencePlaceholder";
+import { ProofNote } from "@/components/ProofNote";
 import {
   workplaceHero,
   needs,
@@ -29,7 +28,7 @@ export default function WorkplaceWellbeingPage() {
   return (
     <>
       <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Workplace wellbeing" }]} />
-      <Hero intro={workplaceHero} image={media.workplaceWellbeingHero} />
+      <PageHero intro={workplaceHero} image={media.workplaceWellbeingHero} imagePosition="right" />
       <StatementList
         kicker="Start by need"
         heading="What would be useful for your people right now?"
@@ -68,27 +67,13 @@ export default function WorkplaceWellbeingPage() {
         image={media.workplaceWellbeingLunchLearn}
       />
 
-      <Section tone="white">
-        <Container>
-          <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-            <EvidencePlaceholder
-              variant="workplace"
-              caption="Proof placeholder — delivery quality across formats and modalities."
-              status="evidence-required"
-              note="Requires format-specific delivery, feedback and renewal evidence before publication."
-            />
-            <div>
-              <Kicker>Proof</Kicker>
-              <h2 className="mt-3 text-[28px] sm:text-[34px]">Proof suited to the format, not one blanket claim.</h2>
-              <p className="mt-4 text-lg leading-relaxed text-body">
-                What counts as proof looks different for a single session, a recurring rhythm or a connected
-                program — see delivery-specific evidence on the Movement, Conferences and Programs pages, or the
-                full Proof page.
-              </p>
-            </div>
-          </div>
-        </Container>
-      </Section>
+      <ProofNote
+        placeholderVariant="workplace"
+        placeholderCaption="Proof placeholder — delivery quality across formats and modalities."
+        note="Requires format-specific delivery, feedback and renewal evidence before publication."
+        heading="Proof suited to the format, not one blanket claim."
+        body="What counts as proof looks different for a single session, a recurring rhythm or a connected program — see delivery-specific evidence on the Movement, Conferences and Programs pages, or the full Proof page."
+      />
 
       <CTASection
         kicker={closingCTA.kicker}

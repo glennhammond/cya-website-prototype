@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { Hero } from "@/components/Hero";
+import { StudioPageHero } from "@/components/StudioPageHero";
 import { EditorialFeature } from "@/components/EditorialFeature";
 import { FeatureGrid } from "@/components/FeatureGrid";
 import { DividerList } from "@/components/DividerList";
 import { CTASection } from "@/components/CTASection";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Container, Section, Kicker } from "@/components/Primitives";
-import { EvidencePlaceholder } from "@/components/EvidencePlaceholder";
+import { ProofNote } from "@/components/ProofNote";
 import { CtaLink } from "@/components/CtaLink";
 import { memberSignInHref } from "@/content/navigation";
 import {
@@ -32,10 +32,12 @@ export default function WellbeingStudioPage() {
   return (
     <>
       <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Wellbeing Studio" }]} />
-      <Hero
-        intro={studioHero}
-        placeholderVariant="studio"
-        placeholderCaption="Product placeholder — Wellbeing Studio member screens."
+      <StudioPageHero
+        kicker={studioHero.kicker}
+        heading={studioHero.heading}
+        body={studioHero.body}
+        actions={studioHero.actions}
+        image={media.studioEmployeeHome}
       />
 
       <Section tone="mist">
@@ -52,7 +54,8 @@ export default function WellbeingStudioPage() {
         body={employeeValueFeature.body}
         cta={employeeValueFeature.cta}
         tone="white"
-        image={media.studioEmployeeHome}
+        placeholderVariant="studio"
+        placeholderCaption="Photography placeholder — a Wellbeing Studio member session in progress."
       />
       <EditorialFeature
         kicker={employerValueFeature.kicker}
@@ -84,7 +87,7 @@ export default function WellbeingStudioPage() {
         <Container>
           <div className="max-w-2xl">
             <Kicker>Working direction</Kicker>
-            <h2 className="mt-3 text-[28px] sm:text-[34px]">A conceptual progression, not a priced package.</h2>
+            <h2 className="mt-3 text-heading-lg">A conceptual progression, not a priced package.</h2>
             <p className="mt-4 text-lg leading-relaxed text-body">
               Access, Engage and Strategic partnership describe increasing coordination and support. Entitlements
               and pricing remain a commercial dependency and are not published here.
@@ -96,7 +99,7 @@ export default function WellbeingStudioPage() {
                 <span aria-hidden="true" className="flex h-8 w-8 items-center justify-center rounded-full bg-mist text-sm font-bold text-teal-dark">
                   {index + 1}
                 </span>
-                <h3 className="text-lg text-teal-dark">{level.title}</h3>
+                <h3 className="text-heading-sm text-teal-dark">{level.title}</h3>
                 <p className="text-sm leading-relaxed text-body">{level.body}</p>
               </li>
             ))}
@@ -104,26 +107,13 @@ export default function WellbeingStudioPage() {
         </Container>
       </Section>
 
-      <Section tone="white">
-        <Container>
-          <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-            <EvidencePlaceholder
-              variant="studio"
-              caption="Proof placeholder — pilot findings and verified reporting."
-              status="evidence-required"
-              note="Pilot findings, screenshots and verified schedule/reporting model required before publication."
-            />
-            <div>
-              <Kicker>Proof</Kicker>
-              <h2 className="mt-3 text-[28px] sm:text-[34px]">Current capability, not future ambition.</h2>
-              <p className="mt-4 text-lg leading-relaxed text-body">
-                Wellbeing Studio proof will describe verified current capability — pilot findings, product
-                walkthroughs and approved member or client voice — not the 2027 launch ambition.
-              </p>
-            </div>
-          </div>
-        </Container>
-      </Section>
+      <ProofNote
+        placeholderVariant="studio"
+        placeholderCaption="Proof placeholder — pilot findings and verified reporting."
+        note="Pilot findings, screenshots and verified schedule/reporting model required before publication."
+        heading="Current capability, not future ambition."
+        body="Wellbeing Studio proof will describe verified current capability — pilot findings, product walkthroughs and approved member or client voice — not the 2027 launch ambition."
+      />
 
       <CTASection
         kicker={closingCTA.kicker}

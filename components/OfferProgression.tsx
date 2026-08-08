@@ -22,7 +22,7 @@ export function OfferProgression({
       <Container>
         <div className="max-w-2xl">
           <Kicker>{kicker}</Kicker>
-          <h2 className="mt-3 text-[28px] sm:text-[34px]">{heading}</h2>
+          <h2 className="mt-3 text-heading-lg">{heading}</h2>
           <p className="mt-4 text-lg leading-relaxed text-body">{body}</p>
         </div>
 
@@ -45,7 +45,7 @@ export function OfferProgression({
               >
                 {index + 1}
               </span>
-              <h3 className="text-lg text-teal-dark">{level.title}</h3>
+              <h3 className="text-heading-sm text-teal-dark">{level.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-body">{level.description}</p>
             </li>
           ))}

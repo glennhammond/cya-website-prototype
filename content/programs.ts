@@ -9,6 +9,7 @@ export const programsHero: PageIntro = {
     { label: "Plan a program", href: "/consultation?interest=recurring", variant: "primary" },
     { label: "Start with one session", href: "/workplace-wellbeing", variant: "secondary" },
   ],
+  meta: ["Recurring rhythm", "Multi-site coordination", "Wellbeing Studio integration"],
 };
 
 export const whyContinuity = {

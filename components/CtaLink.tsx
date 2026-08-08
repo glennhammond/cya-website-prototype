@@ -5,7 +5,7 @@ const base =
   "inline-flex min-h-12 items-center justify-center gap-2 rounded-[var(--radius-control)] px-6 text-[15px] font-bold leading-[1.2] tracking-[0.01em] transition-colors";
 
 const variants: Record<CTAVariant, string> = {
-  primary: "bg-gold text-teal-dark hover:bg-[#a8823f]",
+  primary: "bg-gold text-ink hover:bg-[#a8823f]",
   secondary: "border border-teal text-teal-dark bg-white hover:bg-mist",
   text: "min-h-0 px-0 font-bold text-teal-dark underline decoration-2 underline-offset-4 hover:text-teal",
 };

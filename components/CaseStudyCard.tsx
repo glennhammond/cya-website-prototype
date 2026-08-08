@@ -25,8 +25,8 @@ export function CaseStudyCard({ study }: { study: CaseStudy }) {
         </div>
       </div>
       <div className="flex flex-1 flex-col gap-2 p-6">
-        <p className="text-xs font-bold uppercase tracking-wide text-gold">{study.clientLabel}</p>
-        <h3 className="text-lg text-teal-dark">{study.headline}</h3>
+        <p className="text-xs font-bold uppercase tracking-wide text-ochre-ink">{study.clientLabel}</p>
+        <h3 className="text-heading-sm text-teal-dark">{study.headline}</h3>
         <p className="flex-1 text-sm leading-relaxed text-body">{study.summary}</p>
         <span className="text-sm font-bold text-teal-dark underline decoration-2 underline-offset-4">
           Read the story

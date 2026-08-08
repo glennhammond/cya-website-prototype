@@ -4,6 +4,9 @@
   --cya-teal: #17535b;
   --cya-teal-dark: #103f45;
   --cya-gold: #bd964a;
+  --cya-ochre-ink: #8a6a1f;
+  --cya-logo-teal: #5cb8b2;
+  --cya-logo-pale: #bee3e0;
   --cya-mist: #f4f6f5;
   --cya-white: #ffffff;
   --cya-ink: #253336;
@@ -23,6 +26,9 @@
   --color-teal: var(--cya-teal);
   --color-teal-dark: var(--cya-teal-dark);
   --color-gold: var(--cya-gold);
+  --color-ochre-ink: var(--cya-ochre-ink);
+  --color-logo-teal: var(--cya-logo-teal);
+  --color-logo-pale: var(--cya-logo-pale);
   --color-mist: var(--cya-mist);
   --color-white: var(--cya-white);
   --color-ink: var(--cya-ink);
@@ -34,66 +40,83 @@
   --font-heading: var(--font-urbanist), Arial, sans-serif;
   --font-body: var(--font-open-sans), Arial, sans-serif;
 
+  /* Fluid editorial type scale — see brief §19 (clamp() use, heading hierarchy) */
+  --text-display: clamp(2.125rem, 1.65rem + 2.4vw, 3.25rem);
+  --text-display--line-height: 1.12;
+  --text-heading-lg: clamp(1.75rem, 1.55rem + 1vw, 2.125rem);
+  --text-heading-lg--line-height: 1.2;
+  --text-heading-sm: 1.25rem;
+  --text-heading-sm--line-height: 1.3;
+
   --radius-control: var(--cya-radius-control);
   --radius-card: var(--cya-radius-card);
   --shadow-card: var(--cya-shadow-card);
   --container-max: var(--cya-container-max);
 }
 
-* {
-  box-sizing: border-box;
-}
+/*
+ * Base element defaults, kept in Tailwind's `base` layer so that utility
+ * classes (e.g. `text-white` on a heading placed on a dark panel) always win
+ * the cascade. Unlayered CSS here would otherwise beat `@layer utilities`
+ * regardless of selector specificity, silently making white headings render
+ * in teal-dark and disappear on dark backgrounds.
+ */
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
 
-html {
-  scroll-behavior: smooth;
-}
+  html {
+    scroll-behavior: smooth;
+  }
 
-body {
-  background: var(--cya-mist);
-  color: var(--cya-ink);
-  font-family: var(--font-body);
-  font-size: 16px;
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-}
+  body {
+    background: var(--cya-mist);
+    color: var(--cya-ink);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
 
-h1,
-h2,
-h3,
-h4 {
-  font-family: var(--font-heading);
-  color: var(--cya-teal-dark);
-  line-height: 1.12;
-  font-weight: 700;
-}
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-heading);
+    color: var(--cya-teal-dark);
+    line-height: 1.12;
+    font-weight: 700;
+  }
 
-a {
-  color: inherit;
-}
+  a {
+    color: inherit;
+  }
 
-/* Visible focus for keyboard users; consistent across interactive elements. */
-:focus-visible {
-  outline: none;
-  box-shadow: var(--cya-focus-ring);
-  border-radius: 4px;
-}
+  /* Visible focus for keyboard users; consistent across interactive elements. */
+  :focus-visible {
+    outline: none;
+    box-shadow: var(--cya-focus-ring);
+    border-radius: 4px;
+  }
 
-.skip-link {
-  position: absolute;
-  left: 1rem;
-  top: -100%;
-  z-index: 100;
-  background: var(--cya-teal-dark);
-  color: var(--cya-white);
-  padding: 0.75rem 1.25rem;
-  border-radius: var(--cya-radius-control);
-  font-family: var(--font-body);
-  font-weight: 600;
-  transition: top 0.15s ease;
-}
+  .skip-link {
+    position: absolute;
+    left: 1rem;
+    top: -100%;
+    z-index: 100;
+    background: var(--cya-teal-dark);
+    color: var(--cya-white);
+    padding: 0.75rem 1.25rem;
+    border-radius: var(--cya-radius-control);
+    font-family: var(--font-body);
+    font-weight: 600;
+    transition: top 0.15s ease;
+  }
 
-.skip-link:focus {
-  top: 1rem;
+  .skip-link:focus {
+    top: 1rem;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

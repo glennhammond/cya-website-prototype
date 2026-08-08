@@ -1,21 +1,21 @@
 import type { Metadata } from "next";
-import { Hero } from "@/components/Hero";
-import { PathwaySelector } from "@/components/PathwaySelector";
+import { HeroEditorial } from "@/components/HeroEditorial";
+import { ReassuranceStrip } from "@/components/ReassuranceStrip";
+import { PathwayPanels } from "@/components/PathwayPanels";
+import { OneOffFeature } from "@/components/OneOffFeature";
 import { OfferProgression } from "@/components/OfferProgression";
-import { YearGlance } from "@/components/YearGlance";
-import { WhyCYA } from "@/components/WhyCYA";
-import { ProofPreview } from "@/components/ProofPreview";
 import { StudioPreview } from "@/components/StudioPreview";
-import { CTASection } from "@/components/CTASection";
+import { ProofPreview } from "@/components/ProofPreview";
+import { FounderClose } from "@/components/FounderClose";
 import {
   homeHero,
-  pathwayHeading,
-  pathwayCards,
+  reassurance,
+  pathwaysHeading,
+  pathways,
+  oneOffFeature,
   progressionHeading,
   offerLevels,
-  yearQuarters,
-  whyCYA,
-  closingCTA,
+  founderClose,
 } from "@/content/home";
 import { caseStudies } from "@/content/proof";
 import { media } from "@/content/media";
@@ -29,28 +29,36 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
-      <Hero intro={homeHero} image={media.homeHero} />
-      <PathwaySelector
-        kicker={pathwayHeading.kicker}
-        heading={pathwayHeading.heading}
-        body={pathwayHeading.body}
-        cards={pathwayCards}
+      <HeroEditorial intro={homeHero} image={media.homeHero} />
+      <ReassuranceStrip heading={reassurance.heading} body={reassurance.body} />
+      <PathwayPanels
+        kicker={pathwaysHeading.kicker}
+        heading={pathwaysHeading.heading}
+        body={pathwaysHeading.body}
+        pathways={pathways}
       />
-      <ProofPreview studies={caseStudies.slice(0, 3)} />
+      <OneOffFeature
+        kicker={oneOffFeature.kicker}
+        heading={oneOffFeature.heading}
+        body={oneOffFeature.body}
+        formats={oneOffFeature.formats}
+        cta={oneOffFeature.cta}
+        image={oneOffFeature.image}
+      />
       <OfferProgression
         kicker={progressionHeading.kicker}
         heading={progressionHeading.heading}
         body={progressionHeading.body}
         levels={offerLevels}
       />
-      <YearGlance quarters={yearQuarters} />
-      <WhyCYA kicker={whyCYA.kicker} heading={whyCYA.heading} points={whyCYA.points} />
       <StudioPreview />
-      <CTASection
-        kicker={closingCTA.kicker}
-        heading={closingCTA.heading}
-        body={closingCTA.body}
-        cta={closingCTA.cta}
+      <ProofPreview studies={caseStudies.slice(0, 3)} />
+      <FounderClose
+        kicker={founderClose.kicker}
+        heading={founderClose.heading}
+        body={founderClose.body}
+        cta={founderClose.cta}
+        image={founderClose.image}
       />
     </>
   );

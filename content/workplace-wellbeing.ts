@@ -9,6 +9,7 @@ export const workplaceHero: PageIntro = {
     { label: "Discuss a session", href: "/consultation?interest=one-off", variant: "primary" },
     { label: "Explore programs", href: "/programs", variant: "secondary" },
   ],
+  meta: ["Movement", "Mindfulness", "Workshops", "Lunch & Learns"],
 };
 
 export const needs: FeatureItem[] = [

@@ -3,7 +3,12 @@
 :root {
   --cya-teal: #17535b;
   --cya-teal-dark: #103f45;
-  --cya-gold: #bd964a;
+  /* Wellbeing Studio CTA gold. White labels must remain large and bold. */
+  --cya-gold: #ae8941;
+  --cya-gold-hover: #9d7a36;
+  --cya-ochre-ink: #876619;
+  --cya-logo-teal: #5cb8b2;
+  --cya-logo-pale: #bee3e0;
   --cya-mist: #f4f6f5;
   --cya-white: #ffffff;
   --cya-ink: #253336;
@@ -12,17 +17,27 @@
   --cya-aqua: #39aeb8;
   --cya-error: #a33b3b;
 
-  --cya-radius-control: 12px;
-  --cya-radius-card: 20px;
-  --cya-shadow-card: 0 8px 24px rgba(16, 63, 69, 0.08);
+  --cya-radius-control: 16px;
+  --cya-radius-card: 28px;
+  --cya-radius-panel: 34px;
+  --cya-shadow-card: 0 18px 50px rgba(16, 63, 69, 0.075);
   --cya-focus-ring: 0 0 0 3px rgba(57, 174, 184, 0.55);
-  --cya-container-max: 1280px;
+  --cya-container-max: 1440px;
+  --cya-container-narrow: 640px;
+
+  /* Neutral, near-black scrim for text-over-media - deliberately not teal,
+     so it doesn't colour-grade the photo/video underneath and reads
+     consistently across variable skin tones and frames. */
+  --cya-scrim: 8 18 19;
 }
 
 @theme inline {
   --color-teal: var(--cya-teal);
   --color-teal-dark: var(--cya-teal-dark);
   --color-gold: var(--cya-gold);
+  --color-ochre-ink: var(--cya-ochre-ink);
+  --color-logo-teal: var(--cya-logo-teal);
+  --color-logo-pale: var(--cya-logo-pale);
   --color-mist: var(--cya-mist);
   --color-white: var(--cya-white);
   --color-ink: var(--cya-ink);
@@ -34,66 +49,97 @@
   --font-heading: var(--font-urbanist), Arial, sans-serif;
   --font-body: var(--font-open-sans), Arial, sans-serif;
 
+  /* Fluid editorial type scale - see brief §19 (clamp() use, heading hierarchy) */
+  --text-display: clamp(3rem, 1.9rem + 4.8vw, 6rem);
+  --text-display--line-height: 0.98;
+  --text-heading-xl: clamp(2.25rem, 1.55rem + 2.5vw, 4rem);
+  --text-heading-xl--line-height: 1.02;
+  --text-heading-lg: clamp(2rem, 1.5rem + 1.75vw, 3.25rem);
+  --text-heading-lg--line-height: 1.06;
+  --text-heading-sm: 1.25rem;
+  --text-heading-sm--line-height: 1.3;
+
   --radius-control: var(--cya-radius-control);
   --radius-card: var(--cya-radius-card);
   --shadow-card: var(--cya-shadow-card);
   --container-max: var(--cya-container-max);
+  --container-narrow: var(--cya-container-narrow);
 }
 
-* {
-  box-sizing: border-box;
+/*
+ * Base element defaults, kept in Tailwind's `base` layer so that utility
+ * classes (e.g. `text-white` on a heading placed on a dark panel) always win
+ * the cascade. Unlayered CSS here would otherwise beat `@layer utilities`
+ * regardless of selector specificity, silently making white headings render
+ * in teal-dark and disappear on dark backgrounds.
+ */
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--cya-mist);
+    color: var(--cya-ink);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-heading);
+    color: var(--cya-teal-dark);
+    line-height: 1.12;
+    font-weight: 800;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  /* Visible focus for keyboard users; consistent across interactive elements. */
+  :focus-visible {
+    outline: none;
+    box-shadow: var(--cya-focus-ring);
+    border-radius: 4px;
+  }
+
+  .skip-link {
+    position: absolute;
+    left: 1rem;
+    top: -100%;
+    z-index: 100;
+    background: var(--cya-teal-dark);
+    color: var(--cya-white);
+    padding: 0.75rem 1.25rem;
+    border-radius: var(--cya-radius-control);
+    font-family: var(--font-body);
+    font-weight: 600;
+    transition: top 0.15s ease;
+  }
+
+  .skip-link:focus {
+    top: 1rem;
+  }
+
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  background: var(--cya-mist);
-  color: var(--cya-ink);
-  font-family: var(--font-body);
-  font-size: 16px;
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-}
-
-h1,
-h2,
-h3,
-h4 {
-  font-family: var(--font-heading);
-  color: var(--cya-teal-dark);
-  line-height: 1.12;
-  font-weight: 700;
-}
-
-a {
-  color: inherit;
-}
-
-/* Visible focus for keyboard users; consistent across interactive elements. */
-:focus-visible {
-  outline: none;
-  box-shadow: var(--cya-focus-ring);
-  border-radius: 4px;
-}
-
-.skip-link {
-  position: absolute;
-  left: 1rem;
-  top: -100%;
-  z-index: 100;
-  background: var(--cya-teal-dark);
-  color: var(--cya-white);
-  padding: 0.75rem 1.25rem;
-  border-radius: var(--cya-radius-control);
-  font-family: var(--font-body);
-  font-weight: 600;
-  transition: top 0.15s ease;
-}
-
-.skip-link:focus {
-  top: 1rem;
+/* Intentionally unlayered so the panel inset overrides Container's standard
+   page gutters when both classes are present. */
+.studio-panel {
+  border: 1px solid rgba(221, 229, 227, 0.9);
+  border-radius: var(--cya-radius-panel);
+  background: var(--cya-white);
+  box-shadow: var(--cya-shadow-card);
+  padding: clamp(2rem, 1rem + 4vw, 5rem);
 }
 
 @media (prefers-reduced-motion: reduce) {

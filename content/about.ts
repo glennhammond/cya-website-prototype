@@ -6,6 +6,7 @@ export const aboutHero: PageIntro = {
   heading: "Workplace wellbeing for real people and real working days.",
   body: "CYA grew from Debby Lewis's experience using movement and meditation in a high-pressure HR environment. The business was founded in 2014 to make practical wellbeing more accessible at work.",
   actions: [{ label: "Meet CYA", href: "#origin", variant: "primary" }],
+  meta: ["Founded 2014", "National facilitator network"],
 };
 
 export const worldviewFeature = {
@@ -16,9 +17,9 @@ export const worldviewFeature = {
 };
 
 export const originStory = {
-  kicker: "Origin story",
-  heading: "A personal practice, a founded business — two different dates.",
-  body: "Debby Lewis's own use of movement and meditation to manage a high-pressure HR role dates back to 2001 — the origin of the idea, not the company. Corporate Yoga Australia was founded in 2014, when that personal practice became a national workplace wellbeing business.",
+  kicker: "Our beginnings",
+  heading: "Built from experience inside the workplace.",
+  body: "While working in a high-pressure HR role, Debby Lewis experienced how difficult it can be to protect your wellbeing during a demanding working day. Movement and meditation became practical ways for her to manage that pressure. In 2014, she founded Corporate Yoga Australia to make the same kind of support easier for people to access at work.",
 };
 
 export const howCyaWorks: FeatureItem[] = [
@@ -31,13 +32,13 @@ export const howCyaWorks: FeatureItem[] = [
 export const deliveryPhilosophy = {
   kicker: "Delivery philosophy",
   heading: "Human and tailored, with operational discipline.",
-  body: "CYA pairs a national facilitator network with coordinated delivery — so a single session and a multi-site program both get the same level of care, without treating wellbeing as a generic, one-size-fits-all product.",
+  body: "CYA pairs a national facilitator network with coordinated delivery - so a single session and a multi-site program both get the same level of care, without treating wellbeing as a generic, one-size-fits-all product.",
 };
 
 export const facilitatorNetwork = {
   kicker: "Facilitator network",
   heading: "Facilitators placed where the work is.",
-  body: "CYA works with a network of facilitators across major Australian cities. Individual profiles, credentials and availability are published only once verified — this page shows representative coverage, not a directory.",
+  body: "CYA works with a network of facilitators across major Australian cities. Individual profiles, credentials and availability are published only once verified - this page shows representative coverage, not a directory.",
 };
 
 export const professionalStandards = {

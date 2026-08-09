@@ -8,7 +8,7 @@ function EvidencedBlock({ label, item }: { label: string; item: Evidenced<string
   return (
     <div className="border-t border-divider py-6 first:border-t-0 first:pt-0">
       <div className="flex flex-wrap items-center justify-between gap-2">
-        <h3 className="text-lg text-teal-dark">{label}</h3>
+        <h3 className="text-heading-sm text-teal-dark">{label}</h3>
         <EvidenceBadge status={item.status} note={item.note} />
       </div>
       <p className="mt-2 text-base leading-relaxed text-body">{item.value}</p>
@@ -24,7 +24,7 @@ export function CaseStudyTemplate({ study }: { study: CaseStudy }) {
           <Kicker>{study.clientLabel}</Kicker>
           <div className="mt-3 flex flex-wrap items-center gap-3">
             <h1 className="text-[32px] sm:text-[42px]">{study.headline}</h1>
-            <EvidenceBadge status={study.status} note="Prototype placeholder — not publishable client proof." />
+            <EvidenceBadge status={study.status} note="Prototype placeholder - not a publishable client story." />
           </div>
           <p className="mt-4 max-w-2xl text-lg leading-relaxed text-body">{study.summary}</p>
         </Container>

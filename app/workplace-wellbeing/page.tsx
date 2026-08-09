@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
-import { Hero } from "@/components/Hero";
+import { PageHero } from "@/components/PageHero";
 import { FeatureGrid } from "@/components/FeatureGrid";
+import { StatementList } from "@/components/StatementList";
+import { DividerList } from "@/components/DividerList";
 import { EditorialFeature } from "@/components/EditorialFeature";
 import { CTASection } from "@/components/CTASection";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { ProofNote } from "@/components/ProofNote";
 import {
   workplaceHero,
   needs,
@@ -18,15 +21,15 @@ import { media } from "@/content/media";
 export const metadata: Metadata = {
   title: "Workplace Wellbeing",
   description:
-    "CYA adapts movement, mindfulness and practical learning to your audience, environment, timing and purpose — from a single session to a connected program.",
+    "CYA adapts movement, mindfulness and practical learning to your audience, environment, timing and purpose - from a single session to a connected program.",
 };
 
 export default function WorkplaceWellbeingPage() {
   return (
     <>
       <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Workplace wellbeing" }]} />
-      <Hero intro={workplaceHero} image={media.workplaceWellbeingHero} />
-      <FeatureGrid
+      <PageHero intro={workplaceHero} image={media.workplaceWellbeingHero} imagePosition="right" />
+      <StatementList
         kicker="Start by need"
         heading="What would be useful for your people right now?"
         items={needs}
@@ -41,13 +44,12 @@ export default function WorkplaceWellbeingPage() {
         compact
         columns={4}
       />
-      <FeatureGrid
+      <DividerList
         kicker="Modalities"
-        heading="Ingredients CYA adapts to the brief — not the whole product."
-        body="Modalities are ingredients, not the main product architecture. CYA selects and adapts them to the workplace situation."
+        heading="Ingredients CYA adapts to the brief - not the whole product."
+        body="Modalities are ingredients, not the main product architecture."
         items={modalities}
         tone="mist"
-        columns={3}
       />
       <EditorialFeature
         kicker={processFeature.kicker}
@@ -60,10 +62,19 @@ export default function WorkplaceWellbeingPage() {
         kicker={logisticsFeature.kicker}
         heading={logisticsFeature.heading}
         body={logisticsFeature.body}
-        tone="white"
+        tone="mist"
         reverse
         image={media.workplaceWellbeingLunchLearn}
       />
+
+      <ProofNote
+        placeholderVariant="workplace"
+        placeholderCaption="Case study placeholder - delivery quality across formats and modalities."
+        note="Requires format-specific delivery, feedback and renewal evidence before publication."
+        heading="Evidence suited to the format, not one blanket claim."
+        body="Useful evidence looks different for a single session, a recurring rhythm or a connected program. Explore delivery-specific examples on the Movement, Conferences and Programs pages, or visit the Case studies page."
+      />
+
       <CTASection
         kicker={closingCTA.kicker}
         heading={closingCTA.heading}

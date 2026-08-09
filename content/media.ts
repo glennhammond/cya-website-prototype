@@ -1,4 +1,4 @@
-import type { MediaAsset } from "@/lib/types";
+import type { HeroMedia, MediaAsset } from "@/lib/types";
 
 /**
  * Curated photography selected from the provisional library. Every entry is
@@ -6,7 +6,7 @@ import type { MediaAsset } from "@/lib/types";
  * documented (see Docs/CYA_Prototype_v1_Image_Audit.md and
  * CYA_Prototype_v1_Image_Mapping.md). The note is shown only in annotation mode.
  */
-const PERMISSION_NOTE = "Provisional library image — publication consent not documented. Permission to confirm; replace after the future photo shoot.";
+const PERMISSION_NOTE = "Provisional library image - publication consent not documented. Permission to confirm; replace after the future photo shoot.";
 
 export const media = {
   homeHero: {
@@ -15,7 +15,9 @@ export const media = {
     height: 810,
     alt: "A diverse group of colleagues in a meeting room, seated with hands together in a shared moment of calm.",
     status: "evidence-required",
-    note: PERMISSION_NOTE,
+    note: PERMISSION_NOTE + " Temporary poster only - replace with the approved hero still or video frame when supplied.",
+    focal: "50% 38%",
+    focalDesktop: "50% 32%",
   },
   homeOneOff: {
     src: "/images/selected/cya-home-oneoff-desk-stretch.webp",
@@ -24,6 +26,7 @@ export const media = {
     alt: "Two colleagues pausing at a desk for a guided stretch.",
     status: "evidence-required",
     note: PERMISSION_NOTE,
+    focal: "50% 40%",
   },
   workplaceWellbeingHero: {
     src: "/images/selected/cya-workplace-wellbeing-hero-warehouse-group.webp",
@@ -39,7 +42,8 @@ export const media = {
     height: 1200,
     alt: "Debby Lewis, seated and smiling, in a plant-filled studio space.",
     status: "approved",
-    note: "Named subject — Debby Lewis, CYA founder. Approved for CYA's own site use.",
+    note: "Named subject - Debby Lewis, CYA founder. Approved for CYA's own site use.",
+    focal: "50% 22%",
   },
   workplaceWellbeingLunchLearn: {
     src: "/images/selected/cya-workplace-wellbeing-lunch-learn-team.webp",
@@ -48,6 +52,7 @@ export const media = {
     alt: "A small team stretching together in an office breakout space, including a colleague in high-visibility workwear.",
     status: "evidence-required",
     note: PERMISSION_NOTE,
+    focal: "50% 35%",
   },
   movementHero: {
     src: "/images/selected/cya-movement-desk-stretch-office.webp",
@@ -79,7 +84,7 @@ export const media = {
     height: 720,
     alt: "A facilitator leading a group relaxation session in a bright indoor space.",
     status: "evidence-required",
-    note: "Named facilitator (Debby Lewis) — group members' consent not documented. " + PERMISSION_NOTE,
+    note: "Named facilitator (Debby Lewis) - group members' consent not documented. " + PERMISSION_NOTE,
   },
   conferencesStudioAccess: {
     src: "/images/selected/cya-conferences-studio-remote-grid.webp",
@@ -120,22 +125,24 @@ export const media = {
     alt: "A person doing a quiet stretch practice at home.",
     status: "evidence-required",
     note: PERMISSION_NOTE,
-  },
-  proofHero: {
-    src: "/images/selected/cya-proof-hero-group-practice.webp",
-    width: 1600,
-    height: 1200,
-    alt: "A small group mid-stretch during a facilitator-led session.",
-    status: "evidence-required",
-    note: "Generic mood image — not evidence for any specific case study below. " + PERMISSION_NOTE,
+    focal: "50% 30%",
   },
   aboutHero: {
+    src: "/images/source/Workplace Wellness Lunch & Learn Session outside in park Brisbane.webp",
+    width: 892,
+    height: 560,
+    alt: "A group of workers in high-visibility clothing taking part in an outdoor movement session in a Brisbane park.",
+    status: "evidence-required",
+    note: PERMISSION_NOTE,
+    focal: "50% 50%",
+  },
+  aboutDebbyPortrait: {
     src: "/images/selected/cya-about-debby-lewis-portrait.webp",
     width: 1600,
     height: 1200,
     alt: "Debby Lewis, founder of Corporate Yoga Australia.",
     status: "approved",
-    note: "Named subject — Debby Lewis, CYA founder. Approved for CYA's own site use.",
+    note: "Named subject - Debby Lewis, CYA founder. Approved for CYA's own site use.",
   },
   aboutWorldview: {
     src: "/images/selected/cya-about-worldview-group-rest.webp",
@@ -151,7 +158,7 @@ export const media = {
     height: 810,
     alt: "A CYA facilitator, one of the practitioners in the national network.",
     status: "evidence-required",
-    note: "Named individual — marketing-use consent not documented; facilitator register and credentials not yet verified. Must be resolved before any production use.",
+    note: "Named individual - marketing-use consent not documented; facilitator register and credentials not yet verified. Must be resolved before any production use.",
   },
   aboutDelivery: {
     src: "/images/selected/cya-about-delivery-group-practice.webp",
@@ -161,4 +168,27 @@ export const media = {
     status: "evidence-required",
     note: PERMISSION_NOTE,
   },
+  proofHero: {
+    src: "/images/selected/cya-proof-hero-group-practice.webp",
+    width: 1600,
+    height: 1200,
+    alt: "A group mid-practice together during a facilitator-led session.",
+    status: "evidence-required",
+    note: "Documentary-style library image, not tied to a specific named client. " + PERMISSION_NOTE,
+    focal: "50% 38%",
+  },
 } satisfies Record<string, MediaAsset>;
+
+/**
+ * Homepage hero video contract. `videoSrcDesktop`/`videoSrcMobile` are left
+ * unset until CYA's commissioned video is delivered - set them to a path
+ * under /public/videos/ (kept out of Git as a large binary; add via the
+ * deploy pipeline, not a commit) once available. HeroVideo renders no
+ * <video> element at all while both are unset, so there is never a broken
+ * request in the meantime. `poster` is the current placeholder still.
+ */
+export const homeHeroMedia: HeroMedia = {
+  poster: media.homeHero,
+  videoSrcDesktop: undefined,
+  videoSrcMobile: undefined,
+};

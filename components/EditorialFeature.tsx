@@ -31,11 +31,11 @@ export function EditorialFeature({
 }) {
   return (
     <Section tone={tone}>
-      <Container>
+      <Container className="studio-panel">
         <div className={`grid items-center gap-10 lg:grid-cols-2 lg:gap-16 ${reverse ? "lg:[&>*:first-child]:order-2" : ""}`}>
           <div>
             <Kicker>{kicker}</Kicker>
-            <h2 className="mt-3 text-[28px] sm:text-[34px]">{heading}</h2>
+            <h2 className="mt-3 text-heading-lg">{heading}</h2>
             <p className="mt-4 text-lg leading-relaxed text-body">{body}</p>
             {children}
             {cta && (

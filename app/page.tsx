@@ -1,66 +1,99 @@
 import type { Metadata } from "next";
-import { Hero } from "@/components/Hero";
-import { PathwaySelector } from "@/components/PathwaySelector";
-import { EditorialFeature } from "@/components/EditorialFeature";
+import { HeroVideo } from "@/components/HeroVideo";
+import { QuietIntro } from "@/components/QuietIntro";
+import { WaysToWork } from "@/components/WaysToWork";
+import { HumanExperience } from "@/components/HumanExperience";
 import { OfferProgression } from "@/components/OfferProgression";
-import { ExampleYearView } from "@/components/ExampleYearView";
-import { WhyCYA } from "@/components/WhyCYA";
-import { ProofPreview } from "@/components/ProofPreview";
+import { PrincipalProof } from "@/components/PrincipalProof";
 import { StudioPreview } from "@/components/StudioPreview";
+import { FounderClose } from "@/components/FounderClose";
+import { ResourcesSignpost } from "@/components/ResourcesSignpost";
 import { CTASection } from "@/components/CTASection";
 import {
-  homeHero,
-  pathwayHeading,
-  pathwayCards,
-  oneOffFeature,
+  homeHeroContent,
+  homeHeroMedia,
+  quietIntro,
+  pathwaysHeading,
+  pathways,
+  humanExperience,
   progressionHeading,
   offerLevels,
-  exampleYear,
-  whyCYA,
+  principalProof,
+  studioPreview,
+  leadershipPerspective,
+  resourcesSignpost,
   closingCTA,
 } from "@/content/home";
 import { caseStudies } from "@/content/proof";
 import { media } from "@/content/media";
 
 export const metadata: Metadata = {
-  title: "Corporate Yoga Australia — Start with one useful moment",
+  title: "Corporate Yoga Australia - Start with one useful moment",
   description:
     "Book a one-off movement, mindfulness, workshop or conference session, or build a connected year of workplace wellbeing with CYA and Wellbeing Studio.",
 };
 
 export default function Home() {
+  const principalStory = caseStudies.find((study) => study.slug === principalProof.principalSlug) ?? caseStudies[0];
+  const supportingStories = caseStudies.filter((study) => principalProof.supportingSlugs.includes(study.slug));
+
   return (
     <>
-      <Hero intro={homeHero} image={media.homeHero} />
-      <PathwaySelector
-        kicker={pathwayHeading.kicker}
-        heading={pathwayHeading.heading}
-        body={pathwayHeading.body}
-        cards={pathwayCards}
+      <HeroVideo eyebrow={homeHeroContent.eyebrow} heading={homeHeroContent.heading} primaryCta={homeHeroContent.primaryCta} media={homeHeroMedia} />
+
+      <QuietIntro heading={quietIntro.heading} body={quietIntro.body} image={quietIntro.image} />
+
+      <WaysToWork
+        kicker={pathwaysHeading.kicker}
+        heading={pathwaysHeading.heading}
+        body={pathwaysHeading.body}
+        pathways={pathways}
       />
-      <EditorialFeature
-        kicker={oneOffFeature.kicker}
-        heading={oneOffFeature.heading}
-        body={oneOffFeature.body}
-        cta={oneOffFeature.cta}
-        image={media.homeOneOff}
+
+      <HumanExperience
+        kicker={humanExperience.kicker}
+        heading={humanExperience.heading}
+        body={humanExperience.body}
+        formats={humanExperience.formats}
+        cta={humanExperience.cta}
+        image={humanExperience.image}
       />
+
       <OfferProgression
         kicker={progressionHeading.kicker}
         heading={progressionHeading.heading}
         body={progressionHeading.body}
         levels={offerLevels}
       />
-      <ExampleYearView months={exampleYear} />
-      <WhyCYA kicker={whyCYA.kicker} heading={whyCYA.heading} points={whyCYA.points} />
-      <ProofPreview studies={caseStudies.slice(0, 3)} />
-      <StudioPreview />
-      <CTASection
-        kicker={closingCTA.kicker}
-        heading={closingCTA.heading}
-        body={closingCTA.body}
-        cta={closingCTA.cta}
+
+      <PrincipalProof
+        kicker={principalProof.kicker}
+        heading={principalProof.heading}
+        body={principalProof.body}
+        principal={principalStory}
+        supporting={supportingStories}
+        image={media.proofHero}
       />
+
+      <StudioPreview
+        kicker={studioPreview.kicker}
+        heading={studioPreview.heading}
+        body={studioPreview.body}
+        cta={studioPreview.cta}
+        image={studioPreview.image}
+      />
+
+      <FounderClose
+        kicker={leadershipPerspective.kicker}
+        heading={leadershipPerspective.heading}
+        body={leadershipPerspective.body}
+        cta={leadershipPerspective.cta}
+        image={leadershipPerspective.image}
+      />
+
+      <ResourcesSignpost kicker={resourcesSignpost.kicker} heading={resourcesSignpost.heading} links={resourcesSignpost.links} />
+
+      <CTASection kicker={closingCTA.kicker} heading={closingCTA.heading} body={closingCTA.body} cta={closingCTA.cta} />
     </>
   );
 }

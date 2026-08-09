@@ -9,6 +9,7 @@ export const workplaceHero: PageIntro = {
     { label: "Discuss a session", href: "/consultation?interest=one-off", variant: "primary" },
     { label: "Explore programs", href: "/programs", variant: "secondary" },
   ],
+  meta: ["Movement", "Mindfulness", "Workshops", "Lunch & Learns"],
 };
 
 export const needs: FeatureItem[] = [
@@ -21,7 +22,7 @@ export const needs: FeatureItem[] = [
 ];
 
 export const formats: FeatureItem[] = [
-  { title: "One-off", body: "A single, complete session — no ongoing commitment required." },
+  { title: "One-off", body: "A single, complete session - no ongoing commitment required." },
   { title: "Short series", body: "A small run of sessions focused on one theme or team." },
   { title: "Recurring", body: "A regular class that becomes part of the working week." },
   { title: "Awareness-day activation", body: "A focused moment tied to a specific day or campaign." },

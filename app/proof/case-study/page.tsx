@@ -33,7 +33,7 @@ export default async function CaseStudyPage({
       <Breadcrumbs
         items={[
           { label: "Home", href: "/" },
-          { label: "Proof", href: "/proof" },
+          { label: "Case studies", href: "/proof" },
           { label: match.clientLabel },
         ]}
       />

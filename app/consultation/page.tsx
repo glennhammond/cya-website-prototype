@@ -47,7 +47,7 @@ export default async function ConsultationPage({
                 <ul className="mt-2 space-y-2 text-sm leading-relaxed text-body">
                   <li>Wellbeing Studio member sign-in or account support</li>
                   <li>Facilitator or employment enquiries</li>
-                  <li>Health, medical or crisis support — CYA is not an EAP or clinical service</li>
+                  <li>Health, medical or crisis support - CYA is not an EAP or clinical service</li>
                 </ul>
               </div>
             </div>

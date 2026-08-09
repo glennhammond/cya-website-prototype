@@ -10,16 +10,22 @@ export const primaryNav: NavItem[] = [
         href: "/workplace-wellbeing/movement",
         description: "Yoga, Pilates, mobility and desk movement, adapted to real workplaces.",
       },
+      {
+        label: "Conferences and events",
+        href: "/conferences-events",
+        description: "Short activations and wellbeing streams built around the event, venue and agenda.",
+      },
     ],
   },
-  { label: "Conferences and events", href: "/conferences-events" },
   { label: "Programs", href: "/programs" },
   { label: "Wellbeing Studio", href: "/wellbeing-studio" },
-  { label: "Proof", href: "/proof" },
   { label: "About", href: "/about" },
 ];
 
-export const utilityNav: NavItem[] = [{ label: "Resources", href: "/resources" }];
+export const utilityNav: NavItem[] = [
+  { label: "Resources", href: "/resources" },
+  { label: "Member access", href: "/member-access" },
+];
 
 export const memberSignInHref = "https://studio.corporateyoga.com.au";
 
@@ -29,8 +35,17 @@ export const primaryCTA: CTA = {
   variant: "primary",
 };
 
+/** Shorter form for the fixed-width header bar; full phrase is used everywhere else. */
+export const primaryCTAShort = "Book now";
+
 export const footerLegalNav: NavItem[] = [
   { label: "Privacy", href: "/privacy" },
   { label: "Terms", href: "/terms" },
   { label: "Member access", href: "/member-access" },
 ];
+
+/** Matches Wellbeing Studio's own current-page convention (a teal underline on the active nav item). Exact match, or a descendant route (e.g. /workplace-wellbeing/movement under /workplace-wellbeing). */
+export function isNavActive(pathname: string, href: string) {
+  if (href === "/") return pathname === "/";
+  return pathname === href || pathname.startsWith(`${href}/`);
+}

@@ -21,12 +21,12 @@ export function CaseStudyCard({ study }: { study: CaseStudy }) {
           {VariantMark(variant)}
         </svg>
         <div className="absolute right-3 top-3">
-          <EvidenceBadge status={study.status} note="Prototype placeholder — not publishable client proof." />
+          <EvidenceBadge status={study.status} note="Prototype placeholder - not a publishable client story." />
         </div>
       </div>
       <div className="flex flex-1 flex-col gap-2 p-6">
-        <p className="text-xs font-bold uppercase tracking-wide text-gold">{study.clientLabel}</p>
-        <h3 className="text-lg text-teal-dark">{study.headline}</h3>
+        <p className="text-xs font-bold uppercase tracking-wide text-ochre-ink">{study.clientLabel}</p>
+        <h3 className="text-heading-sm text-teal-dark">{study.headline}</h3>
         <p className="flex-1 text-sm leading-relaxed text-body">{study.summary}</p>
         <span className="text-sm font-bold text-teal-dark underline decoration-2 underline-offset-4">
           Read the story

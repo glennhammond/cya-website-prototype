@@ -17,10 +17,10 @@ export function CTASection({
 }) {
   return (
     <Section tone="mist">
-      <Container className="text-center">
+      <Container className="studio-panel text-center">
         <div className="mx-auto max-w-2xl">
           <Kicker>{kicker}</Kicker>
-          <h2 className="mt-3 text-[28px] sm:text-[34px]">{heading}</h2>
+          <h2 className="mt-3 text-heading-lg">{heading}</h2>
           <p className="mt-4 text-lg leading-relaxed text-body">{body}</p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <CtaLink href={cta.href} variant={cta.variant ?? "primary"} external={cta.external}>

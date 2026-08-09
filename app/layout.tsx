@@ -24,8 +24,8 @@ const openSans = Open_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL("https://corporateyoga.com.au"),
   title: {
-    default: `${site.name} — Workplace wellbeing that fits real work`,
-    template: `%s — ${site.name}`,
+    default: `${site.name} - Workplace wellbeing that fits real work`,
+    template: `%s - ${site.name}`,
   },
   description: site.description,
 };

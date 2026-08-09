@@ -5,7 +5,7 @@ import { site } from "@/content/site";
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-divider bg-teal-dark text-white">
+    <footer id="site-footer" className="border-t border-divider bg-teal-dark text-white">
       <Container className="grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4">
         <div className="sm:col-span-2 lg:col-span-1">
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -30,7 +30,7 @@ export function SiteFooter() {
             </Link>
           ))}
           <a href={memberSignInHref} target="_blank" rel="noopener noreferrer" className="text-sm text-white/85 hover:text-white">
-            Member sign-in
+            Member sign-in<span className="sr-only"> (opens in a new tab)</span>
           </a>
           <Link href="/consultation" className="text-sm text-white/85 hover:text-white">
             Book a wellbeing consultation
@@ -51,7 +51,7 @@ export function SiteFooter() {
           <p>
             {site.legalEntity}. {site.studioLockup} is CYA&rsquo;s continuous digital wellbeing platform.
           </p>
-          <p>&copy; {new Date().getFullYear()} {site.name}. Prototype build — not for public release.</p>
+          <p>&copy; {new Date().getFullYear()} {site.name}. Prototype build - not for public release.</p>
         </Container>
       </div>
     </footer>

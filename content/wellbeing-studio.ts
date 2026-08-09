@@ -13,7 +13,7 @@ export const studioHero: PageIntro = {
 export const employeeValueFeature = {
   kicker: "For employees",
   heading: "Find something useful for the moment you are in.",
-  body: "Choose by need, time available or context — from a quick reset between meetings to movement, mindfulness or an audio practice at home.",
+  body: "Choose by need, time available or context - from a quick reset between meetings to movement, mindfulness or an audio practice at home.",
   cta: { label: "See the member experience", href: "#member-experience", variant: "secondary" as const },
 };
 
@@ -33,7 +33,7 @@ export const memberExperience: FeatureItem[] = [
 
 export const liveOnDemandModel: FeatureItem[] = [
   { title: "Scheduled live sessions", body: "Regular live practices at confirmed times, delivered through Moodle." },
-  { title: "Recorded library", body: "No live replay — professionally recorded content instead, available on demand." },
+  { title: "Recorded library", body: "No live replay - professionally recorded content instead, available on demand." },
   { title: "Fresh content releases", body: "New movement and audio content added on a governed cadence." },
 ];
 
@@ -46,7 +46,7 @@ export const implementation: FeatureItem[] = [
 export const privacyFeature = {
   kicker: "Privacy and aggregate reporting",
   heading: "Aggregate visibility, never individual activity.",
-  body: "Employer reporting is limited to eligible or registered counts, aggregate active use and aggregate attendance — never names, individual histories or inferred wellbeing status. Segments below a minimum group size are suppressed or combined.",
+  body: "Employer reporting is limited to eligible or registered counts, aggregate active use and aggregate attendance - never names, individual histories or inferred wellbeing status. Segments below a minimum group size are suppressed or combined.",
 };
 
 export const progressionLevels: FeatureItem[] = [

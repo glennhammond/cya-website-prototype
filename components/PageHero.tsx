@@ -6,7 +6,7 @@ import type { MediaAsset, PageIntro } from "@/lib/types";
 /**
  * Shared internal-page hero archetype (brief §16 A, B, C, D, G). Same
  * gradient-over-image language as the homepage hero, for one coherent visual
- * system across the site — composition still varies per page through the
+ * system across the site - composition still varies per page through the
  * photograph itself, `imagePosition` (which side the text/gradient sits on)
  * and meta chips, rather than every page looking identical. Text sits inside
  * the shared `Container`, never padded directly off the viewport edge, so

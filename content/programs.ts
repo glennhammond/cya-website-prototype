@@ -15,7 +15,7 @@ export const programsHero: PageIntro = {
 export const whyContinuity = {
   kicker: "Why continuity can help",
   heading: "Familiar support is easier to sustain than a single event.",
-  body: "A single session proves the format works. Continuity is what makes wellbeing feel like part of how your organisation operates, rather than an occasional add-on — useful when it's useful, never a requirement.",
+  body: "A single session proves the format works. Continuity is what makes wellbeing feel like part of how your organisation operates, rather than an occasional add-on - useful when it's useful, never a requirement.",
 };
 
 export const programLevels: OfferLevel[] = [
@@ -47,7 +47,7 @@ export const whatCyaCoordinates: FeatureItem[] = [
   { title: "Communications support", body: "Practical materials to help your team promote participation." },
   { title: "National delivery", body: "Coordinated scheduling across multiple sites and states." },
   { title: "Wellbeing Studio integration", body: "Connecting live moments to ongoing digital access." },
-  { title: "Review and reporting", body: "Regular check-ins and aggregate, privacy-safe visibility — never individual activity." },
+  { title: "Review and reporting", body: "Regular check-ins and aggregate, privacy-safe visibility - never individual activity." },
 ];
 
 export const multiSiteFeature = {
@@ -68,6 +68,6 @@ export const investmentFactors: FeatureItem[] = [
 export const closingCTA = {
   kicker: "Next step",
   heading: "Plan the level of continuity that fits.",
-  body: "The first conversation can start with a short series or a broader organised year — whichever is useful now.",
+  body: "The first conversation can start with a short series or a broader organised year - whichever is useful now.",
   cta: { label: "Plan a wellbeing program", href: "/consultation?interest=recurring", variant: "primary" as const },
 };

@@ -5,7 +5,6 @@ import { StatementList } from "@/components/StatementList";
 import { CTASection } from "@/components/CTASection";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Section, Container, Kicker } from "@/components/Primitives";
-import { EvidencePlaceholder } from "@/components/EvidencePlaceholder";
 import { ImageMedia } from "@/components/ImageMedia";
 import { media } from "@/content/media";
 import {
@@ -40,21 +39,17 @@ export default function AboutPage() {
       />
 
       <Section tone="white" id="origin">
-        <Container>
-          <div className="max-w-2xl rounded-[var(--radius-card)] border border-divider bg-mist p-8">
-            <Kicker>{originStory.kicker}</Kicker>
-            <h2 className="mt-3 text-heading-lg">{originStory.heading}</h2>
-            <p className="mt-4 text-lg leading-relaxed text-body">{originStory.body}</p>
-            <dl className="mt-6 grid grid-cols-2 gap-4 border-t border-divider pt-6 text-sm">
-              <div>
-                <dt className="font-bold text-teal-dark">2001</dt>
-                <dd className="text-body">Debby&rsquo;s personal origin story — not the company founding date.</dd>
-              </div>
-              <div>
-                <dt className="font-bold text-teal-dark">2014</dt>
-                <dd className="text-body">Corporate Yoga Australia founded.</dd>
-              </div>
-            </dl>
+        <Container className="studio-panel">
+          <div className="grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+            <ImageMedia asset={media.aboutDebbyPortrait} aspect="4/3" />
+            <div>
+              <Kicker>{originStory.kicker}</Kicker>
+              <h2 className="mt-3 text-heading-lg">{originStory.heading}</h2>
+              <p className="mt-5 max-w-[58ch] text-lg leading-relaxed text-body">{originStory.body}</p>
+              <p className="mt-6 text-sm font-bold uppercase tracking-[0.08em] text-ochre-ink">
+                Corporate Yoga Australia, founded 2014
+              </p>
+            </div>
           </div>
         </Container>
       </Section>
@@ -80,21 +75,26 @@ export default function AboutPage() {
             </div>
             <ImageMedia
               asset={media.aboutFacilitator}
-              caption="Representative facilitator only — not a directory. Individual profiles publish once credentials, insurance and permissions are verified."
+              caption="Representative facilitator only - not a directory. Individual profiles publish once credentials, insurance and permissions are verified."
             />
           </div>
         </Container>
       </Section>
 
       <Section tone="white">
-        <Container>
-          <div className="grid gap-10 lg:grid-cols-2">
-            <EvidencePlaceholder
-              variant="portrait"
-              caption="Professional standards placeholder."
-              status="legal-review"
-              note="Insurance certificates and credential framework require legal review before publication."
-            />
+        <Container className="studio-panel">
+          <div className="grid items-center gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
+            <div className="rounded-[var(--radius-card)] bg-mist p-8 sm:p-10">
+              <p className="text-xs font-bold uppercase tracking-[0.1em] text-ochre-ink">Every engagement</p>
+              <ul className="mt-6 space-y-5">
+                {["Insurance requirements", "Relevant facilitator credentials", "Safety procedures and clear delivery standards"].map((item) => (
+                  <li key={item} className="flex items-center gap-4 text-base font-bold text-teal-dark">
+                    <span aria-hidden="true" className="h-2.5 w-2.5 shrink-0 rounded-full bg-aqua" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
             <div>
               <Kicker>{professionalStandards.kicker}</Kicker>
               <h2 className="mt-3 text-heading-lg">{professionalStandards.heading}</h2>

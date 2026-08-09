@@ -1,31 +1,36 @@
-import type { OfferLevel, PageIntro, PathwayCard, YearMonthEntry } from "@/lib/types";
-import { media } from "@/content/media";
+import type { HeroContent, OfferLevel, PathwayCard, YearMonthEntry } from "@/lib/types";
+import { media, homeHeroMedia } from "@/content/media";
 
-export const homeHero: PageIntro = {
-  kicker: "One-off sessions and ongoing workplace wellbeing programs",
-  heading: "Start with one useful moment - or build a connected year.",
-  body: "Book a one-off movement, mindfulness, workshop or conference session. When you are ready to create greater continuity, CYA can bring those moments together through recurring programs and Wellbeing Studio.",
-  actions: [
-    { label: "Book a wellbeing consultation", href: "/consultation", variant: "primary" },
-    { label: "Explore one-off sessions", href: "/workplace-wellbeing", variant: "secondary" },
-  ],
+export { homeHeroMedia };
+
+/**
+ * Hero copy is deliberately this short - see AGENTS brief "Homepage
+ * video-hero architecture": very limited or absent body copy, one primary
+ * action. The fuller explanation lives in `quietIntro` below, not here.
+ * Provisional line, easy to change - swap `heading` when Deb has final copy.
+ */
+export const homeHeroContent: HeroContent = {
+  eyebrow: "Corporate Yoga Australia",
+  heading: "Time together, well spent.",
+  primaryCta: { label: "Book a wellbeing consultation", href: "/consultation", variant: "primary" },
 };
 
-/** Restrained orientation statement directly after the hero — removes buyer anxiety, does not repeat it. */
-export const reassurance = {
-  heading: "One session can stand on its own.",
-  body: "A single session, a conference activation, a short series or a connected program are all valid ways to work with CYA. Repeat what works, or connect it into something broader, later if that becomes helpful.",
+/** Editorial introduction directly after the hero, pairing the core proposition with a representative workplace session image. */
+export const quietIntro = {
+  heading: "Movement, mindfulness, workshops and a connected year - always fitted to the room you're in.",
+  body: "A single session, a conference activation, a short series or a connected program are all valid ways to work with CYA. Book one useful moment, repeat what works, or build a connected year when that becomes helpful - there's no required starting point.",
+  image: media.programsContinuity,
 };
 
 export const pathwaysHeading = {
-  kicker: "Three pathways",
+  kicker: "Ways to work with CYA",
   heading: "Fit CYA to what's happening right now.",
-  body: "Each pathway is a complete way to work with CYA on its own — not a step toward the others.",
+  body: "Each pathway is a complete way to work with CYA on its own - not a step toward the others.",
 };
 
 export const pathways: PathwayCard[] = [
   {
-    title: "One-off workplace sessions",
+    title: "One-off sessions",
     description:
       "Movement, mindfulness, workshops and Lunch and Learns for teams, awareness days and particular workplace moments.",
     href: "/workplace-wellbeing",
@@ -50,18 +55,18 @@ export const pathways: PathwayCard[] = [
   },
 ];
 
-/** Dedicated one-off-session feature (brief §11) — demonstrates value through format and context, not repeated assertion. */
-export const oneOffFeature = {
-  kicker: "One-off sessions",
-  heading: "A complete session, not a smaller offer.",
-  body: "A single booking is fitted to the team, the moment and the environment — a specific awareness day, a Lunch and Learn, a one-time workshop. Nothing about working with CYA once requires a plan for what comes after.",
+/** "Human experience" homepage section - visitor-centred language, no internal commercial framing ("not a smaller offer" removed per creative direction). */
+export const humanExperience = {
+  kicker: "What a session feels like",
+  heading: "A session that meets your team where they are.",
+  body: "However people arrive - energised, flat, mid-deadline - a CYA session is shaped around the room on the day: the space available, the mix of people, and the time that's actually free. No experience or particular level of fitness is assumed.",
   formats: ["Movement", "Mindfulness", "Workshops", "Lunch and Learns", "Awareness-day sessions", "Conference activations"],
   cta: { label: "Explore one-off sessions", href: "/workplace-wellbeing" },
   image: media.homeOneOff,
 };
 
 export const progressionHeading = {
-  kicker: "One useful moment can become a connected program",
+  kicker: "Selected programs",
   heading: "Build continuity when useful.",
   body: "There is no required starting point and no compulsory ladder. CYA can support one experience, repeat what works, or coordinate a broader mix across your people and locations.",
 };
@@ -104,13 +109,40 @@ export const exampleYear: YearMonthEntry[] = [
   { month: "December", theme: "Closing the year well", formats: ["Wind-down session", "Studio content refresh"] },
 ];
 
-/** Homepage-ending relational close (brief §15) — connects the founder to the wider organisation. */
-export const founderClose = {
+/** Homepage proof section - one principal story told in full, two supporting stories linked rather than repeated as equal cards. `principalSlug` must match a slug in content/proof.ts. */
+export const principalProof = {
+  kicker: "Case studies",
+  heading: "See how CYA works in practice.",
+  body: "A closer look at the context, decisions and delivery behind CYA engagements. These draft stories remain unpublished until client permission and facts are confirmed.",
+  principalSlug: "flagship-partnership",
+  supportingSlugs: ["distributed-delivery", "smaller-organisation"],
+};
+
+export const studioPreview = {
+  kicker: "Wellbeing Studio by Corporate Yoga Australia",
+  heading: "Practical digital wellbeing support, available beyond the scheduled session.",
+  body: "Short live and on-demand practices for different moments in the workday and beyond. Wellbeing Studio is CYA's continuous digital layer - it stands alongside live delivery, not apart from it.",
+  cta: { label: "Book a Studio walkthrough", href: "/wellbeing-studio" },
+  image: media.studioEmployeeHome,
+};
+
+/** Homepage-ending leadership beat - connects the founder to the wider organisation without reading as a solo practice. */
+export const leadershipPerspective = {
   kicker: "Corporate Yoga Australia",
   heading: "One founder, a national team behind every session.",
-  body: "Debby Lewis founded CYA in 2014 from her own experience using movement and meditation in a high-pressure HR role. That practice is now delivered by a national network of facilitators, so every engagement — from one session to a connected program — gets the same care.",
-  cta: { label: "Let's plan what would be useful.", href: "/consultation" },
+  body: "Debby Lewis founded CYA in 2014 from her own experience using movement and meditation in a high-pressure HR role. That practice is now delivered by an experienced national network of facilitators, coordinated so every engagement - from one session to a connected program - carries Debby's own standard of care.",
+  cta: { label: "Meet the team behind CYA", href: "/about" },
   image: media.debbyTeacherPortrait,
+};
+
+export const resourcesSignpost = {
+  kicker: "Resources",
+  heading: "Guides and tools for planning your next session.",
+  links: [
+    { label: "Choosing a format", href: "/resources" },
+    { label: "Preparing for a consultation", href: "/resources" },
+    { label: "Wellbeing planning calendar", href: "/resources" },
+  ],
 };
 
 export const closingCTA = {

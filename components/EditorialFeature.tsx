@@ -31,7 +31,7 @@ export function EditorialFeature({
 }) {
   return (
     <Section tone={tone}>
-      <Container>
+      <Container className="studio-panel">
         <div className={`grid items-center gap-10 lg:grid-cols-2 lg:gap-16 ${reverse ? "lg:[&>*:first-child]:order-2" : ""}`}>
           <div>
             <Kicker>{kicker}</Kicker>

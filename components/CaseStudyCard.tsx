@@ -21,7 +21,7 @@ export function CaseStudyCard({ study }: { study: CaseStudy }) {
           {VariantMark(variant)}
         </svg>
         <div className="absolute right-3 top-3">
-          <EvidenceBadge status={study.status} note="Prototype placeholder — not publishable client proof." />
+          <EvidenceBadge status={study.status} note="Prototype placeholder - not a publishable client story." />
         </div>
       </div>
       <div className="flex flex-1 flex-col gap-2 p-6">

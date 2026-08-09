@@ -24,7 +24,7 @@ export function CaseStudyTemplate({ study }: { study: CaseStudy }) {
           <Kicker>{study.clientLabel}</Kicker>
           <div className="mt-3 flex flex-wrap items-center gap-3">
             <h1 className="text-[32px] sm:text-[42px]">{study.headline}</h1>
-            <EvidenceBadge status={study.status} note="Prototype placeholder — not publishable client proof." />
+            <EvidenceBadge status={study.status} note="Prototype placeholder - not a publishable client story." />
           </div>
           <p className="mt-4 max-w-2xl text-lg leading-relaxed text-body">{study.summary}</p>
         </Container>

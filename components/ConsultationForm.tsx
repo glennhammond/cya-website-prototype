@@ -145,7 +145,7 @@ export function ConsultationForm({ initialInterest }: { initialInterest?: string
         <h2 className="text-2xl text-teal-dark">We already have an enquiry from you.</h2>
         <p className="mt-3 text-base leading-relaxed text-body">
           It looks like {values.workEmail} has an open enquiry with CYA already. We have not created a duplicate
-          record — someone will be in touch using the details already on file.
+          record - someone will be in touch using the details already on file.
         </p>
         <p className="mt-3 text-base leading-relaxed text-body">
           If new detail has come up since then, you&rsquo;re welcome to add it now.
@@ -166,14 +166,14 @@ export function ConsultationForm({ initialInterest }: { initialInterest?: string
       <div role="alert" className="rounded-[var(--radius-card)] border-2 border-error bg-white p-8">
         <h2 className="text-2xl text-error">Your enquiry didn&rsquo;t go through.</h2>
         <p className="mt-3 text-base leading-relaxed text-body">
-          Something went wrong submitting this form. Your details have not been lost — please try again, or reach
+          Something went wrong submitting this form. Your details have not been lost - please try again, or reach
           CYA directly while this is investigated.
         </p>
         <div className="mt-4 flex flex-wrap gap-3">
           <button
             type="button"
             onClick={() => setStatus("idle")}
-            className="min-h-11 rounded-[var(--radius-control)] bg-gold px-5 text-sm font-bold text-teal-dark"
+            className="min-h-12 rounded-[18px] bg-gold px-6 text-[15px] font-bold text-white hover:bg-[var(--cya-gold-hover)]"
           >
             Try again
           </button>
@@ -217,7 +217,7 @@ export function ConsultationForm({ initialInterest }: { initialInterest?: string
       </fieldset>
 
       <div className="mt-10 border-t border-divider pt-6">
-        <p className="text-sm font-bold text-teal-dark">Optional — helps us prepare, not required to get started</p>
+        <p className="text-sm font-bold text-teal-dark">Optional - helps us prepare, not required to get started</p>
         <p className="mt-1 text-sm text-body">Add as much or as little of this as you already know.</p>
 
         <fieldset className="mt-6 grid gap-6 sm:grid-cols-2">
@@ -298,7 +298,7 @@ export function ConsultationForm({ initialInterest }: { initialInterest?: string
         <button
           type="submit"
           disabled={status === "submitting"}
-          className="inline-flex min-h-12 items-center justify-center rounded-[var(--radius-control)] bg-gold px-8 text-[15px] font-bold text-teal-dark transition-opacity disabled:opacity-60"
+          className="inline-flex min-h-12 items-center justify-center rounded-[18px] bg-gold px-8 text-[15px] font-bold uppercase tracking-[0.06em] text-white shadow-[0_10px_24px_rgba(174,137,65,0.22)] transition-colors hover:bg-[var(--cya-gold-hover)] disabled:opacity-60"
         >
           {status === "submitting" ? "Sending your enquiry…" : "Send your enquiry"}
         </button>

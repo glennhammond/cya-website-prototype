@@ -6,7 +6,7 @@ import { site } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "Terms",
-  description: "Terms of use for the Corporate Yoga Australia website — pending final legal review.",
+  description: "Terms of use for the Corporate Yoga Australia website - pending final legal review.",
 };
 
 const sections = [

@@ -4,10 +4,13 @@ import { ImageMedia } from "@/components/ImageMedia";
 import type { CTA, MediaAsset } from "@/lib/types";
 
 /**
- * Wellbeing Studio hero (brief §16 E). Denser and card-based rather than
- * full-bleed editorial — the shadowed, rounded product thumbnail is a
- * deliberate departure from the CYA pages' card-free treatment, signalling
- * Studio's utility character (brief §17) while sharing the same tokens.
+ * Wellbeing Studio hero. Denser and card-based rather than full-bleed
+ * editorial - the shadowed, rounded product thumbnail is a deliberate
+ * departure from the CYA pages' card-free treatment, signalling Studio's
+ * utility character while sharing the same tokens. No play affordance is
+ * shown: no genuinely playable Studio preview clip is confirmed yet, and a
+ * decorative play button that doesn't play anything reads as broken next to
+ * the rest of the site's honest media-availability handling.
  */
 export function StudioPageHero({
   kicker,
@@ -42,16 +45,6 @@ export function StudioPageHero({
           </div>
           <div className="relative h-[280px] overflow-hidden rounded-[var(--radius-card)] shadow-[var(--shadow-card)] sm:h-[360px]">
             <ImageMedia asset={image} treatment="bleed" priority sizes="(min-width: 1024px) 40vw, 100vw" />
-            <div className="absolute inset-0 flex items-center justify-center bg-teal-dark/10">
-              <span
-                aria-hidden="true"
-                className="flex h-16 w-16 items-center justify-center rounded-full bg-white/90 shadow-[var(--shadow-card)]"
-              >
-                <svg width="20" height="24" viewBox="0 0 20 24" fill="none">
-                  <path d="M2 2 L18 12 L2 22 Z" fill="#103F45" />
-                </svg>
-              </span>
-            </div>
           </div>
         </div>
       </Container>

@@ -22,7 +22,7 @@ import { media } from "@/content/media";
 export const metadata: Metadata = {
   title: "Movement",
   description:
-    "Yoga, Pilates, mobility and desk movement, adapted to real workplaces — no prior experience, studio setting or particular body type assumed.",
+    "Yoga, Pilates, mobility and desk movement, adapted to real workplaces - no prior experience, studio setting or particular body type assumed.",
 };
 
 export default function MovementPage() {
@@ -58,10 +58,10 @@ export default function MovementPage() {
         tone="mist"
         reverse
         placeholderVariant="movement"
-        placeholderCaption="Proof placeholder — participant feedback and repeat engagement."
+        placeholderCaption="Case study placeholder - participant feedback and repeat engagement."
         note="Delivery quality and participant feedback evidence required before publication; no health-outcome claims."
         heading="Delivery quality, not health-outcome claims."
-        body="Movement proof focuses on delivery quality, participant feedback and repeat engagement — not health, flexibility or fitness outcomes."
+        body="Movement case studies focus on delivery quality, participant feedback and repeat engagement, not health, flexibility or fitness outcomes."
       />
 
       <DividerList kicker="Delivery options" heading="Onsite, online or across several locations." items={deliveryOptions} tone="white" />

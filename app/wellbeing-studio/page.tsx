@@ -55,7 +55,7 @@ export default function WellbeingStudioPage() {
         cta={employeeValueFeature.cta}
         tone="white"
         placeholderVariant="studio"
-        placeholderCaption="Photography placeholder — a Wellbeing Studio member session in progress."
+        placeholderCaption="Photography placeholder - a Wellbeing Studio member session in progress."
       />
       <EditorialFeature
         kicker={employerValueFeature.kicker}
@@ -65,7 +65,7 @@ export default function WellbeingStudioPage() {
         tone="mist"
         reverse
         placeholderVariant="workplace"
-        placeholderCaption="Photography placeholder — an employer dashboard walkthrough."
+        placeholderCaption="Photography placeholder - an employer dashboard walkthrough."
       />
 
       <div id="member-experience">
@@ -80,7 +80,7 @@ export default function WellbeingStudioPage() {
         body={privacyFeature.body}
         tone="mist"
         placeholderVariant="studio"
-        placeholderCaption="Illustration placeholder — aggregate reporting, not individual activity."
+        placeholderCaption="Illustration placeholder - aggregate reporting, not individual activity."
       />
 
       <Section tone="white">
@@ -109,10 +109,10 @@ export default function WellbeingStudioPage() {
 
       <ProofNote
         placeholderVariant="studio"
-        placeholderCaption="Proof placeholder — pilot findings and verified reporting."
+        placeholderCaption="Case study placeholder - pilot findings and verified reporting."
         note="Pilot findings, screenshots and verified schedule/reporting model required before publication."
         heading="Current capability, not future ambition."
-        body="Wellbeing Studio proof will describe verified current capability — pilot findings, product walkthroughs and approved member or client voice — not the 2027 launch ambition."
+        body="Wellbeing Studio case studies will describe verified current capability through pilot findings, product walkthroughs and approved member or client perspectives, not the 2027 launch ambition."
       />
 
       <CTASection

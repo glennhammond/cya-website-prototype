@@ -1,9 +1,10 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { CtaLink } from "@/components/CtaLink";
-import { primaryNav, utilityNav, memberSignInHref, primaryCTA } from "@/content/navigation";
+import { primaryNav, utilityNav, primaryCTA, isNavActive } from "@/content/navigation";
 
 const NAV_BREAKPOINT = "min-[1240px]:hidden";
 
@@ -13,7 +14,8 @@ const NAV_BREAKPOINT = "min-[1240px]:hidden";
  * order and AT tree instead of leaving focus stranded behind the panel), body
  * scroll is locked, and every link closes the panel on selection.
  */
-export function MobileNavigation() {
+export function MobileNavigation({ transparent = false }: { transparent?: boolean }) {
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const triggerRef = useRef<HTMLButtonElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
@@ -31,7 +33,7 @@ export function MobileNavigation() {
       document.body.style.overflow = "hidden";
       main?.setAttribute("inert", "");
       footer?.setAttribute("inert", "");
-      // Move focus into the panel itself (not a specific link) — the most
+      // Move focus into the panel itself (not a specific link) - the most
       // reliable anchor point, independent of how any child component
       // forwards refs.
       panelRef.current?.focus();
@@ -66,9 +68,15 @@ export function MobileNavigation() {
         aria-controls="mobile-nav-panel"
         aria-label={open ? "Close menu" : "Open menu"}
         onClick={() => setOpen((prev) => !prev)}
-        className="flex min-h-11 min-w-11 items-center justify-center rounded-[var(--radius-control)] border border-divider"
+        className={`flex min-h-11 min-w-11 items-center justify-center rounded-[var(--radius-control)] border transition-colors ${
+          open
+            ? "border-divider bg-white"
+            : transparent
+              ? "border-white/40 bg-transparent"
+              : "border-divider bg-white"
+        }`}
       >
-        {open ? <CloseIcon /> : <MenuIcon />}
+        {open ? <CloseIcon /> : <MenuIcon light={transparent} />}
       </button>
 
       {open && (
@@ -76,53 +84,64 @@ export function MobileNavigation() {
           id="mobile-nav-panel"
           ref={panelRef}
           tabIndex={-1}
-          className="fixed inset-x-0 top-20 bottom-0 z-40 overflow-y-auto border-t border-divider bg-white px-5 py-6 shadow-[var(--shadow-card)] focus:outline-none"
+          className="fixed inset-x-0 top-24 bottom-0 z-40 overflow-y-auto border-t border-divider bg-white px-5 py-6 shadow-[var(--shadow-card)] focus:outline-none"
         >
           <nav aria-label="Primary">
             <ul className="flex flex-col gap-1">
-              {primaryNav.map((item) => (
-                <li key={item.href}>
-                  <Link
-                    href={item.href}
-                    onClick={() => close(false)}
-                    className="block min-h-11 rounded-[var(--radius-control)] px-3 py-3 text-base font-bold text-ink"
-                  >
-                    {item.label}
-                  </Link>
-                  {item.children?.map((child) => (
+              {primaryNav.map((item) => {
+                const active =
+                  isNavActive(pathname, item.href) ||
+                  Boolean(item.children?.some((child) => isNavActive(pathname, child.href)));
+                return (
+                  <li key={item.href}>
                     <Link
-                      key={child.href}
-                      href={child.href}
+                      href={item.href}
                       onClick={() => close(false)}
-                      className="block min-h-11 rounded-[var(--radius-control)] px-6 py-2 text-sm text-body"
+                      aria-current={active ? "page" : undefined}
+                      className={`block min-h-11 rounded-[var(--radius-control)] px-3 py-3 text-base font-bold ${
+                        active ? "text-teal" : "text-ink"
+                      }`}
                     >
-                      {child.label}
+                      {item.label}
                     </Link>
-                  ))}
-                </li>
-              ))}
+                    {item.children?.map((child) => {
+                      const childActive = isNavActive(pathname, child.href);
+                      return (
+                        <Link
+                          key={child.href}
+                          href={child.href}
+                          onClick={() => close(false)}
+                          aria-current={childActive ? "page" : undefined}
+                          className={`block min-h-11 rounded-[var(--radius-control)] px-6 py-2 text-sm ${
+                            childActive ? "font-bold text-teal" : "text-body"
+                          }`}
+                        >
+                          {child.label}
+                        </Link>
+                      );
+                    })}
+                  </li>
+                );
+              })}
             </ul>
           </nav>
           <div className="mt-4 flex flex-col gap-1 border-t border-divider pt-4">
-            {utilityNav.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={() => close(false)}
-                className="block min-h-11 rounded-[var(--radius-control)] px-3 py-3 text-base font-bold text-ink"
-              >
-                {item.label}
-              </Link>
-            ))}
-            <a
-              href={memberSignInHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => close(false)}
-              className="block min-h-11 rounded-[var(--radius-control)] px-3 py-3 text-base font-bold text-ink"
-            >
-              Member sign-in<span className="sr-only"> (opens in a new tab)</span>
-            </a>
+            {utilityNav.map((item) => {
+              const active = isNavActive(pathname, item.href);
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => close(false)}
+                  aria-current={active ? "page" : undefined}
+                  className={`block min-h-11 rounded-[var(--radius-control)] px-3 py-3 text-base font-bold ${
+                    active ? "text-teal" : "text-ink"
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
           </div>
           <CtaLink href={primaryCTA.href} variant="primary" className="mt-4 w-full">
             {primaryCTA.label}
@@ -133,10 +152,10 @@ export function MobileNavigation() {
   );
 }
 
-function MenuIcon() {
+function MenuIcon({ light = false }: { light?: boolean }) {
   return (
     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-      <path d="M3 5.5H17M3 10H17M3 14.5H17" stroke="#253336" strokeWidth="1.6" strokeLinecap="round" />
+      <path d="M3 5.5H17M3 10H17M3 14.5H17" stroke={light ? "#ffffff" : "#253336"} strokeWidth="1.6" strokeLinecap="round" />
     </svg>
   );
 }

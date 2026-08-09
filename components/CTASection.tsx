@@ -17,7 +17,7 @@ export function CTASection({
 }) {
   return (
     <Section tone="mist">
-      <Container className="text-center">
+      <Container className="studio-panel text-center">
         <div className="mx-auto max-w-2xl">
           <Kicker>{kicker}</Kicker>
           <h2 className="mt-3 text-heading-lg">{heading}</h2>

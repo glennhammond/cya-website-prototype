@@ -4,7 +4,7 @@ import type { OfferLevel } from "@/lib/types";
 /**
  * A connected sequence rather than a card grid: one horizontal (desktop) or
  * vertical (mobile) line with numbered nodes. Typography and spacing carry
- * the hierarchy — no borders or card backgrounds per node.
+ * the hierarchy - no borders or card backgrounds per node.
  */
 export function OfferProgression({
   kicker,
@@ -18,8 +18,8 @@ export function OfferProgression({
   levels: OfferLevel[];
 }) {
   return (
-    <Section tone="white">
-      <Container>
+    <Section tone="mist">
+      <Container className="studio-panel">
         <div className="max-w-2xl">
           <Kicker>{kicker}</Kicker>
           <h2 className="mt-3 text-heading-lg">{heading}</h2>

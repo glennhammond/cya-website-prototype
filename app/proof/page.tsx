@@ -7,15 +7,15 @@ import { Container, Section, Kicker } from "@/components/Primitives";
 import { proofHero, proofPrinciples, caseStudies, proofStandards } from "@/content/proof";
 
 export const metadata: Metadata = {
-  title: "Proof",
+  title: "Case studies",
   description:
-    "Evidence-led client stories placed where buyer doubt arises — governed placeholders until client permission, dates and facts are confirmed.",
+    "Selected CYA client stories showing the context, decisions and delivery behind each engagement.",
 };
 
 export default function ProofPage() {
   return (
     <>
-      <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Proof" }]} />
+      <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Case studies" }]} />
       <ProofPageHero
         kicker={proofHero.kicker}
         heading={proofHero.heading}
@@ -26,8 +26,8 @@ export default function ProofPage() {
       <Section tone="white">
         <Container>
           <div className="max-w-2xl">
-            <Kicker>Featured stories</Kicker>
-            <h2 className="mt-3 text-heading-lg">Governed placeholders, not published proof.</h2>
+            <Kicker>Stories in development</Kicker>
+            <h2 className="mt-3 text-heading-lg">Case studies in development.</h2>
             <p className="mt-4 text-lg leading-relaxed text-body">
               Each story below follows the same governed template. None are publishable until client permission,
               dates and facts are confirmed.

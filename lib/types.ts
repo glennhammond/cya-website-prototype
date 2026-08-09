@@ -26,6 +26,35 @@ export interface MediaAsset {
   alt: string;
   status: EvidenceStatus;
   note?: string;
+  /**
+   * CSS `object-position` value (e.g. "50% 30%") controlling the crop when
+   * this asset fills a box narrower or shorter than its native aspect ratio.
+   * Lets each placement be re-cropped from content, not by editing pixels.
+   */
+  focal?: string;
+  /** Overrides `focal` at the lg breakpoint and above, for compositions that need a different crop on desktop vs mobile. */
+  focalDesktop?: string;
+}
+
+/**
+ * Content contract for the homepage video hero. `videoSrcDesktop` /
+ * `videoSrcMobile` are optional and intentionally absent until final video
+ * is delivered - HeroVideo only renders a <video> element when at least one
+ * is set, so no broken request ever fires against a missing file. `poster`
+ * is required and is what actually paints: it is the LCP image, the
+ * reduced-motion fallback and the no-video state, all at once.
+ */
+export interface HeroMedia {
+  poster: MediaAsset;
+  videoSrcDesktop?: string;
+  videoSrcMobile?: string;
+}
+
+/** Deliberately slimmer than PageIntro - the hero carries almost no body copy by design; the quiet intro section below it does that work. */
+export interface HeroContent {
+  eyebrow?: string;
+  heading: string;
+  primaryCta: CTA;
 }
 
 export interface Evidenced<T> {

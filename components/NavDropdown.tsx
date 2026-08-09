@@ -9,7 +9,15 @@ import type { NavItem } from "@/lib/types";
  * aria-expanded) plus the two behaviours <details> can't give us for free:
  * Escape closes and returns focus, and clicking outside closes it too.
  */
-export function NavDropdown({ item }: { item: NavItem }) {
+export function NavDropdown({
+  item,
+  transparent = false,
+  active = false,
+}: {
+  item: NavItem;
+  transparent?: boolean;
+  active?: boolean;
+}) {
   const [open, setOpen] = useState(false);
   const rootRef = useRef<HTMLLIElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
@@ -42,11 +50,18 @@ export function NavDropdown({ item }: { item: NavItem }) {
         type="button"
         aria-expanded={open}
         aria-controls={`nav-dropdown-${item.href}`}
+        aria-current={active ? "page" : undefined}
         onClick={() => setOpen((prev) => !prev)}
-        className="flex cursor-pointer items-center gap-1 whitespace-nowrap rounded-[var(--radius-control)] px-2 py-2 text-sm font-bold text-ink hover:text-teal"
+        className={`flex cursor-pointer items-center gap-1 whitespace-nowrap border-b-2 px-2 pt-2 pb-1.5 text-sm font-bold transition-colors ${
+          active
+            ? transparent
+              ? "border-white text-white"
+              : "border-teal text-teal-dark"
+            : `border-transparent ${transparent ? "text-white hover:text-white/75" : "text-ink hover:text-teal"}`
+        }`}
       >
         {item.label}
-        <ChevronIcon open={open} />
+        <ChevronIcon open={open} light={transparent} />
       </button>
       {open && (
         <div
@@ -76,7 +91,7 @@ export function NavDropdown({ item }: { item: NavItem }) {
   );
 }
 
-function ChevronIcon({ open }: { open: boolean }) {
+function ChevronIcon({ open, light = false }: { open: boolean; light?: boolean }) {
   return (
     <svg
       width="12"
@@ -84,7 +99,7 @@ function ChevronIcon({ open }: { open: boolean }) {
       viewBox="0 0 12 12"
       fill="none"
       aria-hidden="true"
-      className={`text-body transition-transform ${open ? "rotate-180" : ""}`}
+      className={`transition-transform ${light ? "text-white/80" : "text-body"} ${open ? "rotate-180" : ""}`}
     >
       <path d="M2.5 4.5 L6 8 L9.5 4.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
     </svg>

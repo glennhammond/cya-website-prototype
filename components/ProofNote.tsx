@@ -9,7 +9,7 @@ import type { EvidenceStatus } from "@/lib/types";
  * site-wide (brief §17 editorial rhythm).
  */
 export function ProofNote({
-  kicker = "Proof",
+  kicker = "Evidence",
   heading,
   body,
   placeholderVariant,

@@ -4,7 +4,7 @@ import type { FeatureItem } from "@/components/FeatureGrid";
 export const resourcesHero: PageIntro = {
   kicker: "Resources",
   heading: "Practical guidance for planning wellbeing at work.",
-  body: "A small, governed set of tools and guides for people planning a session, a program or a conversation with their organisation — not a high-volume lifestyle blog.",
+  body: "A small, governed set of tools and guides for people planning a session, a program or a conversation with their organisation - not a high-volume lifestyle blog.",
 };
 
 export const featuredResources: FeatureItem[] = [

@@ -48,7 +48,7 @@ export default function ConferencesEventsPage() {
       <DividerList
         kicker="Example event rhythm"
         heading="An illustrative run sheet, not a fixed package."
-        body="This example does not imply a required sequence or duration — CYA designs around your actual agenda."
+        body="This example does not imply a required sequence or duration - CYA designs around your actual agenda."
         items={eventRhythm}
         tone="mist"
       />
@@ -63,10 +63,10 @@ export default function ConferencesEventsPage() {
 
       <ProofNote
         placeholderVariant="conference"
-        placeholderCaption="Proof placeholder — event context, scale and organiser confidence."
+        placeholderCaption="Case study placeholder - event context, scale and organiser confidence."
         note="Requires event brief, delivery facts and organiser permission before publication."
         heading="Organiser confidence, evidenced."
-        body="Event proof shows context, scale, delivery and organiser response — placeholders here until a specific event story is confirmed and permissioned."
+        body="Event case studies will show context, scale, delivery and organiser response. These remain placeholders until a specific event story is confirmed and permissioned."
       />
 
       <CTASection kicker={closingCTA.kicker} heading={closingCTA.heading} body={closingCTA.body} cta={closingCTA.cta} />

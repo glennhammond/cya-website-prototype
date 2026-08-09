@@ -3,12 +3,16 @@ import type { ElementType, ReactNode } from "react";
 export function Container({
   children,
   className = "",
+  size = "default",
 }: {
   children: ReactNode;
   className?: string;
+  /** "narrow" gives typographic-only moments (e.g. QuietIntro) a deliberately shorter reading measure than the site's normal 1280px grid. */
+  size?: "default" | "narrow";
 }) {
+  const maxWidth = size === "narrow" ? "max-w-[var(--container-narrow)]" : "max-w-[var(--container-max)]";
   return (
-    <div className={`mx-auto w-full max-w-[1280px] px-6 sm:px-10 lg:px-16 ${className}`}>
+    <div className={`mx-auto w-full ${maxWidth} px-6 sm:px-10 lg:px-16 ${className}`}>
       {children}
     </div>
   );
@@ -39,7 +43,7 @@ export function Section({
     <Tag
       id={id}
       aria-label={ariaLabel}
-      className={`scroll-mt-20 ${toneClass} py-16 sm:py-20 lg:py-24 ${className}`}
+      className={`scroll-mt-24 ${toneClass} py-10 sm:py-14 lg:py-16 ${className}`}
     >
       {children}
     </Tag>

@@ -1,65 +1,99 @@
 import type { Metadata } from "next";
-import { HeroEditorial } from "@/components/HeroEditorial";
-import { ReassuranceStrip } from "@/components/ReassuranceStrip";
-import { PathwayPanels } from "@/components/PathwayPanels";
-import { OneOffFeature } from "@/components/OneOffFeature";
+import { HeroVideo } from "@/components/HeroVideo";
+import { QuietIntro } from "@/components/QuietIntro";
+import { WaysToWork } from "@/components/WaysToWork";
+import { HumanExperience } from "@/components/HumanExperience";
 import { OfferProgression } from "@/components/OfferProgression";
+import { PrincipalProof } from "@/components/PrincipalProof";
 import { StudioPreview } from "@/components/StudioPreview";
-import { ProofPreview } from "@/components/ProofPreview";
 import { FounderClose } from "@/components/FounderClose";
+import { ResourcesSignpost } from "@/components/ResourcesSignpost";
+import { CTASection } from "@/components/CTASection";
 import {
-  homeHero,
-  reassurance,
+  homeHeroContent,
+  homeHeroMedia,
+  quietIntro,
   pathwaysHeading,
   pathways,
-  oneOffFeature,
+  humanExperience,
   progressionHeading,
   offerLevels,
-  founderClose,
+  principalProof,
+  studioPreview,
+  leadershipPerspective,
+  resourcesSignpost,
+  closingCTA,
 } from "@/content/home";
 import { caseStudies } from "@/content/proof";
 import { media } from "@/content/media";
 
 export const metadata: Metadata = {
-  title: "Corporate Yoga Australia — Start with one useful moment",
+  title: "Corporate Yoga Australia - Start with one useful moment",
   description:
     "Book a one-off movement, mindfulness, workshop or conference session, or build a connected year of workplace wellbeing with CYA and Wellbeing Studio.",
 };
 
 export default function Home() {
+  const principalStory = caseStudies.find((study) => study.slug === principalProof.principalSlug) ?? caseStudies[0];
+  const supportingStories = caseStudies.filter((study) => principalProof.supportingSlugs.includes(study.slug));
+
   return (
     <>
-      <HeroEditorial intro={homeHero} image={media.homeHero} />
-      <ReassuranceStrip heading={reassurance.heading} body={reassurance.body} />
-      <PathwayPanels
+      <HeroVideo eyebrow={homeHeroContent.eyebrow} heading={homeHeroContent.heading} primaryCta={homeHeroContent.primaryCta} media={homeHeroMedia} />
+
+      <QuietIntro heading={quietIntro.heading} body={quietIntro.body} image={quietIntro.image} />
+
+      <WaysToWork
         kicker={pathwaysHeading.kicker}
         heading={pathwaysHeading.heading}
         body={pathwaysHeading.body}
         pathways={pathways}
       />
-      <OneOffFeature
-        kicker={oneOffFeature.kicker}
-        heading={oneOffFeature.heading}
-        body={oneOffFeature.body}
-        formats={oneOffFeature.formats}
-        cta={oneOffFeature.cta}
-        image={oneOffFeature.image}
+
+      <HumanExperience
+        kicker={humanExperience.kicker}
+        heading={humanExperience.heading}
+        body={humanExperience.body}
+        formats={humanExperience.formats}
+        cta={humanExperience.cta}
+        image={humanExperience.image}
       />
+
       <OfferProgression
         kicker={progressionHeading.kicker}
         heading={progressionHeading.heading}
         body={progressionHeading.body}
         levels={offerLevels}
       />
-      <StudioPreview />
-      <ProofPreview studies={caseStudies.slice(0, 3)} />
-      <FounderClose
-        kicker={founderClose.kicker}
-        heading={founderClose.heading}
-        body={founderClose.body}
-        cta={founderClose.cta}
-        image={founderClose.image}
+
+      <PrincipalProof
+        kicker={principalProof.kicker}
+        heading={principalProof.heading}
+        body={principalProof.body}
+        principal={principalStory}
+        supporting={supportingStories}
+        image={media.proofHero}
       />
+
+      <StudioPreview
+        kicker={studioPreview.kicker}
+        heading={studioPreview.heading}
+        body={studioPreview.body}
+        cta={studioPreview.cta}
+        image={studioPreview.image}
+      />
+
+      <FounderClose
+        kicker={leadershipPerspective.kicker}
+        heading={leadershipPerspective.heading}
+        body={leadershipPerspective.body}
+        cta={leadershipPerspective.cta}
+        image={leadershipPerspective.image}
+      />
+
+      <ResourcesSignpost kicker={resourcesSignpost.kicker} heading={resourcesSignpost.heading} links={resourcesSignpost.links} />
+
+      <CTASection kicker={closingCTA.kicker} heading={closingCTA.heading} body={closingCTA.body} cta={closingCTA.cta} />
     </>
   );
 }

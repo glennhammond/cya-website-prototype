@@ -51,7 +51,7 @@ export function SiteFooter() {
           <p>
             {site.legalEntity}. {site.studioLockup} is CYA&rsquo;s continuous digital wellbeing platform.
           </p>
-          <p>&copy; {new Date().getFullYear()} {site.name}. Prototype build — not for public release.</p>
+          <p>&copy; {new Date().getFullYear()} {site.name}. Prototype build - not for public release.</p>
         </Container>
       </div>
     </footer>

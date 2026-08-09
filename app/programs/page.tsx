@@ -23,7 +23,7 @@ import { media } from "@/content/media";
 export const metadata: Metadata = {
   title: "Programs",
   description:
-    "Begin with a short series, coordinate several wellbeing elements across a defined period, or plan an organised year of support — without a fixed package or compulsory commitment.",
+    "Begin with a short series, coordinate several wellbeing elements across a defined period, or plan an organised year of support - without a fixed package or compulsory commitment.",
 };
 
 export default function ProgramsPage() {
@@ -41,7 +41,7 @@ export default function ProgramsPage() {
       <OfferProgression
         kicker="Choose the level of continuity that fits"
         heading="Four levels, no compulsory ladder."
-        body="Each level adds coordination, not a new sales tier. Move between them as your priorities change — there is no minimum to reach before support becomes worthwhile."
+        body="Each level adds coordination, not a new sales tier. Move between them as your priorities change - there is no minimum to reach before support becomes worthwhile."
         levels={programLevels}
       />
       <ExampleYearView months={exampleYear} />
@@ -72,10 +72,10 @@ export default function ProgramsPage() {
       <ProofNote
         reverse
         placeholderVariant="workplace"
-        placeholderCaption="Proof placeholder — recurring and multi-site delivery story."
+        placeholderCaption="Case study placeholder - recurring and multi-site delivery story."
         note="Requires renewal, attendance/feedback and delivery-learning evidence before publication."
         heading="Renewal and delivery learning, evidenced."
-        body="Program proof shows recurring and multi-site delivery, renewal and what CYA learned along the way — placeholders here until specific client evidence is confirmed and permissioned."
+        body="Program case studies will show recurring and multi-site delivery, renewal and what CYA learned along the way. These remain placeholders until specific client evidence is confirmed and permissioned."
       />
 
       <CTASection kicker={closingCTA.kicker} heading={closingCTA.heading} body={closingCTA.body} cta={closingCTA.cta} />

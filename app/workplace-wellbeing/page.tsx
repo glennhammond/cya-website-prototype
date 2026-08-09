@@ -21,7 +21,7 @@ import { media } from "@/content/media";
 export const metadata: Metadata = {
   title: "Workplace Wellbeing",
   description:
-    "CYA adapts movement, mindfulness and practical learning to your audience, environment, timing and purpose — from a single session to a connected program.",
+    "CYA adapts movement, mindfulness and practical learning to your audience, environment, timing and purpose - from a single session to a connected program.",
 };
 
 export default function WorkplaceWellbeingPage() {
@@ -46,7 +46,7 @@ export default function WorkplaceWellbeingPage() {
       />
       <DividerList
         kicker="Modalities"
-        heading="Ingredients CYA adapts to the brief — not the whole product."
+        heading="Ingredients CYA adapts to the brief - not the whole product."
         body="Modalities are ingredients, not the main product architecture."
         items={modalities}
         tone="mist"
@@ -69,10 +69,10 @@ export default function WorkplaceWellbeingPage() {
 
       <ProofNote
         placeholderVariant="workplace"
-        placeholderCaption="Proof placeholder — delivery quality across formats and modalities."
+        placeholderCaption="Case study placeholder - delivery quality across formats and modalities."
         note="Requires format-specific delivery, feedback and renewal evidence before publication."
-        heading="Proof suited to the format, not one blanket claim."
-        body="What counts as proof looks different for a single session, a recurring rhythm or a connected program — see delivery-specific evidence on the Movement, Conferences and Programs pages, or the full Proof page."
+        heading="Evidence suited to the format, not one blanket claim."
+        body="Useful evidence looks different for a single session, a recurring rhythm or a connected program. Explore delivery-specific examples on the Movement, Conferences and Programs pages, or visit the Case studies page."
       />
 
       <CTASection

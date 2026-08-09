@@ -3,8 +3,10 @@
 :root {
   --cya-teal: #17535b;
   --cya-teal-dark: #103f45;
-  --cya-gold: #bd964a;
-  --cya-ochre-ink: #8a6a1f;
+  /* Wellbeing Studio CTA gold. White labels must remain large and bold. */
+  --cya-gold: #ae8941;
+  --cya-gold-hover: #9d7a36;
+  --cya-ochre-ink: #876619;
   --cya-logo-teal: #5cb8b2;
   --cya-logo-pale: #bee3e0;
   --cya-mist: #f4f6f5;
@@ -15,11 +17,18 @@
   --cya-aqua: #39aeb8;
   --cya-error: #a33b3b;
 
-  --cya-radius-control: 12px;
-  --cya-radius-card: 20px;
-  --cya-shadow-card: 0 8px 24px rgba(16, 63, 69, 0.08);
+  --cya-radius-control: 16px;
+  --cya-radius-card: 28px;
+  --cya-radius-panel: 34px;
+  --cya-shadow-card: 0 18px 50px rgba(16, 63, 69, 0.075);
   --cya-focus-ring: 0 0 0 3px rgba(57, 174, 184, 0.55);
-  --cya-container-max: 1280px;
+  --cya-container-max: 1440px;
+  --cya-container-narrow: 640px;
+
+  /* Neutral, near-black scrim for text-over-media - deliberately not teal,
+     so it doesn't colour-grade the photo/video underneath and reads
+     consistently across variable skin tones and frames. */
+  --cya-scrim: 8 18 19;
 }
 
 @theme inline {
@@ -40,11 +49,13 @@
   --font-heading: var(--font-urbanist), Arial, sans-serif;
   --font-body: var(--font-open-sans), Arial, sans-serif;
 
-  /* Fluid editorial type scale — see brief §19 (clamp() use, heading hierarchy) */
-  --text-display: clamp(2.125rem, 1.65rem + 2.4vw, 3.25rem);
-  --text-display--line-height: 1.12;
-  --text-heading-lg: clamp(1.75rem, 1.55rem + 1vw, 2.125rem);
-  --text-heading-lg--line-height: 1.2;
+  /* Fluid editorial type scale - see brief §19 (clamp() use, heading hierarchy) */
+  --text-display: clamp(3rem, 1.9rem + 4.8vw, 6rem);
+  --text-display--line-height: 0.98;
+  --text-heading-xl: clamp(2.25rem, 1.55rem + 2.5vw, 4rem);
+  --text-heading-xl--line-height: 1.02;
+  --text-heading-lg: clamp(2rem, 1.5rem + 1.75vw, 3.25rem);
+  --text-heading-lg--line-height: 1.06;
   --text-heading-sm: 1.25rem;
   --text-heading-sm--line-height: 1.3;
 
@@ -52,6 +63,7 @@
   --radius-card: var(--cya-radius-card);
   --shadow-card: var(--cya-shadow-card);
   --container-max: var(--cya-container-max);
+  --container-narrow: var(--cya-container-narrow);
 }
 
 /*
@@ -86,7 +98,7 @@
     font-family: var(--font-heading);
     color: var(--cya-teal-dark);
     line-height: 1.12;
-    font-weight: 700;
+    font-weight: 800;
   }
 
   a {
@@ -117,6 +129,17 @@
   .skip-link:focus {
     top: 1rem;
   }
+
+}
+
+/* Intentionally unlayered so the panel inset overrides Container's standard
+   page gutters when both classes are present. */
+.studio-panel {
+  border: 1px solid rgba(221, 229, 227, 0.9);
+  border-radius: var(--cya-radius-panel);
+  background: var(--cya-white);
+  box-shadow: var(--cya-shadow-card);
+  padding: clamp(2rem, 1rem + 4vw, 5rem);
 }
 
 @media (prefers-reduced-motion: reduce) {

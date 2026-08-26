@@ -121,6 +121,7 @@ const redirects = [
   ["/personalised-wellbeing-programs", "/workplace-wellbeing-programs"],
   ["/workplace-wellbeing/movement", "/movement"],
   ["/workplace-yoga-australia", "/workplace-yoga"],
+  ["/our-classes", "/movement"],
   ["/online-wellbeing-2026", "/online-wellbeing"],
   ["/wellbeing-studio", "/online-wellbeing"],
   ["/proof", "/case-studies"],

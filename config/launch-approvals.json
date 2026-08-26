@@ -2,7 +2,7 @@
   "version": "1.0",
   "authority": "CYA Website Phase 11.4 launch gates",
   "photographyPublicationApproved": true,
-  "pilatesPublicationApproved": false,
+  "pilatesPublicationApproved": true,
   "caseStudiesPublicationApproved": false,
   "legacySecurityVerified": false,
   "gscSecurityIssuesChecked": false,

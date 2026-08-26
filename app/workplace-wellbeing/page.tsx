@@ -22,6 +22,10 @@ export const metadata: Metadata = {
   title: "Workplace Wellbeing",
   description:
     "CYA adapts movement, mindfulness and practical learning to your audience, environment, timing and purpose - from a single session to a connected program.",
+  robots: {
+    index: false,
+    follow: true,
+  },
 };
 
 export default function WorkplaceWellbeingPage() {

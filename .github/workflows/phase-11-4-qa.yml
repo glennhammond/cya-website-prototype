@@ -48,3 +48,6 @@ jobs:
         env:
           VERCEL_ENV: production
         run: npm run qa:rendered-smoke
+
+      - name: Final Phase 11.4 launch-readiness gate
+        run: npm run qa:launch

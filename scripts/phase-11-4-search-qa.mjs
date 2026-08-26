@@ -31,6 +31,28 @@ function walk(dir) {
   });
 }
 
+function versionAtLeast(actual, required) {
+  const actualParts = actual.split(".").map(Number);
+  const requiredParts = required.split(".").map(Number);
+  for (let index = 0; index < Math.max(actualParts.length, requiredParts.length); index += 1) {
+    const actualPart = actualParts[index] ?? 0;
+    const requiredPart = requiredParts[index] ?? 0;
+    if (actualPart > requiredPart) return true;
+    if (actualPart < requiredPart) return false;
+  }
+  return true;
+}
+
+const packageJson = JSON.parse(read("package.json"));
+check(
+  versionAtLeast(packageJson.dependencies.next, "16.3.3"),
+  "Next.js meets the 16.3.3 critical-security patch floor",
+);
+check(
+  versionAtLeast(packageJson.devDependencies["eslint-config-next"], "16.3.3"),
+  "eslint-config-next matches the patched Next.js security floor",
+);
+
 const indexQualifiedPages = [
   "app/page.tsx",
   "app/workplace-wellbeing-programs/page.tsx",
@@ -192,6 +214,10 @@ check(
 const robots = read("app/robots.ts");
 check(robots.includes("VERCEL_ENV"), "robots distinguishes preview from production");
 check(robots.includes('disallow: "/"'), "preview robots blocks crawling");
+
+const footer = read("components/SiteFooter.tsx");
+check(footer.includes('process.env.VERCEL_ENV === "production"'), "footer distinguishes production from preview");
+check(footer.includes('!isProduction && " Prototype build - not for public release."'), "prototype warning is preview-only");
 
 if (errors.length > 0) {
   console.error(`\nPhase 11.4 search QA FAILED (${errors.length}/${checks.length} checks failed):`);

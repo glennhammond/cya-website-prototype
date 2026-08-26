@@ -6,6 +6,7 @@ import { EditorialFeature } from "@/components/EditorialFeature";
 import { DividerList } from "@/components/DividerList";
 import { ProofNote } from "@/components/ProofNote";
 import { CTASection } from "@/components/CTASection";
+import { ServiceStructuredData } from "@/components/StructuredData";
 import { media } from "@/content/media";
 import {
   mindfulnessHero,
@@ -31,6 +32,12 @@ export const metadata: Metadata = {
 export default function MeditationMindfulnessPage() {
   return (
     <>
+      <ServiceStructuredData
+        name="Workplace Mindfulness & Meditation"
+        description="Practical workplace mindfulness, guided meditation and breathwork for Australian teams, delivered onsite, online or as part of a wider wellbeing program."
+        path="/meditation-mindfulness"
+        breadcrumbLabel="Mindfulness & Meditation"
+      />
       <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Mindfulness & Meditation" }]} />
       <PageHero intro={mindfulnessHero} image={media.aboutWorldview} imagePosition="left" />
 

@@ -1,14 +1,30 @@
 import type { CTA, NavItem } from "@/lib/types";
 
 export const primaryNav: NavItem[] = [
+  { label: "Programs", href: "/workplace-wellbeing-programs" },
   {
-    label: "Workplace wellbeing",
-    href: "/workplace-wellbeing",
+    label: "Services",
+    href: "/movement",
     children: [
       {
         label: "Movement",
         href: "/movement",
-        description: "Yoga, Pilates, mobility and desk movement, adapted to real workplaces.",
+        description: "Compare Yoga, Pilates, mobility and other workplace movement formats.",
+      },
+      {
+        label: "Workplace Yoga",
+        href: "/workplace-yoga",
+        description: "One-off, recurring, onsite and online Yoga adapted to real workplaces.",
+      },
+      {
+        label: "Mindfulness & Meditation",
+        href: "/meditation-mindfulness",
+        description: "Guided meditation, mindfulness, breathwork and related workplace practices.",
+      },
+      {
+        label: "Online Wellbeing",
+        href: "/online-wellbeing",
+        description: "Live and on-demand continuity for remote, hybrid and distributed teams.",
       },
       {
         label: "Conferences and events",
@@ -17,8 +33,7 @@ export const primaryNav: NavItem[] = [
       },
     ],
   },
-  { label: "Programs", href: "/workplace-wellbeing-programs" },
-  { label: "Wellbeing Studio", href: "/wellbeing-studio" },
+  { label: "Case Studies", href: "/case-studies" },
   { label: "About", href: "/about-us" },
 ];
 
@@ -44,7 +59,7 @@ export const footerLegalNav: NavItem[] = [
   { label: "Member access", href: "/member-access" },
 ];
 
-/** Matches Wellbeing Studio's own current-page convention (a teal underline on the active nav item). Exact match, or a descendant route (e.g. /workplace-wellbeing/movement under /workplace-wellbeing). */
+/** Matches current-page convention. Exact match or descendant route. */
 export function isNavActive(pathname: string, href: string) {
   if (href === "/") return pathname === "/";
   return pathname === href || pathname.startsWith(`${href}/`);

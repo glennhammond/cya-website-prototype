@@ -102,11 +102,21 @@ In June 2025:
 
 The CYA WordPress installation continued sending Wordfence/cPanel monitoring mail through at least August 2025.
 
+### Current public website — SQUARESPACE
+
+A fresh public-site verification on 26 August 2026 shows the production website currently served at `https://www.corporateyoga.com.au/` is a **Squarespace** site, with Squarespace CDN assets and the existing Squarespace content/page structure.
+
+This means the current production/rollback site must not be conflated with the historical DigitalHost WordPress environment. The hosting sequence is therefore:
+
+`HostGator WordPress compromise (2023) → clean-up/migration to DigitalHost WordPress → later website-hosting change → current Squarespace production site (2026)`
+
+The historical remediation evidence remains relevant to the compromised URL namespaces and old filesystem, while Squarespace is the immediate pre-Vercel rollback environment.
+
 ### Email/DNS safety dependency
 
 DigitalHost correspondence also confirms a paid **Premium Email Protection** service for `corporateyoga.com.au`.
 
-Therefore the production website cutover must not casually replace nameservers or delete unrelated DNS records. MX, SPF, DKIM, DMARC, mail protection and other verification/service records require preservation.
+Therefore the production website cutover must not casually replace nameservers or delete unrelated DNS records. MX, SPF, DKIM, DMARC, mail protection and other verification/service records require preservation. Whether DigitalHost still controls any current DNS/email records must be confirmed from the live zone rather than assumed from historical invoices.
 
 ## 6. Portal and `/cp/` current search evidence
 
@@ -119,7 +129,9 @@ As at 26 August 2026:
 - Ahrefs Crawled Pages returned no pages for the `/cp/` prefix;
 - Ahrefs Crawled Pages returned no pages for the portal host.
 
-This strongly supports retirement/non-preservation of these namespaces, but is **not** equivalent to direct DNS/HTTP or authenticated GSC security clearance.
+Direct web retrieval of representative `/cp/` and portal URLs also failed with a non-success status in the available fetch environment, but that tool did not expose a sufficiently reliable exact HTTP status to qualify the gate.
+
+This strongly supports retirement/non-preservation of these namespaces, but is **not** equivalent to direct recorded DNS/HTTP or authenticated GSC security clearance.
 
 ## 7. Required migration treatment
 
@@ -146,6 +158,7 @@ The following questions are now substantially answered:
 - Was the site migrated off the compromised HostGator environment? **Yes.**
 - Did DigitalHost confirm the site had been cleaned and migration completed? **Yes.**
 - Is there later mailbox evidence of fresh malicious-file detections in 2024–25? **None surfaced in the targeted search performed 26 August 2026.**
+- Is the current production site still the historical WordPress environment? **No. The current public site is Squarespace.**
 
 ## 9. What remains launch-blocking
 
@@ -154,7 +167,7 @@ Do **not** set `legacySecurityVerified: true` yet.
 Before production cutover, complete and record:
 
 1. direct current DNS lookup/state for `portal.corporateyoga.com.au`;
-2. direct current HTTP behaviour for representative historical `portal/...` and `/cp/...` paths;
+2. direct current HTTP behaviour for representative historical `portal/...` and `/cp/...` paths with exact status recorded;
 3. confirmation that suspicious historical routes do not soft-redirect into legitimate CYA content;
 4. authenticated Google Search Console **Security Issues** check — no unresolved issue;
 5. authenticated Google Search Console **Manual Actions** check — no unresolved action;
@@ -164,7 +177,7 @@ The remaining security gate is therefore a **current-state verification gate**, 
 
 ## 10. Production implication
 
-The planned Vercel migration provides a clean application boundary away from the legacy WordPress/PHP filesystem. That is positive, but the cutover must still preserve DNS/email services and leave hacked historical namespaces dead rather than legitimising them through redirects.
+The planned Vercel migration provides a clean application boundary away from both the legacy compromised WordPress/PHP filesystem and the current Squarespace application layer. That is positive, but the cutover must still preserve DNS/email services, retain Squarespace as the immediate rollback site during the safety window, and leave hacked historical namespaces dead rather than legitimising them through redirects.
 
 ---
 

@@ -6,11 +6,34 @@ export const movementHero: PageIntro = {
   heading: "Useful movement, adapted to real workplaces.",
   body: "Yoga, Pilates, mobility and desk movement don't require prior experience, a studio setting or a particular body type. CYA designs each session around the audience, environment and time available.",
   actions: [
-    { label: "Discuss a movement session", href: "/consultation?interest=one-off", variant: "primary" },
-    { label: "Explore mindfulness and workshops", href: "/workplace-wellbeing", variant: "secondary" },
+    { label: "Discuss a movement session", href: "/contact?interest=one-off", variant: "primary" },
+    { label: "Explore mindfulness", href: "/meditation-mindfulness", variant: "secondary" },
   ],
-  meta: ["Individual or group", "Onsite or online", "From 15 minutes"],
+  meta: ["Individual or group", "Onsite or online", "From short resets to full sessions"],
 };
+
+export const movementTypes: FeatureItem[] = [
+  {
+    title: "Workplace Yoga",
+    body: "Accessible Yoga shaped around the people, space, time and purpose of the workplace brief.",
+    href: "/workplace-yoga",
+    cta: "Explore Workplace Yoga",
+  },
+  {
+    title: "Workplace Pilates",
+    body: "Pilates is already part of CYA's movement offer, including mat-based formats and blended movement programs. The specialist search page remains publication-gated while facilitator credentials and Pilates-specific proof are verified.",
+    href: "/contact?interest=one-off",
+    cta: "Discuss a Pilates session",
+  },
+  {
+    title: "Desk & office movement",
+    body: "Seated or standing movement and mobility that can fit into smaller spaces, busy schedules and work clothes.",
+  },
+  {
+    title: "Other tailored movement",
+    body: "Where the brief calls for something different, CYA can discuss other suitable movement formats and practitioner availability rather than forcing a standard menu.",
+  },
+];
 
 export const whoItsFor = {
   kicker: "Who it's for",
@@ -27,15 +50,15 @@ export const usefulFormats: FeatureItem[] = [
 
 export const whatToExpect: FeatureItem[] = [
   { title: "Clear, practical instruction", body: "Facilitators explain options rather than assuming a starting level." },
-  { title: "Modified options throughout", body: "Every sequence includes an easier and a more challenging variation." },
-  { title: "Work clothes welcome", body: "Sessions are designed to work in a shirt and trousers, not just activewear." },
-  { title: "A realistic time frame", body: "Sessions are scoped to the time genuinely available, from 15 minutes up." },
+  { title: "Modified options throughout", body: "Sessions can include alternatives so participants can work at an appropriate level." },
+  { title: "Workplace-friendly setup", body: "The brief can be adapted for office clothing, small spaces or a more traditional mat-based session where appropriate." },
+  { title: "A realistic time frame", body: "Sessions are scoped to the time genuinely available rather than a fixed studio timetable." },
 ];
 
 export const inclusionFeature = {
   kicker: "Inclusion and workplace adaptation",
   heading: "Designed for varied bodies, roles and confidence levels.",
-  body: "CYA does not assume flexibility, fitness or prior practice. Facilitators offer modifications as a normal part of every session, and formats adapt to boardrooms, warehouses, desks and shared community spaces alike.",
+  body: "CYA does not assume flexibility, fitness or prior practice. Facilitators can offer modifications as part of the session, and formats adapt to boardrooms, warehouses, desks and shared community spaces alike.",
 };
 
 export const deliveryOptions: FeatureItem[] = [
@@ -47,12 +70,12 @@ export const deliveryOptions: FeatureItem[] = [
 export const relatedUseCases: FeatureItem[] = [
   { title: "Awareness-day activation", body: "A focused movement moment tied to a specific campaign or day." },
   { title: "Conference activation", body: "A short movement break integrated into an event agenda.", href: "/conferences-events", cta: "Explore conferences and events" },
-  { title: "Part of a broader program", body: "Movement combined with mindfulness, workshops and Wellbeing Studio.", href: "/programs", cta: "Explore programs" },
+  { title: "Part of a broader program", body: "Movement combined with mindfulness, workshops and online continuity.", href: "/workplace-wellbeing-programs", cta: "Explore programs" },
 ];
 
 export const closingCTA = {
   kicker: "Next step",
   heading: "Ready to discuss a movement session?",
   body: "Tell us about your team, space and timing, and CYA will recommend a suitable format.",
-  cta: { label: "Discuss a movement session", href: "/consultation?interest=one-off", variant: "primary" as const },
+  cta: { label: "Discuss a movement session", href: "/contact?interest=one-off", variant: "primary" as const },
 };

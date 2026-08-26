@@ -9,6 +9,10 @@ import { resourcesHero, featuredResources, closingCTA } from "@/content/resource
 export const metadata: Metadata = {
   title: "Resources",
   description: "Practical planning tools and guides for workplace wellbeing decisions.",
+  robots: {
+    index: false,
+    follow: true,
+  },
 };
 
 export default function ResourcesPage() {

@@ -13,6 +13,15 @@ function block(message) {
   blockers.push(message);
 }
 
+function walk(dir) {
+  if (!fs.existsSync(dir)) return [];
+  return fs.readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
+    const fullPath = path.join(dir, entry.name);
+    if (entry.isDirectory()) return walk(fullPath);
+    return [fullPath];
+  });
+}
+
 const approvals = JSON.parse(read("config/launch-approvals.json"));
 
 // Phase 11.4 launch-blocking approvals. Pilates and Case Studies may remain
@@ -32,21 +41,42 @@ for (const [key, message] of requiredApprovals) {
 
 const mediaSource = read("content/media.ts");
 const mediaLines = mediaSource.split(/\r?\n/);
-const mediaStatuses = [];
+const mediaStatuses = new Map();
 let currentMediaKey = null;
 for (const line of mediaLines) {
   const keyMatch = line.match(/^  ([A-Za-z0-9_]+): \{$/);
   if (keyMatch) currentMediaKey = keyMatch[1];
   const statusMatch = line.match(/^    status: "([^"]+)",/);
   if (statusMatch && currentMediaKey) {
-    mediaStatuses.push({ key: currentMediaKey, status: statusMatch[1] });
+    mediaStatuses.set(currentMediaKey, statusMatch[1]);
   }
 }
 
-const unclearedMedia = mediaStatuses.filter((asset) => asset.status !== "approved");
-if (unclearedMedia.length > 0) {
+// Only launch-block media that can be rendered by the active architecture.
+// The Home hero is referenced through homeHeroMedia, so add it explicitly.
+const usedMediaKeys = new Set(["homeHero"]);
+for (const sourceFile of ["app", "components", "content"]
+  .flatMap((dir) => walk(path.join(root, dir)))
+  .filter((sourceFile) => /\.(tsx?|mjs|js)$/.test(sourceFile) && !sourceFile.endsWith("content/media.ts"))) {
+  const source = fs.readFileSync(sourceFile, "utf8");
+  for (const match of source.matchAll(/\bmedia\.([A-Za-z0-9_]+)/g)) {
+    usedMediaKeys.add(match[1]);
+  }
+}
+
+// proofHero only becomes renderable once a publishable case study exists.
+if (approvals.caseStudiesPublicationApproved !== true) {
+  usedMediaKeys.delete("proofHero");
+}
+
+const unclearedUsedMedia = [...usedMediaKeys]
+  .map((key) => ({ key, status: mediaStatuses.get(key) ?? "missing-status" }))
+  .filter((asset) => asset.status !== "approved")
+  .sort((a, b) => a.key.localeCompare(b.key));
+
+if (unclearedUsedMedia.length > 0) {
   block(
-    `Media clearance remains open for ${unclearedMedia.length} governed asset(s): ${unclearedMedia
+    `Publication clearance remains open for ${unclearedUsedMedia.length} renderable media asset(s): ${unclearedUsedMedia
       .map((asset) => `${asset.key} (${asset.status})`)
       .join(", ")}`,
   );

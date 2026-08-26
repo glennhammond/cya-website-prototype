@@ -10,6 +10,7 @@ import { StudioPreview } from "@/components/StudioPreview";
 import { FounderClose } from "@/components/FounderClose";
 import { ResourcesSignpost } from "@/components/ResourcesSignpost";
 import { CTASection } from "@/components/CTASection";
+import { HomeStructuredData } from "@/components/StructuredData";
 import {
   homeHeroContent,
   homeHeroMedia,
@@ -47,6 +48,7 @@ export default function Home() {
 
   return (
     <>
+      <HomeStructuredData />
       <HeroVideo eyebrow={homeHeroContent.eyebrow} heading={homeHeroContent.heading} primaryCta={homeHeroContent.primaryCta} media={homeHeroMedia} />
 
       <QuietIntro heading={quietIntro.heading} body={quietIntro.body} image={quietIntro.image} />

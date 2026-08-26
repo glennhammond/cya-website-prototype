@@ -91,3 +91,71 @@ export function ServiceStructuredData({
     />
   );
 }
+
+export function ArticleStructuredData({
+  headline,
+  description,
+  path,
+  authorName,
+  datePublished,
+  dateModified,
+}: {
+  headline: string;
+  description: string;
+  path: string;
+  authorName: string;
+  datePublished: string;
+  dateModified: string;
+}) {
+  const url = new URL(path, origin).toString();
+
+  return (
+    <JsonLd
+      data={{
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Article",
+            "@id": `${url}#article`,
+            headline,
+            description,
+            url,
+            datePublished,
+            dateModified,
+            author: {
+              "@type": authorName === "Corporate Yoga Australia" ? "Organization" : "Person",
+              name: authorName,
+            },
+            publisher: { "@id": organisationId },
+            mainEntityOfPage: url,
+            inLanguage: "en-AU",
+          },
+          {
+            "@type": "BreadcrumbList",
+            "@id": `${url}#breadcrumb`,
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Home",
+                item: `${origin}/`,
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "Insights",
+                item: `${origin}/blog`,
+              },
+              {
+                "@type": "ListItem",
+                position: 3,
+                name: headline,
+                item: url,
+              },
+            ],
+          },
+        ],
+      }}
+    />
+  );
+}

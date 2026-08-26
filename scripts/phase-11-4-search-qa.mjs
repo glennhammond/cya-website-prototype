@@ -178,10 +178,12 @@ for (const slug of [
 const nextConfig = read("next.config.ts");
 const requiredRedirects = [
   ["/home", "/"],
+  ["/getting-started", "/"],
   ["/workplace-wellbeing", "/"],
   ["/programs", "/workplace-wellbeing-programs"],
   ["/workplace-wellbeing/movement", "/movement"],
   ["/workplace-yoga-australia", "/workplace-yoga"],
+  ["/our-classes", "/movement"],
   ["/wellbeing-studio", "/online-wellbeing"],
   ["/proof", "/case-studies"],
   ["/about", "/about-us"],
@@ -197,7 +199,7 @@ const productionSourceFiles = ["app", "components", "content"]
   .flatMap((dir) => walk(file(dir)))
   .filter((sourceFile) => /\.(tsx?|mjs|js)$/.test(sourceFile));
 
-const legacyHref = /(?:href\s*=\s*|href:\s*)["']\/(?:consultation|programs|proof|wellbeing-studio|resources|workplace-wellbeing(?:\/movement)?)(?:[?\/#"']|$)/;
+const legacyHref = /(?:href\s*=\s*|href:\s*)["']\/(?:consultation|programs|proof|wellbeing-studio|resources|getting-started|our-classes|workplace-wellbeing(?:\/movement)?)(?:[?\/#"']|$)/;
 for (const sourceFile of productionSourceFiles) {
   const source = fs.readFileSync(sourceFile, "utf8");
   const relative = path.relative(root, sourceFile);

@@ -12,7 +12,7 @@ export { homeHeroMedia };
 export const homeHeroContent: HeroContent = {
   eyebrow: "Corporate Yoga Australia",
   heading: "Time together, well spent.",
-  primaryCta: { label: "Book a wellbeing consultation", href: "/consultation", variant: "primary" },
+  primaryCta: { label: "Book a wellbeing consultation", href: "/contact", variant: "primary" },
 };
 
 /** Editorial introduction directly after the hero, pairing the core proposition with a representative workplace session image. */
@@ -49,7 +49,7 @@ export const pathways: PathwayCard[] = [
     title: "Ongoing programs",
     description:
       "Recurring sessions and connected workplace wellbeing support designed around people, locations and priorities.",
-    href: "/programs",
+    href: "/workplace-wellbeing-programs",
     cta: "Explore programs",
     image: media.programsHero,
   },
@@ -131,7 +131,7 @@ export const leadershipPerspective = {
   kicker: "Corporate Yoga Australia",
   heading: "One founder, a national team behind every session.",
   body: "Debby Lewis founded CYA in 2014 from her own experience using movement and meditation in a high-pressure HR role. That practice is now delivered by an experienced national network of facilitators, coordinated so every engagement - from one session to a connected program - carries Debby's own standard of care.",
-  cta: { label: "Meet the team behind CYA", href: "/about" },
+  cta: { label: "Meet the team behind CYA", href: "/about-us" },
   image: media.debbyTeacherPortrait,
 };
 
@@ -149,5 +149,5 @@ export const closingCTA = {
   kicker: "Tell us what you are planning",
   heading: "Tell us what you are planning.",
   body: "The first conversation can be about one session, a conference, Wellbeing Studio or an organised program.",
-  cta: { label: "Book a wellbeing consultation", href: "/consultation", variant: "primary" as const },
+  cta: { label: "Book a wellbeing consultation", href: "/contact", variant: "primary" as const },
 };

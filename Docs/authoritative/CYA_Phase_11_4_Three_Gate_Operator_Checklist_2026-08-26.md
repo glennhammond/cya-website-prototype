@@ -19,7 +19,11 @@ Already qualified:
 - Case Studies — safely withheld / non-blocking;
 - current Vercel runtime candidate — READY;
 - preview edge protection — `X-Robots-Tag: noindex`;
+- Vercel candidate build — successful;
+- Vercel candidate error/fatal runtime logs in checked 24h window — none surfaced;
 - current Ahrefs legacy exposure — 0 live portal/`/cp/` backlinks and 0 matching crawled pages;
+- current third-party DNS snapshot reports `ns69.domaincontrol.com` + `ns70.domaincontrol.com`, consistent with GoDaddy DNS;
+- current third-party reputation snapshot still carries residual Gridinsoft/IPQS malware/phishing/suspicious flags while also reporting Squarespace, HTTP 200, valid SSL and DNSFilter-safe;
 - PR remains Draft.
 
 Current approvals that must remain false until the checks below are completed:
@@ -35,7 +39,7 @@ Current approvals that must remain false until the checks below are completed:
 
 ---
 
-# Gate 1 — Google Search Console security clearance
+# Gate 1 — Google Search Console security + reputation assurance
 
 ## A. Security Issues
 
@@ -77,12 +81,29 @@ In **Performance → Search results**:
 
 Retain the export as launch evidence. The connected analytical freeze already exists; this is the native evidence copy.
 
+## D. Residual third-party reputation flag
+
+A fresh 26 August 2026 third-party snapshot still attributes negative domain reputation to Gridinsoft/IPQS while simultaneously reporting the current live website as Squarespace, HTTP 200, valid SSL and DNSFilter-safe.
+
+Because CYA had a confirmed 2023 compromise, stale domain-level reputation residue is plausible but must not be assumed.
+
+After the authenticated GSC checks:
+
+- if GSC reports an active issue, STOP and remediate the active issue first;
+- if GSC is clear, retain a screenshot/note of the residual third-party reputation signal;
+- where Gridinsoft/IPQS or another underlying provider still marks the domain unsafe, submit the current clean-site/security evidence for reclassification/review;
+- re-check the domain reputation after Vercel cutover because a hosting migration does not automatically clear domain-level reputation databases.
+
+This is part of Gate 1 assurance, not a separate fourth launch gate.
+
 ## Gate 1 PASS condition
 
-Only after both security screens are clear:
+Only after both authenticated Google security screens are clear:
 
 - `gscSecurityIssuesChecked: true`;
 - `gscManualActionsChecked: true`.
+
+If third-party flags remain while Google/current-site checks are clean, record them as a governed reputation-remediation action rather than silently ignoring them.
 
 ---
 
@@ -90,9 +111,16 @@ Only after both security screens are clear:
 
 ## A. Snapshot DNS before changing anything
 
+A current public technical snapshot reports:
+
+- `ns69.domaincontrol.com`
+- `ns70.domaincontrol.com`
+
+These are consistent with GoDaddy DNS and align with CYA's confirmed GoDaddy registrar relationship. Start in the GoDaddy domain/DNS account, but verify the source account rather than relying on the public snapshot alone.
+
 1. Open the GoDaddy record for `corporateyoga.com.au`.
-2. Record the delegated **nameservers**.
-3. Identify the control panel that is authoritative for the live DNS zone.
+2. Confirm the delegated **nameservers** match the current source account.
+3. Confirm the control panel is authoritative for the live DNS zone.
 4. Export or screenshot the **complete current DNS zone**.
 
 Preserve and explicitly identify:
@@ -111,7 +139,7 @@ Preserve and explicitly identify:
 
 ### STOP condition
 
-If the authoritative DNS location is uncertain, or if the zone cannot be safely captured:
+If the source DNS account does not match the public nameserver signal, if the authoritative DNS location is uncertain, or if the zone cannot be safely captured:
 
 - do not change nameservers;
 - do not point the public domain to Vercel;
@@ -154,6 +182,7 @@ A known compromised/spam path should be genuinely not served (for example 404/41
 Only after:
 
 - the full DNS snapshot is captured;
+- nameserver/source control is confirmed;
 - current portal state is known;
 - representative portal + `/cp/` HTTP behaviour is safe;
 - no hacked route soft-redirects to legitimate CYA content;
@@ -173,8 +202,10 @@ Current verified runtime candidate:
 - deployment: `dpl_5tL21T9gpcDGubPrHQocP5TDLmCK`;
 - commit: `1430f67e008d6017020501391f674571aae679a8`;
 - state: READY;
-- later PR changes are documentation-only;
-- preview remains protected and noindexed.
+- later branch changes are documentation/governance only;
+- preview remains protected and noindexed;
+- Vercel build completed successfully on Next.js 16.3.3;
+- deployment-scoped error/fatal runtime-log review surfaced no matching logs in the checked 24h window.
 
 ## A. Page sweep
 
@@ -253,20 +284,22 @@ When the protected preview is visually and interactively clean:
 When **all three gates pass**:
 
 1. update `config/launch-approvals.json` with the verified true states;
-2. run the repository launch gate / current production QA;
+2. run `npm run qa:launch` plus the current production QA workflow;
 3. confirm the PR head is current and green;
 4. mark PR #2 **Ready for Review**;
 5. merge only from that green/current head;
 6. follow `CYA_Phase_11_4_Production_Migration_Runbook_2026-08-26.md` for cutover;
 7. retain Squarespace as the immediate rollback environment during the migration safety window;
 8. do not change nameservers casually—preserve non-web DNS services;
-9. activate the Phase 11.5 post-launch monitoring cadence immediately after cutover.
+9. activate the Phase 11.5 post-launch monitoring cadence immediately after cutover;
+10. re-check third-party domain reputation after cutover and close any stale classification with supporting clean-site evidence.
 
 ## Do not substitute
 
 Do not use any of the following as a substitute for the three gates:
 
 - a green GitHub build instead of GSC security clearance;
+- an aggregator trust score instead of authenticated Google/current-site evidence;
 - absence of Google results instead of direct legacy DNS/HTTP checks;
 - server-side smoke tests instead of the protected-preview human/browser pass;
 - historical DNS emails instead of the current authoritative DNS zone;

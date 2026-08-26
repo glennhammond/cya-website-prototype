@@ -180,15 +180,19 @@ export const media = {
 } satisfies Record<string, MediaAsset>;
 
 /**
- * Homepage hero video contract. `videoSrcDesktop`/`videoSrcMobile` are left
- * unset until CYA's commissioned video is delivered - set them to a path
- * under /public/videos/ (kept out of Git as a large binary; add via the
- * deploy pipeline, not a commit) once available. HeroVideo renders no
- * <video> element at all while both are unset, so there is never a broken
- * request in the meantime. `poster` is the current approved interim still.
+ * Homepage hero video contract. The client-facing hero receives a deliberately
+ * public-only poster shape so internal governance status/notes never cross the
+ * server/client boundary into the React payload.
  */
 export const homeHeroMedia: HeroMedia = {
-  poster: media.homeHero,
+  poster: {
+    src: media.homeHero.src,
+    width: media.homeHero.width,
+    height: media.homeHero.height,
+    alt: media.homeHero.alt,
+    focal: media.homeHero.focal,
+    focalDesktop: media.homeHero.focalDesktop,
+  },
   videoSrcDesktop: undefined,
   videoSrcMobile: undefined,
 };

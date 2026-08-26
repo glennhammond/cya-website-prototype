@@ -10,7 +10,7 @@ const VARIANT_BY_ROLE = {
 /**
  * Summary card for a publishable case study. Phase 11.4 does not yet expose
  * individual case-study detail routes, so this deliberately renders as an
- * article rather than linking to the retired /proof/case-study prototype URL.
+ * article rather than linking to a retired prototype detail route.
  */
 export function CaseStudyCard({ study }: { study: CaseStudy }) {
   const variant = VARIANT_BY_ROLE[study.storyRole];

@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "qa:search": "node scripts/phase-11-4-search-qa.mjs"
+    "qa:search": "node scripts/phase-11-4-search-qa.mjs",
+    "qa:launch": "node scripts/phase-11-4-launch-readiness.mjs"
   },
   "dependencies": {
     "next": "16.3.3",

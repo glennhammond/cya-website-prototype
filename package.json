@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "qa:search": "node scripts/phase-11-4-search-qa.mjs"
   },
   "dependencies": {
     "next": "16.2.12",

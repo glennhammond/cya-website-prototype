@@ -1,12 +1,13 @@
 name: Phase 11.4 Production QA
 
 on:
-  push:
-    branches:
-      - phase-11-3-search-authority
   pull_request:
     branches:
       - feature/cya-prototype-v1
+
+concurrency:
+  group: phase-11-4-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
 
 permissions:
   contents: read

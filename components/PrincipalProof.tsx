@@ -1,17 +1,15 @@
 import { Container, Section, Kicker } from "@/components/Primitives";
 import { CtaLink } from "@/components/CtaLink";
 import { ImageMedia } from "@/components/ImageMedia";
-import { EvidenceBadge } from "@/components/AnnotationToggle";
 import type { CaseStudy, MediaAsset } from "@/lib/types";
 
+const publishableStatuses = new Set(["approved", "safe-working-copy"]);
+
 /**
- * One flagship story told in full, documentary-style - image and text each
- * get independent space (no text-over-photo here; that budget is spent on
- * the hero and HumanExperience). Supporting stories are plain text links,
- * not a second and third card repeating the same shape. Every claim in the
- * visible copy is already phrased as a placeholder ("candidate:", "governed
- * placeholder") so the public page never reads as confirmed evidence - the
- * EvidenceBadge dev-only annotation is additional, not load-bearing.
+ * Homepage proof must never expose candidate clients or evidence-required
+ * placeholder stories to public visitors. The governed source data can retain
+ * those candidates for production work, but this component renders only when
+ * at least one story has crossed the publication gate.
  */
 export function PrincipalProof({
   kicker,
@@ -28,6 +26,11 @@ export function PrincipalProof({
   supporting: CaseStudy[];
   image: MediaAsset;
 }) {
+  const publishablePrincipal = publishableStatuses.has(principal.status) ? principal : undefined;
+  const publishableSupporting = supporting.filter((study) => publishableStatuses.has(study.status));
+
+  if (!publishablePrincipal) return null;
+
   return (
     <Section tone="mist">
       <Container className="studio-panel">
@@ -37,7 +40,7 @@ export function PrincipalProof({
             <h2 className="mt-3 text-heading-lg">{heading}</h2>
             <p className="mt-4 text-lg leading-relaxed text-body">{body}</p>
           </div>
-          <CtaLink href="/proof" variant="text">
+          <CtaLink href="/case-studies" variant="text">
             View all case studies
           </CtaLink>
         </div>
@@ -47,35 +50,32 @@ export function PrincipalProof({
             <ImageMedia asset={image} treatment="bleed" sizes="(min-width: 1024px) 50vw, 100vw" />
           </div>
           <div>
-            <div className="flex flex-wrap items-center gap-3">
-              <p className="text-xs font-bold uppercase tracking-wide text-ochre-ink">{principal.clientLabel}</p>
-              <EvidenceBadge status={principal.status} note="Prototype placeholder - not a publishable client story." />
-            </div>
-            <h3 className="mt-2 text-heading-sm text-teal-dark">{principal.headline}</h3>
-            <p className="mt-3 text-base leading-relaxed text-body">{principal.summary}</p>
+            <p className="text-xs font-bold uppercase tracking-wide text-ochre-ink">{publishablePrincipal.clientLabel}</p>
+            <h3 className="mt-2 text-heading-sm text-teal-dark">{publishablePrincipal.headline}</h3>
+            <p className="mt-3 text-base leading-relaxed text-body">{publishablePrincipal.summary}</p>
             <dl className="mt-6 space-y-4 border-t border-divider pt-6">
               <div>
                 <dt className="text-sm font-bold text-teal-dark">Delivery</dt>
-                <dd className="mt-1 text-sm leading-relaxed text-body">{principal.delivery.value}</dd>
+                <dd className="mt-1 text-sm leading-relaxed text-body">{publishablePrincipal.delivery.value}</dd>
               </div>
               <div>
                 <dt className="text-sm font-bold text-teal-dark">Evidence and limitations</dt>
-                <dd className="mt-1 text-sm leading-relaxed text-body">{principal.evidence.value}</dd>
+                <dd className="mt-1 text-sm leading-relaxed text-body">{publishablePrincipal.evidence.value}</dd>
               </div>
             </dl>
             <div className="mt-6">
-              <CtaLink href={`/proof/case-study?story=${principal.slug}`} variant="primary">
-                Read the full story
+              <CtaLink href="/case-studies" variant="primary">
+                Read the case study
               </CtaLink>
             </div>
 
-            {supporting.length > 0 && (
+            {publishableSupporting.length > 0 && (
               <div className="mt-8 border-t border-divider pt-6">
-                <p className="text-sm font-bold text-teal-dark">Other stories in progress</p>
+                <p className="text-sm font-bold text-teal-dark">More client stories</p>
                 <ul className="mt-3 flex flex-col gap-2">
-                  {supporting.map((study) => (
+                  {publishableSupporting.map((study) => (
                     <li key={study.slug}>
-                      <CtaLink href={`/proof/case-study?story=${study.slug}`} variant="text" className="text-sm">
+                      <CtaLink href="/case-studies" variant="text" className="text-sm">
                         {study.clientLabel}
                       </CtaLink>
                     </li>

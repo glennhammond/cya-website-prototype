@@ -28,9 +28,14 @@ import { caseStudies } from "@/content/proof";
 import { media } from "@/content/media";
 
 export const metadata: Metadata = {
-  title: "Corporate Yoga Australia - Start with one useful moment",
+  title: {
+    absolute: "Corporate Yoga Australia | Workplace Yoga & Wellbeing",
+  },
   description:
-    "Book a one-off movement, mindfulness, workshop or conference session, or build a connected year of workplace wellbeing with CYA and Wellbeing Studio.",
+    "Human-led workplace yoga, movement, mindfulness, workshops and wellbeing programs for Australian teams, with onsite, online and ongoing support.",
+  alternates: {
+    canonical: "/",
+  },
 };
 
 export default function Home() {

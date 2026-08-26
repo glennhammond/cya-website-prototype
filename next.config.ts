@@ -3,6 +3,7 @@ import type { NextConfig } from "next";
 
 const redirects: NonNullable<NextConfig["redirects"]> = async () => [
   { source: "/home", destination: "/", statusCode: 301 },
+  { source: "/workplace-wellbeing", destination: "/", statusCode: 301 },
   { source: "/programs", destination: "/workplace-wellbeing-programs", statusCode: 301 },
   { source: "/personalised-wellbeing-programs", destination: "/workplace-wellbeing-programs", statusCode: 301 },
   { source: "/workplace-wellbeing/movement", destination: "/movement", statusCode: 301 },
@@ -17,6 +18,7 @@ const redirects: NonNullable<NextConfig["redirects"]> = async () => [
   { source: "/consultation", destination: "/contact", statusCode: 301 },
   { source: "/contact-us", destination: "/contact", statusCode: 301 },
   { source: "/services", destination: "/movement", statusCode: 301 },
+  { source: "/resources", destination: "/blog", statusCode: 301 },
   { source: "/bespoke-services", destination: "/workplace-wellbeing-programs", statusCode: 301 },
   { source: "/book-a-class", destination: "/contact", statusCode: 301 },
 ];

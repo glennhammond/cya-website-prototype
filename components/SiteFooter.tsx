@@ -32,7 +32,7 @@ export function SiteFooter() {
           <a href={memberSignInHref} target="_blank" rel="noopener noreferrer" className="text-sm text-white/85 hover:text-white">
             Member sign-in<span className="sr-only"> (opens in a new tab)</span>
           </a>
-          <Link href="/consultation" className="text-sm text-white/85 hover:text-white">
+          <Link href="/contact" className="text-sm text-white/85 hover:text-white">
             Book a wellbeing consultation
           </Link>
         </nav>
@@ -49,7 +49,7 @@ export function SiteFooter() {
       <div className="border-t border-white/15">
         <Container className="flex flex-col gap-2 py-6 text-xs text-white/60 sm:flex-row sm:items-center sm:justify-between">
           <p>
-            {site.legalEntity}. {site.studioLockup} is CYA&rsquo;s continuous digital wellbeing platform.
+            {site.legalEntity}. {site.studioLockup} supports CYA&rsquo;s online and ongoing service delivery.
           </p>
           <p>&copy; {new Date().getFullYear()} {site.name}. Prototype build - not for public release.</p>
         </Container>

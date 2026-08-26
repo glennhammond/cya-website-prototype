@@ -9,13 +9,13 @@ export const site = {
   legalEntity: "Deborah Gail Lewis, ABN 59 474 451 715, trading as Corporate Yoga Australia",
   memberSignInUrl: "https://studio.corporateyoga.com.au",
   description:
-    "Corporate Yoga Australia helps organisations start with one useful wellbeing moment and build a connected year of movement, mindfulness, learning and digital support.",
+    "Human-led workplace Yoga, Pilates, mindfulness, workshops and wellbeing programs for Australian organisations, delivered onsite, online and across locations.",
 };
 
 export const responseCommitment: Evidenced<string> = {
-  value: "We aim to respond within one business day.",
+  value: "CYA will review your enquiry and respond with the appropriate next step.",
   status: "safe-working-copy",
-  note: "Final response-time wording requires operational confirmation before launch (Strategic Source of Truth §7).",
+  note: "No fixed response-time promise is published until an operational service level is formally confirmed.",
 };
 
 export const claimGuardrails = {

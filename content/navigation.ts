@@ -17,9 +17,9 @@ export const primaryNav: NavItem[] = [
       },
     ],
   },
-  { label: "Programs", href: "/programs" },
+  { label: "Programs", href: "/workplace-wellbeing-programs" },
   { label: "Wellbeing Studio", href: "/wellbeing-studio" },
-  { label: "About", href: "/about" },
+  { label: "About", href: "/about-us" },
 ];
 
 export const utilityNav: NavItem[] = [
@@ -31,7 +31,7 @@ export const memberSignInHref = "https://studio.corporateyoga.com.au";
 
 export const primaryCTA: CTA = {
   label: "Book a wellbeing consultation",
-  href: "/consultation",
+  href: "/contact",
   variant: "primary",
 };
 

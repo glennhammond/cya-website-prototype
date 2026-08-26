@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Container, Section, Kicker } from "@/components/Primitives";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { BreadcrumbStructuredData } from "@/components/StructuredData";
 import { ConsultationForm } from "@/components/ConsultationForm";
 import { consultationHero, interestLabelByType } from "@/content/consultation";
 import { responseCommitment } from "@/content/site";
@@ -8,7 +9,7 @@ import { responseCommitment } from "@/content/site";
 export const metadata: Metadata = {
   title: "Contact Corporate Yoga Australia",
   description:
-    "Tell Corporate Yoga Australia whether you are considering one session, a conference, Wellbeing Studio, a recurring series or a broader workplace wellbeing program.",
+    "Tell Corporate Yoga Australia whether you are considering one session, a conference, online wellbeing, a recurring series or a broader workplace wellbeing program.",
   alternates: {
     canonical: "/contact",
   },
@@ -24,6 +25,7 @@ export default async function ContactPage({
 
   return (
     <>
+      <BreadcrumbStructuredData items={[{ name: "Contact", path: "/contact" }]} />
       <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Contact" }]} />
       <Section tone="white" className="pb-0">
         <Container>

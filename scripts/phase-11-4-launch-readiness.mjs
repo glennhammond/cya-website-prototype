@@ -14,10 +14,12 @@ function block(message) {
 }
 
 const approvals = JSON.parse(read("config/launch-approvals.json"));
+
+// Phase 11.4 launch-blocking approvals. Pilates and Case Studies may remain
+// safely withheld/noindexed at launch; they are conditional publication gates,
+// not prerequisites for releasing the rest of the website.
 const requiredApprovals = [
   ["photographyPublicationApproved", "Photography publication clearance has not been recorded."],
-  ["pilatesPublicationApproved", "Workplace Pilates publication approval has not been recorded."],
-  ["caseStudiesPublicationApproved", "Case-study publication approval has not been recorded."],
   ["legacySecurityVerified", "Historical /cp/ and portal DNS/HTTP verification has not been recorded."],
   ["gscSecurityIssuesChecked", "Google Search Console Security Issues check has not been recorded."],
   ["gscManualActionsChecked", "Google Search Console Manual Actions check has not been recorded."],
@@ -50,25 +52,38 @@ if (unclearedMedia.length > 0) {
   );
 }
 
-const proofSource = read("content/proof.ts");
-const publishableCaseStudy = /^    status: "(?:approved|safe-working-copy)",/m.test(proofSource);
-if (!publishableCaseStudy) {
-  block("No case study currently has an approved or safe-working-copy top-level publication status.");
-}
-
+const sitemapSource = read("app/sitemap.ts");
 const pilatesSource = read("app/workplace-pilates/page.tsx");
-if (pilatesSource.includes("index: false")) {
-  warnings.push("/workplace-pilates remains noindex; launch approval should only be recorded after evidence qualification.");
+const caseStudiesSource = read("app/case-studies/page.tsx");
+const proofSource = read("content/proof.ts");
+
+const pilatesIsNoindex = pilatesSource.includes("index: false");
+const pilatesInSitemap = sitemapSource.includes('"/workplace-pilates"');
+if (approvals.pilatesPublicationApproved === true) {
+  if (pilatesIsNoindex) block("Pilates is marked publication-approved but /workplace-pilates is still noindex.");
+  if (!pilatesInSitemap) block("Pilates is marked publication-approved but /workplace-pilates is still absent from the sitemap.");
+} else {
+  if (!pilatesIsNoindex) block("Unapproved Workplace Pilates must remain noindex.");
+  if (pilatesInSitemap) block("Unapproved Workplace Pilates must remain absent from the sitemap.");
+  warnings.push("Workplace Pilates remains safely withheld from search pending practitioner/evidence qualification.");
 }
 
-const caseStudiesSource = read("app/case-studies/page.tsx");
-if (caseStudiesSource.includes("index: false")) {
-  warnings.push("/case-studies remains noindex; launch approval should only be recorded after client evidence qualification.");
+const publishableCaseStudy = /^    status: "(?:approved|safe-working-copy)",/m.test(proofSource);
+const caseStudiesIsNoindex = caseStudiesSource.includes("index: false");
+const caseStudiesInSitemap = sitemapSource.includes('"/case-studies"');
+if (approvals.caseStudiesPublicationApproved === true) {
+  if (!publishableCaseStudy) block("Case Studies is marked publication-approved but no case study has a publishable top-level status.");
+  if (caseStudiesIsNoindex) block("Case Studies is marked publication-approved but /case-studies is still noindex.");
+  if (!caseStudiesInSitemap) block("Case Studies is marked publication-approved but /case-studies is still absent from the sitemap.");
+} else {
+  if (!caseStudiesIsNoindex) block("Unapproved Case Studies must remain noindex.");
+  if (caseStudiesInSitemap) block("Unapproved Case Studies must remain absent from the sitemap.");
+  warnings.push("Case Studies remains safely withheld from search while client evidence/permission work continues.");
 }
 
 console.log("\nCYA Phase 11.4 launch-readiness gate");
 if (warnings.length > 0) {
-  console.log("\nControlled warnings:");
+  console.log("\nControlled non-blocking publication gates:");
   for (const warning of warnings) console.log(`- ${warning}`);
 }
 
@@ -78,4 +93,4 @@ if (blockers.length > 0) {
   process.exit(1);
 }
 
-console.log("\nLAUNCH-READY: all Phase 11.4 publication, security, evidence and rendered-QA gates are recorded as complete.");
+console.log("\nLAUNCH-READY: all Phase 11.4 launch-blocking publication, security and rendered-QA gates are recorded as complete.");

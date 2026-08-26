@@ -14,10 +14,9 @@ export type EvidenceStatus =
   | "placeholder";
 
 /**
- * A curated photograph from the provisional image library (public/images/source/),
- * cropped into public/images/selected/. See Docs/CYA_Prototype_v1_Image_Mapping.md
- * for the full selection rationale. None of this library's publication consent is
- * documented, so every asset carries an EvidenceStatus and a review-mode-only note.
+ * A governed photograph in the CYA image library. Publication approval and
+ * any internal production note remain part of the server-side governance
+ * model; public client payloads should use PublicMediaAsset instead.
  */
 export interface MediaAsset {
   src: string;
@@ -36,16 +35,19 @@ export interface MediaAsset {
   focalDesktop?: string;
 }
 
+/** Public-safe media shape. Governance status/notes never cross a client boundary. */
+export type PublicMediaAsset = Omit<MediaAsset, "status" | "note">;
+
 /**
  * Content contract for the homepage video hero. `videoSrcDesktop` /
  * `videoSrcMobile` are optional and intentionally absent until final video
  * is delivered - HeroVideo only renders a <video> element when at least one
  * is set, so no broken request ever fires against a missing file. `poster`
- * is required and is what actually paints: it is the LCP image, the
- * reduced-motion fallback and the no-video state, all at once.
+ * is a public-safe LCP/reduced-motion/no-video fallback and deliberately
+ * excludes internal EvidenceStatus/governance notes.
  */
 export interface HeroMedia {
-  poster: MediaAsset;
+  poster: PublicMediaAsset;
   videoSrcDesktop?: string;
   videoSrcMobile?: string;
 }

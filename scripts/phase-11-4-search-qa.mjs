@@ -58,6 +58,7 @@ const indexQualifiedPages = [
   "app/workplace-wellbeing-programs/page.tsx",
   "app/movement/page.tsx",
   "app/workplace-yoga/page.tsx",
+  "app/workplace-pilates/page.tsx",
   "app/meditation-mindfulness/page.tsx",
   "app/workplace-wellbeing-workshops/page.tsx",
   "app/online-wellbeing/page.tsx",
@@ -104,6 +105,7 @@ for (const canonicalPath of [
   "/workplace-wellbeing-programs",
   "/movement",
   "/workplace-yoga",
+  "/workplace-pilates",
   "/meditation-mindfulness",
   "/workplace-wellbeing-workshops",
   "/online-wellbeing",
@@ -114,13 +116,12 @@ for (const canonicalPath of [
   check(sitemap.includes(`\"${canonicalPath}\"`), `sitemap contains ${canonicalPath}`);
 }
 
-for (const blockedPath of ["/workplace-pilates", "/case-studies", "/member-access", "/conferences-events"]) {
+for (const blockedPath of ["/case-studies", "/member-access", "/conferences-events"]) {
   check(!sitemap.includes(`\"${blockedPath}\"`), `sitemap excludes ${blockedPath}`);
 }
 check(sitemap.includes("insightArticles.map"), "sitemap includes protected Insights collection");
 
 const noindexPages = [
-  "app/workplace-pilates/page.tsx",
   "app/case-studies/page.tsx",
   "app/member-access/page.tsx",
   "app/conferences-events/page.tsx",
@@ -133,6 +134,18 @@ for (const noindexFile of noindexPages) {
     check(source.includes("follow: true"), `follow remains enabled: ${noindexFile}`);
   }
 }
+
+const pilatesPage = read("app/workplace-pilates/page.tsx");
+check(!pilatesPage.includes("index: false"), "Workplace Pilates is index-qualified");
+check(pilatesPage.includes('canonical: "/workplace-pilates"'), "Workplace Pilates canonical is self-referencing");
+check(pilatesPage.includes("ServiceStructuredData"), "Workplace Pilates renders Service structured data");
+
+const navigation = read("content/navigation.ts");
+check(navigation.includes('href: "/workplace-pilates"'), "qualified Workplace Pilates is present in service navigation");
+const homeContent = read("content/home.ts");
+check(homeContent.includes('href: "/workplace-pilates"'), "Home links directly to qualified Workplace Pilates");
+const movementContent = read("content/movement.ts");
+check(movementContent.includes('href: "/workplace-pilates"'), "Movement hub links directly to qualified Workplace Pilates");
 
 const serviceSchemaPages = [
   "app/workplace-wellbeing-programs/page.tsx",
@@ -198,6 +211,31 @@ check(
   proofNote.includes('process.env.NODE_ENV !== "production"'),
   "production hides internal proof placeholders",
 );
+
+const imageMedia = read("components/ImageMedia.tsx");
+check(
+  imageMedia.includes('process.env.NODE_ENV === "production"'),
+  "production prevents image-governance annotation boundaries",
+);
+const evidencePlaceholder = read("components/EvidencePlaceholder.tsx");
+check(
+  evidencePlaceholder.includes('process.env.NODE_ENV !== "production"'),
+  "production prevents placeholder-governance annotation boundaries",
+);
+
+const mediaSource = read("content/media.ts");
+check(!mediaSource.includes('status: "evidence-required"'), "all governed CYA website images remain publication-approved");
+check(mediaSource.includes("poster: {"), "Home hero uses an explicit public-only poster object");
+const heroMediaBlock = mediaSource.slice(mediaSource.indexOf("export const homeHeroMedia"));
+check(!heroMediaBlock.includes("note:"), "Home hero public client payload excludes governance notes");
+check(!heroMediaBlock.includes("status:"), "Home hero public client payload excludes EvidenceStatus");
+
+const launchApprovals = JSON.parse(read("config/launch-approvals.json"));
+check(launchApprovals.photographyPublicationApproved === true, "photography publication approval is recorded");
+check(launchApprovals.pilatesPublicationApproved === true, "Workplace Pilates publication approval is recorded");
+
+const caseStudyCard = read("components/CaseStudyCard.tsx");
+check(!caseStudyCard.includes("/proof/case-study"), "future case-study cards cannot revive retired proof detail route");
 
 const principalProof = read("components/PrincipalProof.tsx");
 check(

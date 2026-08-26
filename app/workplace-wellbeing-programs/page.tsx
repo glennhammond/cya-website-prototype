@@ -1,0 +1,94 @@
+import type { Metadata } from "next";
+import { PageHero } from "@/components/PageHero";
+import { EditorialFeature } from "@/components/EditorialFeature";
+import { OfferProgression } from "@/components/OfferProgression";
+import { ExampleYearView } from "@/components/ExampleYearView";
+import { StatementList } from "@/components/StatementList";
+import { DividerList } from "@/components/DividerList";
+import { CTASection } from "@/components/CTASection";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { ProofNote } from "@/components/ProofNote";
+import {
+  programsHero,
+  whyContinuity,
+  programLevels,
+  whatCyaCoordinates,
+  multiSiteFeature,
+  investmentFactors,
+  closingCTA,
+} from "@/content/programs";
+import { exampleYear } from "@/content/home";
+import { media } from "@/content/media";
+
+export const metadata: Metadata = {
+  title: "Workplace Wellbeing Programs Australia",
+  description:
+    "Tailored workplace wellbeing programs combining human-led experiences, practical coordination and ongoing support for Australian teams.",
+  alternates: {
+    canonical: "/workplace-wellbeing-programs",
+  },
+};
+
+export default function WorkplaceWellbeingProgramsPage() {
+  return (
+    <>
+      <Breadcrumbs
+        items={[
+          { label: "Home", href: "/" },
+          { label: "Workplace wellbeing programs" },
+        ]}
+      />
+      <PageHero intro={programsHero} image={media.programsHero} imagePosition="left" />
+      <EditorialFeature
+        kicker={whyContinuity.kicker}
+        heading={whyContinuity.heading}
+        body={whyContinuity.body}
+        tone="mist"
+        image={media.programsContinuity}
+      />
+      <OfferProgression
+        kicker="Choose the level of continuity that fits"
+        heading="Four levels, no compulsory ladder."
+        body="Each level adds coordination, not a new sales tier. Move between them as your priorities change - there is no minimum to reach before support becomes worthwhile."
+        levels={programLevels}
+      />
+      <ExampleYearView months={exampleYear} />
+      <StatementList
+        kicker="What CYA coordinates"
+        heading="The planning load CYA takes on."
+        items={whatCyaCoordinates}
+        tone="white"
+        columns={3}
+      />
+      <EditorialFeature
+        kicker={multiSiteFeature.kicker}
+        heading={multiSiteFeature.heading}
+        body={multiSiteFeature.body}
+        tone="mist"
+        reverse
+        image={media.programsMultiSite}
+      />
+      <DividerList
+        kicker="Investment factors"
+        heading="What shapes the investment."
+        body="No fixed pricing is published here. These are the variables CYA works through with you during a consultation."
+        items={investmentFactors}
+        tone="white"
+      />
+      <ProofNote
+        reverse
+        placeholderVariant="workplace"
+        placeholderCaption="Case study placeholder - recurring and multi-site delivery story."
+        note="Requires renewal, attendance/feedback and delivery-learning evidence before publication."
+        heading="Renewal and delivery learning, evidenced."
+        body="Program case studies will show recurring and multi-site delivery, renewal and what CYA learned along the way. These remain placeholders until specific client evidence is confirmed and permissioned."
+      />
+      <CTASection
+        kicker={closingCTA.kicker}
+        heading={closingCTA.heading}
+        body={closingCTA.body}
+        cta={closingCTA.cta}
+      />
+    </>
+  );
+}

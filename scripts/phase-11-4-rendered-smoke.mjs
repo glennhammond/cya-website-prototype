@@ -77,6 +77,7 @@ const indexableRoutes = [
   "/workplace-wellbeing-programs",
   "/movement",
   "/workplace-yoga",
+  "/workplace-pilates",
   "/meditation-mindfulness",
   "/workplace-wellbeing-workshops",
   "/online-wellbeing",
@@ -89,6 +90,7 @@ const serviceRoutes = [
   "/workplace-wellbeing-programs",
   "/movement",
   "/workplace-yoga",
+  "/workplace-pilates",
   "/meditation-mindfulness",
   "/workplace-wellbeing-workshops",
   "/online-wellbeing",
@@ -106,7 +108,6 @@ const insightRoutes = [
 ];
 
 const controlledNoindexRoutes = [
-  "/workplace-pilates",
   "/case-studies",
   "/conferences-events",
   "/member-access",
@@ -181,11 +182,6 @@ try {
     check(hasSchemaType(html, "Service"), `Service schema renders: ${pathname}`);
     check(hasSchemaType(html, "BreadcrumbList"), `BreadcrumbList schema renders: ${pathname}`);
   }
-
-  const pilatesResponse = await request("/workplace-pilates");
-  const pilatesHtml = await pilatesResponse.text();
-  check(hasSchemaType(pilatesHtml, "Service"), "controlled Pilates draft renders Service schema");
-  check(hasSchemaType(pilatesHtml, "BreadcrumbList"), "controlled Pilates draft renders BreadcrumbList schema");
 
   for (const pathname of insightRoutes) {
     const response = await request(pathname);

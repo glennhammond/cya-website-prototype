@@ -224,11 +224,15 @@ try {
   check(unknown.status === 404, "unknown route returns genuine 404", `received ${unknown.status}`);
   check(unknownHtml.includes("Page not found"), "404 renders human not-found experience");
 
-  const legacyCp = await request("/cp/");
+  const legacyCpSlash = await request("/cp/");
+  check(legacyCpSlash.status === 308, "legacy /cp/ normalises trailing slash", `received ${legacyCpSlash.status}`);
+  check(locationPath(legacyCpSlash) === "/cp", "legacy /cp/ normalises only to /cp", `received ${locationPath(legacyCpSlash)}`);
+
+  const legacyCp = await request("/cp");
   const legacyCpHtml = await legacyCp.text();
-  check(legacyCp.status === 404, "legacy /cp/ returns genuine 404", `received ${legacyCp.status}`);
-  check(!legacyCp.headers.get("location"), "legacy /cp/ does not redirect into legitimate CYA content");
-  check(legacyCpHtml.includes("Page not found"), "legacy /cp/ renders human not-found experience");
+  check(legacyCp.status === 404, "legacy /cp returns genuine 404", `received ${legacyCp.status}`);
+  check(!legacyCp.headers.get("location"), "legacy /cp does not redirect into legitimate CYA content");
+  check(legacyCpHtml.includes("Page not found"), "legacy /cp renders human not-found experience");
 
   const rootResponse = await request("/");
   const rootHtml = await rootResponse.text();

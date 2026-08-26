@@ -35,9 +35,9 @@ export const recognisableExperiences = [
   },
   {
     title: "Workplace Pilates",
-    body: "Pilates is a genuine CYA movement option. The specialist page remains evidence-gated while facilitator credentials and Pilates-specific proof are qualified.",
-    href: "/movement",
-    cta: "Compare movement options",
+    body: "Mat-based Pilates for one-off classes, short series, recurring sessions or mixed movement programs, adapted to the team and available space.",
+    href: "/workplace-pilates",
+    cta: "Explore Workplace Pilates",
   },
   {
     title: "Mindfulness & Meditation",

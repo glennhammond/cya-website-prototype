@@ -28,13 +28,17 @@ The rendered suite proves actual production-server behaviour for canonicals, ind
 
 ### A. Legacy security / Search Console
 
+The historical incident and remediation trail is now substantially established in `CYA_Phase_11_4_Legacy_Security_Evidence_Register_2026-08-26.md`: the old HostGator-era WordPress installation experienced real malware/phishing compromise in 2023; the injected `portal` namespace was not legitimate CYA architecture; a paid clean-up and Google delisting request were commissioned; and DigitalHost subsequently confirmed that the site had been cleaned and the migration completed.
+
+The remaining security gate is therefore **current-state verification**, not unresolved incident history.
+
 - [ ] Representative historical `/cp/` paths have been checked directly and do not serve hacked/spam/unsafe content. Expected treatment is genuine 404/410/not-served where no legitimate resource exists; do not soft-redirect unrelated historical paths to Home.
 - [ ] `portal.corporateyoga.com.au` DNS and HTTP/application state has been checked directly and is understood/retired safely.
 - [ ] Google Search Console **Security Issues** checked while authenticated: no unresolved issue.
 - [ ] Google Search Console **Manual Actions** checked while authenticated: no unresolved action.
 - [ ] Native GSC Performance export for the pre-launch period has been saved outside the application repository or referenced in the launch record.
 
-Public-search and Ahrefs absence of `/cp/` or portal visibility is supporting evidence only; it does not satisfy these checks.
+Public-search and Ahrefs absence of `/cp/` or portal visibility is supporting evidence only; it does not satisfy these current-state checks.
 
 ### B. Current release candidate
 
@@ -60,11 +64,21 @@ Using the current hosted candidate:
 
 ### D. Domain / operational readiness
 
-- [ ] Registrar/DNS provider confirmed from the live account rather than inferred only from public DNS.
+Verified account evidence now establishes:
+
+- **registrar:** GoDaddy;
+- **legacy/current website-hosting history:** WordPress on DigitalHost after the 2023 HostGator compromise and migration;
+- **historical DNS operation:** DigitalHost has made CYA `www` DNS changes; in June 2025 the record had previously pointed to HubSpot sites infrastructure before DigitalHost repointed it to its server;
+- **email dependency:** DigitalHost has provided Premium Email Protection for `corporateyoga.com.au`.
+
+Registrar is therefore known, but registrar and DNS host must not be conflated. The live DNS zone/provider still needs to be confirmed/exported immediately before cutover.
+
+- [ ] Current DNS-zone provider/control surface confirmed from the live account.
 - [ ] Current DNS zone exported/screenshoted before changes.
 - [ ] Existing MX, SPF, DKIM, DMARC and other TXT records documented and protected.
 - [ ] `studio.corporateyoga.com.au` and any other legitimate subdomains documented and protected.
-- [ ] Old Squarespace site/settings/content retained for rollback during the migration safety window; do not cancel hosting first.
+- [ ] Existing WordPress/DigitalHost website and hosting state retained for rollback during the migration safety window; do not cancel or dismantle the old hosting before the Vercel cutover is proven stable.
+- [ ] DigitalHost mail-protection/email dependencies remain intact; do not replace nameservers merely to move the website.
 - [ ] Rollback owner/process is clear.
 
 ## 4. Vercel domain cutover
@@ -95,11 +109,12 @@ Do not alter without explicit need:
 - DKIM records;
 - DMARC record;
 - mail/autodiscover records;
+- DigitalHost email-protection records;
 - HubSpot/other verification TXT/CNAME records;
 - `studio.corporateyoga.com.au`;
 - any currently required application/service subdomains.
 
-Change the smallest possible set of apex/www records.
+Change the smallest possible set of apex/www website-routing records.
 
 ## 6. Immediately after DNS cutover
 
@@ -143,6 +158,8 @@ Spot-check, then systematically verify all governed mappings, including:
 
 Each governed redirect should be one-hop permanent and preserve approved query parameters where specified by the Phase 11.4 contract.
 
+Do **not** add catch-all redirects for historical compromised `portal`, `/cp/` or other injected spam routes. Those have no migration entitlement and should remain 404/410/not-served unless a specific URL is independently proven to have been a legitimate CYA resource.
+
 ### Human/product smoke
 
 - [ ] Main navigation works.
@@ -166,9 +183,10 @@ After the production host is confirmed healthy:
    - `/workplace-wellbeing-workshops`
    - `/online-wellbeing`
    - one protected Insight
-4. Inspect representative retired URLs to confirm redirects are understood.
-5. Reconfirm Security Issues / Manual Actions remain clear.
-6. Record the migration date in the SEO operating record.
+4. Inspect representative retired legitimate URLs to confirm redirects are understood.
+5. Inspect a representative historical spam/compromised route to confirm it is not being legitimised by a soft redirect.
+6. Reconfirm Security Issues / Manual Actions remain clear.
+7. Record the migration date in the SEO operating record.
 
 Do not request manual indexing for dozens of URLs as a substitute for correct crawling, redirects and sitemap discovery.
 
@@ -228,10 +246,11 @@ Do **not** roll back solely because rankings fluctuate during normal migration.
 If rollback is required:
 
 1. restore the prior website-routing DNS records from the captured zone state;
-2. keep the incident timeline and cause;
-3. verify email/subdomains remain intact;
-4. restore public site availability;
-5. diagnose before attempting a second cutover.
+2. keep the DigitalHost-hosted WordPress site/hosting available during the safety window so previous public routing can be restored if necessary;
+3. keep the incident timeline and cause;
+4. verify email/subdomains remain intact;
+5. restore public site availability;
+6. diagnose before attempting a second cutover.
 
 ## 11. Authority/backlink handoff
 

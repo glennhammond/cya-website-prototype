@@ -64,6 +64,19 @@ for (const retiredFile of retiredPageFiles) {
   check(!exists(retiredFile), `retired page file removed: ${retiredFile}`);
 }
 
+const obsoleteSchemaLayouts = [
+  "app/workplace-wellbeing-programs/layout.tsx",
+  "app/movement/layout.tsx",
+  "app/workplace-yoga/layout.tsx",
+  "app/meditation-mindfulness/layout.tsx",
+  "app/workplace-wellbeing-workshops/layout.tsx",
+  "app/online-wellbeing/layout.tsx",
+];
+
+for (const layoutFile of obsoleteSchemaLayouts) {
+  check(!exists(layoutFile), `duplicate service-schema layout removed: ${layoutFile}`);
+}
+
 const sitemap = read("app/sitemap.ts");
 for (const canonicalPath of [
   "/workplace-wellbeing-programs",
@@ -110,7 +123,7 @@ const serviceSchemaPages = [
 ];
 for (const schemaFile of serviceSchemaPages) {
   const source = read(schemaFile);
-  check(source.includes("ServiceStructuredData"), `service schema rendered: ${schemaFile}`);
+  check(source.includes("ServiceStructuredData"), `service schema rendered once at page authority: ${schemaFile}`);
 }
 
 const insights = read("content/insights.ts");

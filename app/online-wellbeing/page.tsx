@@ -6,6 +6,7 @@ import { EditorialFeature } from "@/components/EditorialFeature";
 import { DividerList } from "@/components/DividerList";
 import { ProofNote } from "@/components/ProofNote";
 import { CTASection } from "@/components/CTASection";
+import { ServiceStructuredData } from "@/components/StructuredData";
 import { media } from "@/content/media";
 import {
   onlineHero,
@@ -31,6 +32,12 @@ export const metadata: Metadata = {
 export default function OnlineWellbeingPage() {
   return (
     <>
+      <ServiceStructuredData
+        name="Online Workplace Wellbeing"
+        description="Human-led online workplace wellbeing for remote, hybrid and distributed teams, combining live experiences, on-demand practices and Wellbeing Studio continuity."
+        path="/online-wellbeing"
+        breadcrumbLabel="Online Wellbeing"
+      />
       <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Online Wellbeing" }]} />
       <PageHero intro={onlineHero} image={media.studioEmployeeHome} />
 

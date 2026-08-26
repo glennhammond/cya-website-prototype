@@ -11,6 +11,23 @@ function JsonLd({ data }: { data: Record<string, unknown> }) {
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: json }} />;
 }
 
+function breadcrumbElements(items: BreadcrumbItem[]) {
+  return [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: `${origin}/`,
+    },
+    ...items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 2,
+      name: item.name,
+      item: new URL(item.path, origin).toString(),
+    })),
+  ];
+}
+
 export function HomeStructuredData() {
   return (
     <JsonLd
@@ -33,6 +50,38 @@ export function HomeStructuredData() {
             inLanguage: "en-AU",
           },
         ],
+      }}
+    />
+  );
+}
+
+export function BreadcrumbStructuredData({ items }: { items: BreadcrumbItem[] }) {
+  const finalPath = items.at(-1)?.path ?? "/";
+  const url = new URL(finalPath, origin).toString();
+
+  return (
+    <JsonLd
+      data={{
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "@id": `${url}#breadcrumb`,
+        itemListElement: breadcrumbElements(items),
+      }}
+    />
+  );
+}
+
+export function FounderStructuredData() {
+  return (
+    <JsonLd
+      data={{
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "@id": `${origin}/about-us#debby-lewis`,
+        name: "Debby Lewis",
+        jobTitle: "Founder",
+        url: `${origin}/about-us`,
+        worksFor: { "@id": organisationId },
       }}
     />
   );
@@ -71,20 +120,7 @@ export function ServiceStructuredData({
           {
             "@type": "BreadcrumbList",
             "@id": `${url}#breadcrumb`,
-            itemListElement: [
-              {
-                "@type": "ListItem",
-                position: 1,
-                name: "Home",
-                item: `${origin}/`,
-              },
-              ...breadcrumbItems.map((item, index) => ({
-                "@type": "ListItem",
-                position: index + 2,
-                name: item.name,
-                item: new URL(item.path, origin).toString(),
-              })),
-            ],
+            itemListElement: breadcrumbElements(breadcrumbItems),
           },
         ],
       }}
@@ -133,26 +169,10 @@ export function ArticleStructuredData({
           {
             "@type": "BreadcrumbList",
             "@id": `${url}#breadcrumb`,
-            itemListElement: [
-              {
-                "@type": "ListItem",
-                position: 1,
-                name: "Home",
-                item: `${origin}/`,
-              },
-              {
-                "@type": "ListItem",
-                position: 2,
-                name: "Insights",
-                item: `${origin}/blog`,
-              },
-              {
-                "@type": "ListItem",
-                position: 3,
-                name: headline,
-                item: url,
-              },
-            ],
+            itemListElement: breadcrumbElements([
+              { name: "Insights", path: "/blog" },
+              { name: headline, path },
+            ]),
           },
         ],
       }}

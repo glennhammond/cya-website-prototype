@@ -6,6 +6,7 @@ import { EditorialFeature } from "@/components/EditorialFeature";
 import { DividerList } from "@/components/DividerList";
 import { ProofNote } from "@/components/ProofNote";
 import { CTASection } from "@/components/CTASection";
+import { ServiceStructuredData } from "@/components/StructuredData";
 import { media } from "@/content/media";
 import {
   workshopsHero,
@@ -32,6 +33,12 @@ export const metadata: Metadata = {
 export default function WorkplaceWellbeingWorkshopsPage() {
   return (
     <>
+      <ServiceStructuredData
+        name="Workplace Wellbeing Workshops & Expert Experiences"
+        description="Expert-led workplace wellbeing workshops and Lunch & Learns for Australian teams, including stress management, sleep, nutrition, mindfulness and breathwork."
+        path="/workplace-wellbeing-workshops"
+        breadcrumbLabel="Workplace Wellbeing Workshops"
+      />
       <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Workplace Wellbeing Workshops" }]} />
       <PageHero intro={workshopsHero} image={media.workplaceWellbeingLunchLearn} imagePosition="left" />
 

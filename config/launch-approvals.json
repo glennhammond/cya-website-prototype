@@ -6,7 +6,7 @@
   "caseStudiesPublicationApproved": false,
   "renderedServerQaPassed": true,
   "legacySecurityVerified": false,
-  "gscSecurityIssuesChecked": false,
-  "gscManualActionsChecked": false,
+  "gscSecurityIssuesChecked": true,
+  "gscManualActionsChecked": true,
   "hostedBrowserQaPassed": false
 }

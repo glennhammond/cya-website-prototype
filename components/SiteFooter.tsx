@@ -4,6 +4,8 @@ import { primaryNav, utilityNav, memberSignInHref, footerLegalNav } from "@/cont
 import { site } from "@/content/site";
 
 export function SiteFooter() {
+  const isProduction = process.env.VERCEL_ENV === "production";
+
   return (
     <footer id="site-footer" className="border-t border-divider bg-teal-dark text-white">
       <Container className="grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4">
@@ -51,7 +53,10 @@ export function SiteFooter() {
           <p>
             {site.legalEntity}. {site.studioLockup} supports CYA&rsquo;s online and ongoing service delivery.
           </p>
-          <p>&copy; {new Date().getFullYear()} {site.name}. Prototype build - not for public release.</p>
+          <p>
+            &copy; {new Date().getFullYear()} {site.name}.
+            {!isProduction && " Prototype build - not for public release."}
+          </p>
         </Container>
       </div>
     </footer>

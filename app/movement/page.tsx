@@ -9,6 +9,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { ProofNote } from "@/components/ProofNote";
 import {
   movementHero,
+  movementTypes,
   whoItsFor,
   usefulFormats,
   whatToExpect,
@@ -33,6 +34,13 @@ export default function MovementPage() {
     <>
       <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Movement" }]} />
       <PageHero intro={movementHero} image={media.movementHero} imagePosition="left" />
+      <DividerList
+        kicker="Choose the movement"
+        heading="Yoga, Pilates or something simpler for the space you have."
+        body="Start with the kind of experience that fits the people and workplace. CYA can help choose when the brief is not yet specific."
+        items={movementTypes}
+        tone="white"
+      />
       <EditorialFeature
         kicker={whoItsFor.kicker}
         heading={whoItsFor.heading}
@@ -80,7 +88,7 @@ export default function MovementPage() {
       />
       <DividerList
         kicker="Related use cases"
-        heading="Movement rarely stands entirely alone."
+        heading="Movement can stand alone or connect when useful."
         items={relatedUseCases}
         tone="mist"
       />

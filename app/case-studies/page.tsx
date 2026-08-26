@@ -13,6 +13,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/case-studies",
   },
+  robots: {
+    index: false,
+    follow: true,
+  },
 };
 
 export default function CaseStudiesPage() {
@@ -65,7 +69,7 @@ export default function CaseStudiesPage() {
         kicker="Next step"
         heading="Discuss a similar need."
         body="If a story above is close to your situation, the first conversation can start there."
-        cta={{ label: "Book a wellbeing consultation", href: "/consultation", variant: "primary" }}
+        cta={{ label: "Book a wellbeing consultation", href: "/contact", variant: "primary" }}
       />
     </>
   );

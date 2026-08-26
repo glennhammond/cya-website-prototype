@@ -5,7 +5,7 @@
   "pilatesPublicationApproved": true,
   "caseStudiesPublicationApproved": false,
   "renderedServerQaPassed": true,
-  "legacySecurityVerified": false,
+  "legacySecurityVerified": true,
   "gscSecurityIssuesChecked": true,
   "gscManualActionsChecked": true,
   "hostedBrowserQaPassed": false

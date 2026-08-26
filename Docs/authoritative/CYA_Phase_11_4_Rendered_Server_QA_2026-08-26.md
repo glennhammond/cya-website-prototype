@@ -6,7 +6,7 @@
 
 ## Qualification result
 
-Phase 11.4 is now qualified beyond source inspection and compilation. The permanent GitHub Actions workflow builds the production Next.js application, starts the resulting app with `next start` using production environment semantics, and runs an HTTP smoke suite against the actual rendered server.
+Phase 11.4 is qualified beyond source inspection and compilation. The permanent GitHub Actions workflow builds the production Next.js application with `VERCEL_ENV=production`, starts the resulting app with `next start`, and runs an HTTP smoke suite against the actual rendered server.
 
 Latest successful permanent QA run:
 
@@ -14,9 +14,9 @@ Latest successful permanent QA run:
 - Phase 11.4 source/search architecture harness — **PASS (314 checks)**;
 - ESLint — **PASS**;
 - Next.js 16.3.3 production build — **PASS**;
-- rendered production HTTP smoke — **PASS (162 checks)**.
+- rendered production HTTP smoke — **PASS (197 checks)**.
 
-## What the 162 rendered HTTP checks prove
+## What the 197 rendered HTTP checks prove
 
 ### Canonical/indexable routes
 
@@ -40,11 +40,13 @@ The eight protected Insights slugs are also exercised as rendered pages.
 
 ### Controlled noindex routes
 
-The production server confirms that these supporting/evidence-gated routes remain reachable but render `noindex`:
+The production server confirms these supporting/evidence-gated routes remain reachable, self-canonical and `noindex`:
 
 - `/case-studies`
 - `/conferences-events`
 - `/member-access`
+
+The expanded suite caught a missing self-canonical on Member Access; that was corrected before this PASS was recorded.
 
 ### Redirect behaviour
 
@@ -60,19 +62,22 @@ A deliberately unknown URL returns a genuine **404** and the human CYA not-found
 
 ### Structured data
 
-Rendered HTML confirms:
+Rendered HTML now verifies:
 
 - Organization schema on Home;
 - WebSite schema on Home;
-- Service schema on Workplace Pilates as a newly qualified canonical service;
-- corresponding canonical output on the tested routes.
+- Service + BreadcrumbList schema on all seven qualified service destinations, including Workplace Pilates;
+- Article + BreadcrumbList schema on all eight protected Insights articles;
+- Person + BreadcrumbList schema on About;
+- BreadcrumbList schema on Contact;
+- BreadcrumbList schema on the Insights hub.
 
 ### Sitemap and robots
 
 The production server confirms:
 
 - `/sitemap.xml` returns 200;
-- qualified canonical service routes are present;
+- all qualified canonical service routes, including Workplace Pilates, are present;
 - protected Insights URLs are present;
 - controlled noindex routes are excluded;
 - `/robots.txt` returns 200;
@@ -82,25 +87,32 @@ The production server confirms:
 
 ### Production payload hygiene
 
-The rendered HTML suite verifies that production output does not contain internal governance material such as:
+The rendered suite verifies that production output does not contain internal governance material such as:
 
 - image-approval notes;
+- hero production notes;
 - evidence-status annotations;
 - prototype-only client-story warnings;
+- historical image-permission language;
 - the `Prototype build - not for public release` footer message.
 
-This caught and resolved a real build-time environment bug in the footer before launch qualification was declared complete.
+This layer caught and resolved real issues before launch qualification:
+
+1. production footer environment handling;
+2. image-governance metadata crossing the Home hero client boundary;
+3. dormant proof-route/annotation behaviour;
+4. Member Access canonical omission.
 
 ## Workplace Pilates consequence
 
-Workplace Pilates has now crossed the Phase 11.4 publication threshold and is tested as a normal indexable canonical service:
+Workplace Pilates has crossed the Phase 11.4 publication threshold and is tested as a normal indexable canonical service:
 
 - returns 200;
 - self canonical `/workplace-pilates`;
-- renders Service structured data;
+- renders Service + BreadcrumbList structured data;
 - does not render `noindex`;
 - appears in the sitemap;
-- is linked from Home, Movement and the Services navigation.
+- is linked from Home, Movement and Services navigation.
 
 The page deliberately does not invent individual practitioner qualification strings or health-outcome claims. Practitioner fit and relevant qualifications remain verified for an actual booking.
 
@@ -117,13 +129,13 @@ The following no longer depend on a Vercel preview for technical proof:
 - query-string preservation for governed redirects;
 - sitemap membership/exclusion;
 - production robots behaviour;
-- core structured-data rendering;
+- structured-data rendering across qualified routes;
 - genuine 404 behaviour;
 - production governance-payload suppression.
 
 ## What remains hosted/browser-specific
 
-A hosted candidate is still required for environment/UX qualification that a headless localhost production server does not prove:
+A hosted candidate is still required for environment/UX qualification that a localhost production server does not prove:
 
 - responsive visual inspection across target breakpoints;
 - interactive navigation/menu behaviour in real browsers;
@@ -134,4 +146,4 @@ A hosted candidate is still required for environment/UX qualification that a hea
 - Core Web Vitals / hosted performance smoke;
 - final human visual sign-off.
 
-This is a substantially narrower gate than the former generic “current-head deployment QA” blocker.
+This is now a narrow hosted UX/environment gate rather than a general technical uncertainty.

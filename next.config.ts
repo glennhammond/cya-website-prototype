@@ -10,6 +10,7 @@ const redirects: NonNullable<NextConfig["redirects"]> = async () => [
   { source: "/online-wellbeing-2026", destination: "/online-wellbeing", statusCode: 301 },
   { source: "/wellbeing-studio", destination: "/online-wellbeing", statusCode: 301 },
   { source: "/proof", destination: "/case-studies", statusCode: 301 },
+  { source: "/proof/case-study", destination: "/case-studies", statusCode: 301 },
   { source: "/reviews", destination: "/case-studies", statusCode: 301 },
   { source: "/testimonials", destination: "/case-studies", statusCode: 301 },
   { source: "/about", destination: "/about-us", statusCode: 301 },

@@ -56,7 +56,7 @@ export function HomeStructuredData() {
 }
 
 export function BreadcrumbStructuredData({ items }: { items: BreadcrumbItem[] }) {
-  const finalPath = items.at(-1)?.path ?? "/";
+  const finalPath = items.length > 0 ? items[items.length - 1].path : "/";
   const url = new URL(finalPath, origin).toString();
 
   return (

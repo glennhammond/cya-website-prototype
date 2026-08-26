@@ -6,8 +6,8 @@ export const workplaceHero: PageIntro = {
   heading: "Useful support, designed for the way your people work.",
   body: "CYA adapts movement, mindfulness and practical learning to your audience, environment, timing and purpose. Book one session, a short series, or connect several elements over time.",
   actions: [
-    { label: "Discuss a session", href: "/consultation?interest=one-off", variant: "primary" },
-    { label: "Explore programs", href: "/programs", variant: "secondary" },
+    { label: "Discuss a session", href: "/contact?interest=one-off", variant: "primary" },
+    { label: "Explore programs", href: "/workplace-wellbeing-programs", variant: "secondary" },
   ],
   meta: ["Movement", "Mindfulness", "Workshops", "Lunch & Learns"],
 };
@@ -35,20 +35,20 @@ export const modalities: FeatureItem[] = [
   {
     title: "Movement",
     body: "Yoga, Pilates, mobility and desk movement, adapted to real workplaces.",
-    href: "/workplace-wellbeing/movement",
+    href: "/movement",
     cta: "Explore Movement",
   },
-  { title: "Mindfulness and meditation", body: "Short, grounded practices that create a useful pause during the working day." },
-  { title: "Breathwork", body: "Practical breathing techniques people can use in the moment and reuse later." },
+  { title: "Mindfulness and meditation", body: "Short, grounded practices that create a useful pause during the working day.", href: "/meditation-mindfulness", cta: "Explore mindfulness" },
+  { title: "Breathwork", body: "Practical breathing techniques people can use in the moment and reuse later.", href: "/meditation-mindfulness", cta: "Explore mindfulness & breathwork" },
   { title: "Sound experiences", body: "A guided, restorative moment suited to a longer session or event." },
-  { title: "Workshops and Lunch & Learns", body: "Practical learning sessions, well suited to online delivery across states." },
+  { title: "Workshops and Lunch & Learns", body: "Practical learning sessions, well suited to onsite or online delivery.", href: "/workplace-wellbeing-workshops", cta: "Explore workshops" },
 ];
 
 export const processFeature = {
   kicker: "How CYA works",
   heading: "The format follows the workplace.",
   body: "CYA clarifies the audience and constraints, recommends an appropriate experience, coordinates delivery and helps make participation straightforward.",
-  cta: { label: "How CYA works", href: "/about", variant: "secondary" as const },
+  cta: { label: "How CYA works", href: "/about-us", variant: "secondary" as const },
 };
 
 export const logisticsFeature = {
@@ -61,5 +61,5 @@ export const closingCTA = {
   kicker: "Next step",
   heading: "Tell us what your people need.",
   body: "The first conversation can be about one session, a short series, or a broader mix across your locations.",
-  cta: { label: "Discuss a session", href: "/consultation?interest=one-off", variant: "primary" as const },
+  cta: { label: "Discuss a session", href: "/contact?interest=one-off", variant: "primary" as const },
 };

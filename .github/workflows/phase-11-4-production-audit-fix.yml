@@ -33,6 +33,9 @@ jobs:
       - name: Apply compatible production audit fixes
         run: npm audit fix --omit=dev
 
+      - name: Restore development dependencies from updated lockfile
+        run: npm ci
+
       - name: Verify production dependency audit
         run: npm audit --omit=dev --audit-level=high
 

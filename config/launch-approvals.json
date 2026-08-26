@@ -8,5 +8,5 @@
   "legacySecurityVerified": false,
   "gscSecurityIssuesChecked": false,
   "gscManualActionsChecked": false,
-  "renderedDeploymentQaPassed": false
+  "hostedBrowserQaPassed": false
 }

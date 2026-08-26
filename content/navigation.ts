@@ -22,6 +22,11 @@ export const primaryNav: NavItem[] = [
         description: "Guided meditation, mindfulness, breathwork and related workplace practices.",
       },
       {
+        label: "Workshops & Expert Experiences",
+        href: "/workplace-wellbeing-workshops",
+        description: "Expert-led Lunch & Learns and workshops for practical workplace wellbeing topics.",
+      },
+      {
         label: "Online Wellbeing",
         href: "/online-wellbeing",
         description: "Live and on-demand continuity for remote, hybrid and distributed teams.",

@@ -58,6 +58,7 @@ export const experienceMix: FeatureItem[] = [
   { title: "Workplace Yoga", body: "One-off or recurring Yoga adapted to the workplace and participant group.", href: "/workplace-yoga", cta: "Explore Workplace Yoga" },
   { title: "Pilates & movement", body: "Pilates, mobility and other movement formats selected to fit the brief.", href: "/movement", cta: "Explore movement" },
   { title: "Mindfulness & meditation", body: "Guided meditation, mindfulness and breathwork in practical workplace formats.", href: "/meditation-mindfulness", cta: "Explore mindfulness" },
+  { title: "Workshops & Expert Experiences", body: "Lunch & Learns, practical workshops and expert-led sessions for workplace topics that benefit from explanation, discussion or guided practice.", href: "/workplace-wellbeing-workshops", cta: "Explore workshops" },
   { title: "Online continuity", body: "Live online experiences, on-demand practices and Wellbeing Studio access for remote, hybrid or ongoing support.", href: "/online-wellbeing", cta: "Explore online wellbeing" },
 ];
 

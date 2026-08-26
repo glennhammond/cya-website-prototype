@@ -64,21 +64,23 @@ Using the current hosted candidate:
 
 ### D. Domain / operational readiness
 
-Verified account evidence now establishes:
+Current and historical evidence must be kept distinct:
 
-- **registrar:** GoDaddy;
-- **legacy/current website-hosting history:** WordPress on DigitalHost after the 2023 HostGator compromise and migration;
-- **historical DNS operation:** DigitalHost has made CYA `www` DNS changes; in June 2025 the record had previously pointed to HubSpot sites infrastructure before DigitalHost repointed it to its server;
+- **current public website (26 August 2026):** Squarespace. The live production HTML is currently served with Squarespace CDN assets and the existing Squarespace page structure. This is the immediate pre-cutover rollback site.
+- **registrar:** GoDaddy, confirmed from account correspondence/renewal evidence.
+- **historical compromised environment:** WordPress on HostGator in 2023.
+- **historical remediation/hosting:** the compromised WordPress site was cleaned and migrated to DigitalHost in July 2023; DigitalHost later operated the WordPress/DNS environment through at least 2025.
+- **historical DNS operation:** DigitalHost has made CYA `www` DNS changes; in June 2025 the record had previously pointed to HubSpot sites infrastructure before DigitalHost repointed it to its server.
 - **email dependency:** DigitalHost has provided Premium Email Protection for `corporateyoga.com.au`.
 
-Registrar is therefore known, but registrar and DNS host must not be conflated. The live DNS zone/provider still needs to be confirmed/exported immediately before cutover.
+The live Squarespace site proves that website hosting has changed again since the DigitalHost WordPress period. Registrar, website host, DNS-zone provider and email provider must therefore be treated as separate control surfaces rather than inferred from one another.
 
 - [ ] Current DNS-zone provider/control surface confirmed from the live account.
 - [ ] Current DNS zone exported/screenshoted before changes.
 - [ ] Existing MX, SPF, DKIM, DMARC and other TXT records documented and protected.
 - [ ] `studio.corporateyoga.com.au` and any other legitimate subdomains documented and protected.
-- [ ] Existing WordPress/DigitalHost website and hosting state retained for rollback during the migration safety window; do not cancel or dismantle the old hosting before the Vercel cutover is proven stable.
-- [ ] DigitalHost mail-protection/email dependencies remain intact; do not replace nameservers merely to move the website.
+- [ ] Current Squarespace site/settings/content retained for rollback during the migration safety window; do not cancel or dismantle Squarespace before the Vercel cutover is proven stable.
+- [ ] DigitalHost mail-protection/email dependencies, if still active in the current zone, remain intact; do not replace nameservers merely to move the website.
 - [ ] Rollback owner/process is clear.
 
 ## 4. Vercel domain cutover
@@ -109,7 +111,7 @@ Do not alter without explicit need:
 - DKIM records;
 - DMARC record;
 - mail/autodiscover records;
-- DigitalHost email-protection records;
+- DigitalHost email-protection records where currently active;
 - HubSpot/other verification TXT/CNAME records;
 - `studio.corporateyoga.com.au`;
 - any currently required application/service subdomains.
@@ -246,7 +248,7 @@ Do **not** roll back solely because rankings fluctuate during normal migration.
 If rollback is required:
 
 1. restore the prior website-routing DNS records from the captured zone state;
-2. keep the DigitalHost-hosted WordPress site/hosting available during the safety window so previous public routing can be restored if necessary;
+2. retain the current Squarespace site/settings/content during the safety window so previous public routing can be restored if necessary;
 3. keep the incident timeline and cause;
 4. verify email/subdomains remain intact;
 5. restore public site availability;

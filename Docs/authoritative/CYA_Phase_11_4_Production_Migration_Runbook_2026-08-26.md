@@ -1,241 +1,247 @@
 # CYA Website — Phase 11.4 Production Migration Runbook
 
 **Prepared:** 26 August 2026  
-**Status:** RELEASE CANDIDATE READY / PRODUCTION CUTOVER NOT YET AUTHORISED  
-**Target project:** Vercel `cya-website-prototype` (`prj_nNwC7crwnAAqCEnvXYQRlVyA3ESo`)  
+**Current status:** **LAUNCH-READY / PRODUCTION CUTOVER AUTHORISED / DNS NOT YET CHANGED**  
+**Target Vercel project:** `cya-website-prototype` (`prj_nNwC7crwnAAqCEnvXYQRlVyA3ESo`)  
 **Do not use:** separate Vercel `cya-site` project  
 **Canonical host:** `https://www.corporateyoga.com.au`
 
 ## 1. Purpose
 
-Move the decision-complete Phase 11.3 / qualified Phase 11.4 CYA website onto the production domain without sacrificing existing organic authority, email/DNS services or rollback capability.
+Move the decision-complete Phase 11.3 / qualified Phase 11.4 CYA website onto the production domain without sacrificing organic authority, email/DNS services, Wellbeing Studio, security or rollback capability.
 
-The repository is technically qualified. The cutover remains blocked only by the explicit external launch gates below.
+All Phase 11.4 launch-blocking gates are now closed. This runbook governs the controlled merge, Vercel production deployment, DNS cutover and immediate post-cutover verification.
 
-## 2. Current technical release candidate
+Case Studies remains deliberately `noindex,follow` and outside sitemap/navigation until client evidence and permission are publishable. That is a controlled non-blocking workstream.
 
-The current Phase 11.4 branch has passed the permanent qualification gate covering:
+## 2. Current qualified release state
 
-- production dependency audit — 0 high-severity production vulnerabilities;
-- Phase 11.4 source/search architecture QA — 314 checks;
-- ESLint;
-- Next.js 16.3.3 production build;
-- rendered production HTTP smoke — 197 checks.
+The latest current head must remain green through the permanent GitHub Actions gate before merge/cutover.
 
-The rendered suite proves actual production-server behaviour for canonicals, indexability/noindex, 19 governed one-hop redirects, query preservation, schema, sitemap, robots, genuine 404 behaviour and production governance-payload suppression.
+Established qualified baseline:
 
-## 3. Hard preconditions — all must be true before cutover
+- production dependency audit — **PASS / 0 high-severity production vulnerabilities**;
+- Phase 11.4 source/search architecture QA — **PASS (316 checks)**;
+- ESLint — **PASS**;
+- Next.js `16.3.3` production build — **PASS**;
+- rendered production HTTP smoke — **PASS (206 checks)**;
+- final `npm run qa:launch` gate — **PASS**;
+- photography publication approval — **PASS**;
+- Workplace Pilates publication approval — **PASS**;
+- legacy security verification — **PASS**;
+- GSC Security Issues — **CLEAR**;
+- GSC Manual Actions — **CLEAR**;
+- hosted desktop/mobile browser QA — **PASS**;
+- keyboard/focus qualification — **PASS**.
 
-### A. Legacy security / Search Console
+The rendered suite proves production-server behaviour for canonicals, indexability/noindex, governed one-hop redirects, query preservation, schema, sitemap, robots, genuine 404 behaviour, `/cp` retirement and production governance-payload suppression.
 
-The historical incident and remediation trail is now substantially established in `CYA_Phase_11_4_Legacy_Security_Evidence_Register_2026-08-26.md`: the old HostGator-era WordPress installation experienced real malware/phishing compromise in 2023; the injected `portal` namespace was not legitimate CYA architecture; a paid clean-up and Google delisting request were commissioned; and DigitalHost subsequently confirmed that the site had been cleaned and the migration completed.
+## 3. Closed launch gates and retained evidence
 
-The remaining security gate is therefore **current-state verification**, not unresolved incident history.
+### A. Legacy security / Search Console — CLOSED
 
-- [ ] Representative historical `/cp/` paths have been checked directly and do not serve hacked/spam/unsafe content. Expected treatment is genuine 404/410/not-served where no legitimate resource exists; do not soft-redirect unrelated historical paths to Home.
-- [ ] `portal.corporateyoga.com.au` DNS and HTTP/application state has been checked directly and is understood/retired safely.
-- [ ] Google Search Console **Security Issues** checked while authenticated: no unresolved issue.
-- [ ] Google Search Console **Manual Actions** checked while authenticated: no unresolved action.
-- [ ] Native GSC Performance export for the pre-launch period has been saved outside the application repository or referenced in the launch record.
+Authority: `CYA_Phase_11_4_Legacy_Security_Gate_Closure_2026-08-26.md`.
 
-Public-search and Ahrefs absence of `/cp/` or portal visibility is supporting evidence only; it does not satisfy these current-state checks.
+Verified 26 August 2026:
 
-### B. Current release candidate
+- authenticated GSC **Security Issues — No issues detected**;
+- authenticated GSC **Manual Actions — No issues detected**;
+- authoritative GoDaddy DNS zone captured;
+- no `portal` DNS record and no wildcard DNS record;
+- direct browser request to `portal.corporateyoga.com.au` returned `DNS_PROBE_FINISHED_NXDOMAIN`;
+- replacement `/cp/` behaviour is governed: optional trailing-slash normalisation only, then genuine `404`; no soft redirect into legitimate CYA content;
+- native pre-launch GSC Performance export retained.
 
-- [ ] PR #2 current head still passes the permanent Phase 11.4 Production QA workflow.
-- [ ] Current hosted Vercel preview corresponds to the same or intentionally approved head SHA.
-- [ ] No unreviewed code/content changes have landed after final qualification.
+The historical 2023 WordPress malware/phishing compromise remains documented as history. The gate is closed because the compromised environment is no longer active, Google is clear, the portal is dead at DNS level, and the replacement site explicitly refuses to legitimise the injected namespace.
 
-### C. Hosted browser / human sign-off
+### B. Hosted browser / human qualification — CLOSED
 
-Using the current hosted candidate:
+Authority: `CYA_Phase_11_4_Hosted_Browser_QA_Closure_2026-08-26.md`.
 
-- [ ] Home desktop visual check.
-- [ ] Home mobile visual check.
-- [ ] Programs, Yoga, Pilates, Mindfulness, Workshops, Online Wellbeing, Insights, About and Contact spot-check.
-- [ ] Desktop navigation/dropdown behaviour.
-- [ ] Mobile navigation behaviour.
-- [ ] Keyboard-only navigation and visible focus check.
-- [ ] Obvious colour-contrast/content-overflow check.
-- [ ] Images/fonts/hosted assets load correctly through Vercel/CDN.
-- [ ] Contact/planning journey works through its intended handoff.
-- [ ] Basic hosted performance/Core Web Vitals smoke is acceptable; investigate severe regressions rather than chasing perfect lab scores.
-- [ ] Final human visual sign-off recorded.
+Desktop/mobile and keyboard checks passed. Human QA found a real mobile-menu clipping issue, which was fixed by portalling the open mobile menu to `document.body`, then re-tested successfully.
 
-### D. Domain / operational readiness
+The corrected mobile flow passed:
 
-Current and historical evidence must be kept distinct:
+- full menu visibility;
+- service-child navigation;
+- Workplace Yoga route;
+- Yoga → Contact continuity;
+- mobile form layout;
+- keyboard activation;
+- Escape close;
+- visible focus and focus return.
 
-- **current public website (26 August 2026):** Squarespace. The live production HTML is currently served with Squarespace CDN assets and the existing Squarespace page structure. This is the immediate pre-cutover rollback site.
-- **registrar:** GoDaddy, confirmed from account correspondence/renewal evidence.
-- **historical compromised environment:** WordPress on HostGator in 2023.
-- **historical remediation/hosting:** the compromised WordPress site was cleaned and migrated to DigitalHost in July 2023; DigitalHost later operated the WordPress/DNS environment through at least 2025.
-- **historical DNS operation:** DigitalHost has made CYA `www` DNS changes; in June 2025 the record had previously pointed to HubSpot sites infrastructure before DigitalHost repointed it to its server.
-- **email dependency:** DigitalHost has provided Premium Email Protection for `corporateyoga.com.au`.
+### C. Search measurement — ACTIVE
 
-The live Squarespace site proves that website hosting has changed again since the DigitalHost WordPress period. Registrar, website host, DNS-zone provider and email provider must therefore be treated as separate control surfaces rather than inferred from one another.
+Ahrefs project `Corporateyoga` (`10280255`) now contains the governed **40-keyword Australia / English** Rank Tracker portfolio.
 
-- [ ] Current DNS-zone provider/control surface confirmed from the live account.
-- [ ] Current DNS zone exported/screenshoted before changes.
-- [ ] Existing MX, SPF, DKIM, DMARC and other TXT records documented and protected.
-- [ ] `studio.corporateyoga.com.au` and any other legitimate subdomains documented and protected.
-- [ ] Current Squarespace site/settings/content retained for rollback during the migration safety window; do not cancel or dismantle Squarespace before the Vercel cutover is proven stable.
-- [ ] DigitalHost mail-protection/email dependencies, if still active in the current zone, remain intact; do not replace nameservers merely to move the website.
-- [ ] Rollback owner/process is clear.
+GSC remains the source of truth for actual clicks, impressions, CTR, ranking URL and indexation. Ahrefs is a monitoring/competitive layer, not a content-production quota.
 
-## 4. Vercel domain cutover
+## 4. Merge and Vercel release sequence
 
-Use **Vercel project `cya-website-prototype`**, not `cya-site`.
+1. Confirm PR #2 is **Ready for Review**, mergeable and has no unresolved review threads.
+2. Confirm the latest PR head passes the complete Phase 11.4 Production QA workflow, including `qa:launch`.
+3. Merge PR #2 into `feature/cya-prototype-v1` from the exact expected green head.
+4. Allow/confirm the Vercel production deployment for project `cya-website-prototype` reaches **READY**.
+5. Verify the Vercel production candidate before changing public DNS.
+6. Keep the existing Squarespace site intact as the immediate rollback environment.
 
-In Vercel Project Settings → Domains:
+A repository merge or Vercel deployment is **not** itself the public website cutover while `corporateyoga.com.au` / `www` still route to Squarespace.
 
-1. Add `www.corporateyoga.com.au`.
-2. Add `corporateyoga.com.au`.
-3. Preserve `www` as the canonical production host to match the repository's current canonical authority.
-4. Configure the apex/non-www hostname to permanently redirect to the canonical `www` hostname.
-5. Use the **exact DNS records Vercel displays for this project at cutover time**. Do not rely on remembered/example CNAME targets.
-6. Where the DNS zone is managed externally, update only the website-routing records required for the apex/www cutover unless another change is explicitly justified.
-7. Do **not** replace nameservers or delete unrelated records merely to move the website.
-8. Wait for Vercel domain verification/SSL provisioning and verify both HTTPS hosts.
+## 5. DNS and domain safety
 
-Vercel commonly directs apex domains through an A record and `www` through a project-specific CNAME, but the dashboard's current project-specific instructions are authoritative.
+Current authoritative DNS is GoDaddy. Website hosting, registrar, DNS, email and application subdomains must be treated as separate control surfaces.
 
-## 5. DNS safety rules
-
-The website migration must not interrupt CYA email or Wellbeing Studio.
-
-Do not alter without explicit need:
+Protect and do not alter without explicit need:
 
 - MX records;
 - SPF TXT;
-- DKIM records;
-- DMARC record;
+- DKIM;
+- DMARC;
 - mail/autodiscover records;
-- DigitalHost email-protection records where currently active;
-- HubSpot/other verification TXT/CNAME records;
+- Microsoft 365 records;
+- Brevo records;
+- HubSpot verification/integration records;
+- any current DigitalHost mail-protection records;
 - `studio.corporateyoga.com.au`;
-- any currently required application/service subdomains.
+- all other legitimate application/service subdomains.
+
+Do **not** replace nameservers merely to move the website.
 
 Change the smallest possible set of apex/www website-routing records.
 
-## 6. Immediately after DNS cutover
+Before changing DNS, retain the captured zone and current Squarespace configuration for rollback.
 
-Record the cutover timestamp and release SHA, then verify from the public production host:
+## 6. Vercel domain cutover
+
+Use Vercel project **`cya-website-prototype`** only.
+
+In Vercel Project Settings → Domains:
+
+1. Add/verify `www.corporateyoga.com.au`.
+2. Add/verify `corporateyoga.com.au`.
+3. Keep `www` as canonical production host.
+4. Configure apex/non-www to permanently redirect to canonical `www`.
+5. Use the **exact project-specific DNS records Vercel displays at cutover time**.
+6. Update only the required apex/www website-routing records in GoDaddy.
+7. Do not alter mail, Studio or unrelated verification records.
+8. Confirm Vercel domain verification and SSL provisioning.
+
+Do not rely on remembered example CNAME/A-record values; the Vercel dashboard at cutover is authoritative.
+
+## 7. Immediate public-host verification after DNS change
+
+Record cutover timestamp and release SHA.
 
 ### Host behaviour
 
 - [ ] `https://www.corporateyoga.com.au/` = 200.
 - [ ] `https://corporateyoga.com.au/` permanently redirects one hop to `https://www.corporateyoga.com.au/`.
-- [ ] HTTP variants permanently resolve to the HTTPS canonical without redirect chains.
-- [ ] SSL certificate valid.
+- [ ] HTTP variants resolve permanently to HTTPS canonical without unnecessary chains.
+- [ ] SSL certificate is valid.
+- [ ] email remains operational.
+- [ ] `studio.corporateyoga.com.au` remains operational.
 
 ### Canonical/search layer
 
 - [ ] Home canonical exactly `https://www.corporateyoga.com.au`.
-- [ ] Priority routes self-canonical correctly.
+- [ ] priority routes self-canonical correctly.
 - [ ] `/robots.txt` = 200 and production crawling allowed.
 - [ ] `/sitemap.xml` = 200 and contains canonical/indexable routes only.
-- [ ] Preview Vercel deployments remain non-indexable.
-- [ ] no utility/member/case-study route accidentally becomes indexable.
-- [ ] Organization/WebSite schema on Home.
-- [ ] Service/Breadcrumb schema on commercial service pages.
-- [ ] protected Insights render Article/Breadcrumb schema.
+- [ ] Case Studies/member/controlled utility routes remain excluded/noindex as governed.
+- [ ] Organization + WebSite schema on Home.
+- [ ] Service + BreadcrumbList schema on commercial services.
+- [ ] Article + BreadcrumbList on protected Insights.
 
-### Migration redirects
+### Governed migration redirects
 
-Spot-check, then systematically verify all governed mappings, including:
+Systematically verify the configured one-hop 301 map, including:
 
-- `/home` → `/`
-- `/personalised-wellbeing-programs` → `/workplace-wellbeing-programs`
-- `/programs` → `/workplace-wellbeing-programs`
-- `/workplace-yoga-australia` → `/workplace-yoga`
-- `/online-wellbeing-2026` → `/online-wellbeing`
-- `/wellbeing-studio` → `/online-wellbeing`
-- `/reviews` and `/testimonials` → `/case-studies`
-- `/about` → `/about-us`
-- `/consultation` and `/contact-us` → `/contact`
-- `/services` → `/movement`
-- `/resources` → `/blog`
-- `/book-a-class` → `/contact`
+- `/home` → `/`;
+- `/workplace-wellbeing` → `/`;
+- `/getting-started` → `/`;
+- `/programs` and `/personalised-wellbeing-programs` → `/workplace-wellbeing-programs`;
+- `/workplace-wellbeing/movement` and `/our-classes` → `/movement`;
+- `/workplace-yoga-australia` → `/workplace-yoga`;
+- `/online-wellbeing-2026` and `/wellbeing-studio` → `/online-wellbeing`;
+- `/proof`, `/proof/case-study`, `/reviews`, `/testimonials` → `/case-studies`;
+- `/about` → `/about-us`;
+- `/consultation`, `/contact-us` → `/contact`;
+- `/services` → `/movement`;
+- `/resources` → `/blog`;
+- `/bespoke-services` → `/workplace-wellbeing-programs`;
+- `/book-a-class` → `/contact`.
 
-Each governed redirect should be one-hop permanent and preserve approved query parameters where specified by the Phase 11.4 contract.
+Preserve approved query parameters where specified by the Phase 11.4 contract.
 
-Do **not** add catch-all redirects for historical compromised `portal`, `/cp/` or other injected spam routes. Those have no migration entitlement and should remain 404/410/not-served unless a specific URL is independently proven to have been a legitimate CYA resource.
+Do **not** add catch-all redirects for historical compromised `portal`, `/cp/` or injected spam paths. `/cp` must remain a genuine not-found route.
 
 ### Human/product smoke
 
-- [ ] Main navigation works.
-- [ ] primary CTA/contact journey works.
-- [ ] Member Access routes correctly to Wellbeing Studio.
-- [ ] key images/assets load.
-- [ ] no internal prototype/evidence-governance labels are visible.
+- [ ] desktop navigation works;
+- [ ] mobile navigation works;
+- [ ] main CTA/contact journey works;
+- [ ] Member Access reaches Wellbeing Studio as intended;
+- [ ] key images/fonts/assets load;
+- [ ] no prototype/evidence-governance labels are visible.
 
-## 7. Google Search Console cutover actions
+## 8. Google Search Console cutover actions
 
-After the production host is confirmed healthy:
+After the public host is confirmed healthy:
 
-1. Verify ownership/property remains valid.
+1. Confirm ownership/property remains valid.
 2. Submit/refresh the canonical sitemap.
-3. Inspect representative URLs:
-   - Home
-   - `/workplace-wellbeing-programs`
-   - `/workplace-yoga`
-   - `/workplace-pilates`
-   - `/meditation-mindfulness`
-   - `/workplace-wellbeing-workshops`
-   - `/online-wellbeing`
-   - one protected Insight
-4. Inspect representative retired legitimate URLs to confirm redirects are understood.
-5. Inspect a representative historical spam/compromised route to confirm it is not being legitimised by a soft redirect.
-6. Reconfirm Security Issues / Manual Actions remain clear.
-7. Record the migration date in the SEO operating record.
+3. Inspect representative canonical URLs: Home, Programs, Yoga, Pilates, Mindfulness, Workshops, Online Wellbeing and one protected Insight.
+4. Inspect representative retired legitimate URLs to confirm redirects.
+5. Inspect `/cp` and one representative historical spam/injected URL to confirm no soft redirect.
+6. Reconfirm Security Issues and Manual Actions remain clear.
+7. Record migration date in the SEO operating record.
 
 Do not request manual indexing for dozens of URLs as a substitute for correct crawling, redirects and sitemap discovery.
 
-## 8. Ahrefs / measurement activation
+## 9. Ahrefs / Phase 11.5 monitoring activation
 
-After the production host is stable:
+The governed 40-keyword AU/English portfolio is already active in Rank Tracker.
 
-1. Import `Docs/measurement/CYA_Ahrefs_Rank_Tracker_AU_Import_2026-08-26.csv` into Ahrefs project `Corporateyoga` (project ID `10280255`) for Australia/English.
-2. Use the governed 40-keyword set rather than bulk-adding suggestions.
-3. Record the first successful Rank Tracker baseline date.
-4. Begin `CYA_Phase_11_5_Postlaunch_Search_Monitoring_v1.0.md` cadence.
-5. Compare against `CYA_Phase_11_4_Prelaunch_GSC_Freeze_2026-08-26.md`.
+After production cutover:
 
-Rank Tracker is a monitoring instrument, not a content-production backlog.
+1. record the first post-cutover Rank Tracker baseline date;
+2. compare against `CYA_Phase_11_4_Prelaunch_GSC_Freeze_2026-08-26.md`;
+3. begin `CYA_Phase_11_5_Postlaunch_Search_Monitoring_v1.0.md` cadence;
+4. monitor ranking URL as well as position;
+5. prioritise Home `corporate yoga` defence, `/workplace-yoga` consolidation, Programs, Pilates, Mindfulness and CTR/indexation behaviour.
 
-## 9. Migration watch windows
+## 10. Migration watch windows
 
 ### First 24 hours
 
-Technical safety only: status codes, redirects, canonicals, robots, sitemap, DNS/SSL, contact journey.
+Technical safety: status codes, redirects, canonicals, robots, sitemap, DNS/SSL, email/Studio safety and contact journey.
 
 ### +3 days
 
-Indexation/canonical safety, crawl errors, Home impressions, legacy URL decline.
+Indexation/canonical safety, crawl errors, Home impressions and legacy URL decline.
 
 ### +7 days
 
-Early ranking-URL consolidation: especially Home `corporate yoga`, `/workplace-yoga`, Programs, Pilates and Mindfulness.
+Early ranking-URL consolidation, especially Home `corporate yoga`, Workplace Yoga, Programs, Pilates and Mindfulness.
 
 ### +14 days
 
-First meaningful GSC query/page comparison.
+First meaningful GSC query/page comparison and decision whether migration safety is stable enough to begin broader authority activity.
 
 ### +28 days
 
-First decision-level performance review.
+First decision-level search performance review.
 
 ### +8–12 weeks
 
-Strategy-level evaluation and first mature authority/content changes.
+Strategy-level evaluation and first mature authority/content adjustments.
 
-## 10. Rollback criteria
+## 11. Rollback criteria
 
-Consider rollback/urgent remediation only for a material production failure such as:
+Rollback/urgent remediation is justified for material production failure such as:
 
-- production site unavailable;
-- widespread 5xx/errors;
+- site unavailable or widespread 5xx;
 - DNS/SSL failure;
 - email or critical subdomain disruption caused by DNS change;
 - production-wide accidental `noindex`/robots block;
@@ -243,37 +249,34 @@ Consider rollback/urgent remediation only for a material production failure such
 - governed redirects broadly absent/broken;
 - serious security issue.
 
-Do **not** roll back solely because rankings fluctuate during normal migration.
+Do **not** roll back solely because rankings fluctuate during a normal migration.
 
 If rollback is required:
 
-1. restore the prior website-routing DNS records from the captured zone state;
-2. retain the current Squarespace site/settings/content during the safety window so previous public routing can be restored if necessary;
-3. keep the incident timeline and cause;
-4. verify email/subdomains remain intact;
-5. restore public site availability;
-6. diagnose before attempting a second cutover.
+1. restore the prior website-routing DNS records from the captured GoDaddy zone state;
+2. retain/restore Squarespace as public site;
+3. verify email and legitimate subdomains remain intact;
+4. record incident timeline/cause;
+5. diagnose before attempting a second cutover.
 
-## 11. Authority/backlink handoff
+Do not cancel Squarespace until the migration safety window is complete.
 
-Do not begin broad authority outreach during migration turbulence.
+## 12. Phase 11.5 authority handoff
 
-Once the +14 day migration safety review is satisfactory, activate `CYA_Phase_11_5_Authority_and_Backlink_Growth_Programme_v1.0.md`, starting with:
+Broad authority outreach should not begin during migration turbulence.
 
-- preserving/reclaiming existing quality external references;
-- Business Events Australia / Tourism Australia;
-- Brisbane Business Hub;
-- BESydney/business-events relationships;
-- real clients/venues/property/workplace partners;
-- expert authority pages;
-- strengthening existing reference-worthy CYA resources.
+Once the +14 day migration review is satisfactory, activate `CYA_Phase_11_5_Authority_and_Backlink_Growth_Programme_v1.0.md`, beginning with preservation/reclamation of genuine existing authority and relationship-led opportunities rather than bulk link acquisition.
 
-## 12. Launch authorisation rule
+Existing priority relationships already identified include Business Events Australia / Tourism Australia, Brisbane Business Hub, BESydney and Alsco.
 
-**A technically green branch is necessary but not sufficient.**
+## 13. Launch authorisation
 
-Production cutover is authorised only when the explicit external security/GSC and hosted human/browser gates above have been checked and recorded. Case-study publication is a parallel evidence workstream and does not block release while `/case-studies` remains safely withheld/noindex.
+**Phase 11.4 production cutover is authorised.**
+
+All explicit launch-blocking publication, security/GSC, rendered-server and hosted-browser gates are recorded complete and enforced by the final CI launch-readiness gate.
+
+The remaining work is controlled execution of merge → Vercel production candidate → minimal DNS change → immediate public-host verification → Phase 11.5 monitoring.
 
 ---
 
-**Migration principle:** preserve what CYA has already earned, move only the records that need moving, verify the public result immediately, and judge search performance over evidence-appropriate windows rather than launch-day volatility.
+**Migration principle:** preserve what CYA has already earned, change only what must change, verify the public result immediately, and judge search performance over evidence-appropriate windows rather than launch-day volatility.

@@ -38,12 +38,11 @@ export const primaryNav: NavItem[] = [
       },
     ],
   },
-  { label: "Case Studies", href: "/case-studies" },
+  { label: "Insights", href: "/blog" },
   { label: "About", href: "/about-us" },
 ];
 
 export const utilityNav: NavItem[] = [
-  { label: "Resources", href: "/resources" },
   { label: "Member access", href: "/member-access" },
 ];
 

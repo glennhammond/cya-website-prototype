@@ -18,5 +18,5 @@ export const closingCTA = {
   kicker: "Next step",
   heading: "Ready to talk it through?",
   body: "If a resource raises a question specific to your organisation, the next step is a short conversation.",
-  cta: { label: "Book a wellbeing consultation", href: "/consultation", variant: "primary" as const },
+  cta: { label: "Book a wellbeing consultation", href: "/contact", variant: "primary" as const },
 };

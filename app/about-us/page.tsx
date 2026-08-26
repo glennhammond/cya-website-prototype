@@ -4,6 +4,7 @@ import { EditorialFeature } from "@/components/EditorialFeature";
 import { StatementList } from "@/components/StatementList";
 import { CTASection } from "@/components/CTASection";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { BreadcrumbStructuredData, FounderStructuredData } from "@/components/StructuredData";
 import { Section, Container, Kicker } from "@/components/Primitives";
 import { ImageMedia } from "@/components/ImageMedia";
 import { media } from "@/content/media";
@@ -30,6 +31,8 @@ export const metadata: Metadata = {
 export default function AboutUsPage() {
   return (
     <>
+      <BreadcrumbStructuredData items={[{ name: "About", path: "/about-us" }]} />
+      <FounderStructuredData />
       <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "About" }]} />
       <PageHero intro={aboutHero} image={media.aboutHero} imagePosition="right" />
       <EditorialFeature

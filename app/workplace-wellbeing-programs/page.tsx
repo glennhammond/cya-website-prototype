@@ -9,6 +9,7 @@ import { DividerList } from "@/components/DividerList";
 import { CTASection } from "@/components/CTASection";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { ProofNote } from "@/components/ProofNote";
+import { ServiceStructuredData } from "@/components/StructuredData";
 import {
   programsHero,
   organisationalNeeds,
@@ -38,6 +39,12 @@ export const metadata: Metadata = {
 export default function WorkplaceWellbeingProgramsPage() {
   return (
     <>
+      <ServiceStructuredData
+        name="Workplace Wellbeing Programs"
+        description="Tailored workplace wellbeing programs combining human-led experiences, practical coordination and ongoing support for Australian teams."
+        path="/workplace-wellbeing-programs"
+        breadcrumbLabel="Workplace wellbeing programs"
+      />
       <Breadcrumbs
         items={[
           { label: "Home", href: "/" },

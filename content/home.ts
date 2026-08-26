@@ -48,8 +48,8 @@ export const recognisableExperiences = [
   {
     title: "Workshops & Expert Experiences",
     body: "Practical Lunch & Learns, workshops and expert-led sessions for particular workplace topics and moments.",
-    href: "/contact?interest=one-off",
-    cta: "Discuss a workshop",
+    href: "/workplace-wellbeing-workshops",
+    cta: "Explore workshops & expert experiences",
   },
 ];
 

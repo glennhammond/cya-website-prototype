@@ -254,8 +254,14 @@ check(robots.includes("VERCEL_ENV"), "robots distinguishes preview from producti
 check(robots.includes('disallow: "/"'), "preview robots blocks crawling");
 
 const footer = read("components/SiteFooter.tsx");
-check(footer.includes('process.env.VERCEL_ENV === "production"'), "footer distinguishes production from preview");
-check(footer.includes('!isProduction && " Prototype build - not for public release."'), "prototype warning is preview-only");
+check(
+  footer.includes('process.env.NODE_ENV !== "production"') && footer.includes('process.env.VERCEL_ENV === "preview"'),
+  "footer warning distinguishes local/preview from generic production builds",
+);
+check(
+  footer.includes('showPrototypeWarning && " Prototype build - not for public release."'),
+  "prototype warning is restricted to local development or Vercel Preview",
+);
 
 if (errors.length > 0) {
   console.error(`\nPhase 11.4 search QA FAILED (${errors.length}/${checks.length} checks failed):`);

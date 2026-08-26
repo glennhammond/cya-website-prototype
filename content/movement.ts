@@ -21,9 +21,9 @@ export const movementTypes: FeatureItem[] = [
   },
   {
     title: "Workplace Pilates",
-    body: "Pilates is already part of CYA's movement offer, including mat-based formats and blended movement programs. The specialist search page remains publication-gated while facilitator credentials and Pilates-specific proof are verified.",
-    href: "/contact?interest=one-off",
-    cta: "Discuss a Pilates session",
+    body: "Mat-based Pilates for one-off classes, short series, recurring sessions or mixed Yoga + Pilates rhythms, adapted to the team and available space.",
+    href: "/workplace-pilates",
+    cta: "Explore Workplace Pilates",
   },
   {
     title: "Desk & office movement",

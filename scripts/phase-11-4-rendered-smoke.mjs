@@ -115,6 +115,7 @@ const controlledNoindexRoutes = [
 
 const redirects = [
   ["/home", "/"],
+  ["/getting-started", "/"],
   ["/workplace-wellbeing", "/"],
   ["/programs", "/workplace-wellbeing-programs"],
   ["/personalised-wellbeing-programs", "/workplace-wellbeing-programs"],

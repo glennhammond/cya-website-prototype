@@ -4,6 +4,7 @@
   "photographyPublicationApproved": true,
   "pilatesPublicationApproved": true,
   "caseStudiesPublicationApproved": false,
+  "renderedServerQaPassed": true,
   "legacySecurityVerified": false,
   "gscSecurityIssuesChecked": false,
   "gscManualActionsChecked": false,

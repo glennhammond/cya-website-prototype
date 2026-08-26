@@ -49,14 +49,15 @@ function locationPath(response) {
 
 function hasCanonical(html, pathname) {
   const expected = canonicalHref(pathname);
-  return (
-    html.includes(`rel="canonical" href="${expected}"`) ||
-    html.includes(`href="${expected}" rel="canonical"`)
-  );
+  return html.includes(`rel="canonical" href="${expected}"`) || html.includes(`href="${expected}" rel="canonical"`);
 }
 
 function hasNoindex(html) {
   return /<meta[^>]+(?:name="robots"[^>]+content="[^"]*noindex|content="[^"]*noindex[^>]+name="robots")/i.test(html);
+}
+
+function hasSchemaType(html, type) {
+  return html.includes(`"@type":"${type}"`) || html.includes(`&quot;@type&quot;:&quot;${type}&quot;`);
 }
 
 function containsGovernanceLeak(html) {
@@ -66,22 +67,31 @@ function containsGovernanceLeak(html) {
     "Prototype build - not for public release",
     "publication consent not documented",
     "Prototype placeholder - not a publishable client story",
+    "marketing-use consent not documented",
   ];
   return forbidden.find((phrase) => html.includes(phrase));
 }
 
-const canonicalRoutes = [
+const indexableRoutes = [
   "/",
   "/workplace-wellbeing-programs",
   "/movement",
   "/workplace-yoga",
-  "/workplace-pilates",
   "/meditation-mindfulness",
   "/workplace-wellbeing-workshops",
   "/online-wellbeing",
   "/blog",
   "/about-us",
   "/contact",
+];
+
+const serviceRoutes = [
+  "/workplace-wellbeing-programs",
+  "/movement",
+  "/workplace-yoga",
+  "/meditation-mindfulness",
+  "/workplace-wellbeing-workshops",
+  "/online-wellbeing",
 ];
 
 const insightRoutes = [
@@ -96,6 +106,7 @@ const insightRoutes = [
 ];
 
 const controlledNoindexRoutes = [
+  "/workplace-pilates",
   "/case-studies",
   "/conferences-events",
   "/member-access",
@@ -144,7 +155,7 @@ for (const stream of [server.stdout, server.stderr]) {
 try {
   await waitForServer();
 
-  for (const pathname of [...canonicalRoutes, ...insightRoutes]) {
+  for (const pathname of [...indexableRoutes, ...insightRoutes]) {
     const response = await request(pathname);
     const html = await response.text();
     check(response.status === 200, `200 response: ${pathname}`, `received ${response.status}`);
@@ -158,10 +169,43 @@ try {
     const response = await request(pathname);
     const html = await response.text();
     check(response.status === 200, `200 controlled route: ${pathname}`, `received ${response.status}`);
+    check(hasCanonical(html, pathname), `controlled route self canonical: ${pathname}`);
     check(hasNoindex(html), `noindex rendered: ${pathname}`);
     const leak = containsGovernanceLeak(html);
     check(!leak, `controlled route contains no governance leak: ${pathname}`, leak ?? "");
   }
+
+  for (const pathname of serviceRoutes) {
+    const response = await request(pathname);
+    const html = await response.text();
+    check(hasSchemaType(html, "Service"), `Service schema renders: ${pathname}`);
+    check(hasSchemaType(html, "BreadcrumbList"), `BreadcrumbList schema renders: ${pathname}`);
+  }
+
+  const pilatesResponse = await request("/workplace-pilates");
+  const pilatesHtml = await pilatesResponse.text();
+  check(hasSchemaType(pilatesHtml, "Service"), "controlled Pilates draft renders Service schema");
+  check(hasSchemaType(pilatesHtml, "BreadcrumbList"), "controlled Pilates draft renders BreadcrumbList schema");
+
+  for (const pathname of insightRoutes) {
+    const response = await request(pathname);
+    const html = await response.text();
+    check(hasSchemaType(html, "Article"), `Article schema renders: ${pathname}`);
+    check(hasSchemaType(html, "BreadcrumbList"), `Insight BreadcrumbList schema renders: ${pathname}`);
+  }
+
+  const aboutResponse = await request("/about-us");
+  const aboutHtml = await aboutResponse.text();
+  check(hasSchemaType(aboutHtml, "Person"), "About renders founder Person schema");
+  check(hasSchemaType(aboutHtml, "BreadcrumbList"), "About renders BreadcrumbList schema");
+
+  const contactResponse = await request("/contact");
+  const contactHtml = await contactResponse.text();
+  check(hasSchemaType(contactHtml, "BreadcrumbList"), "Contact renders BreadcrumbList schema");
+
+  const blogResponse = await request("/blog");
+  const blogHtml = await blogResponse.text();
+  check(hasSchemaType(blogHtml, "BreadcrumbList"), "Insights hub renders BreadcrumbList schema");
 
   for (const [source, destination] of redirects) {
     const response = await request(source);
@@ -170,7 +214,7 @@ try {
   }
 
   const consultationQuery = await request("/consultation?interest=conference");
-  check(consultationQuery.status === 301, "301 redirect preserves consultation query source status", `received ${consultationQuery.status}`);
+  check(consultationQuery.status === 301, "consultation query redirect returns 301", `received ${consultationQuery.status}`);
   check(
     locationPath(consultationQuery) === "/contact?interest=conference",
     "consultation redirect preserves interest query string",
@@ -184,23 +228,22 @@ try {
 
   const rootResponse = await request("/");
   const rootHtml = await rootResponse.text();
-  check(rootHtml.includes("Corporate Yoga Australia | Workplace Yoga &amp; Wellbeing") || rootHtml.includes("Corporate Yoga Australia | Workplace Yoga & Wellbeing"), "Home production title renders");
-  check(rootHtml.includes('"@type":"Organization"'), "Home renders Organization structured data");
-  check(rootHtml.includes('"@type":"WebSite"'), "Home renders WebSite structured data");
+  check(
+    rootHtml.includes("Corporate Yoga Australia | Workplace Yoga &amp; Wellbeing") ||
+      rootHtml.includes("Corporate Yoga Australia | Workplace Yoga & Wellbeing"),
+    "Home production title renders",
+  );
+  check(hasSchemaType(rootHtml, "Organization"), "Home renders Organization structured data");
+  check(hasSchemaType(rootHtml, "WebSite"), "Home renders WebSite structured data");
   check(!rootHtml.includes("Prototype build - not for public release"), "production footer omits prototype warning");
   check(!rootHtml.includes("Approved for CYA website publication"), "Home client payload omits image approval notes");
-
-  const pilatesResponse = await request("/workplace-pilates");
-  const pilatesHtml = await pilatesResponse.text();
-  check(pilatesResponse.status === 200, "Workplace Pilates production route returns 200", `received ${pilatesResponse.status}`);
-  check(hasCanonical(pilatesHtml, "/workplace-pilates"), "Workplace Pilates renders self canonical");
-  check(pilatesHtml.includes('"@type":"Service"'), "Workplace Pilates renders Service structured data");
-  check(!hasNoindex(pilatesHtml), "Workplace Pilates is indexable in rendered production HTML");
+  check(!rootHtml.includes("Temporary poster only"), "Home client payload omits internal hero production notes");
 
   const sitemapResponse = await request("/sitemap.xml");
   const sitemapXml = await sitemapResponse.text();
   check(sitemapResponse.status === 200, "sitemap.xml returns 200", `received ${sitemapResponse.status}`);
-  for (const pathname of canonicalRoutes.filter((pathname) => pathname !== "/")) {
+  check(sitemapXml.includes(productionOrigin), "sitemap contains Home");
+  for (const pathname of indexableRoutes.filter((pathname) => pathname !== "/")) {
     check(sitemapXml.includes(canonicalHref(pathname)), `sitemap contains ${pathname}`);
   }
   for (const pathname of insightRoutes) {

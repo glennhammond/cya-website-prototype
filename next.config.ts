@@ -9,6 +9,7 @@ const redirects: NonNullable<NextConfig["redirects"]> = async () => [
   { source: "/personalised-wellbeing-programs", destination: "/workplace-wellbeing-programs", statusCode: 301 },
   { source: "/workplace-wellbeing/movement", destination: "/movement", statusCode: 301 },
   { source: "/workplace-yoga-australia", destination: "/workplace-yoga", statusCode: 301 },
+  { source: "/our-classes", destination: "/movement", statusCode: 301 },
   { source: "/online-wellbeing-2026", destination: "/online-wellbeing", statusCode: 301 },
   { source: "/wellbeing-studio", destination: "/online-wellbeing", statusCode: 301 },
   { source: "/proof", destination: "/case-studies", statusCode: 301 },

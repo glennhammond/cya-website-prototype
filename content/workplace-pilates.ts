@@ -3,8 +3,8 @@ import type { FeatureItem } from "@/components/FeatureGrid";
 
 export const pilatesHero: PageIntro = {
   kicker: "Workplace Pilates",
-  heading: "Controlled, strength-focused movement that can fit a real workplace.",
-  body: "CYA offers mat-based Pilates for workplace teams as a one-off class, recurring session or part of a mixed movement program. The format is adapted to the people, available floor space and delivery mode.",
+  heading: "Mat Pilates that fits the team, room and workday.",
+  body: "CYA offers mat-based Pilates for workplace teams as a one-off class, short series, recurring session or part of a mixed movement program. The format is adapted to the people, available floor space, timing and delivery mode.",
   actions: [
     { label: "Discuss a Pilates session", href: "/contact?interest=one-off", variant: "primary" },
     { label: "Compare movement options", href: "/movement", variant: "secondary" },
@@ -15,11 +15,11 @@ export const pilatesHero: PageIntro = {
 export const sessionFormats: FeatureItem[] = [
   {
     title: "One-off Mat Pilates",
-    body: "A complete facilitator-led mat session for a team, wellbeing day or workplace event.",
+    body: "A complete facilitator-led mat session for a team, wellbeing day, retreat or workplace event.",
   },
   {
     title: "Short Pilates series",
-    body: "A defined run of sessions that builds familiarity with controlled movement and technique over time.",
+    body: "A defined run of sessions that gives the same team a familiar Pilates rhythm over several weeks.",
   },
   {
     title: "Recurring Pilates",
@@ -27,22 +27,22 @@ export const sessionFormats: FeatureItem[] = [
   },
   {
     title: "Yoga + Pilates rhythm",
-    body: "Alternate Pilates with Yoga or other movement when variety is useful for the team or wider program.",
+    body: "Alternate Pilates with Yoga or another movement format when variety is useful for the team or wider program.",
   },
 ];
 
 export const workplaceFit: FeatureItem[] = [
   {
     title: "A team wants a strength-focused movement option",
-    body: "Pilates provides a different movement experience from Yoga while remaining low-impact and adaptable.",
+    body: "Pilates provides a different movement experience from Yoga, centred on controlled mat-based movement and clear instruction.",
   },
   {
     title: "The workplace can provide clear floor space",
-    body: "Mat-based sessions need enough room for each participant to lie down and move safely without crowding.",
+    body: "Mat-based sessions need enough room for each participant to lie down and move without crowding desks, chairs or each other.",
   },
   {
     title: "People have mixed experience levels",
-    body: "The session should include options and clear instruction rather than assuming previous Pilates experience.",
+    body: "CYA can plan beginner-friendly options and clear progressions rather than assuming previous Pilates experience.",
   },
   {
     title: "The organisation wants movement variety",
@@ -53,7 +53,7 @@ export const workplaceFit: FeatureItem[] = [
 export const equipmentAndSpace: FeatureItem[] = [
   {
     title: "Mat or towel",
-    body: "For mat-based Pilates, CYA's existing service guidance recommends a mat or towel for each participant. Equipment requirements are confirmed for the booked format.",
+    body: "For mat-based Pilates, plan a mat or suitable towel for each participant. Final equipment requirements are confirmed for the booked format.",
   },
   {
     title: "Clear floor space",
@@ -65,26 +65,35 @@ export const equipmentAndSpace: FeatureItem[] = [
   },
   {
     title: "Online setup",
-    body: "Remote participants need a stable device position and enough safe space to follow a mat-based session at home or another suitable location.",
+    body: "Remote participants need a stable device position and enough clear space to follow the session at home or another suitable location.",
   },
 ];
 
 export const deliveryModes: FeatureItem[] = [
-  { title: "Onsite", body: "Delivered in a workplace or suitable off-site room with the space and setup confirmed before the session." },
-  { title: "Online", body: "Live facilitator-led Pilates for remote or distributed participants using the organisation's agreed platform." },
-  { title: "Hybrid / multi-location", body: "Possible where the participant setup, technology and facilitator plan can support the actual group safely and clearly." },
+  {
+    title: "Onsite",
+    body: "Delivered in a workplace or suitable off-site room with the available space and setup confirmed before the session.",
+  },
+  {
+    title: "Online",
+    body: "Live facilitator-led Pilates for remote or distributed participants using the organisation's agreed platform.",
+  },
+  {
+    title: "Hybrid / multi-location",
+    body: "CYA can coordinate movement delivery across locations when the participant setup, technology and facilitator plan suit the actual group.",
+  },
 ];
 
 export const facilitatorGate = {
-  kicker: "Facilitator qualification",
-  heading: "The Pilates practitioner must be qualified for the session being promoted.",
-  body: "CYA's current material confirms Pilates instructors are part of its practitioner network, but this production page will not publish named Pilates credentials until the current practitioner, qualification, location and availability records are verified. That evidence gate remains open before indexation.",
+  kicker: "Facilitator fit",
+  heading: "Match the practitioner to the Pilates brief.",
+  body: "CYA's current public material confirms Pilates as part of its facilitator network and identifies current Pilates capability within the team. For an actual booking, CYA confirms the practitioner, location, availability and relevant qualification for the session. Individual credential details are only published where those records have been verified.",
 };
 
 export const evidenceGate = {
-  kicker: "Evidence required before publication",
-  heading: "Show the real Pilates product, not a Yoga page with different nouns.",
-  body: "Before this page enters the sitemap, CYA should confirm current Pilates practitioners and qualifications, permissioned Pilates-specific imagery, final equipment guidance and at least one credible delivery example or an explicit decision to publish without case proof. Outcome language should stay limited to the actual service experience rather than promising injury prevention, posture correction or health results.",
+  kicker: "Evidence and claims",
+  heading: "Describe the real Pilates service without promising health outcomes.",
+  body: "CYA's current service material supports mat Pilates, one-off and recurring classes, mixed Yoga + Pilates formats, onsite and online delivery, and tailored workplace programs. This page therefore does not need to wait for a case study to exist. It should continue to avoid claims about injury prevention, posture correction, pain relief or guaranteed health outcomes unless stronger evidence is approved for those specific claims.",
 };
 
 export const relatedPaths: FeatureItem[] = [
@@ -111,6 +120,6 @@ export const relatedPaths: FeatureItem[] = [
 export const closingCTA = {
   kicker: "Next step",
   heading: "Tell CYA what kind of Pilates session you are considering.",
-  body: "Share the team size, location, room, timing and whether you are planning one session or a recurring class. CYA can confirm the appropriate practitioner and setup before anything is booked.",
+  body: "Share the team size, location, available room, timing and whether you are planning one session or a recurring class. CYA can confirm the appropriate practitioner and practical setup before anything is booked.",
   cta: { label: "Discuss Workplace Pilates", href: "/contact?interest=one-off", variant: "primary" as const },
 };

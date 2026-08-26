@@ -1,0 +1,41 @@
+keyword,group,intended_canonical,role
+corporate yoga,Defend,/,Primary Home authority
+corporate yoga australia,Defend,/,Brand/category defence
+corporate yoga classes,Defend,/,Commercial category defence
+corporate yoga sessions,Defend,/,Commercial category defence
+office yoga,Defend,/workplace-yoga,Supporting Yoga intent
+yoga at work,Defend,/workplace-yoga,Supporting Yoga authority
+workplace wellbeing programs,Programs,/workplace-wellbeing-programs,Primary procurement
+corporate wellness programs,Programs,/workplace-wellbeing-programs,Primary procurement synonym
+employee wellbeing programs,Programs,/workplace-wellbeing-programs,Procurement synonym
+workplace wellness programs,Programs,/workplace-wellbeing-programs,Procurement synonym
+corporate wellbeing programs,Programs,/workplace-wellbeing-programs,Procurement synonym
+corporate wellness,Market diagnostic,/workplace-wellbeing-programs,Broader commercial diagnostic
+workplace wellbeing,Market diagnostic,/workplace-wellbeing-programs,Broader market diagnostic
+employee wellbeing,Market diagnostic,/workplace-wellbeing-programs,Broader market diagnostic
+workplace wellness,Market diagnostic,/workplace-wellbeing-programs,Broader market diagnostic
+employee wellness,Market diagnostic,/workplace-wellbeing-programs,Broader market diagnostic
+workplace yoga,Yoga,/workplace-yoga,Primary specialist acquisition
+workplace yoga classes,Yoga,/workplace-yoga,Direct service intent
+yoga in the workplace,Yoga,/workplace-yoga,Supporting direct intent
+yoga for corporate,Yoga,/workplace-yoga,Supporting direct intent
+corporate pilates,Pilates,/workplace-pilates,Primary specialist acquisition
+workplace pilates,Pilates,/workplace-pilates,Direct service diagnostic
+corporate pilates classes,Pilates,/workplace-pilates,Direct service intent
+workplace mindfulness,Mindfulness,/meditation-mindfulness,Service intent
+corporate mindfulness,Mindfulness,/meditation-mindfulness,Commercial service intent
+workplace meditation,Mindfulness,/meditation-mindfulness,Service intent
+meditation in the workplace,Mindfulness,/meditation-mindfulness,Authority/service intent
+mindfulness in the workplace,Mindfulness,/meditation-mindfulness,Authority intent
+workplace wellbeing workshops,Workshops,/workplace-wellbeing-workshops,Primary workshop intent
+corporate wellbeing workshops,Workshops,/workplace-wellbeing-workshops,Commercial workshop intent
+corporate wellness workshops,Workshops,/workplace-wellbeing-workshops,Commercial workshop intent
+corporate mindfulness workshops,Workshops,/workplace-wellbeing-workshops,Workshop/mindfulness crossover
+online workplace wellbeing,Online,/online-wellbeing,Product-language diagnostic
+online corporate wellness programs,Online,/online-wellbeing,Continuity diagnostic
+online corporate wellness,Online,/online-wellbeing,Continuity diagnostic
+corporate yoga melbourne,Geographic diagnostic,/,Geo visibility diagnostic only
+corporate yoga sydney,Geographic diagnostic,/,Geo visibility diagnostic only
+corporate yoga brisbane,Geographic diagnostic,/,Geo visibility diagnostic only
+corporate yoga perth,Geographic diagnostic,/,Geo visibility diagnostic only
+body check in,Editorial authority,/blog/check-in-with-yourself-with-this-simple-technique,Editorial authority diagnostic

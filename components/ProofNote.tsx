@@ -3,10 +3,10 @@ import { EvidencePlaceholder } from "@/components/EvidencePlaceholder";
 import type { EvidenceStatus } from "@/lib/types";
 
 /**
- * Contextual proof note used on each service/format page. Shared so five
- * near-identical inline blocks don't drift, but `reverse` varies the image
- * side per page so the pattern doesn't read as one component copy-pasted
- * site-wide (brief §17 editorial rhythm).
+ * Contextual proof note used on service/format pages. Development builds keep
+ * the evidence placeholder visible for production governance; production builds
+ * render the qualified evidence copy without exposing internal placeholder
+ * captions or status language to public visitors.
  */
 export function ProofNote({
   kicker = "Evidence",
@@ -29,21 +29,31 @@ export function ProofNote({
   tone?: "white" | "mist";
   reverse?: boolean;
 }) {
+  const showGovernancePlaceholder = process.env.NODE_ENV !== "production";
+
   return (
     <Section tone={tone}>
       <Container>
-        <div
-          className={`grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center ${
-            reverse ? "lg:[&>*:first-child]:order-2" : ""
-          }`}
-        >
-          <EvidencePlaceholder variant={placeholderVariant} caption={placeholderCaption} status={status} note={note} />
-          <div>
+        {showGovernancePlaceholder ? (
+          <div
+            className={`grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center ${
+              reverse ? "lg:[&>*:first-child]:order-2" : ""
+            }`}
+          >
+            <EvidencePlaceholder variant={placeholderVariant} caption={placeholderCaption} status={status} note={note} />
+            <div>
+              <Kicker>{kicker}</Kicker>
+              <h2 className="mt-3 text-heading-lg">{heading}</h2>
+              <p className="mt-4 text-lg leading-relaxed text-body">{body}</p>
+            </div>
+          </div>
+        ) : (
+          <div className="max-w-3xl">
             <Kicker>{kicker}</Kicker>
             <h2 className="mt-3 text-heading-lg">{heading}</h2>
             <p className="mt-4 text-lg leading-relaxed text-body">{body}</p>
           </div>
-        </div>
+        )}
       </Container>
     </Section>
   );

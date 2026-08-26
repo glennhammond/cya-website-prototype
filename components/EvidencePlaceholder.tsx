@@ -64,6 +64,8 @@ export function EvidencePlaceholder({
   className?: string;
 }) {
   const gradientId = `grad-${variant}`;
+  const showGovernanceAnnotation = process.env.NODE_ENV !== "production";
+
   return (
     <figure className={`relative overflow-hidden rounded-[var(--radius-card)] border border-divider bg-mist ${className}`}>
       <div className="relative w-full" style={{ aspectRatio: aspect }}>
@@ -81,9 +83,11 @@ export function EvidencePlaceholder({
           </defs>
           {PATTERNS[variant](gradientId)}
         </svg>
-        <div className="absolute right-3 top-3">
-          <EvidenceBadge status={status} note={note} />
-        </div>
+        {showGovernanceAnnotation && (
+          <div className="absolute right-3 top-3">
+            <EvidenceBadge status={status} note={note} />
+          </div>
+        )}
       </div>
       <figcaption className="border-t border-divider bg-white px-4 py-3 text-sm text-body">
         {caption}

@@ -22,10 +22,10 @@ const openSans = Open_Sans({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://corporateyoga.com.au"),
+  metadataBase: new URL("https://www.corporateyoga.com.au"),
   title: {
-    default: `${site.name} - Workplace wellbeing that fits real work`,
-    template: `%s - ${site.name}`,
+    default: "Corporate Yoga Australia | Workplace Yoga & Wellbeing",
+    template: `%s | ${site.name}`,
   },
   description: site.description,
 };

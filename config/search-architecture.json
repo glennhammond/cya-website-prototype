@@ -1,0 +1,159 @@
+{
+  "version": "1.0",
+  "authority": "CYA SEO Phase 11.3",
+  "figmaFileKey": "Ze1CERgMietgrGtL70je2x",
+  "canonicalOrigin": "https://www.corporateyoga.com.au",
+  "pages": [
+    {
+      "path": "/",
+      "type": "brand-category",
+      "indexable": true,
+      "canonical": "/",
+      "searchRole": "Primary corporate-yoga and CYA category authority",
+      "schema": ["Organization", "WebSite"],
+      "sitemap": true,
+      "priorityLinks": ["/workplace-wellbeing-programs", "/workplace-yoga", "/workplace-pilates", "/movement", "/meditation-mindfulness", "/workplace-wellbeing-workshops", "/online-wellbeing", "/case-studies"]
+    },
+    {
+      "path": "/workplace-wellbeing-programs",
+      "type": "procurement",
+      "indexable": true,
+      "canonical": "/workplace-wellbeing-programs",
+      "searchRole": "Primary workplace/corporate/employee wellbeing program procurement destination",
+      "schema": ["Service", "BreadcrumbList"],
+      "sitemap": true,
+      "priorityLinks": ["/workplace-yoga", "/workplace-pilates", "/meditation-mindfulness", "/workplace-wellbeing-workshops", "/online-wellbeing", "/case-studies"]
+    },
+    {
+      "path": "/movement",
+      "type": "selection-hub",
+      "indexable": true,
+      "canonical": "/movement",
+      "searchRole": "Workplace movement orientation and modality selection",
+      "schema": ["Service", "BreadcrumbList"],
+      "sitemap": true,
+      "priorityLinks": ["/workplace-yoga", "/workplace-pilates", "/workplace-wellbeing-programs"]
+    },
+    {
+      "path": "/workplace-yoga",
+      "type": "service",
+      "indexable": true,
+      "canonical": "/workplace-yoga",
+      "searchRole": "Specialist workplace-yoga service intent; Home remains broad corporate-yoga authority",
+      "schema": ["Service", "BreadcrumbList"],
+      "sitemap": true,
+      "priorityLinks": ["/workplace-wellbeing-programs", "/movement", "/case-studies", "/blog/8-tips-to-successfully-introduce-yoga-at-work"]
+    },
+    {
+      "path": "/workplace-pilates",
+      "type": "service",
+      "indexable": true,
+      "canonical": "/workplace-pilates",
+      "searchRole": "Specialist workplace/corporate Pilates acquisition",
+      "schema": ["Service", "BreadcrumbList"],
+      "sitemap": true,
+      "evidenceGate": true,
+      "priorityLinks": ["/workplace-wellbeing-programs", "/movement", "/case-studies"]
+    },
+    {
+      "path": "/meditation-mindfulness",
+      "type": "service",
+      "indexable": true,
+      "canonical": "/meditation-mindfulness",
+      "searchRole": "Workplace mindfulness and meditation acquisition",
+      "schema": ["Service", "BreadcrumbList"],
+      "sitemap": true,
+      "priorityLinks": ["/workplace-wellbeing-programs", "/workplace-wellbeing-workshops", "/online-wellbeing", "/case-studies", "/blog/check-in-with-yourself-with-this-simple-technique"]
+    },
+    {
+      "path": "/workplace-wellbeing-workshops",
+      "type": "selection-hub",
+      "indexable": true,
+      "canonical": "/workplace-wellbeing-workshops",
+      "searchRole": "Workplace wellbeing workshops and expert experiences",
+      "schema": ["Service", "BreadcrumbList"],
+      "sitemap": true,
+      "evidenceGate": true,
+      "priorityLinks": ["/workplace-wellbeing-programs", "/meditation-mindfulness", "/online-wellbeing", "/case-studies"]
+    },
+    {
+      "path": "/online-wellbeing",
+      "type": "connected-service",
+      "indexable": true,
+      "canonical": "/online-wellbeing",
+      "searchRole": "Online, ongoing and hybrid workplace wellbeing; Wellbeing Studio as continuity layer",
+      "schema": ["Service", "BreadcrumbList"],
+      "sitemap": true,
+      "priorityLinks": ["/workplace-wellbeing-programs", "/workplace-yoga", "/meditation-mindfulness", "/workplace-wellbeing-workshops", "/case-studies"]
+    },
+    {
+      "path": "/case-studies",
+      "type": "evidence-hub",
+      "indexable": true,
+      "canonical": "/case-studies",
+      "searchRole": "Proof and commercial validation",
+      "schema": ["BreadcrumbList"],
+      "sitemap": true
+    },
+    {
+      "path": "/blog",
+      "type": "editorial-hub",
+      "indexable": true,
+      "canonical": "/blog",
+      "searchRole": "Insights and supporting topical authority",
+      "schema": ["BreadcrumbList"],
+      "sitemap": true
+    },
+    {
+      "path": "/about-us",
+      "type": "trust-entity",
+      "indexable": true,
+      "canonical": "/about-us",
+      "searchRole": "CYA entity, people and trust",
+      "schema": ["BreadcrumbList"],
+      "sitemap": true
+    },
+    {
+      "path": "/contact",
+      "type": "conversion-utility",
+      "indexable": true,
+      "canonical": "/contact",
+      "searchRole": "Contact and planning utility",
+      "schema": ["BreadcrumbList"],
+      "sitemap": true
+    }
+  ],
+  "redirects": [
+    {"from": "/home", "to": "/", "status": 301},
+    {"from": "/personalised-wellbeing-programs", "to": "/workplace-wellbeing-programs", "status": 301},
+    {"from": "/workplace-yoga-australia", "to": "/workplace-yoga", "status": 301},
+    {"from": "/online-wellbeing-2026", "to": "/online-wellbeing", "status": 301},
+    {"from": "/contact-us", "to": "/contact", "status": 301},
+    {"from": "/services", "to": "/movement", "status": 301},
+    {"from": "/bespoke-services", "to": "/workplace-wellbeing-programs", "status": 301},
+    {"from": "/book-a-class", "to": "/contact", "status": 301},
+    {"from": "/about", "to": "/about-us", "status": 301},
+    {"from": "/reviews", "to": "/case-studies", "status": 301},
+    {"from": "/testimonials", "to": "/case-studies", "status": 301}
+  ],
+  "utilityRules": [
+    {"pattern": "/contact-thank-you*", "indexable": false, "sitemap": false},
+    {"pattern": "/program-registration", "indexable": false, "sitemap": false},
+    {"pattern": "/cart", "indexable": false, "sitemap": false}
+  ],
+  "legacyRules": {
+    "archivePolicy": "Do not recreate legacy tag/category archive sprawl as indexable routes",
+    "spamPolicy": "Do not redirect unrelated historical spam/hacked-looking /cp/ or portal paths to legitimate CYA pages; return 404/410 where appropriate",
+    "redirectPolicy": "One hop only to final HTTPS canonical destination"
+  },
+  "protectedEditorialAssets": [
+    "/blog/8-tips-to-successfully-introduce-yoga-at-work",
+    "/blog/check-in-with-yourself-with-this-simple-technique",
+    "/blog/3-steps-to-reduce-workplace-stress-with-mindfulness",
+    "/blog/harnessing-the-power-of-the-breath",
+    "/blog/mindfulness-everyday",
+    "/blog/sleep-and-workplace-productivity-corporate-yoga-australia",
+    "/blog/the-nervous-system-solution-why-your-wellbeing-program-isnt-working-and-what-to-do-instead",
+    "/blog/5-pillars-of-corporate-wellbeing-to-boost-your-teams-productivity"
+  ]
+}

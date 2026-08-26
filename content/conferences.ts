@@ -4,27 +4,27 @@ import type { FeatureItem } from "@/components/FeatureGrid";
 export const conferencesHero: PageIntro = {
   kicker: "Conferences and events",
   heading: "Build energy, calm and connection into the agenda.",
-  body: "From a 15-minute activation to morning movement, mindfulness or a practical wellbeing session, CYA designs around the audience, venue and run sheet.",
+  body: "From a short activation to morning movement, mindfulness or a practical wellbeing session, CYA designs around the audience, venue and run sheet.",
   actions: [
-    { label: "Discuss your conference", href: "/consultation?interest=conference", variant: "primary" },
+    { label: "Discuss your conference", href: "/contact?interest=conference", variant: "primary" },
     { label: "Explore activation formats", href: "#formats", variant: "secondary" },
   ],
-  meta: ["15-minute resets to full-day streams", "National facilitator delivery"],
+  meta: ["Short resets to longer sessions", "National facilitator delivery"],
 };
 
 export const agendaMoments: FeatureItem[] = [
-  { title: "Morning movement", body: "An energising start before the first session of the day." },
+  { title: "Morning movement", body: "A useful start before the first session of the day." },
   { title: "Transitions", body: "A short reset between heavy agenda blocks." },
   { title: "Desk stretch", body: "A seated or standing sequence delegates can do without leaving the room." },
   { title: "Reset", body: "A grounded pause during a long or intense stretch of content." },
-  { title: "Wind-down", body: "A calming close to a full day before dinner or departure." },
+  { title: "Wind-down", body: "A calmer close to a full day before dinner or departure." },
 ];
 
 export const activationFormats: FeatureItem[] = [
-  { title: "15-minute activation", body: "A quick, focused moment that fits inside a tight run sheet." },
+  { title: "Short activation", body: "A focused movement or wellbeing moment that fits inside a tight run sheet." },
   { title: "Morning movement session", body: "A longer session before the agenda begins." },
-  { title: "Desk stretch break", body: "A short, seated sequence delivered between sessions." },
-  { title: "Mindfulness reset", body: "A brief guided pause to support focus and calm." },
+  { title: "Desk stretch break", body: "A short, seated or standing sequence delivered between sessions." },
+  { title: "Mindfulness reset", body: "A brief guided pause within the event day." },
   { title: "Wind-down session", body: "A restorative close to a demanding day." },
   { title: "Wellbeing stream", body: "A dedicated wellbeing thread running alongside the main agenda." },
 ];
@@ -38,9 +38,9 @@ export const eventRhythm: FeatureItem[] = [
 ];
 
 export const studioAccessFeature = {
-  kicker: "Pre/post-event Wellbeing Studio access",
+  kicker: "Pre/post-event online wellbeing",
   heading: "Extend the moment before and after the event.",
-  body: "Where it suits the scope of the event, CYA can arrange tailored Wellbeing Studio access for delegates ahead of or following the conference. This remains subject to scope and confirmed availability, not a standard inclusion.",
+  body: "Where it suits the scope, CYA can discuss online wellbeing or Wellbeing Studio access around the event. This remains subject to the agreed service and current capability, not a standard inclusion.",
 };
 
 export const logistics: FeatureItem[] = [
@@ -53,6 +53,6 @@ export const logistics: FeatureItem[] = [
 export const closingCTA = {
   kicker: "Next step",
   heading: "One activation or a connected event experience.",
-  body: "CYA can deliver a single moment or coordinate several experiences, including digital support before or after the event where approved.",
-  cta: { label: "Discuss your conference", href: "/consultation?interest=conference", variant: "primary" as const },
+  body: "CYA can deliver a single moment or coordinate several experiences, including online support before or after the event where appropriate.",
+  cta: { label: "Discuss your conference", href: "/contact?interest=conference", variant: "primary" as const },
 };

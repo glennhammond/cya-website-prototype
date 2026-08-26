@@ -1,0 +1,137 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { ArticleStructuredData } from "@/components/StructuredData";
+import { Container, Kicker, Section } from "@/components/Primitives";
+import { getInsightArticle, insightArticles } from "@/content/insights";
+
+export function generateStaticParams() {
+  return insightArticles.map((article) => ({ slug: article.slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const article = getInsightArticle(slug);
+
+  if (!article) return {};
+
+  return {
+    title: article.title,
+    description: article.summary,
+    alternates: {
+      canonical: `/blog/${article.slug}`,
+    },
+  };
+}
+
+const dateFormatter = new Intl.DateTimeFormat("en-AU", {
+  day: "numeric",
+  month: "long",
+  year: "numeric",
+});
+
+export default async function InsightArticlePage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const article = getInsightArticle(slug);
+
+  if (!article) notFound();
+
+  return (
+    <>
+      <ArticleStructuredData
+        headline={article.title}
+        description={article.summary}
+        path={`/blog/${article.slug}`}
+        authorName={article.author}
+        datePublished={article.datePublished}
+        dateModified={article.dateModified}
+      />
+      <Breadcrumbs
+        items={[
+          { label: "Home", href: "/" },
+          { label: "Insights", href: "/blog" },
+          { label: article.title },
+        ]}
+      />
+
+      <article>
+        <Section tone="white" className="pb-10">
+          <Container>
+            <div className="mx-auto max-w-3xl">
+              <Kicker>{article.category}</Kicker>
+              <h1 className="mt-3 text-[36px] font-bold leading-tight text-teal-dark sm:text-[52px]">
+                {article.title}
+              </h1>
+              <p className="mt-5 text-xl leading-relaxed text-body">{article.summary}</p>
+              <div className="mt-7 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-body">
+                <span>{article.author}</span>
+                <span aria-hidden="true">·</span>
+                <time dateTime={article.datePublished}>{dateFormatter.format(new Date(article.datePublished))}</time>
+                <span aria-hidden="true">·</span>
+                <span>Refreshed {dateFormatter.format(new Date(article.dateModified))}</span>
+              </div>
+            </div>
+          </Container>
+        </Section>
+
+        <Section tone="mist">
+          <Container>
+            <div className="mx-auto max-w-3xl">
+              <p className="text-xl leading-relaxed text-ink">{article.intro}</p>
+
+              <div className="mt-12 space-y-12">
+                {article.sections.map((section) => (
+                  <section key={section.heading}>
+                    <h2 className="text-heading-md text-teal-dark">{section.heading}</h2>
+                    <div className="mt-4 space-y-4 text-base leading-8 text-body">
+                      {section.paragraphs.map((paragraph) => (
+                        <p key={paragraph}>{paragraph}</p>
+                      ))}
+                    </div>
+                    {section.bullets && (
+                      <ul className="mt-5 space-y-3 border-l-2 border-aqua pl-6 text-base leading-7 text-body">
+                        {section.bullets.map((item) => (
+                          <li key={item}>{item}</li>
+                        ))}
+                      </ul>
+                    )}
+                  </section>
+                ))}
+              </div>
+
+              <aside className="mt-14 border-t border-divider pt-8">
+                <h2 className="text-heading-sm text-teal-dark">Continue from here</h2>
+                <ul className="mt-5 space-y-3">
+                  {article.relatedLinks.map((link) => (
+                    <li key={link.href}>
+                      <Link
+                        href={link.href}
+                        className="font-bold text-teal-dark underline decoration-2 underline-offset-4 hover:text-teal"
+                      >
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </aside>
+
+              <div className="mt-12 rounded-[var(--radius-card)] border border-divider bg-white p-6 text-sm leading-relaxed text-body">
+                This article is general workplace wellbeing information, not medical or psychological advice. CYA
+                refreshes older guidance where needed so service claims remain proportionate to the available evidence.
+              </div>
+            </div>
+          </Container>
+        </Section>
+      </article>
+    </>
+  );
+}

@@ -4,6 +4,11 @@ import { primaryNav, utilityNav, memberSignInHref, footerLegalNav } from "@/cont
 import { site } from "@/content/site";
 
 export function SiteFooter() {
+  // Vercel Preview builds should retain the prototype warning. Generic
+  // production builds (including GitHub's `next build`) must not bake it into
+  // public HTML merely because VERCEL_ENV is absent.
+  const showPrototypeWarning = process.env.NODE_ENV !== "production" || process.env.VERCEL_ENV === "preview";
+
   return (
     <footer id="site-footer" className="border-t border-divider bg-teal-dark text-white">
       <Container className="grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4">
@@ -32,7 +37,7 @@ export function SiteFooter() {
           <a href={memberSignInHref} target="_blank" rel="noopener noreferrer" className="text-sm text-white/85 hover:text-white">
             Member sign-in<span className="sr-only"> (opens in a new tab)</span>
           </a>
-          <Link href="/consultation" className="text-sm text-white/85 hover:text-white">
+          <Link href="/contact" className="text-sm text-white/85 hover:text-white">
             Book a wellbeing consultation
           </Link>
         </nav>
@@ -49,9 +54,12 @@ export function SiteFooter() {
       <div className="border-t border-white/15">
         <Container className="flex flex-col gap-2 py-6 text-xs text-white/60 sm:flex-row sm:items-center sm:justify-between">
           <p>
-            {site.legalEntity}. {site.studioLockup} is CYA&rsquo;s continuous digital wellbeing platform.
+            {site.legalEntity}. {site.studioLockup} supports CYA&rsquo;s online and ongoing service delivery.
           </p>
-          <p>&copy; {new Date().getFullYear()} {site.name}. Prototype build - not for public release.</p>
+          <p>
+            &copy; {new Date().getFullYear()} {site.name}.
+            {showPrototypeWarning && " Prototype build - not for public release."}
+          </p>
         </Container>
       </div>
     </footer>

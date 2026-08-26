@@ -4,23 +4,54 @@ import { media, homeHeroMedia } from "@/content/media";
 export { homeHeroMedia };
 
 /**
- * Hero copy is deliberately this short - see AGENTS brief "Homepage
- * video-hero architecture": very limited or absent body copy, one primary
- * action. The fuller explanation lives in `quietIntro` below, not here.
- * Provisional line, easy to change - swap `heading` when Deb has final copy.
+ * Hero copy is deliberately short: the visual brand line carries the opening,
+ * while the category/search proposition is made explicit immediately below.
  */
 export const homeHeroContent: HeroContent = {
   eyebrow: "Corporate Yoga Australia",
   heading: "Time together, well spent.",
-  primaryCta: { label: "Book a wellbeing consultation", href: "/consultation", variant: "primary" },
+  primaryCta: { label: "Book a wellbeing consultation", href: "/contact", variant: "primary" },
 };
 
-/** Editorial introduction directly after the hero, pairing the core proposition with a representative workplace session image. */
+/** Category proposition directly after the hero. Home remains the broad corporate-yoga authority page. */
 export const quietIntro = {
-  heading: "Movement, mindfulness, workshops and a connected year - always fitted to the room you're in.",
+  heading: "Workplace Yoga, Pilates, mindfulness, workshops and wellbeing programs - always fitted to the room you're in.",
   body: "A single session, a conference activation, a short series or a connected program are all valid ways to work with CYA. Book one useful moment, repeat what works, or build a connected year when that becomes helpful - there's no required starting point.",
   image: media.programsContinuity,
 };
+
+export const situationLedEntry = {
+  kicker: "What is happening at work?",
+  heading: "Start with the situation, not a package.",
+  body: "CYA can help when you need one useful team moment, a movement or mindfulness session, an expert-led workshop, support across locations, or a more connected wellbeing rhythm.",
+};
+
+export const recognisableExperiences = [
+  {
+    title: "Workplace Yoga",
+    body: "Accessible Yoga sessions shaped around the team, space, timing and level of experience.",
+    href: "/workplace-yoga",
+    cta: "Explore Workplace Yoga",
+  },
+  {
+    title: "Workplace Pilates",
+    body: "Mat-based Pilates for one-off classes, short series, recurring sessions or mixed movement programs, adapted to the team and available space.",
+    href: "/workplace-pilates",
+    cta: "Explore Workplace Pilates",
+  },
+  {
+    title: "Mindfulness & Meditation",
+    body: "Guided meditation, mindfulness, breathwork and related practices designed for workplace participation.",
+    href: "/meditation-mindfulness",
+    cta: "Explore mindfulness & meditation",
+  },
+  {
+    title: "Workshops & Expert Experiences",
+    body: "Practical Lunch & Learns, workshops and expert-led sessions for particular workplace topics and moments.",
+    href: "/workplace-wellbeing-workshops",
+    cta: "Explore workshops & expert experiences",
+  },
+];
 
 export const pathwaysHeading = {
   kicker: "Ways to work with CYA",
@@ -32,9 +63,9 @@ export const pathways: PathwayCard[] = [
   {
     title: "One-off sessions",
     description:
-      "Movement, mindfulness, workshops and Lunch and Learns for teams, awareness days and particular workplace moments.",
-    href: "/workplace-wellbeing",
-    cta: "Explore workplace wellbeing",
+      "Movement, mindfulness, workshops and Lunch & Learns for teams, awareness days and particular workplace moments.",
+    href: "/contact?interest=one-off",
+    cta: "Plan a one-off session",
     image: media.workplaceWellbeingLunchLearn,
   },
   {
@@ -49,19 +80,18 @@ export const pathways: PathwayCard[] = [
     title: "Ongoing programs",
     description:
       "Recurring sessions and connected workplace wellbeing support designed around people, locations and priorities.",
-    href: "/programs",
+    href: "/workplace-wellbeing-programs",
     cta: "Explore programs",
     image: media.programsHero,
   },
 ];
 
-/** "Human experience" homepage section - visitor-centred language, no internal commercial framing ("not a smaller offer" removed per creative direction). */
 export const humanExperience = {
   kicker: "What a session feels like",
   heading: "A session that meets your team where they are.",
   body: "However people arrive - energised, flat, mid-deadline - a CYA session is shaped around the room on the day: the space available, the mix of people, and the time that's actually free. No experience or particular level of fitness is assumed.",
-  formats: ["Movement", "Mindfulness", "Workshops", "Lunch and Learns", "Awareness-day sessions", "Conference activations"],
-  cta: { label: "Explore one-off sessions", href: "/workplace-wellbeing" },
+  formats: ["Yoga & movement", "Mindfulness", "Workshops", "Lunch & Learns", "Awareness-day sessions", "Conference activations"],
+  cta: { label: "Discuss a one-off experience", href: "/contact?interest=one-off" },
   image: media.homeOneOff,
 };
 
@@ -109,7 +139,6 @@ export const exampleYear: YearMonthEntry[] = [
   { month: "December", theme: "Closing the year well", formats: ["Wind-down session", "Studio content refresh"] },
 ];
 
-/** Homepage proof section - one principal story told in full, two supporting stories linked rather than repeated as equal cards. `principalSlug` must match a slug in content/proof.ts. */
 export const principalProof = {
   kicker: "Case studies",
   heading: "See how CYA works in practice.",
@@ -119,35 +148,34 @@ export const principalProof = {
 };
 
 export const studioPreview = {
-  kicker: "Wellbeing Studio by Corporate Yoga Australia",
-  heading: "Practical digital wellbeing support, available beyond the scheduled session.",
-  body: "Short live and on-demand practices for different moments in the workday and beyond. Wellbeing Studio is CYA's continuous digital layer - it stands alongside live delivery, not apart from it.",
-  cta: { label: "Book a Studio walkthrough", href: "/wellbeing-studio" },
+  kicker: "Online wellbeing + Wellbeing Studio",
+  heading: "Keep useful support available beyond the scheduled session.",
+  body: "CYA can connect live online experiences, on-demand practices, expert content and Wellbeing Studio access for remote, hybrid and distributed teams. The Studio supports the service relationship; it is not the whole proposition.",
+  cta: { label: "Explore online wellbeing", href: "/online-wellbeing" },
   image: media.studioEmployeeHome,
 };
 
-/** Homepage-ending leadership beat - connects the founder to the wider organisation without reading as a solo practice. */
 export const leadershipPerspective = {
   kicker: "Corporate Yoga Australia",
   heading: "One founder, a national team behind every session.",
   body: "Debby Lewis founded CYA in 2014 from her own experience using movement and meditation in a high-pressure HR role. That practice is now delivered by an experienced national network of facilitators, coordinated so every engagement - from one session to a connected program - carries Debby's own standard of care.",
-  cta: { label: "Meet the team behind CYA", href: "/about" },
+  cta: { label: "Meet the team behind CYA", href: "/about-us" },
   image: media.debbyTeacherPortrait,
 };
 
-export const resourcesSignpost = {
-  kicker: "Resources",
-  heading: "Guides and tools for planning your next session.",
+export const insightsSignpost = {
+  kicker: "Insights",
+  heading: "Useful guidance for planning workplace wellbeing.",
   links: [
-    { label: "Choosing a format", href: "/resources" },
-    { label: "Preparing for a consultation", href: "/resources" },
-    { label: "Wellbeing planning calendar", href: "/resources" },
+    { label: "8 tips to successfully introduce Yoga at work", href: "/blog/8-tips-to-successfully-introduce-yoga-at-work" },
+    { label: "Check in with yourself with this simple technique", href: "/blog/check-in-with-yourself-with-this-simple-technique" },
+    { label: "Explore all Insights", href: "/blog" },
   ],
 };
 
 export const closingCTA = {
   kicker: "Tell us what you are planning",
   heading: "Tell us what you are planning.",
-  body: "The first conversation can be about one session, a conference, Wellbeing Studio or an organised program.",
-  cta: { label: "Book a wellbeing consultation", href: "/consultation", variant: "primary" as const },
+  body: "The first conversation can be about one Yoga session, another one-off experience, online continuity or an organised program.",
+  cta: { label: "Book a wellbeing consultation", href: "/contact", variant: "primary" as const },
 };

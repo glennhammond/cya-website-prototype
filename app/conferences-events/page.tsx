@@ -21,7 +21,14 @@ import { media } from "@/content/media";
 export const metadata: Metadata = {
   title: "Conferences and Events",
   description:
-    "From a 15-minute activation to morning movement, mindfulness or a practical wellbeing session, CYA designs around the audience, venue and run sheet.",
+    "Workplace wellbeing activations, movement, mindfulness and practical sessions designed around the audience, venue and event run sheet.",
+  alternates: {
+    canonical: "/conferences-events",
+  },
+  robots: {
+    index: false,
+    follow: true,
+  },
 };
 
 export default function ConferencesEventsPage() {
@@ -40,7 +47,7 @@ export default function ConferencesEventsPage() {
       <FeatureGrid
         id="formats"
         kicker="Activation formats"
-        heading="From a 15-minute reset to a full wellbeing stream."
+        heading="From a short reset to a broader wellbeing stream."
         items={activationFormats}
         tone="white"
         columns={3}
@@ -56,7 +63,7 @@ export default function ConferencesEventsPage() {
         kicker={studioAccessFeature.kicker}
         heading={studioAccessFeature.heading}
         body={studioAccessFeature.body}
-        cta={{ label: "See Wellbeing Studio", href: "/wellbeing-studio", variant: "secondary" }}
+        cta={{ label: "Explore online wellbeing", href: "/online-wellbeing", variant: "secondary" }}
         image={media.conferencesStudioAccess}
       />
       <DividerList kicker="Delivery logistics" heading="What CYA confirms before the day." items={logistics} tone="mist" />

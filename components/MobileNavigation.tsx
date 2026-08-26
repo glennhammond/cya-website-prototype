@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { CtaLink } from "@/components/CtaLink";
 import { primaryNav, utilityNav, primaryCTA, isNavActive } from "@/content/navigation";
 
@@ -13,6 +14,9 @@ const NAV_BREAKPOINT = "min-[1240px]:hidden";
  * returns focus, background gets `inert` while open (removes it from the tab
  * order and AT tree instead of leaving focus stranded behind the panel), body
  * scroll is locked, and every link closes the panel on selection.
+ *
+ * The panel is portalled to `document.body` so viewport-fixed positioning is
+ * not captured by the sticky header's backdrop-filter containing block.
  */
 export function MobileNavigation({ transparent = false }: { transparent?: boolean }) {
   const pathname = usePathname();
@@ -33,9 +37,6 @@ export function MobileNavigation({ transparent = false }: { transparent?: boolea
       document.body.style.overflow = "hidden";
       main?.setAttribute("inert", "");
       footer?.setAttribute("inert", "");
-      // Move focus into the panel itself (not a specific link) - the most
-      // reliable anchor point, independent of how any child component
-      // forwards refs.
       panelRef.current?.focus();
     } else {
       document.body.style.overflow = "";
@@ -59,6 +60,76 @@ export function MobileNavigation({ transparent = false }: { transparent?: boolea
     return () => document.removeEventListener("keydown", onKeyDown);
   }, [open]);
 
+  const panel = open ? (
+    <div
+      id="mobile-nav-panel"
+      ref={panelRef}
+      tabIndex={-1}
+      className="fixed inset-x-0 top-24 bottom-0 z-30 overflow-y-auto border-t border-divider bg-white px-5 py-6 shadow-[var(--shadow-card)] focus:outline-none"
+    >
+      <nav aria-label="Primary">
+        <ul className="flex flex-col gap-1">
+          {primaryNav.map((item) => {
+            const active =
+              isNavActive(pathname, item.href) ||
+              Boolean(item.children?.some((child) => isNavActive(pathname, child.href)));
+            return (
+              <li key={item.href}>
+                <Link
+                  href={item.href}
+                  onClick={() => close(false)}
+                  aria-current={active ? "page" : undefined}
+                  className={`block min-h-11 rounded-[var(--radius-control)] px-3 py-3 text-base font-bold ${
+                    active ? "text-teal" : "text-ink"
+                  }`}
+                >
+                  {item.label}
+                </Link>
+                {item.children?.map((child) => {
+                  const childActive = isNavActive(pathname, child.href);
+                  return (
+                    <Link
+                      key={child.href}
+                      href={child.href}
+                      onClick={() => close(false)}
+                      aria-current={childActive ? "page" : undefined}
+                      className={`block min-h-11 rounded-[var(--radius-control)] px-6 py-2 text-sm ${
+                        childActive ? "font-bold text-teal" : "text-body"
+                      }`}
+                    >
+                      {child.label}
+                    </Link>
+                  );
+                })}
+              </li>
+            );
+          })}
+        </ul>
+      </nav>
+      <div className="mt-4 flex flex-col gap-1 border-t border-divider pt-4">
+        {utilityNav.map((item) => {
+          const active = isNavActive(pathname, item.href);
+          return (
+            <Link
+              key={item.href}
+              href={item.href}
+              onClick={() => close(false)}
+              aria-current={active ? "page" : undefined}
+              className={`block min-h-11 rounded-[var(--radius-control)] px-3 py-3 text-base font-bold ${
+                active ? "text-teal" : "text-ink"
+              }`}
+            >
+              {item.label}
+            </Link>
+          );
+        })}
+      </div>
+      <CtaLink href={primaryCTA.href} variant="primary" className="mt-4 w-full">
+        {primaryCTA.label}
+      </CtaLink>
+    </div>
+  ) : null;
+
   return (
     <div className={NAV_BREAKPOINT}>
       <button
@@ -79,75 +150,7 @@ export function MobileNavigation({ transparent = false }: { transparent?: boolea
         {open ? <CloseIcon /> : <MenuIcon light={transparent} />}
       </button>
 
-      {open && (
-        <div
-          id="mobile-nav-panel"
-          ref={panelRef}
-          tabIndex={-1}
-          className="fixed inset-x-0 top-24 bottom-0 z-40 overflow-y-auto border-t border-divider bg-white px-5 py-6 shadow-[var(--shadow-card)] focus:outline-none"
-        >
-          <nav aria-label="Primary">
-            <ul className="flex flex-col gap-1">
-              {primaryNav.map((item) => {
-                const active =
-                  isNavActive(pathname, item.href) ||
-                  Boolean(item.children?.some((child) => isNavActive(pathname, child.href)));
-                return (
-                  <li key={item.href}>
-                    <Link
-                      href={item.href}
-                      onClick={() => close(false)}
-                      aria-current={active ? "page" : undefined}
-                      className={`block min-h-11 rounded-[var(--radius-control)] px-3 py-3 text-base font-bold ${
-                        active ? "text-teal" : "text-ink"
-                      }`}
-                    >
-                      {item.label}
-                    </Link>
-                    {item.children?.map((child) => {
-                      const childActive = isNavActive(pathname, child.href);
-                      return (
-                        <Link
-                          key={child.href}
-                          href={child.href}
-                          onClick={() => close(false)}
-                          aria-current={childActive ? "page" : undefined}
-                          className={`block min-h-11 rounded-[var(--radius-control)] px-6 py-2 text-sm ${
-                            childActive ? "font-bold text-teal" : "text-body"
-                          }`}
-                        >
-                          {child.label}
-                        </Link>
-                      );
-                    })}
-                  </li>
-                );
-              })}
-            </ul>
-          </nav>
-          <div className="mt-4 flex flex-col gap-1 border-t border-divider pt-4">
-            {utilityNav.map((item) => {
-              const active = isNavActive(pathname, item.href);
-              return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  onClick={() => close(false)}
-                  aria-current={active ? "page" : undefined}
-                  className={`block min-h-11 rounded-[var(--radius-control)] px-3 py-3 text-base font-bold ${
-                    active ? "text-teal" : "text-ink"
-                  }`}
-                >
-                  {item.label}
-                </Link>
-              );
-            })}
-          </div>
-          <CtaLink href={primaryCTA.href} variant="primary" className="mt-4 w-full">
-            {primaryCTA.label}
-          </CtaLink>
-        </div>
-      )}
+      {panel && typeof document !== "undefined" ? createPortal(panel, document.body) : null}
     </div>
   );
 }
@@ -155,7 +158,12 @@ export function MobileNavigation({ transparent = false }: { transparent?: boolea
 function MenuIcon({ light = false }: { light?: boolean }) {
   return (
     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-      <path d="M3 5.5H17M3 10H17M3 14.5H17" stroke={light ? "#ffffff" : "#253336"} strokeWidth="1.6" strokeLinecap="round" />
+      <path
+        d="M3 5.5H17M3 10H17M3 14.5H17"
+        stroke={light ? "#ffffff" : "#253336"}
+        strokeWidth="1.6"
+        strokeLinecap="round"
+      />
     </svg>
   );
 }
@@ -163,7 +171,12 @@ function MenuIcon({ light = false }: { light?: boolean }) {
 function CloseIcon() {
   return (
     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-      <path d="M4.5 4.5 L15.5 15.5 M15.5 4.5 L4.5 15.5" stroke="#253336" strokeWidth="1.6" strokeLinecap="round" />
+      <path
+        d="M4.5 4.5 L15.5 15.5 M15.5 4.5 L4.5 15.5"
+        stroke="#253336"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+      />
     </svg>
   );
 }

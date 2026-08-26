@@ -13,7 +13,7 @@ export const worldviewFeature = {
   kicker: "Worldview",
   heading: "Not everyone will walk into a yoga studio.",
   body: "CYA designs experiences for varied bodies, roles, workplaces and confidence levels, without making wellbeing feel performative, preachy or difficult to join.",
-  cta: { label: "Explore workplace wellbeing", href: "/workplace-wellbeing", variant: "secondary" as const },
+  cta: { label: "Explore workplace movement", href: "/movement", variant: "secondary" as const },
 };
 
 export const originStory = {
@@ -51,5 +51,5 @@ export const closingCTA = {
   kicker: "Next step",
   heading: "Talk to CYA about your workplace.",
   body: "Whether it's one session or a broader plan, the first conversation starts with understanding your situation.",
-  cta: { label: "Book a wellbeing consultation", href: "/consultation", variant: "primary" as const },
+  cta: { label: "Book a wellbeing consultation", href: "/contact", variant: "primary" as const },
 };

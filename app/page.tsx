@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { HeroVideo } from "@/components/HeroVideo";
 import { QuietIntro } from "@/components/QuietIntro";
+import { DividerList } from "@/components/DividerList";
 import { WaysToWork } from "@/components/WaysToWork";
 import { HumanExperience } from "@/components/HumanExperience";
 import { OfferProgression } from "@/components/OfferProgression";
@@ -9,10 +10,13 @@ import { StudioPreview } from "@/components/StudioPreview";
 import { FounderClose } from "@/components/FounderClose";
 import { ResourcesSignpost } from "@/components/ResourcesSignpost";
 import { CTASection } from "@/components/CTASection";
+import { HomeStructuredData } from "@/components/StructuredData";
 import {
   homeHeroContent,
   homeHeroMedia,
   quietIntro,
+  situationLedEntry,
+  recognisableExperiences,
   pathwaysHeading,
   pathways,
   humanExperience,
@@ -21,16 +25,21 @@ import {
   principalProof,
   studioPreview,
   leadershipPerspective,
-  resourcesSignpost,
+  insightsSignpost,
   closingCTA,
 } from "@/content/home";
 import { caseStudies } from "@/content/proof";
 import { media } from "@/content/media";
 
 export const metadata: Metadata = {
-  title: "Corporate Yoga Australia - Start with one useful moment",
+  title: {
+    absolute: "Corporate Yoga Australia | Workplace Yoga & Wellbeing",
+  },
   description:
-    "Book a one-off movement, mindfulness, workshop or conference session, or build a connected year of workplace wellbeing with CYA and Wellbeing Studio.",
+    "Human-led workplace Yoga, Pilates, mindfulness, workshops and wellbeing programs for Australian teams, with onsite, online and ongoing support.",
+  alternates: {
+    canonical: "/",
+  },
 };
 
 export default function Home() {
@@ -39,9 +48,18 @@ export default function Home() {
 
   return (
     <>
+      <HomeStructuredData />
       <HeroVideo eyebrow={homeHeroContent.eyebrow} heading={homeHeroContent.heading} primaryCta={homeHeroContent.primaryCta} media={homeHeroMedia} />
 
       <QuietIntro heading={quietIntro.heading} body={quietIntro.body} image={quietIntro.image} />
+
+      <DividerList
+        kicker={situationLedEntry.kicker}
+        heading={situationLedEntry.heading}
+        body={situationLedEntry.body}
+        items={recognisableExperiences}
+        tone="mist"
+      />
 
       <WaysToWork
         kicker={pathwaysHeading.kicker}
@@ -91,7 +109,7 @@ export default function Home() {
         image={leadershipPerspective.image}
       />
 
-      <ResourcesSignpost kicker={resourcesSignpost.kicker} heading={resourcesSignpost.heading} links={resourcesSignpost.links} />
+      <ResourcesSignpost kicker={insightsSignpost.kicker} heading={insightsSignpost.heading} links={insightsSignpost.links} />
 
       <CTASection kicker={closingCTA.kicker} heading={closingCTA.heading} body={closingCTA.body} cta={closingCTA.cta} />
     </>

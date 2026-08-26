@@ -1,0 +1,53 @@
+name: Phase 11.4 Production QA
+
+on:
+  pull_request:
+    branches:
+      - feature/cya-prototype-v1
+
+concurrency:
+  group: phase-11-4-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  production-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Audit production dependencies
+        run: npm audit --omit=dev --audit-level=high
+
+      - name: Validate Phase 11.4 search architecture
+        run: npm run qa:search
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Build production candidate
+        env:
+          VERCEL_ENV: production
+        run: npm run build
+
+      - name: Rendered production HTTP smoke
+        env:
+          VERCEL_ENV: production
+        run: npm run qa:rendered-smoke
+
+      - name: Final Phase 11.4 launch-readiness gate
+        run: npm run qa:launch

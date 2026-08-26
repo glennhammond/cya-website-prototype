@@ -10,15 +10,15 @@ const indexableCanonicalPaths = [
   "/meditation-mindfulness",
   "/workplace-wellbeing-workshops",
   "/online-wellbeing",
-  "/case-studies",
   "/about-us",
   "/contact",
 ] as const;
 
 /**
  * Phase 11.4 launch sitemap intentionally includes only substantive canonical
- * routes that exist in this branch. Evidence-gated /workplace-pilates and the
- * not-yet-migrated /blog authority are deliberately omitted until ready.
+ * routes that are currently index-qualified. Evidence-gated /workplace-pilates,
+ * placeholder /case-studies and the not-yet-migrated /blog authority are
+ * deliberately omitted until their publication gates are satisfied.
  */
 export default function sitemap(): MetadataRoute.Sitemap {
   return indexableCanonicalPaths.map((path) => ({

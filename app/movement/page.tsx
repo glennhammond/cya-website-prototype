@@ -7,6 +7,7 @@ import { DividerList } from "@/components/DividerList";
 import { CTASection } from "@/components/CTASection";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { ProofNote } from "@/components/ProofNote";
+import { ServiceStructuredData } from "@/components/StructuredData";
 import {
   movementHero,
   movementTypes,
@@ -32,6 +33,12 @@ export const metadata: Metadata = {
 export default function MovementPage() {
   return (
     <>
+      <ServiceStructuredData
+        name="Workplace Movement, Yoga & Pilates"
+        description="Workplace movement including Yoga, Pilates, mobility and desk movement, adapted to real teams, spaces and levels of experience."
+        path="/movement"
+        breadcrumbLabel="Movement"
+      />
       <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Movement" }]} />
       <PageHero intro={movementHero} image={media.movementHero} imagePosition="left" />
       <DividerList

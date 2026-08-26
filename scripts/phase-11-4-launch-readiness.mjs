@@ -58,6 +58,15 @@ for (const sourceFile of ["app", "components", "content"]
   .flatMap((dir) => walk(path.join(root, dir)))
   .filter((sourceFile) => /\.(tsx?|mjs|js)$/.test(sourceFile) && !sourceFile.endsWith("content/media.ts"))) {
   const source = fs.readFileSync(sourceFile, "utf8");
+
+  // Only treat `media.<key>` as a governed registry reference when this file
+  // actually imports the `media` registry from content/media. Components may
+  // legitimately have local props named `media` (for example HeroVideo), and
+  // comments may mention `content/media.ts`; neither should be interpreted as
+  // publication-registry keys.
+  const importsGovernedMediaRegistry = /import\s*\{[^}]*\bmedia\b[^}]*\}\s*from\s*["']@\/content\/media["']/s.test(source);
+  if (!importsGovernedMediaRegistry) continue;
+
   for (const match of source.matchAll(/\bmedia\.([A-Za-z0-9_]+)/g)) {
     usedMediaKeys.add(match[1]);
   }

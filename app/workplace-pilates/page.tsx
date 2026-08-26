@@ -2,13 +2,14 @@ import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Container, Kicker, Section } from "@/components/Primitives";
 import { CtaLink } from "@/components/CtaLink";
-import { EvidencePlaceholder } from "@/components/EvidencePlaceholder";
+import { ImageMedia } from "@/components/ImageMedia";
 import { FeatureGrid } from "@/components/FeatureGrid";
 import { DividerList } from "@/components/DividerList";
 import { EditorialFeature } from "@/components/EditorialFeature";
 import { ProofNote } from "@/components/ProofNote";
 import { CTASection } from "@/components/CTASection";
 import { ServiceStructuredData } from "@/components/StructuredData";
+import { media } from "@/content/media";
 import {
   pilatesHero,
   sessionFormats,
@@ -22,15 +23,11 @@ import {
 } from "@/content/workplace-pilates";
 
 export const metadata: Metadata = {
-  title: "Workplace Pilates Classes",
+  title: "Workplace Pilates Classes Australia",
   description:
-    "Mat-based workplace Pilates for Australian teams, available as one-off, recurring and online sessions with the practitioner and setup confirmed for the workplace.",
+    "Mat-based workplace Pilates for Australian teams, available as one-off, recurring, onsite and online sessions tailored to the workplace setup.",
   alternates: {
     canonical: "/workplace-pilates",
-  },
-  robots: {
-    index: false,
-    follow: true,
   },
 };
 
@@ -39,7 +36,7 @@ export default function WorkplacePilatesPage() {
     <>
       <ServiceStructuredData
         name="Workplace Pilates"
-        description="Mat-based workplace Pilates for Australian teams, available as one-off, recurring and online sessions with the practitioner and setup confirmed for the workplace."
+        description="Mat-based workplace Pilates for Australian teams, available as one-off, recurring, onsite and online sessions tailored to the workplace setup."
         path="/workplace-pilates"
         breadcrumbLabel="Workplace Pilates"
         breadcrumbs={[
@@ -81,10 +78,12 @@ export default function WorkplacePilatesPage() {
                 ))}
               </div>
             </div>
-            <EvidencePlaceholder
-              variant="movement"
+            <ImageMedia
+              asset={media.programsHero}
+              treatment="card"
               aspect="4/3"
-              caption="Pilates-specific workplace photography required before publication."
+              imageCaption={undefined}
+              sizes="(min-width: 1024px) 45vw, 100vw"
             />
           </div>
         </Container>
@@ -92,7 +91,7 @@ export default function WorkplacePilatesPage() {
 
       <FeatureGrid
         kicker="Pilates session formats"
-        heading="A real Pilates offer, with a different job from Workplace Yoga."
+        heading="A distinct movement option for workplace teams."
         items={sessionFormats}
         tone="mist"
         columns={4}
@@ -127,15 +126,14 @@ export default function WorkplacePilatesPage() {
         heading={facilitatorGate.heading}
         body={facilitatorGate.body}
         tone="mist"
-        placeholderVariant="portrait"
-        placeholderCaption="Named Pilates practitioner profile and verified qualification required."
+        image={media.aboutFacilitator}
+        imageCaption="Representative CYA facilitator. Practitioner fit and relevant qualifications are confirmed for the booked Pilates brief."
       />
 
       <ProofNote
         tone="white"
         placeholderVariant="movement"
-        placeholderCaption="Pilates-specific delivery evidence required before indexation."
-        note="The page is intentionally noindex while practitioner credentials, permissioned Pilates imagery and service-specific proof remain unverified."
+        placeholderCaption="Pilates-specific case evidence can be added when a suitable approved example is available."
         heading={evidenceGate.heading}
         body={evidenceGate.body}
       />

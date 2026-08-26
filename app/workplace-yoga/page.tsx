@@ -7,6 +7,7 @@ import { StatementList } from "@/components/StatementList";
 import { DividerList } from "@/components/DividerList";
 import { ProofNote } from "@/components/ProofNote";
 import { CTASection } from "@/components/CTASection";
+import { ServiceStructuredData } from "@/components/StructuredData";
 import { media } from "@/content/media";
 import {
   yogaHero,
@@ -33,6 +34,16 @@ export const metadata: Metadata = {
 export default function WorkplaceYogaPage() {
   return (
     <>
+      <ServiceStructuredData
+        name="Workplace Yoga"
+        description="Human-led workplace Yoga sessions for Australian teams, adapted to real workplaces. One-off, recurring, onsite and online delivery available."
+        path="/workplace-yoga"
+        breadcrumbLabel="Workplace Yoga"
+        breadcrumbs={[
+          { name: "Movement", path: "/movement" },
+          { name: "Workplace Yoga", path: "/workplace-yoga" },
+        ]}
+      />
       <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Movement", href: "/movement" }, { label: "Workplace Yoga" }]} />
       <PageHero intro={yogaHero} image={media.programsHero} />
 

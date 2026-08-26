@@ -1,5 +1,3 @@
-import Link from "next/link";
-import { EvidenceBadge } from "@/components/AnnotationToggle";
 import type { CaseStudy } from "@/lib/types";
 
 const VARIANT_BY_ROLE = {
@@ -9,30 +7,27 @@ const VARIANT_BY_ROLE = {
   "one-off-event": "movement",
 } as const;
 
+/**
+ * Summary card for a publishable case study. Phase 11.4 does not yet expose
+ * individual case-study detail routes, so this deliberately renders as an
+ * article rather than linking to the retired /proof/case-study prototype URL.
+ */
 export function CaseStudyCard({ study }: { study: CaseStudy }) {
   const variant = VARIANT_BY_ROLE[study.storyRole];
   return (
-    <Link
-      href={`/proof/case-study?story=${study.slug}`}
-      className="flex h-full flex-col overflow-hidden rounded-[var(--radius-card)] border border-divider bg-white shadow-[var(--shadow-card)]"
-    >
+    <article className="flex h-full flex-col overflow-hidden rounded-[var(--radius-card)] border border-divider bg-white shadow-[var(--shadow-card)]">
       <div className="relative flex h-36 items-center justify-center bg-mist">
         <svg viewBox="0 0 100 60" aria-hidden="true" className="h-16 w-28 text-teal opacity-70">
           {VariantMark(variant)}
         </svg>
-        <div className="absolute right-3 top-3">
-          <EvidenceBadge status={study.status} note="Prototype placeholder - not a publishable client story." />
-        </div>
       </div>
       <div className="flex flex-1 flex-col gap-2 p-6">
         <p className="text-xs font-bold uppercase tracking-wide text-ochre-ink">{study.clientLabel}</p>
         <h3 className="text-heading-sm text-teal-dark">{study.headline}</h3>
         <p className="flex-1 text-sm leading-relaxed text-body">{study.summary}</p>
-        <span className="text-sm font-bold text-teal-dark underline decoration-2 underline-offset-4">
-          Read the story
-        </span>
+        <p className="mt-2 text-xs font-bold uppercase tracking-[0.08em] text-body">Published case study</p>
       </div>
-    </Link>
+    </article>
   );
 }
 

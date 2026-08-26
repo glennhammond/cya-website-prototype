@@ -51,7 +51,7 @@ export const caseStudies: CaseStudy[] = [
       value: "Placeholder - what CYA learned and how it applies to a similar buyer.",
       status: "evidence-required",
     },
-    nextStep: { label: "Discuss a similar need", href: "/consultation" },
+    nextStep: { label: "Discuss a similar need", href: "/contact" },
   },
   {
     slug: "distributed-delivery",
@@ -89,7 +89,7 @@ export const caseStudies: CaseStudy[] = [
       value: "Placeholder - what CYA learned about distributed delivery.",
       status: "evidence-required",
     },
-    nextStep: { label: "Ask about distributed delivery", href: "/consultation" },
+    nextStep: { label: "Ask about distributed delivery", href: "/contact?interest=studio" },
   },
   {
     slug: "smaller-organisation",
@@ -127,7 +127,7 @@ export const caseStudies: CaseStudy[] = [
       value: "Placeholder - what CYA learned about smaller-organisation delivery.",
       status: "evidence-required",
     },
-    nextStep: { label: "Discuss a proportionate program", href: "/consultation" },
+    nextStep: { label: "Discuss a proportionate program", href: "/contact?interest=recurring" },
   },
   {
     slug: "one-off-event",
@@ -165,7 +165,7 @@ export const caseStudies: CaseStudy[] = [
       value: "Placeholder pending candidate selection.",
       status: "placeholder",
     },
-    nextStep: { label: "Discuss your conference", href: "/consultation" },
+    nextStep: { label: "Discuss your conference", href: "/contact?interest=conference" },
   },
 ];
 

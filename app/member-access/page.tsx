@@ -5,6 +5,10 @@ import { MemberAccessPanel } from "@/components/MemberAccessPanel";
 export const metadata: Metadata = {
   title: "Member Access",
   description: "Sign in to Wellbeing Studio, kept separate from the CYA corporate consultation journey.",
+  robots: {
+    index: false,
+    follow: true,
+  },
 };
 
 export default function MemberAccessPage() {

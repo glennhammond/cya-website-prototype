@@ -8,6 +8,7 @@ const indexableCanonicalPaths = [
   "/workplace-wellbeing-programs",
   "/movement",
   "/workplace-yoga",
+  "/workplace-pilates",
   "/meditation-mindfulness",
   "/workplace-wellbeing-workshops",
   "/online-wellbeing",
@@ -18,8 +19,8 @@ const indexableCanonicalPaths = [
 
 /**
  * Phase 11.4 launch sitemap includes substantive canonical routes that are
- * currently index-qualified. Evidence-gated /workplace-pilates and placeholder
- * /case-studies remain excluded until their publication gates are satisfied.
+ * currently index-qualified. Evidence-dependent /case-studies remains excluded
+ * until a publishable client story is approved.
  */
 export default function sitemap(): MetadataRoute.Sitemap {
   const canonicalPages = indexableCanonicalPaths.map((path) => ({

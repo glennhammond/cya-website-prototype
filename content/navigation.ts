@@ -17,6 +17,11 @@ export const primaryNav: NavItem[] = [
         description: "One-off, recurring, onsite and online Yoga adapted to real workplaces.",
       },
       {
+        label: "Workplace Pilates",
+        href: "/workplace-pilates",
+        description: "Mat-based Pilates for one-off, recurring, onsite and online workplace sessions.",
+      },
+      {
         label: "Mindfulness & Meditation",
         href: "/meditation-mindfulness",
         description: "Guided meditation, mindfulness, breathwork and related workplace practices.",

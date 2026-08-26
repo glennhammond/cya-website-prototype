@@ -1,7 +1,7 @@
 # CYA Website — Phase 11.4 Search Baseline & Rank Tracker Review
 
 **Date:** 26 August 2026  
-**Status:** reviewed measurement baseline / Rank Tracker portfolio ready for configuration review  
+**Status:** measurement baseline complete / 40-keyword AU Rank Tracker portfolio LOCKED for configuration  
 **Scope:** Australian organic-search baseline, Rank Tracker portfolio, measurement guardrails  
 **Ahrefs project:** `Corporateyoga` — project ID `10280255`
 
@@ -9,7 +9,7 @@
 
 Phase 11.3 deliberately deferred Ahrefs Rank Tracker configuration until the canonical search architecture was stable.
 
-Phase 11.4 has now implemented the major canonical search architecture and the current GitHub production QA gate passes. This document records the pre-launch measurement evidence and the deliberately small Australian keyword portfolio that should be used for ongoing Ahrefs monitoring.
+Phase 11.4 has now implemented and technically qualified the canonical search architecture. This document records the pre-launch measurement evidence and the deliberately compact Australian keyword portfolio for ongoing monitoring.
 
 This is a measurement document. Inclusion of a keyword does **not** by itself authorise publication, indexation or a new landing page.
 
@@ -25,6 +25,8 @@ Google Search Console remains the source of truth for actual Google clicks, impr
 - Rank Tracker keywords currently configured: **0**
 
 The clean zero-keyword state is useful: the new portfolio can be configured deliberately rather than inheriting a noisy historical list.
+
+The connected Ahrefs integration currently exposes Rank Tracker/project **read** actions but no keyword-add/write action. Configuration therefore requires the Ahrefs UI; the portfolio itself is decision-complete and no further keyword research is required before import.
 
 ## 3. Connected GSC baseline — Australia
 
@@ -108,7 +110,7 @@ Selected current metrics validated 26 August 2026:
 
 Ahrefs volume is directional, not actual CYA traffic. GSC remains authoritative for CYA performance.
 
-## 5. Recommended Australian Rank Tracker portfolio — 40 keywords
+## 5. Locked Australian Rank Tracker portfolio — 40 keywords
 
 ### A. Defend / existing equity — 6
 
@@ -149,7 +151,7 @@ Low Ahrefs volume does not automatically remove a term where GSC or buyer-langua
 22. workplace Pilates
 23. corporate Pilates classes
 
-**Governance note:** tracking these terms is appropriate even if a Pilates publication/evidence gate is still being reconciled. Rank tracking is measurement, not publication authority.
+**Publication status:** `/workplace-pilates` is now formally **PUBLISH / INDEX-QUALIFIED** under the 26 August 2026 Pilates publication decision. These terms therefore track a genuine live-target canonical service, not a hypothetical page.
 
 ### E. Mindfulness & Meditation — 5
 
@@ -189,7 +191,22 @@ These are diagnostics, not authority to create city doorway pages. Location page
 
 This is included because the existing Check-In-With-Yourself article already receives GSC impressions and has page-one visibility around this vocabulary. It is an authority diagnostic, not a commercial acquisition target.
 
-## 6. Measurement interpretation rules
+## 6. Rank Tracker configuration authority
+
+Use the existing verified Ahrefs project:
+
+- **Project:** Corporateyoga
+- **Project ID:** `10280255`
+- **Target:** `www.corporateyoga.com.au/`
+- **Primary tracking market:** Australia
+- **Ahrefs location ID:** `2036`
+- **Language:** English (`en`)
+
+The portfolio should be imported exactly as locked above. Do not add city variants, synonyms or low-value long-tail terms during setup merely because Ahrefs suggests them.
+
+The connected Ahrefs integration reports the project currently contains **0 keywords**, so there is no legacy list to reconcile.
+
+## 7. Measurement interpretation rules
 
 1. **Do not judge the rebuild by Ahrefs estimated traffic.** Use GSC for actual Google performance.
 2. **Do not treat every tracked keyword as a page brief.** Several terms deliberately roll into one canonical destination.
@@ -199,29 +216,22 @@ This is included because the existing Check-In-With-Yourself article already rec
 6. **Expect normal migration volatility.** Protect equity before reacting to short-term movement.
 7. **Review the portfolio periodically rather than expanding continuously.** A compact decision-useful set is preferable to hundreds of low-value terms.
 
-## 7. Current governance issue requiring reconciliation
-
-The current repository configuration now records `pilatesPublicationApproved: true` and the executable search QA treats `/workplace-pilates` as index-qualified.
-
-However, the prior written authority retained evidence dependencies around practitioner qualifications/availability, service/logistics qualification and Pilates-specific proof. The current repository/decision trail should be reconciled so publication status is supported by an explicit evidence-backed decision rather than inferred from implementation state alone.
-
-Until reconciled, this document does not treat Rank Tracker inclusion as evidence that the Pilates publication gate is substantively closed.
-
 ## 8. Next measurement actions
 
-1. Configure the reviewed ~40-keyword AU portfolio in Ahrefs Rank Tracker.
+1. Import the locked 40-keyword AU portfolio into Ahrefs Rank Tracker using Australia / English.
 2. Freeze a native GSC pre-launch export immediately before production deployment.
 3. Record launch date and canonical migration date.
 4. After launch, monitor:
    - Home corporate-yoga defence;
    - `/workplace-yoga` consolidation and growth;
+   - `/workplace-pilates` emergence and ranking-URL alignment;
    - program-procurement visibility;
-   - ranking-URL alignment;
+   - ranking-URL alignment generally;
    - CTR changes;
    - indexation/canonical selection;
-   - workshop, mindfulness, Pilates and online-service emergence;
+   - workshop, mindfulness and online-service emergence;
    - geographic diagnostics without doorway-page expansion.
-5. Use Ahrefs competitor/share-of-voice and referring-domain data as secondary interpretation layers, not as replacements for GSC.
+5. Use Ahrefs competitor/share-of-voice and referring-domain data as secondary interpretation layers, not replacements for GSC.
 
 ---
 

@@ -82,7 +82,6 @@ export default function WorkplacePilatesPage() {
               asset={media.programsHero}
               treatment="card"
               aspect="4/3"
-              imageCaption={undefined}
               sizes="(min-width: 1024px) 45vw, 100vw"
             />
           </div>

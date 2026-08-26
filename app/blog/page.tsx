@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { BreadcrumbStructuredData } from "@/components/StructuredData";
 import { Container, Kicker, Section } from "@/components/Primitives";
 import { insightArticles } from "@/content/insights";
 
@@ -26,6 +27,7 @@ export default function InsightsPage() {
 
   return (
     <>
+      <BreadcrumbStructuredData items={[{ name: "Insights", path: "/blog" }]} />
       <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Insights" }]} />
       <Section tone="white" className="pb-10">
         <Container>

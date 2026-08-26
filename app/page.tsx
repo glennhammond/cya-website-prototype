@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { HeroVideo } from "@/components/HeroVideo";
 import { QuietIntro } from "@/components/QuietIntro";
+import { DividerList } from "@/components/DividerList";
 import { WaysToWork } from "@/components/WaysToWork";
 import { HumanExperience } from "@/components/HumanExperience";
 import { OfferProgression } from "@/components/OfferProgression";
@@ -13,6 +14,8 @@ import {
   homeHeroContent,
   homeHeroMedia,
   quietIntro,
+  situationLedEntry,
+  recognisableExperiences,
   pathwaysHeading,
   pathways,
   humanExperience,
@@ -21,7 +24,7 @@ import {
   principalProof,
   studioPreview,
   leadershipPerspective,
-  resourcesSignpost,
+  insightsSignpost,
   closingCTA,
 } from "@/content/home";
 import { caseStudies } from "@/content/proof";
@@ -32,7 +35,7 @@ export const metadata: Metadata = {
     absolute: "Corporate Yoga Australia | Workplace Yoga & Wellbeing",
   },
   description:
-    "Human-led workplace yoga, movement, mindfulness, workshops and wellbeing programs for Australian teams, with onsite, online and ongoing support.",
+    "Human-led workplace Yoga, Pilates, mindfulness, workshops and wellbeing programs for Australian teams, with onsite, online and ongoing support.",
   alternates: {
     canonical: "/",
   },
@@ -47,6 +50,14 @@ export default function Home() {
       <HeroVideo eyebrow={homeHeroContent.eyebrow} heading={homeHeroContent.heading} primaryCta={homeHeroContent.primaryCta} media={homeHeroMedia} />
 
       <QuietIntro heading={quietIntro.heading} body={quietIntro.body} image={quietIntro.image} />
+
+      <DividerList
+        kicker={situationLedEntry.kicker}
+        heading={situationLedEntry.heading}
+        body={situationLedEntry.body}
+        items={recognisableExperiences}
+        tone="mist"
+      />
 
       <WaysToWork
         kicker={pathwaysHeading.kicker}
@@ -96,7 +107,7 @@ export default function Home() {
         image={leadershipPerspective.image}
       />
 
-      <ResourcesSignpost kicker={resourcesSignpost.kicker} heading={resourcesSignpost.heading} links={resourcesSignpost.links} />
+      <ResourcesSignpost kicker={insightsSignpost.kicker} heading={insightsSignpost.heading} links={insightsSignpost.links} />
 
       <CTASection kicker={closingCTA.kicker} heading={closingCTA.heading} body={closingCTA.body} cta={closingCTA.cta} />
     </>

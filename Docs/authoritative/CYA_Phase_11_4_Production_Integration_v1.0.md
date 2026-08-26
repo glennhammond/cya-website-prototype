@@ -1,8 +1,8 @@
 # CYA Website — Phase 11.4 Production Integration & Qualification v1.0
 
-**Status:** active implementation authority  
+**Status:** substantive production integration complete; final evidence/security/deployment qualification remains open  
 **Branch:** `phase-11-3-search-authority`  
-**PR:** #2 — remain Draft until the remaining evidence, editorial and deployed-QA gates pass  
+**PR:** #2 — remain Draft until remaining publication and launch-QA gates pass  
 **Governing search authority:** Phase 11.3 v1.0
 
 ## 1. 11.4.1 Current Prototype × Phase 11.3 Gap Audit
@@ -10,43 +10,37 @@
 ### KEEP
 
 - Next.js 16 / App Router / TypeScript / Tailwind production foundation.
-- Existing restrained editorial component system and approved CYA visual direction.
+- Restrained editorial component system and approved CYA visual direction.
 - `EvidenceStatus` governance and annotation mode.
 - Human-led, workplace-aware service language.
 - One-off work as a legitimate complete engagement.
 - Optional progression from one useful moment to recurring rhythm / connected program / organised year.
-- Governed Programs, Movement, About, Contact and Case Studies foundations where compatible with Phase 11.3.
 - Documentary/human photography strategy and publication-permission controls.
-- Conference/Event experience as a useful supporting route while final non-core-route disposition is qualified.
+- Conference/Event experience as a useful supporting buyer path, while remaining outside the core indexable canonical set.
 
-### MODIFY
+### MODIFY — COMPLETED
 
-- Home: retain approved emotive hero; make broad corporate/workplace-Yoga category relevance explicit immediately below; add situation-led discovery, literal service paths, Programs, proof, human delivery, online continuity and Insights authority.
-- Programs: expand into a true procurement destination covering organisational need, planning, cadence, experience mix, implementation, communications, reporting, evidence and procurement questions.
-- Movement: operate as the selection/orientation hub for Yoga, Pilates and workplace-friendly movement.
-- Navigation: point directly to substantive canonical routes; do not expose evidence-gated pages prematurely.
-- Wellbeing Studio: position as the connected delivery/continuity layer inside Online Wellbeing rather than the primary acquisition proposition.
-- Internal authority: remove reliance on `/consultation`, `/programs`, `/workplace-wellbeing/movement`, `/about` and `/wellbeing-studio` where final canonical destinations exist.
-- Technical search layer: centralise redirects, sitemap, robots/indexability, schema and error behaviour.
+- Home retains its emotive brand hero while broad corporate/workplace-Yoga relevance is explicit immediately below.
+- Programs is now a procurement destination covering organisational need, planning, cadence, experience mix, implementation, communications, reporting, evidence and procurement questions.
+- Movement now operates as the selection/orientation hub for Yoga, Pilates and workplace-friendly movement.
+- Navigation points directly to substantive routes and no longer promotes evidence-gated Case Studies or the retired Resources page.
+- Wellbeing Studio is positioned within Online Wellbeing as connected delivery/continuity infrastructure rather than the acquisition proposition.
+- Internal authority has been moved off `/consultation`, `/programs`, `/workplace-wellbeing/movement`, `/about`, `/wellbeing-studio`, `/proof` and `/resources`.
+- Technical search authority is centralised through explicit 301 redirects, metadata, sitemap, robots/indexability, structured data and error behaviour.
 
-### REPLACE
+### REPLACE / RETIRE — COMPLETED WHERE A MEANINGFUL SUCCESSOR EXISTS
 
-- `/wellbeing-studio` acquisition role → `/online-wellbeing`.
-- `/programs` → `/workplace-wellbeing-programs`.
-- `/workplace-wellbeing/movement` → `/movement`.
-- `/proof` → `/case-studies`.
-- `/about` → `/about-us`.
-- `/consultation` → `/contact`, retaining query context.
-- Blanket schema / implicit SEO assumptions → deliberate Phase 11.3 search authority.
+- `/workplace-wellbeing` → `/`
+- `/wellbeing-studio` → `/online-wellbeing`
+- `/programs` → `/workplace-wellbeing-programs`
+- `/workplace-wellbeing/movement` → `/movement`
+- `/proof` and `/proof/case-study` → `/case-studies`
+- `/about` → `/about-us`
+- `/consultation` → `/contact`
+- `/resources` → `/blog`
+- thin synonym pages, generic `/services` SEO page and legacy taxonomy/tag sprawl are not being recreated.
 
-### RETIRE / DO NOT REBUILD
-
-- Thin synonym pages for wellbeing-program keyword variants.
-- Generic `/services` SEO page.
-- Legacy category/tag archive sprawl.
-- Historical `/cp/` or portal spam/hacked-looking paths as redirect targets.
-- Product-first “employee wellbeing platform” positioning for Wellbeing Studio.
-- Unsupported health, clinical, productivity, resilience or guaranteed-outcome claims.
+Page-level `permanentRedirect()` wrappers have been removed where the central redirect map already owns the migration, preventing hidden 308 fallbacks from competing with the required 301 behaviour.
 
 ## 2. Route qualification state
 
@@ -56,48 +50,51 @@
 | `/workplace-wellbeing-programs` | materially qualified | Canonical procurement/program destination |
 | `/movement` | materially qualified | Movement selection/orientation hub |
 | `/workplace-yoga` | implemented | Specialist service acquisition; complements Home rather than taking its broad role |
-| `/workplace-pilates` | **WAITING — evidence gate** | Do not publish yet |
+| `/workplace-pilates` | **production draft implemented / noindex** | Real product; keep out of sitemap/nav until final practitioner/evidence gates clear |
 | `/meditation-mindfulness` | implemented | Practical workplace service; clinical/treatment claims excluded |
 | `/workplace-wellbeing-workshops` | implemented with claim gates | Real topics + visible human expertise; no unverified presenter assignment |
 | `/online-wellbeing` | implemented | Service continuity first; Wellbeing Studio second |
-| `/case-studies` | structurally ready, evidence-dependent | Keep candidate stories gated until facts/permissions are verified |
-| `/blog` | **WAITING — editorial migration** | Do not create thin replacements for protected URLs |
-| `/about-us` | materially qualified | Canonical About destination |
+| `/case-studies` | **noindex / evidence-dependent** | Candidate clients remain internal; only approved/safe stories render publicly |
+| `/blog` | implemented | Insights hub with refreshed protected authority URLs |
+| `/about-us` | materially qualified | Canonical About + founder entity destination |
 | `/contact` | materially qualified | Canonical conversion destination |
 
-## 3. Non-core / transitional prototype routes
+## 3. Non-core / utility routes
 
 ### `/conferences-events`
 
-**KEEP TEMPORARILY / QUALIFY FINAL DISPOSITION.** It represents a real buyer situation and genuine CYA service, but is outside the locked Phase 11.3 core commercial set. Keep functional during Draft integration and omit from the canonical sitemap until final reconciliation.
-
-### `/resources`
-
-**TRANSITIONAL / NOINDEX / MERGE ROLE INTO INSIGHTS.** The prototype resource inventory is not yet substantive enough to become a second editorial system. `/blog` remains the locked editorial authority.
+**SUPPORTING UX ROUTE / NOINDEX.** It represents a real buyer situation and genuine CYA service, but is outside the locked Phase 11.3 core commercial set. It remains available for situation-led discovery, uses canonical internal links and is intentionally absent from the sitemap.
 
 ### `/member-access`
 
-**UTILITY / NOINDEX.** Keep sign-in separate from acquisition. Use `noindex,follow`.
+**UTILITY / NOINDEX.** Member sign-in remains separate from public acquisition and uses `noindex,follow`.
+
+### `/resources`
+
+**RETIRED.** The meaningful editorial successor now exists. `/resources` 301s one-hop to `/blog`; the duplicate Resources page/content has been removed.
 
 ### `/workplace-wellbeing`
 
-**TRANSITIONAL / NOINDEX / RETIRE AFTER FINAL MIGRATION DECISION.** Its former broad role is now distributed across Home, Movement, Yoga, Mindfulness, Workshops, Programs and Online Wellbeing. All links on the route have been canonicalised; the route itself is `noindex,follow` so it does not compete while final redirect/disposition is resolved.
+**RETIRED.** Its former broad role is now distributed deliberately across Home, Movement, Yoga, Pilates, Mindfulness, Workshops, Programs and Online Wellbeing. The old route 301s one-hop to Home and the duplicate implementation/content has been removed.
 
 ## 4. 11.4.2 Home qualification — IMPLEMENTED
 
 - Approved emotive hero retained.
 - Explicit Workplace Yoga / Pilates / Mindfulness / Workshops / Programs proposition follows immediately.
-- Situation-led discovery added.
-- Literal service pathways visible without keyword stuffing.
+- Situation-led discovery added alongside literal service discovery.
 - One-off work remains a complete and valid engagement.
-- Direct canonical links to Yoga, Mindfulness, Workshops, Programs and Online Wellbeing.
-- Pilates routes through Movement until its dedicated page passes evidence gates.
-- Case Studies, founder/human proposition and online continuity are distributed through the page.
-- Insights signpost is prepared but remains dependent on protected editorial migration.
+- Direct authority paths to Yoga, Mindfulness, Workshops, Programs, Online Wellbeing and Insights.
+- Pilates remains routed through Movement in public navigation while the dedicated page stays noindex.
+- Founder/human delivery proposition retained.
+- Wellbeing Studio is framed through Online Wellbeing continuity.
+- Protected Insights links now resolve to substantive pages.
+- Candidate client proof no longer renders publicly. The Home proof module renders only when a case story has an `approved` or `safe-working-copy` publication status.
+
+**Boundary retained:** Home remains CYA's broad `corporate yoga` authority page. `/workplace-yoga` is the specialist service destination.
 
 ## 5. 11.4.3 Workplace Yoga — IMPLEMENTED
 
-The new specialist `/workplace-yoga` page covers:
+`/workplace-yoga` covers:
 
 1. workplace-Yoga proposition;
 2. one-off / short-series / recurring / event fit;
@@ -106,55 +103,74 @@ The new specialist `/workplace-yoga` page covers:
 5. onsite / online / multi-location delivery;
 6. facilitator-fit model with credential publication gate;
 7. practical logistics;
-8. contextual evidence placeholder and claim guardrails;
-9. protected Yoga-at-Work authority path;
+8. contextual evidence guardrails;
+9. preserved Yoga-at-Work authority resource;
 10. direct Yoga enquiry plus optional broader-program path.
 
-**Boundary retained:** Home remains the broad `corporate yoga` authority page.
+Service + BreadcrumbList structured data is rendered, with the visible and structured breadcrumb hierarchy aligned as `Home → Movement → Workplace Yoga`.
 
-## 6. 11.4.4 Pilates qualification — PRODUCT CONFIRMED, PAGE WAITING
+## 6. 11.4.4 Pilates qualification — PRODUCT CONFIRMED / NOINDEX DRAFT IMPLEMENTED
 
-Current CYA public/owned material confirms Pilates is a genuine modality, including mat-style delivery and use within blended movement/program offers. Current team material also identifies Pilates among practitioner specialisms.
+CYA's current public and owned material confirms:
 
-The dedicated `/workplace-pilates` page remains withheld pending:
+- Pilates is a genuine CYA workplace movement service;
+- mat-based Pilates is offered;
+- one-off, recurring and mixed Yoga/Pilates delivery are genuine formats;
+- onsite and online delivery are real service modes;
+- mat/towel and usable floor-space requirements are genuine practical considerations;
+- Pilates instructors form part of the wider practitioner network.
 
-- Pilates-specific qualifications/credentials suitable for publication;
-- current practitioner/location/mode availability;
-- exact workplace equipment and space requirements;
-- Pilates-specific permissioned imagery;
-- credible Pilates-specific delivery/proof or an explicit decision to publish without case proof;
-- substantive differentiation from the Yoga page beyond modality naming.
+A distinct `/workplace-pilates` production page now exists rather than cloning Yoga. It covers session formats, workplace fit, equipment/space, delivery modes, practitioner qualification and evidence gates.
 
-**Decision:** real product, not yet publication-qualified as a dedicated acquisition page. Continue exposing Pilates through `/movement` and direct enquiry.
+The page is deliberately:
+
+- `noindex,follow`;
+- absent from the sitemap;
+- absent from public navigation;
+- using Pilates-specific photography and named-practitioner placeholders rather than pretending those publication assets are ready.
+
+Remaining publication gates:
+
+- verify current Pilates practitioners, qualifications and availability suitable for public display;
+- confirm location/mode availability;
+- obtain permissioned Pilates-specific imagery;
+- confirm final equipment guidance;
+- add credible Pilates-specific delivery evidence or explicitly approve publication without a case example.
+
+Unsupported injury-prevention, posture-correction or health-outcome promises are excluded.
 
 ## 7. 11.4.5 Mindfulness & Meditation — IMPLEMENTED
 
-`/meditation-mindfulness` now uses genuine CYA formats including guided meditation, mindfulness workshops, breathwork, longer rest/sound experiences and office/chair-friendly sessions.
+`/meditation-mindfulness` uses genuine CYA formats including guided meditation, mindfulness workshops, breathwork, longer rest/sound experiences and office/chair-friendly sessions.
 
 Guardrails:
 
 - no clinical/treatment positioning;
 - no guaranteed stress, productivity or resilience outcomes;
-- practitioner credentials only when verified;
-- protected Check-In-With-Yourself editorial path retained as a migration dependency.
+- practitioner credentials only where verified;
+- the Check-In-With-Yourself resource now resolves to a refreshed protected Insight.
+
+Service + BreadcrumbList structured data is rendered.
 
 ## 8. 11.4.6 Workshops & Expert Experiences — IMPLEMENTED
 
-`/workplace-wellbeing-workshops` now presents real CYA topic families including stress management, sleep, nutrition, mindfulness, breathwork and financial wellbeing.
+`/workplace-wellbeing-workshops` presents real CYA topic families including stress management, sleep, nutrition, mindfulness, breathwork and financial wellbeing.
 
-Human expertise is visible where current evidence supports it, including practitioner specialisms already published by CYA. The page does not make unverified topic-to-presenter assignments.
+Human expertise is visible where current evidence supports it. The page does not make unverified topic-to-presenter assignments.
 
 Guardrails:
 
 - practitioner fit, credentials and availability must be confirmed for the actual session;
-- credential-sensitive content remains inside verified professional scope;
+- credential-sensitive content stays inside verified professional scope;
 - no faceless training-catalogue presentation;
-- no stress-management child page yet — demand alone is insufficient;
+- no stress-management child page merely because demand exists;
 - case evidence should connect practitioner + topic + workplace context.
+
+Service + BreadcrumbList structured data is rendered.
 
 ## 9. 11.4.7 Online Wellbeing / Wellbeing Studio — IMPLEMENTED
 
-`/online-wellbeing` now leads with:
+`/online-wellbeing` leads with:
 
 - remote / hybrid / distributed-team needs;
 - live human experiences;
@@ -165,49 +181,65 @@ Guardrails:
 - privacy-aware aggregate reporting;
 - current-capability evidence gates.
 
-`/wellbeing-studio` is now a legacy acquisition route to `/online-wellbeing`.
+`/wellbeing-studio` is a one-hop 301 legacy route to `/online-wellbeing`.
 
-## 10. 11.4.8 Insights / Editorial Authority — WAITING
+Service + BreadcrumbList structured data is rendered.
 
-Protected URLs are known, but their substantive article source content is not present in the Next.js repository. Connected Drive searches recovered historic CYA-owned Yoga and website-copy material, but not the exact protected article source copy required to publish those canonical URLs without rewriting history.
+## 10. 11.4.8 Insights / Editorial Authority — IMPLEMENTED
 
-Required migration set begins with:
+The protected CYA article URLs were recovered from the live CYA site and preserved as substantive routes rather than recreated as thin placeholders.
+
+The editorial migration deliberately separates **URL/topic authority preservation** from **claim preservation**. Older articles contained health, physiological and productivity assertions that conflict with the current evidence standard. Their practical value and historical slugs have therefore been retained while the copy has been refreshed to remove or qualify unsupported claims.
+
+Implemented protected URLs include:
 
 - `/blog/8-tips-to-successfully-introduce-yoga-at-work`
 - `/blog/check-in-with-yourself-with-this-simple-technique`
-- workplace stress/mindfulness article;
-- breathwork article;
-- sleep/workplace-productivity article;
-- wellbeing-program delivery article;
-- workplace wellbeing pillars article.
+- `/blog/3-steps-to-reduce-workplace-stress-with-mindfulness`
+- `/blog/harnessing-the-power-of-the-breath`
+- `/blog/mindfulness-everyday`
+- `/blog/sleep-and-workplace-productivity-corporate-yoga-australia`
+- `/blog/the-nervous-system-solution-why-your-wellbeing-program-isnt-working-and-what-to-do-instead`
+- `/blog/5-pillars-of-corporate-wellbeing-to-boost-your-teams-productivity`
 
-Until substantive source content is migrated, `/blog` and protected article URLs stay out of the sitemap and PR #2 remains Draft.
+`/blog` is presented to users as **Insights**, is now in primary navigation and is included in the sitemap together with the protected article URLs.
+
+Each migrated article provides:
+
+- preserved canonical slug;
+- substantive refreshed content;
+- visible original publication date and refresh date;
+- contextual links to relevant commercial pages;
+- Article + BreadcrumbList structured data;
+- a clear general-information / no-medical-advice boundary where appropriate.
 
 ## 11. 11.4.9 Technical Search Layer — SUBSTANTIALLY IMPLEMENTED
 
 Implemented:
 
 - canonical metadata for substantive canonical routes;
-- central one-hop **301** migration redirects for qualified legacy/prototype paths;
-- canonical-only `sitemap.xml`, deliberately excluding Pilates and unmigrated editorial URLs;
+- central one-hop **301** migration authority in `next.config.ts`;
+- removal of redundant page-level 308 redirect wrappers;
+- canonical-only `sitemap.xml` containing only index-qualified core pages and substantive Insights URLs;
 - preview-environment `robots.txt` protection;
-- `noindex,follow` on Member Access, transitional Resources and legacy generic Workplace Wellbeing;
-- canonical internal-link cleanup across Home, Programs, Movement, About, Conferences, Case Studies and transitional Workplace Wellbeing;
+- `noindex,follow` on Member Access, supporting Conferences, evidence-gated Pilates and evidence-gated Case Studies;
+- canonical internal-link cleanup across the production architecture;
 - Organization + WebSite structured data on Home;
-- Service + BreadcrumbList structured data on qualified service pages;
+- Service + BreadcrumbList structured data rendered on qualified service pages;
+- Person structured data for founder Debby Lewis on About;
+- BreadcrumbList structured data on About, Contact and Insights;
+- Article + BreadcrumbList structured data on migrated Insights;
 - no blanket LocalBusiness schema;
-- human 404 experience rather than unrelated fallback redirects.
+- human 404 experience instead of unrelated fallback redirects;
+- candidate client names/evidence are prevented from public rendering until their evidence status is publishable.
 
 Still to complete before launch:
 
-- validate all structured data against a deployable current-head candidate;
-- recover and implement remaining exact migration-manifest URL families;
-- final `/workplace-wellbeing` redirect/retirement decision;
-- protected editorial migration + `/blog` sitemap inclusion;
-- verify all production-facing internal links after editorial migration;
+- validate latest structured data and rendered pages against a successful current-head deployment;
+- recover/verify any remaining exact migration-manifest legacy URL families not yet represented in the repo;
 - explicit HTTP/DNS verification for historical `/cp/` and portal locations;
 - authenticated Google Search Console Security Issues + Manual Actions checks;
-- canonical/indexability/rendered-link QA against a deployed production candidate.
+- final internal-link/canonical/indexability QA on the deployed candidate.
 
 ## 12. Legacy security / hygiene status
 
@@ -219,7 +251,7 @@ Required before launch:
 
 - verify portal DNS/subdomain state;
 - request representative legacy `/cp/...` and portal URLs and confirm genuine 404/410 behaviour;
-- remove any residual files/apps if discovered;
+- remove residual files/apps if discovered;
 - check Google Search Console Security Issues;
 - check Google Search Console Manual Actions;
 - do not redirect hacked/spam URLs to legitimate CYA pages;
@@ -227,51 +259,80 @@ Required before launch:
 
 ## 13. Build / deployment qualification status
 
-Earlier Phase 11.4 commits on this branch, including the Workplace Yoga page, produced successful Vercel preview deployments.
+Earlier Phase 11.4 commits, including Workplace Yoga, produced successful Vercel preview deployments.
 
-The current PR head has **not** received a fresh Vercel build because the connected Hobby project hit Vercel's deployment-rate limit. GitHub reports: `Deployment rate limited — retry in 24 hours.`
+The latest substantive branch head has not yet received a fresh build qualification because the connected Vercel Hobby project reached its deployment-rate limit. GitHub reported: `Deployment rate limited — retry in 24 hours.`
 
-This is an external deployment-capacity block, **not evidence of a code/build failure**. Equally, the older green preview must not be treated as proof that the latest schema, redirect, workshops, noindex and 404 changes build successfully.
+This is an external deployment-capacity block, **not evidence of a code/build failure**. Equally, an older green preview is not evidence that the latest Insights, schema, redirects, Pilates draft and evidence-visibility changes compile/render correctly.
 
-Current-head build/lint/rendered QA therefore remains open.
+Current-head build, lint and rendered QA therefore remain open until a current deployment can execute.
 
 ## 14. Current blocker register
 
 ### B1 — Pilates publication evidence
 
-Need: practitioner credentials, exact workplace format/logistics, permissioned imagery, Pilates-specific proof/differentiation.
+Need: current named practitioner credentials/availability, permissioned Pilates imagery and final service-specific proof/evidence qualification.
 
-### B2 — Protected editorial source migration
+The page itself is implemented and safely noindexed.
 
-Need: substantive source content for protected article URLs and final Insights inventory.
+### B2 — Case-study publication evidence
 
-### B3 — Case-study publication evidence
+Need: verified context, delivery facts, evidence, quotations/metrics where used and client permission.
 
-Need: verified context, delivery facts, evidence, quotes/metrics where used and client permission.
+Candidate stories remain in governed source data but no longer render publicly. `/case-studies` remains noindex and out of the sitemap until substantive approved proof exists.
 
-### B4 — Conference / Resources / generic Workplace Wellbeing final disposition
-
-Need: final reconciliation after editorial migration and rendered internal-link QA. Transitional pages must not compete with locked canonical roles.
-
-### B5 — Legacy security verification
+### B3 — Legacy security verification
 
 Need: `/cp/` HTTP behaviour, portal DNS/application state, GSC Security Issues and Manual Actions.
 
-### B6 — Current-head deployment QA
+### B4 — Current-head deployment QA
 
-Need: successful current-head build/lint and deployed candidate after Vercel rate-limit capacity is available.
+Need: successful current-head build/lint and deployed launch candidate after Vercel build capacity permits it.
 
-## 15. PR promotion rule
+## 15. 11.4.10 Static Production Search + UX Qualification
+
+### PASS / materially aligned
+
+- Home broad corporate-yoga ownership preserved.
+- Specialist Yoga page does not attempt to force a ranking transfer.
+- Synonym-program sprawl avoided.
+- One-off work remains legitimate across commercial journeys.
+- Service selection and situation-led routes coexist.
+- Wellbeing Studio remains service infrastructure, not SaaS positioning.
+- Pilates is real but evidence-gated rather than thin-published.
+- Workshops visibly retain human expertise.
+- protected editorial authority is preserved without carrying forward unsupported legacy claims.
+- sitemap excludes noindex/evidence-gated routes.
+- important redirects are explicit 301 and one-hop.
+- duplicate filesystem redirect implementations have been removed.
+- no blanket LocalBusiness schema.
+- structured breadcrumb hierarchy aligns with visible navigation on Yoga/Pilates.
+- candidate client names no longer leak into public Home/Case Study surfaces.
+- old Resources and generic Workplace Wellbeing implementations no longer compete with canonical architecture.
+
+### DEPLOYED QA STILL REQUIRED
+
+- TypeScript/build/lint on the latest head;
+- rendered metadata/canonical/robots inspection;
+- schema validation against final rendered HTML;
+- redirect response-code and query-string verification;
+- responsive/accessibility visual qualification for new Insights and Pilates routes;
+- broken-link crawl;
+- final sitemap fetch and indexability check;
+- Core Web Vitals/performance smoke test;
+- security/historical-path verification.
+
+## 16. PR promotion rule
 
 PR #2 remains **Draft** until at minimum:
 
 - current-head build and lint pass;
-- protected editorial paths are substantively migrated or removed from production-facing links pending migration;
 - no substantive internal link returns 404;
 - sitemap contains only canonical indexable URLs;
-- redirects are one-hop and correct;
+- redirects are one-hop and correct in the deployed environment;
 - structured data validates against visible content;
 - preview/staging remains non-indexable;
-- evidence-gated Pilates is not accidentally published/indexed;
+- evidence-gated Pilates remains excluded from index/nav/sitemap until publication approval;
+- Case Studies remains excluded from index/nav/sitemap until client evidence is approved;
 - legacy security checks are completed;
 - Phase 11.3 launch QA is run against a deployed production candidate.

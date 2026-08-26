@@ -1,12 +1,12 @@
 import type { HeroMedia, MediaAsset } from "@/lib/types";
 
 /**
- * Curated photography selected from the provisional library. Every entry is
- * `evidence-required`: none of this library's publication consent is
- * documented (see Docs/CYA_Prototype_v1_Image_Audit.md and
- * CYA_Prototype_v1_Image_Mapping.md). The note is shown only in annotation mode.
+ * Curated CYA website photography.
+ * Glenn confirmed on 26 August 2026 that all images in the governed CYA
+ * website library are approved for website publication. Asset-level notes
+ * below now record only useful production considerations, not permission gaps.
  */
-const PERMISSION_NOTE = "Provisional library image - publication consent not documented. Permission to confirm; replace after the future photo shoot.";
+const APPROVAL_NOTE = "Approved for CYA website publication — confirmed by Glenn Hammond on 26 August 2026.";
 
 export const media = {
   homeHero: {
@@ -14,8 +14,8 @@ export const media = {
     width: 1080,
     height: 810,
     alt: "A diverse group of colleagues in a meeting room, seated with hands together in a shared moment of calm.",
-    status: "evidence-required",
-    note: PERMISSION_NOTE + " Temporary poster only - replace with the approved hero still or video frame when supplied.",
+    status: "approved",
+    note: APPROVAL_NOTE + " Temporary poster only - replace with the final approved hero still or video frame when supplied.",
     focal: "50% 38%",
     focalDesktop: "50% 32%",
   },
@@ -24,8 +24,8 @@ export const media = {
     width: 1600,
     height: 1200,
     alt: "Two colleagues pausing at a desk for a guided stretch.",
-    status: "evidence-required",
-    note: PERMISSION_NOTE,
+    status: "approved",
+    note: APPROVAL_NOTE,
     focal: "50% 40%",
   },
   workplaceWellbeingHero: {
@@ -33,8 +33,8 @@ export const media = {
     width: 1354,
     height: 1016,
     alt: "A team doing a standing stretch together on the floor of a warehouse.",
-    status: "evidence-required",
-    note: PERMISSION_NOTE,
+    status: "approved",
+    note: APPROVAL_NOTE,
   },
   debbyTeacherPortrait: {
     src: "/images/selected/cya-people-debby-teacher-portrait.webp",
@@ -42,7 +42,7 @@ export const media = {
     height: 1200,
     alt: "Debby Lewis, seated and smiling, in a plant-filled studio space.",
     status: "approved",
-    note: "Named subject - Debby Lewis, CYA founder. Approved for CYA's own site use.",
+    note: APPROVAL_NOTE,
     focal: "50% 22%",
   },
   workplaceWellbeingLunchLearn: {
@@ -50,8 +50,8 @@ export const media = {
     width: 1080,
     height: 810,
     alt: "A small team stretching together in an office breakout space, including a colleague in high-visibility workwear.",
-    status: "evidence-required",
-    note: PERMISSION_NOTE,
+    status: "approved",
+    note: APPROVAL_NOTE,
     focal: "50% 35%",
   },
   movementHero: {
@@ -59,72 +59,72 @@ export const media = {
     width: 1000,
     height: 750,
     alt: "A man in business attire stretching at his desk between meetings.",
-    status: "evidence-required",
-    note: PERMISSION_NOTE + " Higher-resolution source required for large placements.",
+    status: "approved",
+    note: APPROVAL_NOTE + " Higher-resolution source preferred for large placements.",
   },
   movementGroupIndustrial: {
     src: "/images/selected/cya-movement-group-industrial.webp",
     width: 1600,
     height: 1200,
     alt: "A group of men doing a standing stretch together in an industrial facility.",
-    status: "evidence-required",
-    note: PERMISSION_NOTE,
+    status: "approved",
+    note: APPROVAL_NOTE,
   },
   movementFacilitatorAdjustment: {
     src: "/images/selected/cya-movement-facilitator-adjustment.webp",
     width: 1600,
     height: 1200,
     alt: "A facilitator gently guiding a participant through a supported stretch.",
-    status: "evidence-required",
-    note: PERMISSION_NOTE,
+    status: "approved",
+    note: APPROVAL_NOTE,
   },
   conferencesHero: {
     src: "/images/selected/cya-conferences-hero-facilitator-led-group.webp",
     width: 960,
     height: 720,
     alt: "A facilitator leading a group relaxation session in a bright indoor space.",
-    status: "evidence-required",
-    note: "Named facilitator (Debby Lewis) - group members' consent not documented. " + PERMISSION_NOTE,
+    status: "approved",
+    note: APPROVAL_NOTE,
   },
   conferencesStudioAccess: {
     src: "/images/selected/cya-conferences-studio-remote-grid.webp",
     width: 742,
     height: 557,
     alt: "A grid of colleagues joining a wellbeing session remotely by video call.",
-    status: "evidence-required",
-    note: "Individual call participants' consent to appear in marketing is not documented. " + PERMISSION_NOTE,
+    status: "approved",
+    note: APPROVAL_NOTE,
   },
   programsHero: {
     src: "/images/selected/cya-programs-hero-group-class.webp",
     width: 1600,
     height: 1200,
     alt: "A small group moving together during a facilitator-led class.",
-    status: "evidence-required",
-    note: PERMISSION_NOTE,
+    status: "approved",
+    note: APPROVAL_NOTE,
   },
   programsContinuity: {
     src: "/images/selected/cya-programs-continuity-group-repeat.webp",
     width: 1600,
     height: 1200,
     alt: "Participants stretching together mid-class.",
-    status: "evidence-required",
-    note: PERMISSION_NOTE,
+    status: "approved",
+    note: APPROVAL_NOTE,
   },
   programsMultiSite: {
     src: "/images/selected/cya-programs-multisite-outdoor.webp",
     width: 746,
     height: 560,
     alt: "A group in high-visibility workwear stretching together outdoors.",
-    status: "evidence-required",
-    note: PERMISSION_NOTE,
+    status: "approved",
+    note: APPROVAL_NOTE,
   },
   studioEmployeeHome: {
     src: "/images/selected/cya-studio-employee-home-practice.webp",
     width: 1440,
     height: 1080,
     alt: "A person doing a quiet stretch practice at home.",
-    status: "evidence-required",
-    note: PERMISSION_NOTE,
+    status: "approved",
+    note: APPROVAL_NOTE,
     focal: "50% 30%",
   },
   aboutHero: {
@@ -132,8 +132,8 @@ export const media = {
     width: 892,
     height: 560,
     alt: "A group of workers in high-visibility clothing taking part in an outdoor movement session in a Brisbane park.",
-    status: "evidence-required",
-    note: PERMISSION_NOTE,
+    status: "approved",
+    note: APPROVAL_NOTE,
     focal: "50% 50%",
   },
   aboutDebbyPortrait: {
@@ -142,39 +142,39 @@ export const media = {
     height: 1200,
     alt: "Debby Lewis, founder of Corporate Yoga Australia.",
     status: "approved",
-    note: "Named subject - Debby Lewis, CYA founder. Approved for CYA's own site use.",
+    note: APPROVAL_NOTE,
   },
   aboutWorldview: {
     src: "/images/selected/cya-about-worldview-group-rest.webp",
     width: 960,
     height: 720,
     alt: "A group resting together on mats during a guided session.",
-    status: "evidence-required",
-    note: PERMISSION_NOTE,
+    status: "approved",
+    note: APPROVAL_NOTE,
   },
   aboutFacilitator: {
     src: "/images/selected/cya-about-facilitator-representative.webp",
     width: 1080,
     height: 810,
     alt: "A CYA facilitator, one of the practitioners in the national network.",
-    status: "evidence-required",
-    note: "Named individual - marketing-use consent not documented; facilitator register and credentials not yet verified. Must be resolved before any production use.",
+    status: "approved",
+    note: APPROVAL_NOTE + " Any public facilitator credential claims remain separately governed and must still be verified.",
   },
   aboutDelivery: {
     src: "/images/selected/cya-about-delivery-group-practice.webp",
     width: 1600,
     height: 1200,
     alt: "A facilitator-led group session in progress.",
-    status: "evidence-required",
-    note: PERMISSION_NOTE,
+    status: "approved",
+    note: APPROVAL_NOTE,
   },
   proofHero: {
     src: "/images/selected/cya-proof-hero-group-practice.webp",
     width: 1600,
     height: 1200,
     alt: "A group mid-practice together during a facilitator-led session.",
-    status: "evidence-required",
-    note: "Documentary-style library image, not tied to a specific named client. " + PERMISSION_NOTE,
+    status: "approved",
+    note: APPROVAL_NOTE + " Documentary-style image; not evidence for a specific named client case study.",
     focal: "50% 38%",
   },
 } satisfies Record<string, MediaAsset>;
@@ -185,7 +185,7 @@ export const media = {
  * under /public/videos/ (kept out of Git as a large binary; add via the
  * deploy pipeline, not a commit) once available. HeroVideo renders no
  * <video> element at all while both are unset, so there is never a broken
- * request in the meantime. `poster` is the current placeholder still.
+ * request in the meantime. `poster` is the current approved interim still.
  */
 export const homeHeroMedia: HeroMedia = {
   poster: media.homeHero,

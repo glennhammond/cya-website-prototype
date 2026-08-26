@@ -24,15 +24,16 @@ function walk(dir) {
 
 const approvals = JSON.parse(read("config/launch-approvals.json"));
 
-// Phase 11.4 launch-blocking approvals. Pilates and Case Studies may remain
-// safely withheld/noindexed at launch; they are conditional publication gates,
-// not prerequisites for releasing the rest of the website.
+// Launch-blocking approvals. Case Studies is a conditional publication gate:
+// the website may launch while Case Studies remains safely noindexed/withheld.
 const requiredApprovals = [
   ["photographyPublicationApproved", "Photography publication clearance has not been recorded."],
+  ["pilatesPublicationApproved", "Workplace Pilates publication approval has not been recorded."],
+  ["renderedServerQaPassed", "Rendered production server QA has not been recorded."],
   ["legacySecurityVerified", "Historical /cp/ and portal DNS/HTTP verification has not been recorded."],
   ["gscSecurityIssuesChecked", "Google Search Console Security Issues check has not been recorded."],
   ["gscManualActionsChecked", "Google Search Console Manual Actions check has not been recorded."],
-  ["renderedDeploymentQaPassed", "Current-head rendered deployment QA has not been recorded."],
+  ["hostedBrowserQaPassed", "Hosted browser/UX qualification has not been recorded."],
 ];
 
 for (const [key, message] of requiredApprovals) {
@@ -52,8 +53,6 @@ for (const line of mediaLines) {
   }
 }
 
-// Only launch-block media that can be rendered by the active architecture.
-// The Home hero is referenced through homeHeroMedia, so add it explicitly.
 const usedMediaKeys = new Set(["homeHero"]);
 for (const sourceFile of ["app", "components", "content"]
   .flatMap((dir) => walk(path.join(root, dir)))
@@ -95,7 +94,6 @@ if (approvals.pilatesPublicationApproved === true) {
 } else {
   if (!pilatesIsNoindex) block("Unapproved Workplace Pilates must remain noindex.");
   if (pilatesInSitemap) block("Unapproved Workplace Pilates must remain absent from the sitemap.");
-  warnings.push("Workplace Pilates remains safely withheld from search pending practitioner/evidence qualification.");
 }
 
 const publishableCaseStudy = /^    status: "(?:approved|safe-working-copy)",/m.test(proofSource);
@@ -123,4 +121,4 @@ if (blockers.length > 0) {
   process.exit(1);
 }
 
-console.log("\nLAUNCH-READY: all Phase 11.4 launch-blocking publication, security and rendered-QA gates are recorded as complete.");
+console.log("\nLAUNCH-READY: all Phase 11.4 launch-blocking publication, security and hosted-browser QA gates are recorded as complete.");

@@ -7,7 +7,7 @@ export const primaryNav: NavItem[] = [
     children: [
       {
         label: "Movement",
-        href: "/workplace-wellbeing/movement",
+        href: "/movement",
         description: "Yoga, Pilates, mobility and desk movement, adapted to real workplaces.",
       },
       {

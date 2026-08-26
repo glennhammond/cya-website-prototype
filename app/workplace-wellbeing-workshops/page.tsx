@@ -58,11 +58,14 @@ export default function WorkplaceWellbeingWorkshopsPage() {
         body={expertIntro.body}
         tone="white"
         image={media.debbyTeacherPortrait}
-      >
-        <div className="mt-8">
-          <DividerList kicker="Named expertise" heading="Representative CYA practitioners" items={namedExperts} tone="white" />
-        </div>
-      </EditorialFeature>
+      />
+
+      <DividerList
+        kicker="Named expertise"
+        heading="Representative CYA practitioners"
+        items={namedExperts}
+        tone="white"
+      />
 
       <FeatureGrid
         kicker="Session formats"

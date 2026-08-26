@@ -21,8 +21,8 @@ export function MemberAccessPanel() {
           </div>
           <p className="mt-6 text-sm text-body">
             Not a member yet, or asking on behalf of your organisation?{" "}
-            <Link href="/consultation?interest=studio" className="font-bold text-teal-dark underline decoration-2 underline-offset-4">
-              Book a Studio walkthrough
+            <Link href="/contact?interest=studio" className="font-bold text-teal-dark underline decoration-2 underline-offset-4">
+              Discuss online wellbeing with CYA
             </Link>{" "}
             instead.
           </p>

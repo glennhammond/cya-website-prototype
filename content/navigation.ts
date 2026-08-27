@@ -1,7 +1,6 @@
 import type { CTA, NavItem } from "@/lib/types";
 
 export const primaryNav: NavItem[] = [
-  { label: "Programs", href: "/workplace-wellbeing-programs" },
   {
     label: "Services",
     href: "/movement",
@@ -48,8 +47,9 @@ export const primaryNav: NavItem[] = [
       },
     ],
   },
+  { label: "Programs", href: "/workplace-wellbeing-programs" },
+  { label: "Why CYA", href: "/about" },
   { label: "Insights", href: "/blog" },
-  { label: "About", href: "/about" },
 ];
 
 export const utilityNav: NavItem[] = [
@@ -59,13 +59,13 @@ export const utilityNav: NavItem[] = [
 export const memberSignInHref = "https://studio.corporateyoga.com.au";
 
 export const primaryCTA: CTA = {
-  label: "Book a wellbeing consultation",
+  label: "Plan with CYA",
   href: "/contact",
   variant: "primary",
 };
 
 /** Shorter form for the fixed-width header bar; full phrase is used everywhere else. */
-export const primaryCTAShort = "Book now";
+export const primaryCTAShort = "Plan with CYA";
 
 export const footerLegalNav: NavItem[] = [
   { label: "Privacy", href: "/privacy" },

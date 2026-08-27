@@ -1,126 +1,19 @@
 import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
-import { PageHero } from "@/components/PageHero";
-import { FeatureGrid } from "@/components/FeatureGrid";
-import { EditorialFeature } from "@/components/EditorialFeature";
-import { DividerList } from "@/components/DividerList";
-import { ProofNote } from "@/components/ProofNote";
-import { CTASection } from "@/components/CTASection";
 import { ServiceStructuredData } from "@/components/StructuredData";
+import { ProductionAction, ProductionCard, ProductionClosing, ProductionContainer, ProductionKicker, ProductionPhoto } from "@/components/ProductionPrimitives";
 import { media } from "@/content/media";
-import {
-  workshopsHero,
-  situations,
-  featuredTopics,
-  expertIntro,
-  namedExperts,
-  formats,
-  deliveryModes,
-  evidenceFeature,
-  relatedPaths,
-  closingCTA,
-} from "@/content/workplace-wellbeing-workshops";
 
-export const metadata: Metadata = {
-  title: { absolute: "Workplace Wellbeing Workshops Australia | CYA" },
-  description:
-    "Expert-led workplace wellbeing workshops and Lunch & Learns for Australian teams, including stress management, sleep, nutrition, mindfulness and breathwork.",
-  alternates: {
-    canonical: "/workplace-wellbeing-workshops",
-  },
-};
+export const metadata: Metadata = { title: { absolute: "Workplace Wellbeing Workshops Australia | CYA" }, description: "Expert-led workplace wellbeing workshops and Lunch & Learns for Australian teams.", alternates: { canonical: "/workplace-wellbeing-workshops" } };
 
 export default function WorkplaceWellbeingWorkshopsPage() {
-  return (
-    <>
-      <ServiceStructuredData
-        name="Workplace Wellbeing Workshops & Expert Experiences"
-        description="Expert-led workplace wellbeing workshops and Lunch & Learns for Australian teams, including stress management, sleep, nutrition, mindfulness and breathwork."
-        path="/workplace-wellbeing-workshops"
-        breadcrumbLabel="Workplace Wellbeing Workshops"
-      />
-      <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Workplace Wellbeing Workshops" }]} />
-      <PageHero intro={workshopsHero} image={media.workplaceWellbeingLunchLearn} imagePosition="left" />
-
-      <FeatureGrid
-        kicker="Where workshops fit"
-        heading="Use expert-led learning when the workplace needs more than a passive resource."
-        items={situations}
-        tone="white"
-        columns={4}
-        compact
-      />
-
-      <DividerList
-        kicker="Featured topic families"
-        heading="Choose a useful topic before choosing the session shape."
-        body="These are established CYA topic families. Specific scope, practitioner and claims are confirmed for the actual engagement."
-        items={featuredTopics}
-        tone="mist"
-      />
-
-      <EditorialFeature
-        kicker={expertIntro.kicker}
-        heading={expertIntro.heading}
-        body={expertIntro.body}
-        tone="white"
-        image={media.debbyTeacherPortrait}
-      />
-
-      <DividerList
-        kicker="Named expertise"
-        heading="Representative CYA practitioners"
-        items={namedExperts}
-        tone="white"
-      />
-
-      <FeatureGrid
-        kicker="Session formats"
-        heading="Lunch & Learn, workshop, expert conversation or event session."
-        items={formats}
-        tone="mist"
-        columns={4}
-        compact
-      />
-
-      <DividerList
-        kicker="Delivery modes"
-        heading="Onsite, online or connected into a broader program."
-        items={deliveryModes}
-        tone="white"
-      />
-
-      <EditorialFeature
-        kicker={evidenceFeature.kicker}
-        heading={evidenceFeature.heading}
-        body={evidenceFeature.body}
-        tone="mist"
-        reverse
-        image={media.aboutDelivery}
-      />
-
-      <ProofNote
-        tone="white"
-        placeholderVariant="gathering"
-        placeholderCaption="Workshop case evidence placeholder - practitioner, topic, client context and approved feedback required."
-        note="Do not publish specific expert/topic assignments, outcome claims or credential-sensitive advice until the practitioner, scope and evidence are verified."
-        heading="Workshop proof should connect the person, topic and workplace context."
-        body="Published evidence should identify the workplace need, who delivered the session, how it was structured, what was observed or reported and any relevant limitations."
-      />
-
-      <DividerList
-        kicker="Related pathways"
-        heading="Keep the workshop stand-alone or connect it when useful."
-        items={relatedPaths}
-        tone="mist"
-      />
-
-      <CTASection
-        kicker={closingCTA.kicker}
-        heading={closingCTA.heading}
-        body={closingCTA.body}
-        cta={closingCTA.cta}
-      />
-    </>
-  );
+  return <>
+    <ServiceStructuredData name="Workplace Wellbeing Workshops & Expert Experiences" description="Expert-led workplace wellbeing workshops and Lunch & Learns for Australian teams." path="/workplace-wellbeing-workshops" breadcrumbLabel="Workplace Wellbeing Workshops" />
+    <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Workplace Wellbeing Workshops" }]} />
+    <section className="bg-[var(--cya-paper)] py-16 lg:py-20"><ProductionContainer className="grid gap-10 lg:grid-cols-[1.4fr_0.8fr] lg:items-center"><div><ProductionKicker>Workshops · talks · facilitated experiences</ProductionKicker><h1 className="mt-5 max-w-4xl text-[clamp(2.8rem,5vw,4.5rem)] font-bold leading-[1.05]">Expert-led experiences that create useful workplace conversation.</h1><p className="mt-6 max-w-3xl text-lg leading-8 text-[var(--cya-body)]">Credible people, relevant topics and formats shaped around the organisation—not a generic speaker catalogue.</p><div className="mt-8 flex gap-3"><ProductionAction href="/contact?interest=workshop">Plan an expert experience</ProductionAction><ProductionAction href="#topics" style="secondary">Explore topics</ProductionAction></div></div><aside className="bg-[var(--cya-teal-dark)] p-8 text-white"><ProductionKicker light>What makes it credible</ProductionKicker><ul className="mt-6 space-y-4"><li>Topic relevance</li><li>Expert authority</li><li>Participation design</li></ul></aside></ProductionContainer></section>
+    <ProductionPhoto asset={media.conferencesHero} label="CYA photography · workshop" priority />
+    <section id="topics" className="bg-white py-20 lg:py-24"><ProductionContainer><ProductionKicker>Topic-led discovery</ProductionKicker><h2 className="mt-5 text-4xl font-bold lg:text-5xl">Begin with the conversation the workplace needs.</h2><p className="mt-5 max-w-4xl text-lg text-[var(--cya-body)]">Expert Experiences are selected by relevance, credibility and participation design—not speaker celebrity alone.</p><div className="mt-10 grid gap-5 md:grid-cols-3"><ProductionCard title="Mental fitness and sustainable performance" body="Practical ways to think about attention, pressure, recovery and working rhythm." /><ProductionCard title="Communication and connection" body="Useful conversations about trust, listening, boundaries and team relationships." /><ProductionCard title="Sleep, energy and everyday wellbeing" body="Credible expertise translated into actions people can use beyond the session." /></div></ProductionContainer></section>
+    <section className="bg-[var(--cya-canvas)] py-20 lg:py-24"><ProductionContainer><ProductionKicker>What makes the experience credible</ProductionKicker><h2 className="mt-5 text-4xl font-bold lg:text-5xl">What makes the experience credible</h2><div className="mt-10 grid gap-5 md:grid-cols-3"><ProductionCard title="Expert authority" body="Relevant professional knowledge and clear boundaries." tone="paper" /><ProductionCard title="Facilitation" body="A format designed for participation, not a one-way lecture." tone="paper" /><ProductionCard title="Continuation" body="Insights or Online Wellbeing resources can extend the useful moment." tone="paper" /></div></ProductionContainer></section>
+    <ProductionClosing tone="teal" heading="Bring the right expertise into the room." body="Start with the topic, audience and conversation the organisation needs." href="/contact?interest=workshop" action="Plan an expert experience" />
+  </>;
 }

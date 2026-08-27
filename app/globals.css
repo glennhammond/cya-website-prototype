@@ -1,29 +1,32 @@
 @import "tailwindcss";
 
 :root {
-  --cya-teal: #17535b;
-  --cya-teal-dark: #103f45;
-  /* Wellbeing Studio CTA gold. White labels must remain large and bold. */
-  --cya-gold: #ae8941;
-  --cya-gold-hover: #9d7a36;
-  --cya-ochre-ink: #876619;
+  --cya-canvas: #faf9f5;
+  --cya-paper: #f5f1e8;
+  --cya-field-note: #e8efec;
+  --cya-teal: #0f4f55;
+  --cya-teal-dark: #173f43;
+  --cya-gold: #a35a00;
+  --cya-gold-hover: #8f4e00;
+  --cya-ochre: #b76500;
+  --cya-ochre-ink: #955000;
   --cya-logo-teal: #5cb8b2;
   --cya-logo-pale: #bee3e0;
-  --cya-mist: #f4f6f5;
+  --cya-mist: #e8efec;
   --cya-white: #ffffff;
-  --cya-ink: #253336;
-  --cya-body: #596467;
-  --cya-divider: #dde5e3;
+  --cya-ink: #173f43;
+  --cya-body: #5c666b;
+  --cya-divider: #d7e4df;
   --cya-aqua: #39aeb8;
   --cya-error: #a33b3b;
 
-  --cya-radius-control: 16px;
-  --cya-radius-card: 28px;
-  --cya-radius-panel: 34px;
-  --cya-shadow-card: 0 18px 50px rgba(16, 63, 69, 0.075);
-  --cya-focus-ring: 0 0 0 3px rgba(57, 174, 184, 0.55);
-  --cya-container-max: 1440px;
-  --cya-container-narrow: 640px;
+  --cya-radius-control: 4px;
+  --cya-radius-card: 4px;
+  --cya-radius-panel: 18px;
+  --cya-shadow-card: none;
+  --cya-focus-ring: 0 0 0 3px #e4b454;
+  --cya-container-max: 1280px;
+  --cya-container-narrow: 720px;
 
   /* Neutral, near-black scrim for text-over-media - deliberately not teal,
      so it doesn't colour-grade the photo/video underneath and reads
@@ -46,8 +49,8 @@
   --color-aqua: var(--cya-aqua);
   --color-error: var(--cya-error);
 
-  --font-heading: var(--font-urbanist), Arial, sans-serif;
-  --font-body: var(--font-open-sans), Arial, sans-serif;
+  --font-heading: var(--font-instrument-sans), Arial, sans-serif;
+  --font-body: var(--font-instrument-sans), Arial, sans-serif;
 
   /* Fluid editorial type scale - see brief §19 (clamp() use, heading hierarchy) */
   --text-display: clamp(3rem, 1.9rem + 4.8vw, 6rem);
@@ -83,7 +86,7 @@
   }
 
   body {
-    background: var(--cya-mist);
+    background: var(--cya-canvas);
     color: var(--cya-ink);
     font-family: var(--font-body);
     font-size: 16px;
@@ -98,7 +101,7 @@
     font-family: var(--font-heading);
     color: var(--cya-teal-dark);
     line-height: 1.12;
-    font-weight: 800;
+    font-weight: 700;
   }
 
   a {

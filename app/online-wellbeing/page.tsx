@@ -1,122 +1,19 @@
 import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
-import { PageHero } from "@/components/PageHero";
-import { FeatureGrid } from "@/components/FeatureGrid";
-import { EditorialFeature } from "@/components/EditorialFeature";
-import { DividerList } from "@/components/DividerList";
-import { ProofNote } from "@/components/ProofNote";
-import { CTASection } from "@/components/CTASection";
 import { ServiceStructuredData } from "@/components/StructuredData";
+import { ProductionAction, ProductionCard, ProductionClosing, ProductionContainer, ProductionKicker, ProductionPhoto } from "@/components/ProductionPrimitives";
 import { media } from "@/content/media";
-import {
-  onlineHero,
-  situations,
-  liveExperiences,
-  onDemand,
-  continuityFeature,
-  employeeExperience,
-  organisationExperience,
-  relatedPaths,
-  closingCTA,
-} from "@/content/online-wellbeing";
 
-export const metadata: Metadata = {
-  title: "Online Workplace Wellbeing",
-  description:
-    "Human-led online workplace wellbeing for remote, hybrid and distributed teams, combining live experiences, on-demand practices and Wellbeing Studio continuity.",
-  alternates: {
-    canonical: "/online-wellbeing",
-  },
-};
+export const metadata: Metadata = { title: "Online Workplace Wellbeing", description: "Human-led online workplace wellbeing for remote, hybrid and distributed teams.", alternates: { canonical: "/online-wellbeing" } };
 
 export default function OnlineWellbeingPage() {
-  return (
-    <>
-      <ServiceStructuredData
-        name="Online Workplace Wellbeing"
-        description="Human-led online workplace wellbeing for remote, hybrid and distributed teams, combining live experiences, on-demand practices and Wellbeing Studio continuity."
-        path="/online-wellbeing"
-        breadcrumbLabel="Online Wellbeing"
-      />
-      <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Online Wellbeing" }]} />
-      <PageHero intro={onlineHero} image={media.studioEmployeeHome} />
-
-      <FeatureGrid
-        kicker="Where online wellbeing helps"
-        heading="Start with the workplace situation."
-        items={situations}
-        tone="white"
-        columns={4}
-        compact
-      />
-
-      <FeatureGrid
-        kicker="Live experiences"
-        heading="Keep human contact in the service."
-        items={liveExperiences}
-        tone="mist"
-        columns={3}
-      />
-
-      <FeatureGrid
-        kicker="On-demand practice and resources"
-        heading="Useful support people can return to between live moments."
-        items={onDemand}
-        tone="white"
-        columns={4}
-        compact
-      />
-
-      <EditorialFeature
-        kicker={continuityFeature.kicker}
-        heading={continuityFeature.heading}
-        body={continuityFeature.body}
-        tone="mist"
-        image={media.conferencesStudioAccess}
-      />
-
-      <DividerList
-        kicker="Employee experience"
-        heading="Simple ways to join, choose and return."
-        items={employeeExperience}
-        tone="white"
-      />
-
-      <DividerList
-        kicker="Organisation experience"
-        heading="Continuity without turning wellbeing into software administration."
-        items={organisationExperience}
-        tone="mist"
-      />
-
-      <ProofNote
-        tone="white"
-        placeholderVariant="studio"
-        placeholderCaption="Online wellbeing case evidence placeholder - verified access, attendance and client feedback required."
-        note="Use only verified current capabilities, aggregate measures and approved client evidence. Do not publish future Wellbeing Studio ambitions as present-tense capability."
-        heading="Evidence must distinguish current delivery from future product ambition."
-        body="Online wellbeing proof should show what people could access, what the organisation implemented and what verified participation or feedback was recorded, with privacy and evidence limits made explicit."
-      />
-
-      <DividerList
-        kicker="Related CYA services"
-        heading="Connect online support only where it makes the service more useful."
-        items={relatedPaths}
-        tone="mist"
-      />
-
-      <CTASection
-        kicker={closingCTA.kicker}
-        heading={closingCTA.heading}
-        body={closingCTA.body}
-        cta={closingCTA.cta}
-        secondaryCta={{
-          label: "Member sign-in",
-          href: "https://studio.corporateyoga.com.au",
-          variant: "secondary",
-          external: true,
-        }}
-      />
-    </>
-  );
+  return <>
+    <ServiceStructuredData name="Online Workplace Wellbeing" description="Human-led online workplace wellbeing for remote, hybrid and distributed teams." path="/online-wellbeing" breadcrumbLabel="Online Wellbeing" />
+    <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Online Wellbeing" }]} />
+    <section className="bg-[var(--cya-teal-dark)] py-16 text-white lg:py-20"><ProductionContainer><ProductionKicker light>Human-led continuity</ProductionKicker><h1 className="mt-5 max-w-4xl text-[clamp(2.8rem,5vw,4.5rem)] font-bold leading-[1.05] text-white">Keep useful wellbeing connected across hybrid work.</h1><p className="mt-6 max-w-3xl text-lg leading-8 text-white/85">Online Wellbeing extends the CYA relationship across locations and working patterns. It is a connected service—not a standalone platform proposition.</p><div className="mt-8 flex flex-col gap-3 sm:flex-row"><ProductionAction href="#online-service" style="secondary">Explore Online Wellbeing</ProductionAction><ProductionAction href="/contact?interest=program" style="secondary">Plan a connected program</ProductionAction></div></ProductionContainer></section>
+    <ProductionPhoto asset={media.aboutWorldview} label="CYA photography · online" priority />
+    <section id="online-service" className="bg-[var(--cya-paper)] py-20 lg:py-24"><ProductionContainer><ProductionKicker>One relationship across locations</ProductionKicker><h2 className="mt-5 text-4xl font-bold lg:text-5xl">Digital access is part of the service rhythm.</h2><p className="mt-5 max-w-4xl text-lg text-[var(--cya-body)]">Online Wellbeing supports distributed teams through coordinated live experiences, useful resources and ongoing human curation.</p><div className="mt-10 grid gap-5 md:grid-cols-3"><ProductionCard title="Live online experiences" body="Human facilitation across locations with formats adapted for online participation." /><ProductionCard title="Useful resources between sessions" body="Short practices and expert material connected to the agreed workplace need." /><ProductionCard title="A visible Working Rhythm" body="A coherent cadence that can be reviewed and adapted with the organisation." /></div></ProductionContainer></section>
+    <section className="bg-[var(--cya-teal-dark)] py-20 text-white lg:py-24"><ProductionContainer><ProductionKicker light>Wellbeing Studio remains contextual</ProductionKicker><h2 className="mt-5 text-4xl font-bold text-white lg:text-5xl">Wellbeing Studio remains contextual</h2><div className="mt-10 grid gap-5 md:grid-cols-3"><ProductionCard title="Role" body="Delivery infrastructure inside the CYA relationship." /><ProductionCard title="Boundary" body="No competing /wellbeing-studio destination or standalone SaaS proposition." /><ProductionCard title="Confidence" body="Access, curation, support and useful reporting remain human-led." /></div></ProductionContainer></section>
+    <ProductionClosing tone="teal" heading="Build continuity without losing the human relationship." body="Shape an online rhythm around access, relevance and organisational confidence." href="/contact?interest=online" action="Explore Online Wellbeing" />
+  </>;
 }

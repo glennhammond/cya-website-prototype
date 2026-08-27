@@ -1,127 +1,19 @@
 import type { Metadata } from "next";
-import { PageHero } from "@/components/PageHero";
-import { EditorialFeature } from "@/components/EditorialFeature";
-import { StatementList } from "@/components/StatementList";
-import { CTASection } from "@/components/CTASection";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { BreadcrumbStructuredData, FounderStructuredData } from "@/components/StructuredData";
-import { Section, Container, Kicker } from "@/components/Primitives";
-import { ImageMedia } from "@/components/ImageMedia";
+import { ProductionAction, ProductionCard, ProductionClosing, ProductionContainer, ProductionKicker, ProductionPhoto } from "@/components/ProductionPrimitives";
 import { media } from "@/content/media";
-import {
-  aboutHero,
-  worldviewFeature,
-  originStory,
-  howCyaWorks,
-  deliveryPhilosophy,
-  facilitatorNetwork,
-  professionalStandards,
-  closingCTA,
-} from "@/content/about";
 
-export const metadata: Metadata = {
-  title: "About Corporate Yoga Australia",
-  description:
-    "Corporate Yoga Australia grew from Debby Lewis's own workplace-wellbeing practice into a national business, founded in 2014.",
-  alternates: {
-    canonical: "/about",
-  },
-};
+export const metadata: Metadata = { title: "About Corporate Yoga Australia", description: "Corporate Yoga Australia grew from Debby Lewis's own workplace-wellbeing practice into a national business, founded in 2014.", alternates: { canonical: "/about" } };
 
 export default function AboutUsPage() {
-  return (
-    <>
-      <BreadcrumbStructuredData items={[{ name: "About", path: "/about" }]} />
-      <FounderStructuredData />
-      <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "About" }]} />
-      <PageHero intro={aboutHero} image={media.aboutHero} imagePosition="right" />
-      <EditorialFeature
-        kicker={worldviewFeature.kicker}
-        heading={worldviewFeature.heading}
-        body={worldviewFeature.body}
-        cta={worldviewFeature.cta}
-        tone="mist"
-        image={media.aboutWorldview}
-      />
-
-      <Section tone="white" id="origin">
-        <Container className="studio-panel">
-          <div className="grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
-            <ImageMedia asset={media.aboutDebbyPortrait} aspect="4/3" />
-            <div>
-              <Kicker>{originStory.kicker}</Kicker>
-              <h2 className="mt-3 text-heading-lg">{originStory.heading}</h2>
-              <p className="mt-5 max-w-[58ch] text-lg leading-relaxed text-body">{originStory.body}</p>
-              <p className="mt-6 text-sm font-bold uppercase tracking-[0.08em] text-ochre-ink">
-                Corporate Yoga Australia, founded 2014
-              </p>
-            </div>
-          </div>
-        </Container>
-      </Section>
-
-      <StatementList
-        kicker="How CYA works"
-        heading="A consistent method, an adapted result."
-        items={howCyaWorks}
-        tone="mist"
-        columns={2}
-      />
-
-      <EditorialFeature
-        kicker={deliveryPhilosophy.kicker}
-        heading={deliveryPhilosophy.heading}
-        body={deliveryPhilosophy.body}
-        tone="white"
-        reverse
-        image={media.aboutDelivery}
-      />
-
-      <Section tone="mist" id="facilitators">
-        <Container>
-          <div className="grid gap-10 lg:grid-cols-2">
-            <div>
-              <Kicker>{facilitatorNetwork.kicker}</Kicker>
-              <h2 className="mt-3 text-heading-lg">{facilitatorNetwork.heading}</h2>
-              <p className="mt-4 text-lg leading-relaxed text-body">{facilitatorNetwork.body}</p>
-            </div>
-            <ImageMedia
-              asset={media.aboutFacilitator}
-              caption="Representative facilitator only - not a directory. Individual profiles publish once credentials, insurance and permissions are verified."
-            />
-          </div>
-        </Container>
-      </Section>
-
-      <Section tone="white">
-        <Container className="studio-panel">
-          <div className="grid items-center gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
-            <div className="rounded-[var(--radius-card)] bg-mist p-8 sm:p-10">
-              <p className="text-xs font-bold uppercase tracking-[0.1em] text-ochre-ink">Every engagement</p>
-              <ul className="mt-6 space-y-5">
-                {["Insurance requirements", "Relevant facilitator credentials", "Safety procedures and clear delivery standards"].map((item) => (
-                  <li key={item} className="flex items-center gap-4 text-base font-bold text-teal-dark">
-                    <span aria-hidden="true" className="h-2.5 w-2.5 shrink-0 rounded-full bg-aqua" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <Kicker>{professionalStandards.kicker}</Kicker>
-              <h2 className="mt-3 text-heading-lg">{professionalStandards.heading}</h2>
-              <p className="mt-4 text-lg leading-relaxed text-body">{professionalStandards.body}</p>
-            </div>
-          </div>
-        </Container>
-      </Section>
-
-      <CTASection
-        kicker={closingCTA.kicker}
-        heading={closingCTA.heading}
-        body={closingCTA.body}
-        cta={closingCTA.cta}
-      />
-    </>
-  );
+  return <>
+    <BreadcrumbStructuredData items={[{ name: "About", path: "/about" }]} /><FounderStructuredData />
+    <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "About" }]} />
+    <section className="bg-[var(--cya-field-note)] py-16 lg:py-20"><ProductionContainer className="grid gap-10 lg:grid-cols-[1.4fr_0.8fr] lg:items-center"><div><ProductionKicker>Human permission · organisational confidence</ProductionKicker><h1 className="mt-5 max-w-4xl text-[clamp(2.8rem,5vw,4.5rem)] font-bold leading-[1.05]">A human service built for the realities of work.</h1><p className="mt-6 max-w-3xl text-lg leading-8 text-[var(--cya-body)]">CYA combines thoughtful curation, experienced facilitators and practical coordination. The relationship—not a catalogue—is the centre of the offer.</p><div className="mt-8 flex gap-3"><ProductionAction href="#relationship">Meet CYA</ProductionAction><ProductionAction href="/contact" style="secondary">Plan with CYA</ProductionAction></div></div><aside className="bg-[var(--cya-teal-dark)] p-8 text-white"><ProductionKicker light>Trust depends on</ProductionKicker><ul className="mt-6 space-y-4"><li>Founder story</li><li>Facilitator fit</li><li>Client relationship</li></ul></aside></ProductionContainer></section>
+    <ProductionPhoto asset={media.aboutHero} label="CYA photography · planning" priority />
+    <section id="relationship" className="bg-[var(--cya-field-note)] py-20 lg:py-24"><ProductionContainer><ProductionKicker>Relationship</ProductionKicker><h2 className="mt-5 text-4xl font-bold lg:text-5xl">Why organisations stay with CYA.</h2><p className="mt-5 max-w-4xl text-lg text-[var(--cya-body)]">The page explains the practical value of the relationship without turning the founder or facilitator network into lifestyle branding.</p><div className="mt-10 grid gap-5 md:grid-cols-3"><ProductionCard title="Human curation" body="The right facilitator and format are selected for the specific context." /><ProductionCard title="Responsive service" body="CYA adapts when rooms, schedules, participation or organisational needs change." /><ProductionCard title="Organisational confidence" body="Clear communication, coordination, boundaries and evidence support approval." /></div></ProductionContainer></section>
+    <section className="bg-[var(--cya-canvas)] py-20 lg:py-24"><ProductionContainer><ProductionKicker>Standards</ProductionKicker><h2 className="mt-5 text-4xl font-bold lg:text-5xl">Facilitator fit is a production requirement.</h2><p className="mt-5 max-w-4xl text-lg text-[var(--cya-body)]">Trust depends on the people delivering the experience and their ability to work safely within context.</p><div className="mt-10 grid gap-5 md:grid-cols-3"><ProductionCard title="Capability" body="Relevant qualifications, experience and service boundaries." tone="paper" /><ProductionCard title="Presence" body="Warm, inclusive facilitation without pressure or performance." tone="paper" /><ProductionCard title="Context" body="Ability to adapt safely to different people, places and workplace moments." tone="paper" /></div></ProductionContainer></section>
+    <ProductionClosing tone="teal" heading="Plan with people who understand working context." body="Tell CYA what the organisation needs and how people will experience it." />
+  </>;
 }

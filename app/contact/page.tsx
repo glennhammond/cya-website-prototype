@@ -1,65 +1,22 @@
 import type { Metadata } from "next";
-import { Container, Section, Kicker } from "@/components/Primitives";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { BreadcrumbStructuredData } from "@/components/StructuredData";
 import { ConsultationForm } from "@/components/ConsultationForm";
-import { consultationHero, interestLabelByType } from "@/content/consultation";
-import { responseCommitment } from "@/content/site";
+import { ProductionAction, ProductionCard, ProductionContainer, ProductionKicker, ProductionPhoto } from "@/components/ProductionPrimitives";
+import { interestLabelByType } from "@/content/consultation";
+import { media } from "@/content/media";
 
-export const metadata: Metadata = {
-  title: "Contact Corporate Yoga Australia",
-  description:
-    "Tell Corporate Yoga Australia whether you are considering one session, a conference, online wellbeing, a recurring series or a broader workplace wellbeing program.",
-  alternates: {
-    canonical: "/contact",
-  },
-};
+export const metadata: Metadata = { title: "Contact Corporate Yoga Australia", description: "Tell Corporate Yoga Australia what needs to happen and begin planning a useful workplace wellbeing experience.", alternates: { canonical: "/contact" } };
 
-export default async function ContactPage({
-  searchParams,
-}: {
-  searchParams: Promise<{ interest?: string }>;
-}) {
+export default async function ContactPage({ searchParams }: { searchParams: Promise<{ interest?: string }> }) {
   const { interest } = await searchParams;
   const contextualLabel = interest ? interestLabelByType[interest] : undefined;
-
-  return (
-    <>
-      <BreadcrumbStructuredData items={[{ name: "Contact", path: "/contact" }]} />
-      <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Contact" }]} />
-      <Section tone="white" className="pb-0">
-        <Container>
-          <Kicker>{consultationHero.kicker}</Kicker>
-          <h1 className="mt-4 text-[32px] sm:text-[42px]">
-            {contextualLabel ? `Let's talk about ${contextualLabel.toLowerCase()}.` : consultationHero.heading}
-          </h1>
-          <p className="mt-4 max-w-2xl text-lg leading-relaxed text-body">{consultationHero.body}</p>
-        </Container>
-      </Section>
-
-      <Section tone="white">
-        <Container>
-          <div className="grid gap-12 lg:grid-cols-[1fr_1.4fr]">
-            <div>
-              <div className="rounded-[var(--radius-card)] border border-divider bg-mist p-6">
-                <h2 className="text-lg text-teal-dark">What happens next</h2>
-                <p className="mt-2 text-sm leading-relaxed text-body">
-                  Your enquiry is acknowledged and routed to the appropriate owner. {responseCommitment.value}
-                </p>
-              </div>
-              <div className="mt-6 rounded-[var(--radius-card)] border border-divider bg-white p-6">
-                <h2 className="text-lg text-teal-dark">This form is not for</h2>
-                <ul className="mt-2 space-y-2 text-sm leading-relaxed text-body">
-                  <li>Wellbeing Studio member sign-in or account support</li>
-                  <li>Facilitator or employment enquiries</li>
-                  <li>Health, medical or crisis support - CYA is not an EAP or clinical service</li>
-                </ul>
-              </div>
-            </div>
-            <ConsultationForm initialInterest={interest} />
-          </div>
-        </Container>
-      </Section>
-    </>
-  );
+  return <>
+    <BreadcrumbStructuredData items={[{ name: "Contact", path: "/contact" }]} />
+    <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Contact" }]} />
+    <section className="bg-white py-16 lg:py-20"><ProductionContainer className="grid gap-10 lg:grid-cols-[1.4fr_0.8fr] lg:items-center"><div><ProductionKicker>Plan with CYA</ProductionKicker><h1 className="mt-5 max-w-4xl text-[clamp(2.8rem,5vw,4.5rem)] font-bold leading-[1.05]">{contextualLabel ? `Tell us about ${contextualLabel.toLowerCase()}.` : "Tell us what needs to happen."}</h1><p className="mt-6 max-w-3xl text-lg leading-8 text-[var(--cya-body)]">Start with the people, workplace context and moment you need to support. You do not need to know the service name before getting in touch.</p><div className="mt-8 flex gap-3"><ProductionAction href="#planning-form">Start planning</ProductionAction><ProductionAction href="mailto:hello@corporateyoga.com.au" style="secondary">Contact directly</ProductionAction></div></div><aside className="bg-[var(--cya-teal-dark)] p-8 text-white"><ProductionKicker light>Planning starts here</ProductionKicker><ul className="mt-6 space-y-4"><li>People</li><li>Workplace context</li><li>What needs to happen</li></ul></aside></ProductionContainer></section>
+    <ProductionPhoto asset={media.workplaceWellbeingHero} label="CYA photography · planning" priority />
+    <section id="planning-form" className="bg-white py-20 lg:py-24"><ProductionContainer><ProductionKicker>Planning form</ProductionKicker><h2 className="mt-5 max-w-4xl text-4xl font-bold lg:text-5xl">A useful enquiry should not require product knowledge.</h2><p className="mt-5 max-w-4xl text-lg text-[var(--cya-body)]">The form asks for enough context to begin well, while keeping the first contact proportionate and accessible.</p><div className="mt-10 grid gap-5 md:grid-cols-3"><ProductionCard title="Your details" body="Name, organisation, email and preferred contact method." /><ProductionCard title="The workplace context" body="Locations, approximate audience and delivery environment." /><ProductionCard title="What needs to happen" body="The moment, need or organisational change you want to support." /></div><div className="mt-12 border-t border-[var(--cya-divider)] pt-12"><ConsultationForm initialInterest={interest} /></div></ProductionContainer></section>
+    <section className="bg-[var(--cya-canvas)] py-20 lg:py-24"><ProductionContainer><ProductionKicker>What happens next</ProductionKicker><h2 className="mt-5 text-4xl font-bold lg:text-5xl">Clear expectations reduce conversion anxiety.</h2><div className="mt-10 grid gap-5 md:grid-cols-3"><ProductionCard title="1 · CYA reviews the context" body="The enquiry is considered by a person—not routed through an automated recommendation engine." tone="paper" /><ProductionCard title="2 · We clarify fit" body="CYA may ask about timing, access, format, facilitator needs or internal approval." tone="paper" /><ProductionCard title="3 · You receive a practical next step" body="A recommended starting point, scope or conversation—without pressure to buy a program." tone="paper" /></div></ProductionContainer></section>
+  </>;
 }

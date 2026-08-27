@@ -19,13 +19,13 @@ export function SiteHeader() {
     <header
       className="sticky top-0 z-40 border-b border-divider bg-white/95 shadow-[0_4px_24px_rgba(16,63,69,0.04)] backdrop-blur"
     >
-      <Container className="flex h-24 items-center justify-between gap-4">
+      <Container className="flex h-[88px] items-center justify-between gap-4">
         <Link href="/" className="flex shrink-0 items-center" aria-label="Corporate Yoga Australia, home">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/brand/cya-logo-inline.svg"
             alt="Corporate Yoga Australia"
-            className="h-12 w-auto"
+            className="h-10 w-auto"
           />
         </Link>
 
@@ -38,7 +38,7 @@ export function SiteHeader() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`whitespace-nowrap border-b-2 pb-0.5 text-sm font-bold transition-colors ${
+                className={`whitespace-nowrap border-b-2 pb-0.5 text-sm font-medium transition-colors ${
                   active
                     ? transparent
                       ? "border-white text-white"
@@ -77,7 +77,7 @@ function DesktopNavigation({ transparent }: { transparent: boolean }) {
               <Link
                 href={item.href}
                 aria-current={active ? "page" : undefined}
-                className={`block whitespace-nowrap border-b-2 px-2 pt-2 pb-1.5 text-sm font-bold transition-colors ${
+                className={`block whitespace-nowrap border-b-2 px-2 pt-2 pb-1.5 text-sm font-medium transition-colors ${
                   active
                     ? transparent
                       ? "border-white text-white"

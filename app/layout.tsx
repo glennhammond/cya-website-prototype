@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Urbanist, Open_Sans } from "next/font/google";
+import { Instrument_Sans } from "next/font/google";
 import { AnnotationProvider } from "@/lib/annotation";
 import { AnnotationToggle } from "@/components/AnnotationToggle";
 import { SiteHeader } from "@/components/SiteHeader";
@@ -7,17 +7,10 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { site } from "@/content/site";
 import "./globals.css";
 
-const urbanist = Urbanist({
-  variable: "--font-urbanist",
+const instrumentSans = Instrument_Sans({
+  variable: "--font-instrument-sans",
   subsets: ["latin"],
-  weight: ["500", "600", "700", "800"],
-  display: "swap",
-});
-
-const openSans = Open_Sans({
-  variable: "--font-open-sans",
-  subsets: ["latin"],
-  weight: ["400", "600", "700"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
@@ -36,7 +29,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en-AU" className={`${urbanist.variable} ${openSans.variable} h-full`}>
+    <html lang="en-AU" className={`${instrumentSans.variable} h-full`}>
       <body className="flex min-h-full flex-col font-[family-name:var(--font-body)] text-ink antialiased">
         <AnnotationProvider>
           <a href="#main-content" className="skip-link">

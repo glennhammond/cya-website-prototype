@@ -1,86 +1,22 @@
 import type { Metadata } from "next";
-import { ProofPageHero } from "@/components/ProofPageHero";
-import { CaseStudyCard } from "@/components/CaseStudyCard";
-import { CTASection } from "@/components/CTASection";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
-import { Container, Section, Kicker } from "@/components/Primitives";
-import { proofHero, proofPrinciples, caseStudies, proofStandards } from "@/content/proof";
+import { CaseStudyCard } from "@/components/CaseStudyCard";
+import { ProductionAction, ProductionCard, ProductionClosing, ProductionContainer, ProductionKicker, ProductionPhoto } from "@/components/ProductionPrimitives";
+import { media } from "@/content/media";
+import { caseStudies } from "@/content/proof";
 
 const publishableStatuses = new Set(["approved", "safe-working-copy"]);
 
-export const metadata: Metadata = {
-  title: "Workplace Wellbeing Case Studies",
-  description:
-    "Selected Corporate Yoga Australia client stories showing the context, decisions, delivery and evidence behind workplace wellbeing engagements.",
-  alternates: {
-    canonical: "/case-studies",
-  },
-  robots: {
-    index: false,
-    follow: true,
-  },
-};
+export const metadata: Metadata = { title: "Workplace Wellbeing Case Studies", description: "Selected Corporate Yoga Australia client stories showing the context, decisions, delivery and evidence behind workplace wellbeing engagements.", alternates: { canonical: "/case-studies" }, robots: { index: false, follow: true } };
 
 export default function CaseStudiesPage() {
   const publishableStories = caseStudies.filter((study) => publishableStatuses.has(study.status));
-
-  return (
-    <>
-      <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Case studies" }]} />
-      <ProofPageHero
-        kicker={proofHero.kicker}
-        heading={proofHero.heading}
-        body="CYA case studies are published only when client permission, delivery facts and supporting evidence have been verified."
-        principles={proofPrinciples}
-      />
-
-      <Section tone="white">
-        <Container>
-          <div className="max-w-2xl">
-            <Kicker>{publishableStories.length > 0 ? "Published stories" : "Evidence in preparation"}</Kicker>
-            <h2 className="mt-3 text-heading-lg">
-              {publishableStories.length > 0 ? "Work shown in context." : "Client stories are being qualified for publication."}
-            </h2>
-            <p className="mt-4 text-lg leading-relaxed text-body">
-              {publishableStories.length > 0
-                ? "Each published story records the workplace context, CYA response, delivery, available evidence and what happened next."
-                : "Candidate clients and placeholder evidence remain inside CYA's governed production system and are not shown publicly until the required permission and factual checks are complete."}
-            </p>
-          </div>
-
-          {publishableStories.length > 0 && (
-            <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-              {publishableStories.map((study) => (
-                <CaseStudyCard key={study.slug} study={study} />
-              ))}
-            </div>
-          )}
-        </Container>
-      </Section>
-
-      <Section tone="white">
-        <Container>
-          <div className="max-w-2xl">
-            <Kicker>Standards</Kicker>
-            <h2 className="mt-3 text-heading-lg">What CYA will and won&rsquo;t claim.</h2>
-          </div>
-          <ul className="mt-8 space-y-3">
-            {proofStandards.map((standard) => (
-              <li key={standard} className="flex gap-3 text-sm leading-relaxed text-body">
-                <span aria-hidden="true" className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-aqua" />
-                {standard}
-              </li>
-            ))}
-          </ul>
-        </Container>
-      </Section>
-
-      <CTASection
-        kicker="Next step"
-        heading="Discuss your workplace rather than waiting for a matching case study."
-        body="Tell CYA what you are trying to organise and the team can talk through relevant delivery experience without publishing an unapproved client story."
-        cta={{ label: "Book a wellbeing consultation", href: "/contact", variant: "primary" }}
-      />
-    </>
-  );
+  return <>
+    <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Case studies" }]} />
+    <section className="bg-[var(--cya-teal-dark)] py-16 text-white lg:py-20"><ProductionContainer className="grid gap-10 lg:grid-cols-[1.4fr_0.8fr] lg:items-center"><div><ProductionKicker light>Evidence in context</ProductionKicker><h1 className="mt-5 max-w-4xl text-[clamp(2.8rem,5vw,4.5rem)] font-bold leading-[1.05] text-white">Proof should show what changed—and why it fit.</h1><p className="mt-6 max-w-3xl text-lg leading-8 text-white/85">Case Studies connect real workplace situations to the decisions, adaptations and outcomes that mattered. Client identities and claims remain subject to approval.</p><div className="mt-8 flex gap-3"><ProductionAction href="#evidence" style="secondary">Explore case studies</ProductionAction><ProductionAction href="/contact" style="secondary">Plan with CYA</ProductionAction></div></div><aside className="bg-white p-8 text-[var(--cya-teal-dark)]"><ProductionKicker>Publication standard</ProductionKicker><ul className="mt-6 space-y-4"><li>Place and time verified</li><li>Client permission confirmed</li><li>Outcome evidence checked</li></ul></aside></ProductionContainer></section>
+    <ProductionPhoto asset={media.proofHero} label="CYA photography · field note" priority />
+    <section id="evidence" className="bg-[var(--cya-paper)] py-20 lg:py-24"><ProductionContainer><ProductionKicker>Evidence routes</ProductionKicker><h2 className="mt-5 text-4xl font-bold lg:text-5xl">Find evidence through the workplace situation.</h2><p className="mt-5 max-w-4xl text-lg text-[var(--cya-body)]">The archive should help buyers recognise comparable constraints without reducing every story to headline metrics.</p><div className="mt-10 grid gap-5 md:grid-cols-3"><ProductionCard title="By workplace need" body="Reset, movement, focus, connection, expert conversation or ongoing continuity." /><ProductionCard title="By delivery context" body="Office, conference, hybrid workforce, multiple locations or connected program." /><ProductionCard title="By service family" body="Movement, specialist services, Workshops, Programs and Online Wellbeing." /></div>{publishableStories.length > 0 && <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">{publishableStories.map((study) => <CaseStudyCard key={study.slug} study={study} />)}</div>}</ProductionContainer></section>
+    <section className="bg-[var(--cya-canvas)] py-20 lg:py-24"><ProductionContainer><ProductionKicker>Evidence anatomy</ProductionKicker><h2 className="mt-5 max-w-5xl text-4xl font-bold lg:text-5xl">Every published case needs a defensible evidence chain.</h2><p className="mt-5 text-lg text-[var(--cya-body)]">No client, place or outcome should appear without explicit source, permission and verification status.</p><div className="mt-10 grid gap-5 md:grid-cols-3"><ProductionCard title="Context" body="Client type, place, audience and organisational need—with permission status." tone="paper" /><ProductionCard title="Decision" body="Why this format, facilitator and delivery approach were selected." tone="paper" /><ProductionCard title="Outcome" body="Approved qualitative or quantitative evidence without overstating causality." tone="paper" /></div></ProductionContainer></section>
+    <ProductionClosing tone="teal" heading="Find the evidence that fits the decision." body="Explore verified workplace stories or start a planning conversation." />
+  </>;
 }

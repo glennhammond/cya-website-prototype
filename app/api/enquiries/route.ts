@@ -2,14 +2,16 @@ import { NextResponse, type NextRequest } from "next/server";
 import { interestOptions } from "@/content/consultation";
 import { ATTRIBUTION_KEYS, type AttributionData } from "@/lib/attribution";
 
-const HUBSPOT_PORTAL_ID = "14575795";
-const HUBSPOT_FORM_ID = "746ef219-510f-4faa-a7a3-40288155d936";
+// HubSpot portal/form identifiers are not secrets. Runtime overrides allow the
+// deployment configuration to stay explicit without breaking the already
+// qualified CYA planning form when an override is absent.
+const HUBSPOT_PORTAL_ID = process.env.CYA_HUBSPOT_PORTAL_ID?.trim() || "14575795";
+const HUBSPOT_FORM_ID = process.env.CYA_HUBSPOT_FORM_ID?.trim() || "746ef219-510f-4faa-a7a3-40288155d936";
 const HUBSPOT_ENDPOINT = `https://api.hsforms.com/submissions/v3/integration/submit/${HUBSPOT_PORTAL_ID}/${HUBSPOT_FORM_ID}`;
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 type EnquiryPayload = {
-  firstName?: unknown;
-  lastName?: unknown;
+  name?: unknown;
   workEmail?: unknown;
   phone?: unknown;
   organisation?: unknown;
@@ -79,15 +81,14 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ ok: false, error: "invalid-json" }, { status: 400 });
   }
 
-  const firstName = clean(body.firstName, 100);
-  const lastName = clean(body.lastName, 100);
+  const name = clean(body.name, 160);
   const workEmail = clean(body.workEmail, 254).toLowerCase();
   const organisation = clean(body.organisation, 200);
   const interest = clean(body.interest, 100);
   const planningContext = clean(body.context, 3000);
 
   if (
-    !firstName ||
+    !name ||
     !EMAIL_PATTERN.test(workEmail) ||
     (interest && !interestOptions.some((option) => option.value === interest)) ||
     !planningContext ||
@@ -128,7 +129,7 @@ export async function POST(request: NextRequest) {
   ].filter(Boolean).join("\n").slice(0, 5000);
 
   const fields = [
-    field("cya_planning_name", [firstName, lastName].filter(Boolean).join(" ")),
+    field("cya_planning_name", name),
     field("email", workEmail),
     field("cya_planning_intention", intention),
     field("cya_planning_timing", timing),
@@ -140,7 +141,7 @@ export async function POST(request: NextRequest) {
   if (phone) fields.push(field("phone", phone));
 
   const context: Record<string, string> = {
-    pageName: "CYA website planning enquiry",
+    pageName: "Contact / Plan with CYA",
     pageUri: clean(body.sourcePage, 2000) || "https://www.corporateyoga.com.au/contact",
   };
   const hubspotutk = clean(body.hubspotutk, 200);

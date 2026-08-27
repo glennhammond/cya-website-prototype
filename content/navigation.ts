@@ -21,34 +21,49 @@ export const primaryNav: NavItem[] = [
         description: "Mat-based Pilates for one-off, recurring, onsite and online workplace sessions.",
       },
       {
-        label: "Mindfulness & Meditation",
+        label: "Meditation & Mindfulness",
         href: "/meditation-mindfulness",
         description: "Guided meditation, mindfulness, breathwork and related workplace practices.",
       },
       {
-        label: "Workplace Wellbeing Workshops",
+        label: "Workshops & Expert Experiences",
         href: "/workplace-wellbeing-workshops",
         description: "Practical workshops and Lunch & Learns for workplace wellbeing topics.",
       },
+    ],
+  },
+  {
+    label: "Programs",
+    href: "/workplace-wellbeing-programs",
+    children: [
       {
-        label: "Expert Experiences",
-        href: "/expert-experiences",
-        description: "Expert-led talks, facilitated learning and workplace wellbeing experiences.",
+        label: "Workplace Wellbeing Programs",
+        href: "/workplace-wellbeing-programs",
+        description: "Plan a useful rhythm of workplace wellbeing.",
       },
       {
         label: "Online Wellbeing",
         href: "/online-wellbeing",
-        description: "Live and on-demand continuity for remote, hybrid and distributed teams.",
-      },
-      {
-        label: "Conferences and events",
-        href: "/conferences-events",
-        description: "Short activations and wellbeing streams built around the event, venue and agenda.",
+        description: "Extend live experiences across hybrid, remote and ongoing work.",
       },
     ],
   },
-  { label: "Programs", href: "/workplace-wellbeing-programs" },
-  { label: "Why CYA", href: "/about" },
+  {
+    label: "Why CYA",
+    href: "/about-us",
+    children: [
+      {
+        label: "Case Studies",
+        href: "/case-studies",
+        description: "Evidence from real organisational contexts.",
+      },
+      {
+        label: "About Us",
+        href: "/about-us",
+        description: "CYA's story, people and service character.",
+      },
+    ],
+  },
   { label: "Insights", href: "/blog" },
 ];
 

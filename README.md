@@ -1,17 +1,20 @@
-# Corporate Yoga Australia — Prototype v1
+# Corporate Yoga Australia — Website 2027
 
-A Next.js / TypeScript / Tailwind CSS prototype of the CYA release-one website, built to the Stage 3 Creative Direction and Experience Prototype brief.
+The authoritative Next.js implementation repository for the Corporate Yoga Australia Website 2027 redesign and production programme.
+
+> **Repository authority:** All CYA Website implementation, branch, preview and release work belongs in `glennhammond/cya-website-prototype`. The separate `glennhammond/cya-site` repository is deprecated historical evidence and must not be used for development or deployment.
 
 ## Governing documents
 
-General product, experience and content authority remains governed by the established prototype source hierarchy:
+Current authority is applied in this order:
 
-1. `Docs/CYA_Claude_Code_Prototype_v1_Build_Prompt.md`
-2. `Docs/authoritative/CYA_Stage_2_Experience_and_Content_Definition_v1.0(1).pdf`
-3. `Docs/authoritative/CYA_Stage_2_Wireframes_and_Mockups.pdf`
-4. `Docs/authoritative/CYA_Website_Strategic_Source_of_Truth_v1.0.docx`
-5. The approved definitive blueprint (`https://cya-website-blueprint-nu.vercel.app/`)
-6. `Brand/Wellbeing_Studio_Brand_Style_Guide_v1.docx` and `Brand/02. Brand Assets.zip`
+1. CYA Website 2027 — Authoritative Site Architecture v1.0
+2. CYA Website — Search Architecture Authority v1.0
+3. Current CYA brand and visual-identity authority
+4. Approved Phase 07 visual direction and subsequent qualified production work
+5. Wellbeing Studio continuity decisions for the CYA–Studio relationship
+
+Historical wireframes, the Blueprint and older prototype material remain supporting evidence only. See `Docs/authoritative/CYA_Repository_Authority_and_Consolidation_2026-08-28.md` for the repository decision and recovered-work register.
 
 ### Search-specific authority
 
@@ -54,4 +57,4 @@ Phase 11.3 explicitly reuses this evidence-governance principle: search demand i
 
 ## Status
 
-Prototype build for internal review. Not for public release — see the final build report for evidence placeholders, unresolved dependencies and Debby review questions.
+Qualified production candidate under controlled consolidation. The live public website remains Squarespace until Glenn separately approves production promotion and DNS cutover.

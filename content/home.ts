@@ -159,7 +159,7 @@ export const leadershipPerspective = {
   kicker: "Corporate Yoga Australia",
   heading: "One founder, a national team behind every session.",
   body: "Debby Lewis founded CYA in 2014 from her own experience using movement and meditation in a high-pressure HR role. That practice is now delivered by an experienced national network of facilitators, coordinated so every engagement - from one session to a connected program - carries Debby's own standard of care.",
-  cta: { label: "Meet the team behind CYA", href: "/about" },
+  cta: { label: "Meet the team behind CYA", href: "/about-us" },
   image: media.debbyTeacherPortrait,
 };
 

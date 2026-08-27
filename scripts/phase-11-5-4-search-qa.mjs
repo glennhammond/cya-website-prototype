@@ -61,10 +61,9 @@ const indexQualifiedPages = [
   "app/workplace-pilates/page.tsx",
   "app/meditation-mindfulness/page.tsx",
   "app/workplace-wellbeing-workshops/page.tsx",
-  "app/expert-experiences/page.tsx",
   "app/online-wellbeing/page.tsx",
   "app/blog/page.tsx",
-  "app/about/page.tsx",
+  "app/about-us/page.tsx",
   "app/contact/page.tsx",
 ];
 
@@ -81,6 +80,7 @@ const retiredPageFiles = [
   "app/wellbeing-studio/page.tsx",
   "app/workplace-wellbeing/page.tsx",
   "app/workplace-wellbeing/movement/page.tsx",
+  "app/about/page.tsx",
 ];
 
 for (const retiredFile of retiredPageFiles) {
@@ -108,10 +108,9 @@ for (const canonicalPath of [
   "/workplace-pilates",
   "/meditation-mindfulness",
   "/workplace-wellbeing-workshops",
-  "/expert-experiences",
   "/online-wellbeing",
   "/blog",
-  "/about",
+  "/about-us",
   "/contact",
 ]) {
   check(sitemap.includes(`\"${canonicalPath}\"`), `sitemap contains ${canonicalPath}`);
@@ -129,7 +128,7 @@ const preservedNoindexPaths = [
   "/contact-thank-you-online",
 ];
 
-for (const blockedPath of ["/case-studies", "/member-access", "/conferences-events", ...preservedNoindexPaths]) {
+for (const blockedPath of ["/case-studies", "/member-access", "/conferences-events", "/expert-experiences", ...preservedNoindexPaths]) {
   check(!sitemap.includes(`\"${blockedPath}\"`), `sitemap excludes ${blockedPath}`);
 }
 check(sitemap.includes("insightArticles.map"), "sitemap includes protected Insights collection");
@@ -138,6 +137,7 @@ const noindexPages = [
   "app/case-studies/page.tsx",
   "app/member-access/page.tsx",
   "app/conferences-events/page.tsx",
+  "app/expert-experiences/page.tsx",
   ...preservedNoindexPaths.map((route) => `app${route}/page.tsx`),
 ];
 for (const noindexFile of noindexPages) {
@@ -156,6 +156,14 @@ check(pilatesPage.includes("ServiceStructuredData"), "Workplace Pilates renders 
 
 const navigation = read("content/navigation.ts");
 check(navigation.includes('href: "/workplace-pilates"'), "qualified Workplace Pilates is present in service navigation");
+for (const group of ["Services", "Programs", "Why CYA"]) {
+  check(navigation.includes(`label: "${group}"`), `locked navigation group is present: ${group}`);
+}
+for (const route of ["/movement", "/workplace-yoga", "/workplace-pilates", "/meditation-mindfulness", "/workplace-wellbeing-workshops", "/workplace-wellbeing-programs", "/online-wellbeing", "/case-studies", "/about-us", "/blog"]) {
+  check(navigation.includes(`href: "${route}"`), `locked navigation destination is present: ${route}`);
+}
+check(!navigation.includes('href: "/expert-experiences"'), "supporting Expert Experiences route is excluded from primary navigation");
+check(!navigation.includes('href: "/conferences-events"'), "supporting Conferences route is excluded from primary navigation");
 const homeContent = read("content/home.ts");
 check(homeContent.includes('href: "/workplace-pilates"'), "Home links directly to qualified Workplace Pilates");
 const movementContent = read("content/movement.ts");
@@ -193,19 +201,19 @@ for (const slug of [
 const nextConfig = read("next.config.ts");
 const requiredRedirects = [
   ["/home", "/"],
-  ["/getting-started", "/"],
+  ["/getting-started", "/contact"],
   ["/workplace-wellbeing", "/"],
   ["/programs", "/workplace-wellbeing-programs"],
   ["/workplace-wellbeing/movement", "/movement"],
   ["/our-classes", "/movement"],
   ["/wellbeing-studio", "/online-wellbeing"],
   ["/proof", "/case-studies"],
-  ["/about-us", "/about"],
-  ["/old-about-2", "/about"],
+  ["/about", "/about-us"],
+  ["/old-about-2", "/about-us"],
   ["/old-bespoke-services", "/workplace-wellbeing-programs"],
   ["/old-services", "/workplace-wellbeing-programs"],
   ["/what-we-offer", "/workplace-wellbeing-programs"],
-  ["/our-instructors", "/about"],
+  ["/our-instructors", "/about-us"],
   ["/consultation", "/contact"],
   ["/resources", "/blog"],
 ];
@@ -231,10 +239,12 @@ const enquiryRoute = read("app/api/enquiries/route.ts");
 const consultationForm = read("components/ConsultationForm.tsx");
 const attributionSource = `${read("components/AttributionCapture.tsx")}\n${read("lib/attribution.ts")}`;
 const conversionSignal = read("components/LeadConversionSignal.tsx");
-check(enquiryRoute.includes('const HUBSPOT_PORTAL_ID = "14575795"'), "authorised HubSpot portal is integrated");
-check(enquiryRoute.includes('const HUBSPOT_FORM_ID = "746ef219-510f-4faa-a7a3-40288155d936"'), "authorised HubSpot form is integrated");
+check(enquiryRoute.includes('process.env.CYA_HUBSPOT_PORTAL_ID?.trim() || "14575795"'), "authorised HubSpot portal is integrated with an explicit runtime override");
+check(enquiryRoute.includes('process.env.CYA_HUBSPOT_FORM_ID?.trim() || "746ef219-510f-4faa-a7a3-40288155d936"'), "authorised HubSpot form is integrated with an explicit runtime override");
 check(enquiryRoute.includes('interest === "studio" ? "/contact-thank-you-online" : "/contact-thank-you"'), "HubSpot success routes are governed by enquiry type");
 check(consultationForm.includes('fetch("/api/enquiries"'), "public consultation form uses the production enquiry endpoint");
+check(consultationForm.includes('id="name" label="Your name"'), "planning form preserves the approved full-name field contract");
+check(enquiryRoute.includes('field("cya_planning_name", name)'), "HubSpot receives the full name without inferred splitting");
 check(!consultationForm.includes("window.setTimeout"), "prototype form simulation is removed");
 check(attributionSource.includes('"gclid"'), "Google click IDs are captured for enquiry attribution");
 check(conversionSignal.includes('event: "cya_lead_submission"'), "successful submissions expose a one-time GTM data-layer event");

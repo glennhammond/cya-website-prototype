@@ -19,6 +19,10 @@ export const metadata: Metadata = {
   description:
     "Expert-led workplace wellbeing talks, Lunch & Learns and facilitated experiences for Australian organisations, delivered onsite or online.",
   alternates: { canonical: "/expert-experiences" },
+  robots: {
+    index: false,
+    follow: true,
+  },
 };
 
 export default function ExpertExperiencesPage() {

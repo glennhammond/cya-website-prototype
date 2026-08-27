@@ -68,13 +68,6 @@ export function NavDropdown({
           id={`nav-dropdown-${item.href}`}
           className="absolute left-0 top-full z-50 mt-2 w-64 rounded-[var(--radius-card)] border border-divider bg-white p-2 shadow-[var(--shadow-card)]"
         >
-          <Link
-            href={item.href}
-            onClick={() => setOpen(false)}
-            className="block rounded-[var(--radius-control)] px-3 py-2 text-sm font-bold text-teal-dark hover:bg-mist"
-          >
-            All {item.label.toLowerCase()}
-          </Link>
           {item.children?.map((child) => (
             <Link
               key={child.href}

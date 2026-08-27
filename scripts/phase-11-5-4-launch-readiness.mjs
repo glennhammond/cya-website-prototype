@@ -38,11 +38,18 @@ const requiredApprovals = [
   ["phase1154CampaignRoutePolicyApproved", "Phase 11.5.4 campaign-route policy approval has not been recorded."],
   ["phase1154HostedBrowserQaPassed", "Fresh Phase 11.5.4 hosted browser QA has not been recorded."],
   ["googleAdsConversionConfigurationChecked", "Google Ads Goals/Conversions configuration has not been checked against the preserved thank-you routes."],
+  ["googleAdsCampaignStatusVerified", "Google Ads still displays the campaign as Enabled/Eligible; intended pause state has not been verified."],
+  ["hubspotDebNotificationVerified", "HubSpot submission notification to Deb only has not been verified in the live form settings."],
   ["productionEnquiryFormIntegrated", "The production enquiry form submission path has not been integrated and verified."],
+  ["productionEnquiryFormLiveSubmissionVerified", "A controlled live HubSpot submission and thank-you redirect have not been verified."],
 ];
 
 for (const [key, message] of requiredApprovals) {
   if (approvals[key] !== true) block(message);
+}
+
+if (approvals.googleAdsEnhancedConversionsHealthy !== true) {
+  warnings.push("Google Ads reports enhanced-conversion setup issues; standard conversion continuity exists, but enhanced matching requires repair.");
 }
 
 const unresolvedCampaignRoutes = routeDecisions.campaignRoutes.filter((route) => route.ownerConfirmed !== true);

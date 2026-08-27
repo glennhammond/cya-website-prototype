@@ -22,7 +22,9 @@ function canonicalHref(pathname) {
 async function request(pathname, options = {}) {
   return fetch(`${baseUrl}${pathname}`, {
     redirect: options.redirect ?? "manual",
-    headers: { "user-agent": "CYA-Phase-11.5.4-QA" },
+    method: options.method ?? "GET",
+    headers: { "user-agent": "CYA-Phase-11.5.4-QA", ...(options.headers ?? {}) },
+    body: options.body,
   });
 }
 
@@ -122,7 +124,6 @@ const controlledNoindexRoutes = [
   "/program-registration",
   "/contact-thank-you",
   "/contact-thank-you-online",
-  "/contact-thank-you-online-1",
 ];
 
 const redirects = [
@@ -150,6 +151,8 @@ const redirects = [
   ["/resources", "/blog"],
   ["/bespoke-services", "/workplace-wellbeing-programs"],
   ["/book-a-class", "/contact"],
+  ["/google-ads-lander", "/workplace-yoga-australia"],
+  ["/contact-thank-you-online-1", "/contact-thank-you-online"],
 ];
 
 const nextBin = path.join(root, "node_modules", "next", "dist", "bin", "next");
@@ -215,6 +218,30 @@ try {
   const contactResponse = await request("/contact");
   const contactHtml = await contactResponse.text();
   check(hasSchemaType(contactHtml, "BreadcrumbList"), "Contact renders BreadcrumbList schema");
+
+  const invalidEnquiry = await request("/api/enquiries", {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify({}),
+  });
+  check(invalidEnquiry.status === 400, "enquiry API rejects invalid submissions", `received ${invalidEnquiry.status}`);
+
+  const honeypotEnquiry = await request("/api/enquiries", {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify({
+      firstName: "QA",
+      workEmail: "qa@example.com",
+      organisation: "QA",
+      interest: "studio",
+      context: "Automated honeypot-path validation only",
+      privacyConsent: true,
+      website: "bot-filled.example",
+    }),
+  });
+  const honeypotResult = await honeypotEnquiry.json();
+  check(honeypotEnquiry.status === 200, "honeypot submission is quietly contained", `received ${honeypotEnquiry.status}`);
+  check(honeypotResult.successRoute === "/contact-thank-you-online", "online enquiry success route is selected without a live CRM write");
 
   const blogResponse = await request("/blog");
   const blogHtml = await blogResponse.text();

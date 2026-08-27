@@ -3,6 +3,7 @@ import { Urbanist, Open_Sans } from "next/font/google";
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import { AnnotationProvider } from "@/lib/annotation";
 import { AnnotationToggle } from "@/components/AnnotationToggle";
+import { AttributionCapture } from "@/components/AttributionCapture";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { site } from "@/content/site";
@@ -43,6 +44,7 @@ export default function RootLayout({
       {enableProductionTracking ? <GoogleTagManager gtmId="GTM-PXV5ZCLG" /> : null}
       <body className="flex min-h-full flex-col font-[family-name:var(--font-body)] text-ink antialiased">
         <AnnotationProvider>
+          <AttributionCapture />
           <a href="#main-content" className="skip-link">
             Skip to main content
           </a>

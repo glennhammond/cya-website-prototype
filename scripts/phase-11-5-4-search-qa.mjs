@@ -127,7 +127,6 @@ const preservedNoindexPaths = [
   "/program-registration",
   "/contact-thank-you",
   "/contact-thank-you-online",
-  "/contact-thank-you-online-1",
 ];
 
 for (const blockedPath of ["/case-studies", "/member-access", "/conferences-events", ...preservedNoindexPaths]) {
@@ -227,6 +226,18 @@ for (const campaign of routeDecisions.campaignRoutes) {
     `preserved campaign/operational route is not redirected: ${campaign.path}`,
   );
 }
+
+const enquiryRoute = read("app/api/enquiries/route.ts");
+const consultationForm = read("components/ConsultationForm.tsx");
+const attributionSource = `${read("components/AttributionCapture.tsx")}\n${read("lib/attribution.ts")}`;
+const conversionSignal = read("components/LeadConversionSignal.tsx");
+check(enquiryRoute.includes('const HUBSPOT_PORTAL_ID = "14575795"'), "authorised HubSpot portal is integrated");
+check(enquiryRoute.includes('const HUBSPOT_FORM_ID = "746ef219-510f-4faa-a7a3-40288155d936"'), "authorised HubSpot form is integrated");
+check(enquiryRoute.includes('interest === "studio" ? "/contact-thank-you-online" : "/contact-thank-you"'), "HubSpot success routes are governed by enquiry type");
+check(consultationForm.includes('fetch("/api/enquiries"'), "public consultation form uses the production enquiry endpoint");
+check(!consultationForm.includes("window.setTimeout"), "prototype form simulation is removed");
+check(attributionSource.includes('"gclid"'), "Google click IDs are captured for enquiry attribution");
+check(conversionSignal.includes('event: "cya_lead_submission"'), "successful submissions expose a one-time GTM data-layer event");
 
 const productionLayout = read("app/layout.tsx");
 check(productionLayout.includes('process.env.VERCEL_ENV === "production"'), "tracking is restricted to Vercel Production");

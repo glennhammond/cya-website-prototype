@@ -11,6 +11,10 @@
   "hostedBrowserQaPassed": true,
   "phase1154CampaignRoutePolicyApproved": true,
   "phase1154HostedBrowserQaPassed": false,
-  "googleAdsConversionConfigurationChecked": false,
-  "productionEnquiryFormIntegrated": false
+  "googleAdsConversionConfigurationChecked": true,
+  "googleAdsCampaignStatusVerified": false,
+  "googleAdsEnhancedConversionsHealthy": false,
+  "hubspotDebNotificationVerified": false,
+  "productionEnquiryFormIntegrated": true,
+  "productionEnquiryFormLiveSubmissionVerified": false
 }

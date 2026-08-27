@@ -1,9 +1,12 @@
 import Link from "next/link";
 import { Container, Kicker, Section } from "@/components/Primitives";
+import { LeadConversionSignal } from "@/components/LeadConversionSignal";
 
 export function ThankYouPage({ online = false }: { online?: boolean }) {
+  const successRoute = online ? "/contact-thank-you-online" : "/contact-thank-you";
   return (
     <Section tone="white">
+      <LeadConversionSignal successRoute={successRoute} />
       <Container>
         <div className="mx-auto max-w-2xl py-12 sm:py-20">
           <Kicker>Enquiry received</Kicker>

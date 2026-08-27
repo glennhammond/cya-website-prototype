@@ -2,9 +2,10 @@
 
 **Date:** 27 August 2026  
 **Branch:** `phase-14-integrated-production-candidate`  
-**Qualified commit:** `01834a717f36090d16d9dcf4af6b2bb57ef84293`  
-**Vercel deployment:** `dpl_BuJdWTRT7teU3V6RwXC7QjUSbsZe`  
-**Qualification result:** **BLOCKED — hosted desktop passes; fresh narrow-screen visual confirmation remains**
+**Qualified runtime commit:** `5883b0285296d99f13eda4e6ad478e3d3237e826`
+
+**Vercel deployment:** `dpl_81UmMu6nNkiJJ2fcSAfT7aYN3kGw`
+**Qualification result:** **PASS — integrated production candidate is launch-ready; production cutover remains separately authorised**
 
 ## 1. Candidate authority
 
@@ -20,14 +21,14 @@ The candidate is a Vercel Preview only. The current Squarespace site, production
 | TypeScript | PASS |
 | Phase 11.5.4 source/search QA | PASS — 472 checks |
 | Next.js production build | PASS — 42 routes |
-| Rendered production HTTP smoke | PASS — 275 checks |
+| Rendered production HTTP smoke | PASS — 277 checks |
 | Production dependency audit | PASS — 0 vulnerabilities |
 | Vercel preview build | PASS — READY |
 | Vercel preview runtime warnings/errors | PASS — none recorded |
 
 ## 3. Hosted desktop/browser evidence
 
-Fresh hosted checks were performed against the exact deployment for commit `01834a7`, not an earlier prototype alias.
+Fresh hosted checks were performed against the exact integrated deployment and repeated against the repaired deployment for commit `5883b02`, not an earlier prototype alias.
 
 The following routes rendered with one H1, the governed production canonical, the shared header/footer and no horizontal overflow:
 
@@ -58,7 +59,21 @@ Additional hosted journey checks:
 - Browser console findings were limited to the browser-control extension; no application-origin errors were observed.
 - Vercel reported no preview runtime warnings, errors or fatal logs during the qualification window.
 
-## 4. Owner and live-business decisions already closed
+## 4. Mobile remediation and closure
+
+Glenn's first phone-width review correctly failed the candidate. It identified:
+
+- horizontal page movement caused by mobile overflow;
+- an oversized mobile logo/header composition;
+- a mobile-menu `Plan with CYA` action that did not close the overlay and navigate reliably;
+- an enquiry page with excessive pre-form content and an unnecessarily long field set;
+- a stale/mismatched preview returning the generic 404 for `/workplace-yoga-australia`.
+
+Commit `5883b02` corrected the mobile header sizing and overflow containment, closed the menu before CTA navigation, reduced the website form to the authorised HubSpot planning fields, and retained the Google Ads landing route. The repaired preview passed build, source, rendered, security, browser-console and Vercel-runtime checks.
+
+Glenn completed the independent phone-width recheck and recorded **Mobile pass** on 28 August 2026. This closes `phase1154HostedBrowserQaPassed` as `true`.
+
+## 5. Owner and live-business decisions already closed
 
 - Google Ads campaign owner decision: **paused**.
 - HubSpot notification owner decision: **Deb only**.
@@ -67,22 +82,14 @@ Additional hosted journey checks:
 
 Google Ads enhanced conversions still reports a setup warning. This is a measurement-quality warning, not a website-release blocker.
 
-## 5. Remaining blocker
+## 6. Remaining release control
 
-`phase1154HostedBrowserQaPassed` remains `false` because this fresh integrated deployment has not yet received an independently observed narrow-screen/mobile visual pass. Desktop rendering, keyboard behaviour, hosted routing, crawl controls and runtime health pass.
+All Phase 11.5.4 launch-readiness gates now pass. The Google Ads enhanced-conversions warning and withheld Case Studies publication remain controlled, non-blocking warnings.
 
-Do not mark the Phase 11.5.4 hosted-browser gate complete until the preview has been checked at a phone-width viewport for:
+Production cutover is a separate destructive release action and remains unauthorised until Glenn explicitly approves the merge/promotion and Squarespace/DNS transition.
 
-- Home header/menu and hero;
-- Workplace Yoga;
-- the consultation form;
-- the Google Ads landing page;
-- Cromwell registration hand-off;
-- both thank-you routes;
-- absence of horizontal overflow or clipped controls.
-
-## 6. Release instruction
+## 7. Release instruction
 
 **Do not merge, promote to Vercel Production, replace Squarespace or change DNS yet.**
 
-Once the narrow-screen check passes, set `phase1154HostedBrowserQaPassed` to `true`, rerun `npm run qa:launch`, commit the evidence closure and request explicit production-cutover approval.
+The candidate is qualified for the next governed phase: production-cutover planning and explicit release approval.

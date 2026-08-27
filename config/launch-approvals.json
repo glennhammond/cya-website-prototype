@@ -10,7 +10,7 @@
   "gscManualActionsChecked": true,
   "hostedBrowserQaPassed": true,
   "phase1154CampaignRoutePolicyApproved": true,
-  "phase1154HostedBrowserQaPassed": false,
+  "phase1154HostedBrowserQaPassed": true,
   "googleAdsConversionConfigurationChecked": true,
   "googleAdsCampaignStatusVerified": true,
   "googleAdsEnhancedConversionsHealthy": false,

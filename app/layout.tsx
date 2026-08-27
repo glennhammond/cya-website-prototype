@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Urbanist, Open_Sans } from "next/font/google";
+import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import { AnnotationProvider } from "@/lib/annotation";
 import { AnnotationToggle } from "@/components/AnnotationToggle";
 import { SiteHeader } from "@/components/SiteHeader";
@@ -35,8 +36,11 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const enableProductionTracking = process.env.VERCEL_ENV === "production";
+
   return (
     <html lang="en-AU" className={`${urbanist.variable} ${openSans.variable} h-full`}>
+      {enableProductionTracking ? <GoogleTagManager gtmId="GTM-PXV5ZCLG" /> : null}
       <body className="flex min-h-full flex-col font-[family-name:var(--font-body)] text-ink antialiased">
         <AnnotationProvider>
           <a href="#main-content" className="skip-link">
@@ -50,6 +54,7 @@ export default function RootLayout({
           <AnnotationToggle />
         </AnnotationProvider>
       </body>
+      {enableProductionTracking ? <GoogleAnalytics gaId="G-7GY152D942" /> : null}
     </html>
   );
 }

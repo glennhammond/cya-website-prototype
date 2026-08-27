@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "authority": "CYA Website Phase 11.4 launch gates",
+  "authority": "CYA Website Phase 11.5.4 launch gates",
   "photographyPublicationApproved": true,
   "pilatesPublicationApproved": true,
   "caseStudiesPublicationApproved": false,
@@ -8,5 +8,9 @@
   "legacySecurityVerified": true,
   "gscSecurityIssuesChecked": true,
   "gscManualActionsChecked": true,
-  "hostedBrowserQaPassed": true
+  "hostedBrowserQaPassed": true,
+  "phase1154CampaignRoutePolicyApproved": true,
+  "phase1154HostedBrowserQaPassed": false,
+  "googleAdsConversionConfigurationChecked": false,
+  "productionEnquiryFormIntegrated": false
 }

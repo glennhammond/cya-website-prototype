@@ -3,7 +3,11 @@
 import { useEffect, useRef, useState, type ChangeEvent, type FormEvent } from "react";
 import { ErrorSummary, type FormError } from "@/components/ErrorSummary";
 import { useAnnotation } from "@/lib/annotation";
-import { responseCommitment } from "@/content/site";
+import {
+  ATTRIBUTION_STORAGE_KEY,
+  PENDING_LEAD_STORAGE_KEY,
+  type AttributionData,
+} from "@/lib/attribution";
 import {
   interestOptions,
   workforceBands,
@@ -26,7 +30,7 @@ interface FormState {
   context: string;
   procurement: string;
   privacyConsent: boolean;
-  marketingConsent: boolean;
+  website: string;
 }
 
 const initialState: FormState = {
@@ -44,10 +48,10 @@ const initialState: FormState = {
   context: "",
   procurement: "",
   privacyConsent: false,
-  marketingConsent: false,
+  website: "",
 };
 
-type Status = "idle" | "submitting" | "success" | "duplicate" | "failure";
+type Status = "idle" | "submitting" | "failure";
 
 // Kept deliberately short (Objective F): first name, work email, organisation,
 // what you're considering, brief context, and privacy consent. Everything
@@ -97,7 +101,7 @@ export function ConsultationForm({ initialInterest }: { initialInterest?: string
     return found;
   }
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const found = validate();
     setErrors(found);
@@ -107,58 +111,50 @@ export function ConsultationForm({ initialInterest }: { initialInterest?: string
     }
 
     setStatus("submitting");
-    window.setTimeout(() => {
-      const email = values.workEmail.toLowerCase();
-      if (email.includes("duplicate")) {
-        setStatus("duplicate");
-      } else if (email.includes("fail")) {
-        setStatus("failure");
-      } else {
-        setStatus("success");
-      }
-    }, 900);
-  }
+    let attribution: AttributionData = {};
+    try {
+      attribution = JSON.parse(
+        window.sessionStorage.getItem(ATTRIBUTION_STORAGE_KEY) ?? "{}",
+      ) as AttributionData;
+    } catch {
+      attribution = {};
+    }
 
-  if (status === "success") {
-    return (
-      <div role="status" className="rounded-[var(--radius-card)] border border-divider bg-white p-8">
-        <h2 className="text-2xl text-teal-dark">Thanks, {values.firstName}.</h2>
-        <p className="mt-3 text-base leading-relaxed text-body">
-          Your enquiry about &ldquo;{interestOptions.find((o) => o.value === values.interest)?.label.toLowerCase() ?? "your wellbeing needs"}&rdquo; has
-          been received. {responseCommitment.value}
-        </p>
-        <p className="mt-3 text-sm text-body">
-          We will follow up at <strong>{values.workEmail}</strong>
-          {values.phone ? ` or ${values.phone}` : ""}.
-        </p>
-        <p className="mt-6 text-xs text-body/70">
-          Prototype boundary: this form does not send data anywhere yet. In production this step hands off to
-          HubSpot with source page, campaign and enquiry-type attribution.
-        </p>
-      </div>
-    );
-  }
+    const hubspotutk = document.cookie
+      .split(";")
+      .map((cookie) => cookie.trim())
+      .find((cookie) => cookie.startsWith("hubspotutk="))
+      ?.split("=")
+      .slice(1)
+      .join("=");
 
-  if (status === "duplicate") {
-    return (
-      <div role="status" className="rounded-[var(--radius-card)] border border-divider bg-white p-8">
-        <h2 className="text-2xl text-teal-dark">We already have an enquiry from you.</h2>
-        <p className="mt-3 text-base leading-relaxed text-body">
-          It looks like {values.workEmail} has an open enquiry with CYA already. We have not created a duplicate
-          record - someone will be in touch using the details already on file.
-        </p>
-        <p className="mt-3 text-base leading-relaxed text-body">
-          If new detail has come up since then, you&rsquo;re welcome to add it now.
-        </p>
-        <button
-          type="button"
-          onClick={() => setStatus("idle")}
-          className="mt-4 min-h-11 rounded-[var(--radius-control)] border border-teal px-5 text-sm font-bold text-teal-dark hover:bg-mist"
-        >
-          Add updated detail
-        </button>
-      </div>
-    );
+    try {
+      const response = await fetch("/api/enquiries", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          ...values,
+          sourcePage: window.location.href,
+          referrer: document.referrer,
+          hubspotutk,
+          attribution,
+        }),
+      });
+      const result = (await response.json()) as {
+        ok?: boolean;
+        successRoute?: string;
+        submissionId?: string;
+      };
+      if (!response.ok || !result.ok || !result.successRoute) throw new Error("submission failed");
+
+      window.sessionStorage.setItem(
+        PENDING_LEAD_STORAGE_KEY,
+        JSON.stringify({ successRoute: result.successRoute, submissionId: result.submissionId }),
+      );
+      window.location.assign(result.successRoute);
+    } catch {
+      setStatus("failure");
+    }
   }
 
   if (status === "failure") {
@@ -188,10 +184,22 @@ export function ConsultationForm({ initialInterest }: { initialInterest?: string
 
       {annotateEnabled && (
         <p className="mb-6 rounded-[var(--radius-control)] bg-mist p-3 text-xs text-body">
-          Testing hint (annotation mode only): a work email containing &ldquo;duplicate&rdquo; previews the
-          duplicate-guidance state; one containing &ldquo;fail&rdquo; previews the system-failure state.
+          Production integration: successful validated submissions are sent to the authorised HubSpot form and
+          then routed to the applicable thank-you page.
         </p>
       )}
+
+      <div className="absolute -left-[10000px] h-px w-px overflow-hidden" aria-hidden="true">
+        <label htmlFor="website">Website</label>
+        <input
+          id="website"
+          name="website"
+          tabIndex={-1}
+          autoComplete="off"
+          value={values.website}
+          onChange={(e) => update("website", e.target.value)}
+        />
+      </div>
 
       <fieldset className="grid gap-6 sm:grid-cols-2">
         <legend className="sr-only">Your details</legend>
@@ -282,16 +290,6 @@ export function ConsultationForm({ initialInterest }: { initialInterest?: string
             Accept the privacy acknowledgement to continue
           </p>
         )}
-        <label htmlFor="marketingConsent" className="flex items-start gap-3 text-sm text-body">
-          <input
-            id="marketingConsent"
-            type="checkbox"
-            checked={values.marketingConsent}
-            onChange={(e: ChangeEvent<HTMLInputElement>) => update("marketingConsent", e.target.checked)}
-            className="mt-1 h-4 w-4"
-          />
-          <span>I&rsquo;m happy to receive occasional wellbeing planning content from CYA (optional).</span>
-        </label>
       </fieldset>
 
       <div className="mt-8 flex items-center gap-4">

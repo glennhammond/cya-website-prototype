@@ -22,6 +22,8 @@ const redirects: NonNullable<NextConfig["redirects"]> = async () => [
   { source: "/our-instructors", destination: "/about", statusCode: 301 },
   { source: "/consultation", destination: "/contact", statusCode: 301 },
   { source: "/contact-us", destination: "/contact", statusCode: 301 },
+  { source: "/google-ads-lander", destination: "/workplace-yoga-australia", statusCode: 301 },
+  { source: "/contact-thank-you-online-1", destination: "/contact-thank-you-online", statusCode: 301 },
   { source: "/services", destination: "/movement", statusCode: 301 },
   { source: "/resources", destination: "/blog", statusCode: 301 },
   { source: "/bespoke-services", destination: "/workplace-wellbeing-programs", statusCode: 301 },

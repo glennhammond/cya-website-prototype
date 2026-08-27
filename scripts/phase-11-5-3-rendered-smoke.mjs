@@ -22,7 +22,7 @@ function canonicalHref(pathname) {
 async function request(pathname, options = {}) {
   return fetch(`${baseUrl}${pathname}`, {
     redirect: options.redirect ?? "manual",
-    headers: { "user-agent": "CYA-Phase-11.4-QA" },
+    headers: { "user-agent": "CYA-Phase-11.5.3-QA" },
   });
 }
 
@@ -80,9 +80,10 @@ const indexableRoutes = [
   "/workplace-pilates",
   "/meditation-mindfulness",
   "/workplace-wellbeing-workshops",
+  "/expert-experiences",
   "/online-wellbeing",
   "/blog",
-  "/about-us",
+  "/about",
   "/contact",
 ];
 
@@ -93,6 +94,7 @@ const serviceRoutes = [
   "/workplace-pilates",
   "/meditation-mindfulness",
   "/workplace-wellbeing-workshops",
+  "/expert-experiences",
   "/online-wellbeing",
 ];
 
@@ -120,15 +122,18 @@ const redirects = [
   ["/programs", "/workplace-wellbeing-programs"],
   ["/personalised-wellbeing-programs", "/workplace-wellbeing-programs"],
   ["/workplace-wellbeing/movement", "/movement"],
-  ["/workplace-yoga-australia", "/workplace-yoga"],
   ["/our-classes", "/movement"],
-  ["/online-wellbeing-2026", "/online-wellbeing"],
   ["/wellbeing-studio", "/online-wellbeing"],
   ["/proof", "/case-studies"],
   ["/proof/case-study", "/case-studies"],
   ["/reviews", "/case-studies"],
   ["/testimonials", "/case-studies"],
-  ["/about", "/about-us"],
+  ["/about-us", "/about"],
+  ["/old-about-2", "/about"],
+  ["/old-bespoke-services", "/workplace-wellbeing-programs"],
+  ["/old-services", "/workplace-wellbeing-programs"],
+  ["/what-we-offer", "/workplace-wellbeing-programs"],
+  ["/our-instructors", "/about"],
   ["/consultation", "/contact"],
   ["/contact-us", "/contact"],
   ["/services", "/movement"],
@@ -192,7 +197,7 @@ try {
     check(hasSchemaType(html, "BreadcrumbList"), `Insight BreadcrumbList schema renders: ${pathname}`);
   }
 
-  const aboutResponse = await request("/about-us");
+  const aboutResponse = await request("/about");
   const aboutHtml = await aboutResponse.text();
   check(hasSchemaType(aboutHtml, "Person"), "About renders founder Person schema");
   check(hasSchemaType(aboutHtml, "BreadcrumbList"), "About renders BreadcrumbList schema");
@@ -219,7 +224,7 @@ try {
     `received ${locationPath(consultationQuery)}`,
   );
 
-  const unknown = await request("/phase-11-4-definitely-not-a-real-page");
+  const unknown = await request("/phase-11-5-3-definitely-not-a-real-page");
   const unknownHtml = await unknown.text();
   check(unknown.status === 404, "unknown route returns genuine 404", `received ${unknown.status}`);
   check(unknownHtml.includes("Page not found"), "404 renders human not-found experience");
@@ -237,8 +242,7 @@ try {
   const rootResponse = await request("/");
   const rootHtml = await rootResponse.text();
   check(
-    rootHtml.includes("Corporate Yoga Australia | Workplace Yoga &amp; Wellbeing") ||
-      rootHtml.includes("Corporate Yoga Australia | Workplace Yoga & Wellbeing"),
+    rootHtml.includes("Corporate Yoga Australia | Workplace Wellbeing Programs"),
     "Home production title renders",
   );
   check(hasSchemaType(rootHtml, "Organization"), "Home renders Organization structured data");
@@ -269,14 +273,14 @@ try {
   check(robotsText.includes(`${productionOrigin}/sitemap.xml`), "production robots declares canonical sitemap");
 
   if (errors.length > 0) {
-    console.error(`\nPhase 11.4 rendered smoke FAILED (${errors.length}/${checks.length} checks failed):`);
+    console.error(`\nPhase 11.5.3 rendered smoke FAILED (${errors.length}/${checks.length} checks failed):`);
     for (const error of errors) console.error(`- ${error}`);
     process.exitCode = 1;
   } else {
-    console.log(`\nPhase 11.4 rendered production smoke PASS (${checks.length} checks).`);
+    console.log(`\nPhase 11.5.3 rendered production smoke PASS (${checks.length} checks).`);
   }
 } catch (error) {
-  console.error("\nPhase 11.4 rendered smoke could not complete:");
+  console.error("\nPhase 11.5.3 rendered smoke could not complete:");
   console.error(error instanceof Error ? error.message : String(error));
   if (serverLog.trim()) {
     console.error("\nNext server output:\n" + serverLog.trim());

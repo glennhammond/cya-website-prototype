@@ -28,9 +28,9 @@ import { exampleYear } from "@/content/home";
 import { media } from "@/content/media";
 
 export const metadata: Metadata = {
-  title: "Workplace Wellbeing Programs Australia",
+  title: { absolute: "Workplace Wellbeing Programs Australia | Corporate Yoga Australia" },
   description:
-    "Tailored workplace wellbeing programs combining human-led experiences, practical coordination and ongoing support for Australian teams.",
+    "Tailored workplace wellbeing programs combining movement, mindfulness, workshops, expert experiences and ongoing support for Australian organisations.",
   alternates: {
     canonical: "/workplace-wellbeing-programs",
   },

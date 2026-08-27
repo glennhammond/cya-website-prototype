@@ -22,7 +22,7 @@ import {
 } from "@/content/workplace-wellbeing-workshops";
 
 export const metadata: Metadata = {
-  title: "Workplace Wellbeing Workshops",
+  title: { absolute: "Workplace Wellbeing Workshops Australia | CYA" },
   description:
     "Expert-led workplace wellbeing workshops and Lunch & Learns for Australian teams, including stress management, sleep, nutrition, mindfulness and breathwork.",
   alternates: {

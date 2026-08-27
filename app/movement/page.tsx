@@ -22,7 +22,7 @@ import {
 import { media } from "@/content/media";
 
 export const metadata: Metadata = {
-  title: "Workplace Movement, Yoga & Pilates",
+  title: { absolute: "Workplace Movement Programs | Yoga, Pilates & Desk Sessions" },
   description:
     "Workplace movement including Yoga, Pilates, mobility and desk movement, adapted to real teams, spaces and levels of experience.",
   alternates: {

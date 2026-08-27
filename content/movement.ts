@@ -3,7 +3,7 @@ import type { FeatureItem } from "@/components/FeatureGrid";
 
 export const movementHero: PageIntro = {
   kicker: "Movement",
-  heading: "Useful movement, adapted to real workplaces.",
+  heading: "Movement That Fits the Workday",
   body: "Yoga, Pilates, mobility and desk movement don't require prior experience, a studio setting or a particular body type. CYA designs each session around the audience, environment and time available.",
   actions: [
     { label: "Discuss a movement session", href: "/contact?interest=one-off", variant: "primary" },

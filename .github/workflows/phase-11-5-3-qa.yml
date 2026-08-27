@@ -1,4 +1,4 @@
-name: Phase 11.4 Production QA
+name: Phase 11.5.3 Production QA
 
 on:
   pull_request:
@@ -6,7 +6,7 @@ on:
       - feature/cya-prototype-v1
 
 concurrency:
-  group: phase-11-4-${{ github.event.pull_request.number }}
+  group: phase-11-5-3-${{ github.event.pull_request.number }}
   cancel-in-progress: true
 
 permissions:
@@ -33,7 +33,7 @@ jobs:
       - name: Audit production dependencies
         run: npm audit --omit=dev --audit-level=high
 
-      - name: Validate Phase 11.4 search architecture
+      - name: Validate Phase 11.5.3 search architecture
         run: npm run qa:search
 
       - name: Lint
@@ -49,5 +49,5 @@ jobs:
           VERCEL_ENV: production
         run: npm run qa:rendered-smoke
 
-      - name: Final Phase 11.4 launch-readiness gate
+      - name: Final Phase 11.5.3 launch-readiness gate
         run: npm run qa:launch

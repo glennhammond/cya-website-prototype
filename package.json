@@ -7,9 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "qa:search": "node scripts/phase-11-4-search-qa.mjs",
-    "qa:rendered-smoke": "node scripts/phase-11-4-rendered-smoke.mjs",
-    "qa:launch": "node scripts/phase-11-4-launch-readiness.mjs"
+    "qa:search": "node scripts/phase-11-5-3-search-qa.mjs",
+    "qa:rendered-smoke": "node scripts/phase-11-5-3-rendered-smoke.mjs",
+    "qa:launch": "node scripts/phase-11-5-3-launch-readiness.mjs"
   },
   "dependencies": {
     "next": "16.3.3",

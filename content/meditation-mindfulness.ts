@@ -3,7 +3,7 @@ import type { FeatureItem } from "@/components/FeatureGrid";
 
 export const mindfulnessHero: PageIntro = {
   kicker: "Mindfulness & Meditation",
-  heading: "Practical mindfulness and meditation for real working days.",
+  heading: "Workplace Meditation & Mindfulness",
   body: "CYA delivers guided meditation, mindfulness, breathwork and related practices in formats that can fit around meetings, team days, wellbeing programs and distributed work. The emphasis is practical participation, not clinical treatment claims.",
   actions: [
     { label: "Discuss a mindfulness session", href: "/contact?interest=one-off", variant: "primary" },

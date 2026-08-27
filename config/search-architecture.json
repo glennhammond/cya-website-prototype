@@ -1,6 +1,6 @@
 {
-  "version": "1.0",
-  "authority": "CYA SEO Phase 11.3",
+  "version": "1.1",
+  "authority": "CYA SEO Phase 11.5.2 Launch SEO Intervention Pack",
   "figmaFileKey": "Ze1CERgMietgrGtL70je2x",
   "canonicalOrigin": "https://www.corporateyoga.com.au",
   "pages": [
@@ -74,7 +74,17 @@
       "schema": ["Service", "BreadcrumbList"],
       "sitemap": true,
       "evidenceGate": true,
-      "priorityLinks": ["/workplace-wellbeing-programs", "/meditation-mindfulness", "/online-wellbeing", "/case-studies"]
+      "priorityLinks": ["/workplace-wellbeing-programs", "/meditation-mindfulness", "/expert-experiences", "/online-wellbeing", "/case-studies"]
+    },
+    {
+      "path": "/expert-experiences",
+      "type": "service",
+      "indexable": true,
+      "canonical": "/expert-experiences",
+      "searchRole": "Expert-led workplace wellbeing experiences, speakers and facilitated learning",
+      "schema": ["Service", "BreadcrumbList"],
+      "sitemap": true,
+      "priorityLinks": ["/workplace-wellbeing-workshops", "/workplace-wellbeing-programs", "/meditation-mindfulness", "/contact"]
     },
     {
       "path": "/online-wellbeing",
@@ -105,10 +115,10 @@
       "sitemap": true
     },
     {
-      "path": "/about-us",
+      "path": "/about",
       "type": "trust-entity",
       "indexable": true,
-      "canonical": "/about-us",
+      "canonical": "/about",
       "searchRole": "CYA entity, people and trust",
       "schema": ["BreadcrumbList"],
       "sitemap": true
@@ -126,13 +136,16 @@
   "redirects": [
     {"from": "/home", "to": "/", "status": 301},
     {"from": "/personalised-wellbeing-programs", "to": "/workplace-wellbeing-programs", "status": 301},
-    {"from": "/workplace-yoga-australia", "to": "/workplace-yoga", "status": 301},
-    {"from": "/online-wellbeing-2026", "to": "/online-wellbeing", "status": 301},
     {"from": "/contact-us", "to": "/contact", "status": 301},
     {"from": "/services", "to": "/movement", "status": 301},
     {"from": "/bespoke-services", "to": "/workplace-wellbeing-programs", "status": 301},
     {"from": "/book-a-class", "to": "/contact", "status": 301},
-    {"from": "/about", "to": "/about-us", "status": 301},
+    {"from": "/about-us", "to": "/about", "status": 301},
+    {"from": "/old-about-2", "to": "/about", "status": 301},
+    {"from": "/old-bespoke-services", "to": "/workplace-wellbeing-programs", "status": 301},
+    {"from": "/old-services", "to": "/workplace-wellbeing-programs", "status": 301},
+    {"from": "/what-we-offer", "to": "/workplace-wellbeing-programs", "status": 301},
+    {"from": "/our-instructors", "to": "/about", "status": 301},
     {"from": "/reviews", "to": "/case-studies", "status": 301},
     {"from": "/testimonials", "to": "/case-studies", "status": 301}
   ],

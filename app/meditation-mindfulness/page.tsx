@@ -21,9 +21,9 @@ import {
 } from "@/content/meditation-mindfulness";
 
 export const metadata: Metadata = {
-  title: "Workplace Mindfulness & Meditation",
+  title: { absolute: "Workplace Meditation & Corporate Mindfulness Workshops | CYA" },
   description:
-    "Practical workplace mindfulness, guided meditation and breathwork for Australian teams, delivered onsite, online or as part of a wider wellbeing program.",
+    "Practical workplace meditation, mindfulness, breathwork and workshops that help Australian teams pause, reset and manage pressure.",
   alternates: {
     canonical: "/meditation-mindfulness",
   },

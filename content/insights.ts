@@ -117,7 +117,7 @@ export const insightArticles: InsightArticle[] = [
     ],
     relatedLinks: [
       { label: "Explore Mindfulness & Meditation", href: "/meditation-mindfulness" },
-      { label: "Explore online wellbeing", href: "/online-wellbeing" },
+      { label: "Explore workplace wellbeing programs", href: "/workplace-wellbeing-programs" },
     ],
   },
   {
@@ -332,7 +332,7 @@ export const insightArticles: InsightArticle[] = [
     ],
     relatedLinks: [
       { label: "Explore workplace wellbeing programs", href: "/workplace-wellbeing-programs" },
-      { label: "Explore online wellbeing", href: "/online-wellbeing" },
+      { label: "Explore Mindfulness & Meditation", href: "/meditation-mindfulness" },
       { label: "Plan with CYA", href: "/contact?interest=recurring" },
     ],
   },

@@ -9,13 +9,13 @@ export { homeHeroMedia };
  */
 export const homeHeroContent: HeroContent = {
   eyebrow: "Corporate Yoga Australia",
-  heading: "Time together, well spent.",
+  heading: "Work Wellness into Your Workday",
   primaryCta: { label: "Book a wellbeing consultation", href: "/contact", variant: "primary" },
 };
 
 /** Category proposition directly after the hero. Home remains the broad corporate-yoga authority page. */
 export const quietIntro = {
-  heading: "Workplace Yoga, Pilates, mindfulness, workshops and wellbeing programs - always fitted to the room you're in.",
+  heading: "Workplace yoga, Pilates, mindfulness and tailored wellbeing programs for Australian organisations.",
   body: "A single session, a conference activation, a short series or a connected program are all valid ways to work with CYA. Book one useful moment, repeat what works, or build a connected year when that becomes helpful - there's no required starting point.",
   image: media.programsContinuity,
 };
@@ -159,7 +159,7 @@ export const leadershipPerspective = {
   kicker: "Corporate Yoga Australia",
   heading: "One founder, a national team behind every session.",
   body: "Debby Lewis founded CYA in 2014 from her own experience using movement and meditation in a high-pressure HR role. That practice is now delivered by an experienced national network of facilitators, coordinated so every engagement - from one session to a connected program - carries Debby's own standard of care.",
-  cta: { label: "Meet the team behind CYA", href: "/about-us" },
+  cta: { label: "Meet the team behind CYA", href: "/about" },
   image: media.debbyTeacherPortrait,
 };
 

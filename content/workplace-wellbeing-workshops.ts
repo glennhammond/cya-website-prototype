@@ -3,7 +3,7 @@ import type { FeatureItem } from "@/components/FeatureGrid";
 
 export const workshopsHero: PageIntro = {
   kicker: "Workplace Wellbeing Workshops & Expert Experiences",
-  heading: "Useful workplace wellbeing topics, led by real people.",
+  heading: "Practical Workplace Wellbeing Workshops",
   body: "CYA delivers practical Lunch & Learns, workshops and expert-led wellbeing sessions for teams. Choose a topic and format that fits the workplace brief; CYA confirms the most appropriate practitioner and scope rather than selling an anonymous training catalogue.",
   actions: [
     { label: "Discuss a workshop", href: "/contact?interest=one-off", variant: "primary" },
@@ -69,6 +69,7 @@ export const evidenceFeature = {
 };
 
 export const relatedPaths: FeatureItem[] = [
+  { title: "Expert Experiences", body: "Choose an expert-led talk, facilitated conversation or learning experience when the practitioner is central to the brief.", href: "/expert-experiences", cta: "Explore expert experiences" },
   { title: "Mindfulness & Meditation", body: "Use the dedicated mindfulness service when the brief is primarily experiential rather than workshop-led.", href: "/meditation-mindfulness", cta: "Explore mindfulness" },
   { title: "Online Wellbeing", body: "Connect expert sessions with ongoing live or on-demand access for remote and hybrid teams.", href: "/online-wellbeing", cta: "Explore online wellbeing" },
   { title: "Workplace Wellbeing Programs", body: "Build workshops into a broader calendar when the organisation needs continuity across formats and dates.", href: "/workplace-wellbeing-programs", cta: "Explore programs" },

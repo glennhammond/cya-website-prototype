@@ -1,0 +1,43 @@
+{
+  "version": "1.0",
+  "authority": "CYA SEO Phase 11.5.2 Launch SEO Intervention Pack",
+  "canonicalOrigin": "https://www.corporateyoga.com.au",
+  "trailingSlash": false,
+  "lockedRedirects": [
+    { "from": "/home", "to": "/", "status": 301 },
+    { "from": "/about-us", "to": "/about", "status": 301 },
+    { "from": "/personalised-wellbeing-programs", "to": "/workplace-wellbeing-programs", "status": 301 },
+    { "from": "/old-about-2", "to": "/about", "status": 301 },
+    { "from": "/old-bespoke-services", "to": "/workplace-wellbeing-programs", "status": 301 },
+    { "from": "/old-services", "to": "/workplace-wellbeing-programs", "status": 301 },
+    { "from": "/what-we-offer", "to": "/workplace-wellbeing-programs", "status": 301 },
+    { "from": "/our-instructors", "to": "/about", "status": 301 }
+  ],
+  "preservedCanonicalRoutes": [
+    "/",
+    "/workplace-yoga",
+    "/workplace-pilates",
+    "/movement",
+    "/meditation-mindfulness",
+    "/workplace-wellbeing-programs",
+    "/workplace-wellbeing-workshops",
+    "/expert-experiences",
+    "/case-studies",
+    "/about",
+    "/blog",
+    "/contact"
+  ],
+  "campaignRoutes": [
+    { "path": "/workplace-yoga-australia", "provisionalOutcome": "decision-required", "ownerConfirmed": false },
+    { "path": "/online-wellbeing", "provisionalOutcome": "preserve-indexable-service", "ownerConfirmed": false },
+    { "path": "/online-wellbeing-1", "provisionalOutcome": "decision-required", "ownerConfirmed": false },
+    { "path": "/online-wellbeing-2026", "provisionalOutcome": "decision-required", "ownerConfirmed": false },
+    { "path": "/online-wellbeing-landing-page", "provisionalOutcome": "decision-required", "ownerConfirmed": false },
+    { "path": "/online-wellbeing-learn-more-here", "provisionalOutcome": "decision-required", "ownerConfirmed": false },
+    { "path": "/2026-wellbeing-program-1", "provisionalOutcome": "decision-required", "ownerConfirmed": false },
+    { "path": "/program-registration", "provisionalOutcome": "decision-required", "ownerConfirmed": false },
+    { "path": "/contact-thank-you", "provisionalOutcome": "decision-required", "ownerConfirmed": false },
+    { "path": "/contact-thank-you-online", "provisionalOutcome": "decision-required", "ownerConfirmed": false },
+    { "path": "/contact-thank-you-online-1", "provisionalOutcome": "decision-required", "ownerConfirmed": false }
+  ]
+}

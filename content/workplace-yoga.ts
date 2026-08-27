@@ -3,7 +3,7 @@ import type { FeatureItem } from "@/components/FeatureGrid";
 
 export const yogaHero: PageIntro = {
   kicker: "Workplace Yoga",
-  heading: "Workplace Yoga that fits the people, space and working day.",
+  heading: "Workplace Yoga Classes for Australian Teams",
   body: "CYA delivers practical Yoga sessions for workplaces without assuming prior experience, studio conditions or a particular level of flexibility. Book one session, a short series or a recurring class, onsite or online.",
   actions: [
     { label: "Discuss a Yoga session", href: "/contact?interest=one-off", variant: "primary" },

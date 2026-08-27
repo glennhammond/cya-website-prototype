@@ -23,6 +23,7 @@ function walk(dir) {
 }
 
 const approvals = JSON.parse(read("config/launch-approvals.json"));
+const routeDecisions = JSON.parse(read("config/phase-11-5-3-route-decisions.json"));
 
 // Launch-blocking approvals. Case Studies is a conditional publication gate:
 // the website may launch while Case Studies remains safely noindexed/withheld.
@@ -38,6 +39,15 @@ const requiredApprovals = [
 
 for (const [key, message] of requiredApprovals) {
   if (approvals[key] !== true) block(message);
+}
+
+const unresolvedCampaignRoutes = routeDecisions.campaignRoutes.filter((route) => route.ownerConfirmed !== true);
+if (unresolvedCampaignRoutes.length > 0) {
+  block(
+    `Campaign/registration ownership remains unconfirmed for: ${unresolvedCampaignRoutes
+      .map((route) => route.path)
+      .join(", ")}`,
+  );
 }
 
 const mediaSource = read("content/media.ts");
@@ -118,7 +128,7 @@ if (approvals.caseStudiesPublicationApproved === true) {
   warnings.push("Case Studies remains safely withheld from search while client evidence/permission work continues.");
 }
 
-console.log("\nCYA Phase 11.4 launch-readiness gate");
+console.log("\nCYA Phase 11.5.3 launch-readiness gate");
 if (warnings.length > 0) {
   console.log("\nControlled non-blocking publication gates:");
   for (const warning of warnings) console.log(`- ${warning}`);
@@ -130,4 +140,4 @@ if (blockers.length > 0) {
   process.exit(1);
 }
 
-console.log("\nLAUNCH-READY: all Phase 11.4 launch-blocking publication, security and hosted-browser QA gates are recorded as complete.");
+console.log("\nLAUNCH-READY: all Phase 11.5.3 integration, campaign-route, publication, security and browser gates are recorded as complete.");

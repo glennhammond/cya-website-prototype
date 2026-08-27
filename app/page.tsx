@@ -33,10 +33,10 @@ import { media } from "@/content/media";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Corporate Yoga Australia | Workplace Yoga & Wellbeing",
+    absolute: "Corporate Yoga Australia | Workplace Wellbeing Programs",
   },
   description:
-    "Human-led workplace Yoga, Pilates, mindfulness, workshops and wellbeing programs for Australian teams, with onsite, online and ongoing support.",
+    "Work wellness into your workday with workplace yoga, Pilates, mindfulness and tailored wellbeing programs delivered across Australia.",
   alternates: {
     canonical: "/",
   },

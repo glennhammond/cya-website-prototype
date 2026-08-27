@@ -23,9 +23,9 @@ import {
 } from "@/content/workplace-pilates";
 
 export const metadata: Metadata = {
-  title: "Workplace Pilates Classes Australia",
+  title: { absolute: "Workplace Pilates Classes Australia | Corporate Yoga Australia" },
   description:
-    "Mat-based workplace Pilates for Australian teams, available as one-off, recurring, onsite and online sessions tailored to the workplace setup.",
+    "Accessible workplace Pilates classes for stronger, more comfortable teams. Onsite and online sessions designed to fit Australian workdays.",
   alternates: {
     canonical: "/workplace-pilates",
   },

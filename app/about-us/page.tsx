@@ -24,14 +24,14 @@ export const metadata: Metadata = {
   description:
     "Corporate Yoga Australia grew from Debby Lewis's own workplace-wellbeing practice into a national business, founded in 2014.",
   alternates: {
-    canonical: "/about-us",
+    canonical: "/about",
   },
 };
 
 export default function AboutUsPage() {
   return (
     <>
-      <BreadcrumbStructuredData items={[{ name: "About", path: "/about-us" }]} />
+      <BreadcrumbStructuredData items={[{ name: "About", path: "/about" }]} />
       <FounderStructuredData />
       <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "About" }]} />
       <PageHero intro={aboutHero} image={media.aboutHero} imagePosition="right" />
@@ -77,7 +77,7 @@ export default function AboutUsPage() {
         image={media.aboutDelivery}
       />
 
-      <Section tone="mist">
+      <Section tone="mist" id="facilitators">
         <Container>
           <div className="grid gap-10 lg:grid-cols-2">
             <div>

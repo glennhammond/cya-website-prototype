@@ -3,7 +3,7 @@ import type { FeatureItem } from "@/components/FeatureGrid";
 
 export const programsHero: PageIntro = {
   kicker: "Workplace wellbeing programs",
-  heading: "Connect useful moments into a rhythm your organisation can sustain.",
+  heading: "Workplace Wellbeing Programs Built Around Your People",
   body: "Begin with a short series, coordinate several wellbeing elements across a defined period, or plan an organised year of support. A program is useful when your organisation needs continuity - it is not a required step before CYA can help.",
   actions: [
     { label: "Plan a program", href: "/contact?interest=recurring", variant: "primary" },
@@ -56,9 +56,11 @@ export const programLevels: OfferLevel[] = [
 
 export const experienceMix: FeatureItem[] = [
   { title: "Workplace Yoga", body: "One-off or recurring Yoga adapted to the workplace and participant group.", href: "/workplace-yoga", cta: "Explore Workplace Yoga" },
-  { title: "Pilates & movement", body: "Pilates, mobility and other movement formats selected to fit the brief.", href: "/movement", cta: "Explore movement" },
+  { title: "Workplace Pilates", body: "Mat-based Pilates selected to fit the team, available space and delivery mode.", href: "/workplace-pilates", cta: "Explore Workplace Pilates" },
+  { title: "Movement options", body: "Compare Yoga, Pilates, mobility and desk-based formats when the brief is not yet specific.", href: "/movement", cta: "Explore movement" },
   { title: "Mindfulness & meditation", body: "Guided meditation, mindfulness and breathwork in practical workplace formats.", href: "/meditation-mindfulness", cta: "Explore mindfulness" },
-  { title: "Workshops & Expert Experiences", body: "Lunch & Learns, practical workshops and expert-led sessions for workplace topics that benefit from explanation, discussion or guided practice.", href: "/workplace-wellbeing-workshops", cta: "Explore workshops" },
+  { title: "Workplace wellbeing workshops", body: "Lunch & Learns and practical workshops for topics that benefit from explanation, discussion or guided practice.", href: "/workplace-wellbeing-workshops", cta: "Explore workshops" },
+  { title: "Expert Experiences", body: "Expert-led talks, conversations and facilitated learning shaped around a specific workplace need.", href: "/expert-experiences", cta: "Explore expert experiences" },
   { title: "Online continuity", body: "Live online experiences, on-demand practices and Wellbeing Studio access for remote, hybrid or ongoing support.", href: "/online-wellbeing", cta: "Explore online wellbeing" },
 ];
 

@@ -3,7 +3,7 @@ import type { FeatureItem } from "@/components/FeatureGrid";
 
 export const pilatesHero: PageIntro = {
   kicker: "Workplace Pilates",
-  heading: "Mat Pilates that fits the team, room and workday.",
+  heading: "Workplace Pilates Classes for Stronger, Healthier Teams",
   body: "CYA offers mat-based Pilates for workplace teams as a one-off class, short series, recurring session or part of a mixed movement program. The format is adapted to the people, available floor space, timing and delivery mode.",
   actions: [
     { label: "Discuss a Pilates session", href: "/contact?interest=one-off", variant: "primary" },

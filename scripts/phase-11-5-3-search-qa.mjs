@@ -61,9 +61,10 @@ const indexQualifiedPages = [
   "app/workplace-pilates/page.tsx",
   "app/meditation-mindfulness/page.tsx",
   "app/workplace-wellbeing-workshops/page.tsx",
+  "app/expert-experiences/page.tsx",
   "app/online-wellbeing/page.tsx",
   "app/blog/page.tsx",
-  "app/about-us/page.tsx",
+  "app/about/page.tsx",
   "app/contact/page.tsx",
 ];
 
@@ -72,7 +73,6 @@ for (const routeFile of indexQualifiedPages) {
 }
 
 const retiredPageFiles = [
-  "app/about/page.tsx",
   "app/consultation/page.tsx",
   "app/programs/page.tsx",
   "app/proof/page.tsx",
@@ -108,9 +108,10 @@ for (const canonicalPath of [
   "/workplace-pilates",
   "/meditation-mindfulness",
   "/workplace-wellbeing-workshops",
+  "/expert-experiences",
   "/online-wellbeing",
   "/blog",
-  "/about-us",
+  "/about",
   "/contact",
 ]) {
   check(sitemap.includes(`\"${canonicalPath}\"`), `sitemap contains ${canonicalPath}`);
@@ -154,6 +155,7 @@ const serviceSchemaPages = [
   "app/workplace-pilates/page.tsx",
   "app/meditation-mindfulness/page.tsx",
   "app/workplace-wellbeing-workshops/page.tsx",
+  "app/expert-experiences/page.tsx",
   "app/online-wellbeing/page.tsx",
 ];
 for (const schemaFile of serviceSchemaPages) {
@@ -182,17 +184,50 @@ const requiredRedirects = [
   ["/workplace-wellbeing", "/"],
   ["/programs", "/workplace-wellbeing-programs"],
   ["/workplace-wellbeing/movement", "/movement"],
-  ["/workplace-yoga-australia", "/workplace-yoga"],
   ["/our-classes", "/movement"],
   ["/wellbeing-studio", "/online-wellbeing"],
   ["/proof", "/case-studies"],
-  ["/about", "/about-us"],
+  ["/about-us", "/about"],
+  ["/old-about-2", "/about"],
+  ["/old-bespoke-services", "/workplace-wellbeing-programs"],
+  ["/old-services", "/workplace-wellbeing-programs"],
+  ["/what-we-offer", "/workplace-wellbeing-programs"],
+  ["/our-instructors", "/about"],
   ["/consultation", "/contact"],
   ["/resources", "/blog"],
 ];
 for (const [source, destination] of requiredRedirects) {
   const fragment = `{ source: \"${source}\", destination: \"${destination}\", statusCode: 301 }`;
   check(nextConfig.includes(fragment), `301 redirect ${source} -> ${destination}`);
+}
+
+const routeDecisions = JSON.parse(read("config/phase-11-5-3-route-decisions.json"));
+for (const decision of routeDecisions.lockedRedirects) {
+  const fragment = `{ source: "${decision.from}", destination: "${decision.to}", statusCode: ${decision.status} }`;
+  check(nextConfig.includes(fragment), `Phase 11.5.3 locked redirect implemented: ${decision.from} -> ${decision.to}`);
+}
+for (const campaign of routeDecisions.campaignRoutes.filter((route) => route.provisionalOutcome === "decision-required")) {
+  check(
+    !nextConfig.includes(`source: "${campaign.path}"`),
+    `unresolved campaign route is not redirected without owner authority: ${campaign.path}`,
+  );
+}
+
+const governedPageSignals = [
+  ["app/page.tsx", "Corporate Yoga Australia | Workplace Wellbeing Programs", "Work Wellness into Your Workday"],
+  ["app/workplace-yoga/page.tsx", "Workplace Yoga Classes Australia | Corporate Yoga Australia", "Workplace Yoga Classes for Australian Teams"],
+  ["app/workplace-pilates/page.tsx", "Workplace Pilates Classes Australia | Corporate Yoga Australia", "Workplace Pilates Classes for Stronger, Healthier Teams"],
+  ["app/meditation-mindfulness/page.tsx", "Workplace Meditation & Corporate Mindfulness Workshops | CYA", "Workplace Meditation & Mindfulness"],
+  ["app/workplace-wellbeing-programs/page.tsx", "Workplace Wellbeing Programs Australia | Corporate Yoga Australia", "Workplace Wellbeing Programs Built Around Your People"],
+  ["app/movement/page.tsx", "Workplace Movement Programs | Yoga, Pilates & Desk Sessions", "Movement That Fits the Workday"],
+  ["app/workplace-wellbeing-workshops/page.tsx", "Workplace Wellbeing Workshops Australia | CYA", "Practical Workplace Wellbeing Workshops"],
+];
+const contentSources = ["content/home.ts", "content/workplace-yoga.ts", "content/workplace-pilates.ts", "content/meditation-mindfulness.ts", "content/programs.ts", "content/movement.ts", "content/workplace-wellbeing-workshops.ts"]
+  .map(read)
+  .join("\n");
+for (const [routeFile, title, h1] of governedPageSignals) {
+  check(read(routeFile).includes(title), `governed title present: ${title}`);
+  check(contentSources.includes(h1), `governed H1 present: ${h1}`);
 }
 
 const productionSourceFiles = ["app", "components", "content"]
@@ -266,9 +301,9 @@ check(
 );
 
 if (errors.length > 0) {
-  console.error(`\nPhase 11.4 search QA FAILED (${errors.length}/${checks.length} checks failed):`);
+  console.error(`\nPhase 11.5.3 source/search QA FAILED (${errors.length}/${checks.length} checks failed):`);
   for (const error of errors) console.error(`- ${error}`);
   process.exit(1);
 }
 
-console.log(`Phase 11.4 search QA PASS (${checks.length} checks).`);
+console.log(`Phase 11.5.3 source/search QA PASS (${checks.length} checks).`);

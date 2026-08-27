@@ -23,9 +23,9 @@ import {
 } from "@/content/workplace-yoga";
 
 export const metadata: Metadata = {
-  title: "Workplace Yoga Classes Australia",
+  title: { absolute: "Workplace Yoga Classes Australia | Corporate Yoga Australia" },
   description:
-    "Workplace Yoga classes for Australian teams, adapted to real workplaces. Book one-off or recurring sessions with onsite and online delivery available.",
+    "Inclusive workplace yoga classes for Australian teams, delivered onsite, online or hybrid. Flexible sessions shaped around your people and workday.",
   alternates: {
     canonical: "/workplace-yoga",
   },

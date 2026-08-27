@@ -19,13 +19,17 @@ export function SiteHeader() {
     <header
       className="sticky top-0 z-40 border-b border-divider bg-white/95 shadow-[0_4px_24px_rgba(16,63,69,0.04)] backdrop-blur"
     >
-      <Container className="flex h-[88px] items-center justify-between gap-4">
-        <Link href="/" className="flex shrink-0 items-center" aria-label="Corporate Yoga Australia, home">
+      <Container className="flex h-20 items-center justify-between gap-3 sm:h-[88px] sm:gap-4">
+        <Link
+          href="/"
+          className="flex min-w-0 flex-1 items-center min-[1240px]:flex-none"
+          aria-label="Corporate Yoga Australia, home"
+        >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/brand/cya-logo-inline.svg"
             alt="Corporate Yoga Australia"
-            className="h-10 w-auto"
+            className="h-auto w-full max-w-[270px] sm:max-w-[320px] min-[1240px]:h-10 min-[1240px]:w-auto"
           />
         </Link>
 

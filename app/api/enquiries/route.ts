@@ -89,8 +89,7 @@ export async function POST(request: NextRequest) {
   if (
     !firstName ||
     !EMAIL_PATTERN.test(workEmail) ||
-    !organisation ||
-    !interestOptions.some((option) => option.value === interest) ||
+    (interest && !interestOptions.some((option) => option.value === interest)) ||
     !planningContext ||
     body.privacyConsent !== true
   ) {
@@ -104,7 +103,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ ok: true, successRoute, submissionId: crypto.randomUUID() });
   }
 
-  const interestLabel = interestOptions.find((option) => option.value === interest)?.label ?? interest;
+  const interestLabel = interestOptions.find((option) => option.value === interest)?.label ?? "Not specified";
   const procurement = clean(body.procurement, 2000);
   const intention = [planningContext, procurement ? `Procurement context: ${procurement}` : ""]
     .filter(Boolean)
@@ -131,12 +130,12 @@ export async function POST(request: NextRequest) {
   const fields = [
     field("cya_planning_name", [firstName, lastName].filter(Boolean).join(" ")),
     field("email", workEmail),
-    field("company", organisation),
     field("cya_planning_intention", intention),
     field("cya_planning_timing", timing),
     field("cya_planning_location", location),
     field("cya_discovery_context", discoveryContext),
   ];
+  if (organisation) fields.push(field("company", organisation));
   const phone = clean(body.phone, 100);
   if (phone) fields.push(field("phone", phone));
 
@@ -180,4 +179,3 @@ export async function POST(request: NextRequest) {
 
   return NextResponse.json({ ok: true, successRoute, submissionId: crypto.randomUUID() });
 }
-

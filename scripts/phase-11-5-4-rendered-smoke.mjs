@@ -243,6 +243,21 @@ try {
   check(honeypotEnquiry.status === 200, "honeypot submission is quietly contained", `received ${honeypotEnquiry.status}`);
   check(honeypotResult.successRoute === "/contact-thank-you-online", "online enquiry success route is selected without a live CRM write");
 
+  const minimalGeneralEnquiry = await request("/api/enquiries", {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify({
+      firstName: "QA",
+      workEmail: "qa@example.com",
+      context: "Automated minimum-field validation only",
+      privacyConsent: true,
+      website: "bot-filled.example",
+    }),
+  });
+  const minimalGeneralResult = await minimalGeneralEnquiry.json();
+  check(minimalGeneralEnquiry.status === 200, "authorised minimum planning fields pass server validation", `received ${minimalGeneralEnquiry.status}`);
+  check(minimalGeneralResult.successRoute === "/contact-thank-you", "general minimum-field enquiry selects the governed success route");
+
   const blogResponse = await request("/blog");
   const blogHtml = await blogResponse.text();
   check(hasSchemaType(blogHtml, "BreadcrumbList"), "Insights hub renders BreadcrumbList schema");

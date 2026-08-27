@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { MouseEventHandler, ReactNode } from "react";
 import type { CTAVariant } from "@/lib/types";
 
 const base = "inline-flex min-h-12 items-center justify-center gap-2 rounded-[4px] px-6 text-[15px] font-semibold leading-5 transition-colors";
@@ -14,25 +15,27 @@ export function CtaLink({
   variant = "primary",
   children,
   external,
+  onClick,
   className = "",
 }: {
   href: string;
   variant?: CTAVariant;
-  children: React.ReactNode;
+  children: ReactNode;
   external?: boolean;
+  onClick?: MouseEventHandler<HTMLAnchorElement>;
   className?: string;
 }) {
   const classes = `${base} ${variants[variant]} ${className}`;
   if (external) {
     return (
-      <a href={href} className={classes} target="_blank" rel="noopener noreferrer">
+      <a href={href} className={classes} target="_blank" rel="noopener noreferrer" onClick={onClick}>
         {children}
         <span className="sr-only"> (opens in a new tab)</span>
       </a>
     );
   }
   return (
-    <Link href={href} className={classes}>
+    <Link href={href} className={classes} onClick={onClick}>
       {children}
     </Link>
   );

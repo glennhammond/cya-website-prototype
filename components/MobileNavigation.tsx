@@ -124,7 +124,12 @@ export function MobileNavigation({ transparent = false }: { transparent?: boolea
           );
         })}
       </div>
-      <CtaLink href={primaryCTA.href} variant="primary" className="mt-4 w-full">
+      <CtaLink
+        href={primaryCTA.href}
+        variant="primary"
+        className="mt-4 w-full"
+        onClick={() => close(false)}
+      >
         {primaryCTA.label}
       </CtaLink>
     </div>

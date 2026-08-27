@@ -10,58 +10,41 @@ import {
 } from "@/lib/attribution";
 import {
   interestOptions,
-  workforceBands,
   timeframeOptions,
-  deliveryModes,
 } from "@/content/consultation";
 
 interface FormState {
   firstName: string;
-  lastName: string;
   workEmail: string;
-  phone: string;
   organisation: string;
-  role: string;
-  workforce: string;
   locations: string;
   interest: string;
   timeframe: string;
-  deliveryMode: string;
   context: string;
-  procurement: string;
   privacyConsent: boolean;
   website: string;
 }
 
 const initialState: FormState = {
   firstName: "",
-  lastName: "",
   workEmail: "",
-  phone: "",
   organisation: "",
-  role: "",
-  workforce: "",
   locations: "",
   interest: "",
   timeframe: "",
-  deliveryMode: "",
   context: "",
-  procurement: "",
   privacyConsent: false,
   website: "",
 };
 
 type Status = "idle" | "submitting" | "failure";
 
-// Kept deliberately short (Objective F): first name, work email, organisation,
-// what you're considering, brief context, and privacy consent. Everything
-// else is a genuine optional extra, not a gate to starting the conversation.
+// Matches the authorised HubSpot planning form: name, work email and the
+// intended outcome are the only enquiry details required by the website.
 const REQUIRED_FIELDS: { key: keyof FormState; id: string; message: string }[] = [
   { key: "firstName", id: "firstName", message: "Enter your first name" },
   { key: "workEmail", id: "workEmail", message: "Enter a work email address" },
-  { key: "organisation", id: "organisation", message: "Enter your organisation" },
-  { key: "interest", id: "interest", message: "Select what you are considering" },
-  { key: "context", id: "context", message: "Tell us a little about what you're planning" },
+  { key: "context", id: "context", message: "Tell us what you are trying to make happen" },
   { key: "privacyConsent", id: "privacyConsent", message: "Accept the privacy acknowledgement to continue" },
 ];
 
@@ -201,74 +184,29 @@ export function ConsultationForm({ initialInterest }: { initialInterest?: string
         />
       </div>
 
-      <fieldset className="grid gap-6 sm:grid-cols-2">
+      <fieldset className="grid gap-5 sm:grid-cols-2">
         <legend className="sr-only">Your details</legend>
         <TextField id="firstName" label="First name" required value={values.firstName} onChange={(v) => update("firstName", v)} errors={errors} autoComplete="given-name" />
-        <TextField id="lastName" label="Last name (optional)" value={values.lastName} onChange={(v) => update("lastName", v)} errors={errors} autoComplete="family-name" />
         <TextField id="workEmail" label="Work email" required type="email" value={values.workEmail} onChange={(v) => update("workEmail", v)} errors={errors} autoComplete="email" />
-        <TextField id="phone" label="Phone (optional)" type="tel" value={values.phone} onChange={(v) => update("phone", v)} errors={errors} autoComplete="tel" />
-        <TextField id="organisation" label="Organisation" required value={values.organisation} onChange={(v) => update("organisation", v)} errors={errors} autoComplete="organization" className="sm:col-span-2" />
+        <TextField id="organisation" label="Organisation (optional)" value={values.organisation} onChange={(v) => update("organisation", v)} errors={errors} autoComplete="organization" className="sm:col-span-2" />
       </fieldset>
 
-      <fieldset className="mt-8 grid gap-6">
-        <legend className="sr-only">What you&apos;re considering</legend>
-        <SelectField id="interest" label="What are you considering?" required value={values.interest} onChange={(v) => update("interest", v)} errors={errors} options={interestOptions.map((o) => o.label)} valueMap={interestOptions} />
+      <fieldset className="mt-6 grid gap-5">
+        <legend className="sr-only">Planning context</legend>
         <TextAreaField
           id="context"
-          label="Tell us a little about what you're planning"
+          label="What are you trying to make happen?"
           required
           value={values.context}
           onChange={(v) => update("context", v)}
           errors={errors}
-          helpText="A sentence or two is enough to start. Please don't include health, medical or other sensitive personal information here."
+          helpText="A sentence or two is enough. Please don't include health, medical or other sensitive personal information."
         />
-      </fieldset>
-
-      <div className="mt-10 border-t border-divider pt-6">
-        <p className="text-sm font-bold text-teal-dark">Optional - helps us prepare, not required to get started</p>
-        <p className="mt-1 text-sm text-body">Add as much or as little of this as you already know.</p>
-
-        <fieldset className="mt-6 grid gap-6 sm:grid-cols-2">
-          <legend className="sr-only">Optional organisation detail</legend>
-          <TextField id="role" label="Your role (optional)" value={values.role} onChange={(v) => update("role", v)} errors={errors} />
-          <SelectField id="workforce" label="Approximate workforce size (optional)" value={values.workforce} onChange={(v) => update("workforce", v)} errors={errors} options={workforceBands} />
-          <TextField id="locations" label="Primary location(s) (optional)" value={values.locations} onChange={(v) => update("locations", v)} errors={errors} placeholder="e.g. Brisbane and Sydney" />
-          <SelectField id="timeframe" label="Preferred timeframe (optional)" value={values.timeframe} onChange={(v) => update("timeframe", v)} errors={errors} options={timeframeOptions} />
-        </fieldset>
-
-        <fieldset className="mt-6">
-          <legend className="mb-3 text-sm font-bold text-teal-dark" id="deliveryMode-legend">
-            Delivery mode (optional)
-          </legend>
-          <div id="deliveryMode" className="flex flex-wrap gap-3" role="radiogroup" aria-labelledby="deliveryMode-legend">
-            {deliveryModes.map((mode) => (
-              <label
-                key={mode}
-                className="flex min-h-11 cursor-pointer items-center gap-2 rounded-full border border-divider bg-white px-4 py-2 text-sm has-[:checked]:border-teal has-[:checked]:bg-mist"
-              >
-                <input
-                  type="radio"
-                  name="deliveryMode"
-                  value={mode}
-                  checked={values.deliveryMode === mode}
-                  onChange={() => update("deliveryMode", mode)}
-                  className="h-4 w-4"
-                />
-                {mode}
-              </label>
-            ))}
-          </div>
-        </fieldset>
-
-        <div className="mt-6">
-          <TextAreaField
-            id="procurement"
-            label="Procurement constraints (optional)"
-            value={values.procurement}
-            onChange={(v) => update("procurement", v)}
-          />
+        <div className="grid gap-5 sm:grid-cols-2">
+          <TextField id="locations" label="Where will it happen? (optional)" value={values.locations} onChange={(v) => update("locations", v)} errors={errors} placeholder="e.g. Brisbane, Sydney or online" />
+          <SelectField id="timeframe" label="When is this for? (optional)" value={values.timeframe} onChange={(v) => update("timeframe", v)} errors={errors} options={timeframeOptions} />
         </div>
-      </div>
+      </fieldset>
 
       <fieldset className="mt-8 space-y-3 border-t border-divider pt-6">
         <legend className="sr-only">Consent</legend>
@@ -292,11 +230,11 @@ export function ConsultationForm({ initialInterest }: { initialInterest?: string
         )}
       </fieldset>
 
-      <div className="mt-8 flex items-center gap-4">
+      <div className="mt-7 flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:gap-4">
         <button
           type="submit"
           disabled={status === "submitting"}
-          className="inline-flex min-h-12 items-center justify-center rounded-[18px] bg-gold px-8 text-[15px] font-bold uppercase tracking-[0.06em] text-white shadow-[0_10px_24px_rgba(174,137,65,0.22)] transition-colors hover:bg-[var(--cya-gold-hover)] disabled:opacity-60"
+          className="inline-flex min-h-12 w-full items-center justify-center rounded-[4px] bg-gold px-8 text-[15px] font-bold text-white transition-colors hover:bg-[var(--cya-gold-hover)] disabled:opacity-60 sm:w-auto"
         >
           {status === "submitting" ? "Sending your enquiry…" : "Send your enquiry"}
         </button>

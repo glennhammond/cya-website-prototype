@@ -1,115 +1,137 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Container } from "@/components/Primitives";
-import { CtaLink } from "@/components/CtaLink";
-import { ImageMedia } from "@/components/ImageMedia";
-import type { CTA, HeroMedia } from "@/lib/types";
+import Link from "next/link";
+import type { HeroMedia } from "@/lib/types";
+
+type HeroLink = { label: string; href: string };
+type ContextItem = { term: string; detail: string };
+
+type NetworkInformation = {
+  saveData?: boolean;
+  effectiveType?: string;
+};
+
+type NavigatorWithConnection = Navigator & {
+  connection?: NetworkInformation;
+};
 
 /**
- * Homepage video hero. The poster image is what actually paints - it is
- * rendered unconditionally, at priority, filling the same box the video
- * will occupy, so there is never a layout shift and it doubles as the
- * reduced-motion fallback and the "no video configured yet" state. A
- * <video> element is only added to the DOM once, client-side, after
- * confirming the visitor hasn't asked for reduced motion *and* at least one
- * source is actually configured - so with no video files supplied yet (see
- * content/media.ts `homeHeroMedia`), no video request is ever made.
+ * Decorative homepage motion hero. The responsive poster is always present,
+ * establishes the layout and remains the reduced-motion, reduced-data and
+ * playback-failure state. Video is added only after client capability checks.
  */
 export function HeroVideo({
-  eyebrow,
+  kicker,
   heading,
+  body,
   primaryCta,
+  secondaryCta,
+  contextKicker,
+  context,
   media,
 }: {
-  eyebrow?: string;
+  kicker: string;
   heading: string;
-  primaryCta: CTA;
+  body: string;
+  primaryCta: HeroLink;
+  secondaryCta: HeroLink;
+  contextKicker: string;
+  context: ContextItem[];
   media: HeroMedia;
 }) {
   const hasVideo = Boolean(media.videoSrcDesktop || media.videoSrcMobile);
   const [playVideo, setPlayVideo] = useState(false);
   const [videoReady, setVideoReady] = useState(false);
+  const [videoFailed, setVideoFailed] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     if (!hasVideo) return;
-    const query = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const apply = () => setPlayVideo(!query.matches);
-    apply();
-    query.addEventListener("change", apply);
-    return () => query.removeEventListener("change", apply);
+
+    const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const connection = (navigator as NavigatorWithConnection).connection;
+    const constrained = Boolean(
+      connection?.saveData ||
+      connection?.effectiveType === "slow-2g" ||
+      connection?.effectiveType === "2g",
+    );
+
+    const applyPreference = () => setPlayVideo(!motion.matches && !constrained);
+    applyPreference();
+    motion.addEventListener("change", applyPreference);
+    return () => motion.removeEventListener("change", applyPreference);
   }, [hasVideo]);
 
   useEffect(() => {
-    const el = videoRef.current;
-    if (!el || !playVideo) return;
-    // Autoplay can be silently blocked by the browser even when muted; if it
-    // is, the poster simply stays put underneath - never a broken state.
-    el.play().catch(() => {});
-  }, [playVideo]);
-
-  const sources: { src: string; media?: string }[] = [];
-  if (media.videoSrcDesktop && media.videoSrcMobile) {
-    sources.push({ src: media.videoSrcDesktop, media: "(min-width: 1024px)" });
-    sources.push({ src: media.videoSrcMobile });
-  } else if (media.videoSrcDesktop) {
-    sources.push({ src: media.videoSrcDesktop });
-  } else if (media.videoSrcMobile) {
-    sources.push({ src: media.videoSrcMobile });
-  }
+    const video = videoRef.current;
+    if (!video || !playVideo || videoFailed) return;
+    video.play().catch(() => setVideoFailed(true));
+  }, [playVideo, videoFailed]);
 
   return (
-    <section className="relative isolate mx-3 mt-3 min-h-[560px] overflow-hidden rounded-[var(--cya-radius-panel)] bg-teal-dark sm:mx-6 sm:mt-6 lg:mx-8 lg:min-h-[720px]">
-      <div className="absolute inset-0">
-        <ImageMedia asset={media.poster} treatment="background" priority sizes="100vw" />
-      </div>
+    <section className="relative isolate min-h-[680px] overflow-hidden bg-[var(--cya-teal-dark)] sm:min-h-[640px] lg:min-h-[720px]">
+      <picture className="absolute inset-0 block">
+        {media.posterMobile && (
+          <source media="(max-width: 767px)" srcSet={media.posterMobile.src} />
+        )}
+        <img
+          src={media.poster.src}
+          alt=""
+          width={media.poster.width}
+          height={media.poster.height}
+          className="h-full w-full object-cover"
+          style={{ objectPosition: media.poster.focalDesktop ?? media.poster.focal ?? "50% 50%" }}
+          fetchPriority="high"
+        />
+      </picture>
 
-      {playVideo && sources.length > 0 && (
+      {playVideo && !videoFailed && (
         <video
           ref={videoRef}
-          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${
-            videoReady ? "opacity-100" : "opacity-0"
-          }`}
-          style={{ objectPosition: media.poster.focalDesktop ?? media.poster.focal ?? "50% 50%" }}
+          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-500 ${videoReady ? "opacity-100" : "opacity-0"}`}
           muted
           loop
           playsInline
           autoPlay
-          preload="metadata"
+          preload="none"
           poster={media.poster.src}
           aria-hidden="true"
           tabIndex={-1}
           onCanPlay={() => setVideoReady(true)}
+          onError={() => setVideoFailed(true)}
         >
-          {sources.map((source) => (
-            <source key={source.src} src={source.src} media={source.media} type="video/mp4" />
-          ))}
+          {media.videoSrcDesktop && (
+            <source src={media.videoSrcDesktop} media="(min-width: 768px)" type="video/mp4" />
+          )}
+          {media.videoSrcMobile && <source src={media.videoSrcMobile} type="video/mp4" />}
         </video>
       )}
 
-      {/* Localised, neutral (non-teal) scrim - concentrated behind the text
-          block rather than washed across the whole frame, so it holds
-          contrast without colour-grading the photo or video underneath. */}
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 bg-[radial-gradient(120%_100%_at_18%_100%,rgb(var(--cya-scrim)/0.78)_0%,rgb(var(--cya-scrim)/0.4)_38%,rgb(var(--cya-scrim)/0.1)_70%)] lg:bg-[radial-gradient(58%_85%_at_10%_50%,rgb(var(--cya-scrim)/0.72)_0%,rgb(var(--cya-scrim)/0.34)_45%,rgb(var(--cya-scrim)/0.08)_75%)]"
-      />
+      <div aria-hidden="true" className="absolute inset-0 bg-[linear-gradient(90deg,rgba(6,20,22,0.82)_0%,rgba(6,20,22,0.66)_42%,rgba(6,20,22,0.24)_72%,rgba(6,20,22,0.32)_100%)] max-lg:bg-[linear-gradient(180deg,rgba(6,20,22,0.34)_0%,rgba(6,20,22,0.7)_48%,rgba(6,20,22,0.92)_100%)]" />
 
-      <div className="relative z-10 flex h-full min-h-[560px] items-end pb-12 lg:min-h-[720px] lg:items-center lg:pb-0">
-        <Container>
-          <div className="max-w-lg">
-            {eyebrow && (
-              <p className="text-xs font-bold uppercase tracking-[0.08em] text-white/85">{eyebrow}</p>
-            )}
-            <h1 className="mt-4 text-display text-white">{heading}</h1>
-            <div className="mt-8">
-              <CtaLink href={primaryCta.href} variant={primaryCta.variant ?? "primary"}>
-                {primaryCta.label}
-              </CtaLink>
-            </div>
+      <div className="relative z-10 mx-auto grid min-h-[680px] w-full max-w-[1280px] gap-10 px-6 py-12 sm:min-h-[640px] sm:px-10 lg:min-h-[720px] lg:grid-cols-[minmax(0,1fr)_360px] lg:items-center lg:px-12 lg:py-16">
+        <div className="self-end lg:self-center">
+          <p className="text-xs font-semibold uppercase tracking-[0.08em] text-[#f0c46c]">{kicker}</p>
+          <h1 className="mt-5 max-w-3xl text-[clamp(3rem,6vw,5.5rem)] font-bold leading-[0.98] tracking-[-0.035em] text-white">{heading}</h1>
+          <p className="mt-6 max-w-2xl text-lg leading-8 text-white/90">{body}</p>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <Link href={primaryCta.href} className="inline-flex min-h-12 items-center justify-center rounded-[4px] bg-[var(--cya-teal)] px-6 text-[15px] font-semibold text-white transition-colors hover:bg-[var(--cya-teal-dark)]">{primaryCta.label}</Link>
+            <Link href={secondaryCta.href} className="inline-flex min-h-12 items-center justify-center rounded-[4px] border border-white/70 bg-white/10 px-6 text-[15px] font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white hover:text-[var(--cya-teal-dark)]">{secondaryCta.label}</Link>
           </div>
-        </Container>
+        </div>
+
+        <aside className="self-end border border-white/25 bg-[rgba(14,67,74,0.86)] p-6 text-white backdrop-blur-sm sm:p-7 lg:self-center">
+          <p className="text-xs font-semibold uppercase tracking-[0.08em] text-[#f0c46c]">{contextKicker}</p>
+          <dl className="mt-6 space-y-5">
+            {context.map((item) => (
+              <div key={item.term}>
+                <dt className="text-xs font-semibold uppercase tracking-[0.04em] text-white/75">{item.term}</dt>
+                <dd className="mt-1 text-base leading-7 text-white">{item.detail}</dd>
+              </div>
+            ))}
+          </dl>
+        </aside>
       </div>
     </section>
   );

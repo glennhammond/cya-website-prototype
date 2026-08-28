@@ -186,13 +186,20 @@ export const media = {
  */
 export const homeHeroMedia: HeroMedia = {
   poster: {
-    src: media.homeHero.src,
-    width: media.homeHero.width,
-    height: media.homeHero.height,
+    src: "/images/hero/cya-home-hero-poster-desktop.webp",
+    width: 1600,
+    height: 900,
     alt: media.homeHero.alt,
     focal: media.homeHero.focal,
     focalDesktop: media.homeHero.focalDesktop,
   },
-  videoSrcDesktop: undefined,
-  videoSrcMobile: undefined,
+  posterMobile: {
+    src: "/images/hero/cya-home-hero-poster-mobile.webp",
+    width: 720,
+    height: 1280,
+    alt: media.homeHero.alt,
+    focal: "50% 50%",
+  },
+  videoSrcDesktop: "/video/cya-home-hero-desktop.mp4",
+  videoSrcMobile: "/video/cya-home-hero-mobile.mp4",
 };

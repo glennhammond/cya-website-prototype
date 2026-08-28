@@ -39,15 +39,14 @@ export interface MediaAsset {
 export type PublicMediaAsset = Omit<MediaAsset, "status" | "note">;
 
 /**
- * Content contract for the homepage video hero. `videoSrcDesktop` /
- * `videoSrcMobile` are optional and intentionally absent until final video
- * is delivered - HeroVideo only renders a <video> element when at least one
- * is set, so no broken request ever fires against a missing file. `poster`
- * is a public-safe LCP/reduced-motion/no-video fallback and deliberately
- * excludes internal EvidenceStatus/governance notes.
+ * Public content contract for the responsive homepage motion hero. Video
+ * sources remain optional so the component safely supports a poster-only
+ * state. Posters are the LCP, reduced-motion, reduced-data and failure state
+ * and deliberately exclude internal evidence status/governance notes.
  */
 export interface HeroMedia {
   poster: PublicMediaAsset;
+  posterMobile?: PublicMediaAsset;
   videoSrcDesktop?: string;
   videoSrcMobile?: string;
 }

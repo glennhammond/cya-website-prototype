@@ -4,11 +4,11 @@ import { BreadcrumbStructuredData, FounderStructuredData } from "@/components/St
 import { ProductionAction, ProductionCard, ProductionClosing, ProductionContainer, ProductionKicker, ProductionPhoto } from "@/components/ProductionPrimitives";
 import { media } from "@/content/media";
 
-export const metadata: Metadata = { title: "About Corporate Yoga Australia", description: "Corporate Yoga Australia grew from Debby Lewis's own workplace-wellbeing practice into a national business, founded in 2014.", alternates: { canonical: "/about" } };
+export const metadata: Metadata = { title: "About Corporate Yoga Australia", description: "Corporate Yoga Australia grew from Debby Lewis's own workplace-wellbeing practice into a national business, founded in 2014.", alternates: { canonical: "/about-us" } };
 
 export default function AboutUsPage() {
   return <>
-    <BreadcrumbStructuredData items={[{ name: "About", path: "/about" }]} /><FounderStructuredData />
+    <BreadcrumbStructuredData items={[{ name: "About", path: "/about-us" }]} /><FounderStructuredData />
     <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "About" }]} />
     <section className="bg-[var(--cya-field-note)] py-16 lg:py-20"><ProductionContainer className="grid gap-10 lg:grid-cols-[1.4fr_0.8fr] lg:items-center"><div><ProductionKicker>Human permission · organisational confidence</ProductionKicker><h1 className="mt-5 max-w-4xl text-[clamp(2.8rem,5vw,4.5rem)] font-bold leading-[1.05]">A human service built for the realities of work.</h1><p className="mt-6 max-w-3xl text-lg leading-8 text-[var(--cya-body)]">CYA combines thoughtful curation, experienced facilitators and practical coordination. The relationship—not a catalogue—is the centre of the offer.</p><div className="mt-8 flex gap-3"><ProductionAction href="#relationship">Meet CYA</ProductionAction><ProductionAction href="/contact" style="secondary">Plan with CYA</ProductionAction></div></div><aside className="bg-[var(--cya-teal-dark)] p-8 text-white"><ProductionKicker light>Trust depends on</ProductionKicker><ul className="mt-6 space-y-4"><li>Founder story</li><li>Facilitator fit</li><li>Client relationship</li></ul></aside></ProductionContainer></section>
     <ProductionPhoto asset={media.aboutHero} label="CYA photography · planning" priority />

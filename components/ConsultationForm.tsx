@@ -14,7 +14,7 @@ import {
 } from "@/content/consultation";
 
 interface FormState {
-  firstName: string;
+  name: string;
   workEmail: string;
   organisation: string;
   locations: string;
@@ -26,7 +26,7 @@ interface FormState {
 }
 
 const initialState: FormState = {
-  firstName: "",
+  name: "",
   workEmail: "",
   organisation: "",
   locations: "",
@@ -42,7 +42,7 @@ type Status = "idle" | "submitting" | "failure";
 // Matches the authorised HubSpot planning form: name, work email and the
 // intended outcome are the only enquiry details required by the website.
 const REQUIRED_FIELDS: { key: keyof FormState; id: string; message: string }[] = [
-  { key: "firstName", id: "firstName", message: "Enter your first name" },
+  { key: "name", id: "name", message: "Enter your name" },
   { key: "workEmail", id: "workEmail", message: "Enter a work email address" },
   { key: "context", id: "context", message: "Tell us what you are trying to make happen" },
   { key: "privacyConsent", id: "privacyConsent", message: "Accept the privacy acknowledgement to continue" },
@@ -145,8 +145,8 @@ export function ConsultationForm({ initialInterest }: { initialInterest?: string
       <div role="alert" className="rounded-[var(--radius-card)] border-2 border-error bg-white p-8">
         <h2 className="text-2xl text-error">Your enquiry didn&rsquo;t go through.</h2>
         <p className="mt-3 text-base leading-relaxed text-body">
-          Something went wrong submitting this form. Your details have not been lost - please try again, or reach
-          CYA directly while this is investigated.
+          Something went wrong submitting this form. Please try again, call CYA on 1300 373 363 or email
+          info@corporateyoga.com.au.
         </p>
         <div className="mt-4 flex flex-wrap gap-3">
           <button
@@ -156,6 +156,12 @@ export function ConsultationForm({ initialInterest }: { initialInterest?: string
           >
             Try again
           </button>
+          <a href="tel:1300373363" className="inline-flex min-h-12 items-center text-sm font-bold text-teal underline underline-offset-4">
+            Call 1300 373 363
+          </a>
+          <a href="mailto:info@corporateyoga.com.au" className="inline-flex min-h-12 items-center text-sm font-bold text-teal underline underline-offset-4">
+            Email CYA
+          </a>
         </div>
       </div>
     );
@@ -186,7 +192,7 @@ export function ConsultationForm({ initialInterest }: { initialInterest?: string
 
       <fieldset className="grid gap-5 sm:grid-cols-2">
         <legend className="sr-only">Your details</legend>
-        <TextField id="firstName" label="First name" required value={values.firstName} onChange={(v) => update("firstName", v)} errors={errors} autoComplete="given-name" />
+        <TextField id="name" label="Your name" required value={values.name} onChange={(v) => update("name", v)} errors={errors} autoComplete="name" />
         <TextField id="workEmail" label="Work email" required type="email" value={values.workEmail} onChange={(v) => update("workEmail", v)} errors={errors} autoComplete="email" />
         <TextField id="organisation" label="Organisation (optional)" value={values.organisation} onChange={(v) => update("organisation", v)} errors={errors} autoComplete="organization" className="sm:col-span-2" />
       </fieldset>

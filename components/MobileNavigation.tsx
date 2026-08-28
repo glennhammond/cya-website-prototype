@@ -73,34 +73,52 @@ export function MobileNavigation({ transparent = false }: { transparent?: boolea
             const active =
               isNavActive(pathname, item.href) ||
               Boolean(item.children?.some((child) => isNavActive(pathname, child.href)));
+            if (item.children && item.children.length > 0) {
+              return (
+                <li key={item.label}>
+                  <details open={active} className="group rounded-[var(--radius-control)]">
+                    <summary
+                      className={`flex min-h-12 cursor-pointer items-center px-3 py-3 text-base font-bold ${
+                        active ? "text-teal" : "text-ink"
+                      }`}
+                    >
+                      {item.label}
+                    </summary>
+                    <div className="pb-2">
+                      {item.children.map((child) => {
+                        const childActive = isNavActive(pathname, child.href);
+                        return (
+                          <Link
+                            key={child.href}
+                            href={child.href}
+                            onClick={() => close(false)}
+                            aria-current={childActive ? "page" : undefined}
+                            className={`block min-h-12 rounded-[var(--radius-control)] px-6 py-3 text-sm ${
+                              childActive ? "font-bold text-teal" : "text-body"
+                            }`}
+                          >
+                            {child.label}
+                          </Link>
+                        );
+                      })}
+                    </div>
+                  </details>
+                </li>
+              );
+            }
+
             return (
               <li key={item.href}>
                 <Link
                   href={item.href}
                   onClick={() => close(false)}
                   aria-current={active ? "page" : undefined}
-                  className={`block min-h-11 rounded-[var(--radius-control)] px-3 py-3 text-base font-bold ${
+                  className={`block min-h-12 rounded-[var(--radius-control)] px-3 py-3 text-base font-bold ${
                     active ? "text-teal" : "text-ink"
                   }`}
                 >
                   {item.label}
                 </Link>
-                {item.children?.map((child) => {
-                  const childActive = isNavActive(pathname, child.href);
-                  return (
-                    <Link
-                      key={child.href}
-                      href={child.href}
-                      onClick={() => close(false)}
-                      aria-current={childActive ? "page" : undefined}
-                      className={`block min-h-11 rounded-[var(--radius-control)] px-6 py-2 text-sm ${
-                        childActive ? "font-bold text-teal" : "text-body"
-                      }`}
-                    >
-                      {child.label}
-                    </Link>
-                  );
-                })}
               </li>
             );
           })}

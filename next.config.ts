@@ -3,7 +3,7 @@ import type { NextConfig } from "next";
 
 const redirects: NonNullable<NextConfig["redirects"]> = async () => [
   { source: "/home", destination: "/", statusCode: 301 },
-  { source: "/getting-started", destination: "/", statusCode: 301 },
+  { source: "/getting-started", destination: "/contact", statusCode: 301 },
   { source: "/workplace-wellbeing", destination: "/", statusCode: 301 },
   { source: "/programs", destination: "/workplace-wellbeing-programs", statusCode: 301 },
   { source: "/personalised-wellbeing-programs", destination: "/workplace-wellbeing-programs", statusCode: 301 },
@@ -17,9 +17,9 @@ const redirects: NonNullable<NextConfig["redirects"]> = async () => [
   { source: "/proof/case-study", destination: "/case-studies", statusCode: 301 },
   { source: "/reviews", destination: "/case-studies", statusCode: 301 },
   { source: "/testimonials", destination: "/case-studies", statusCode: 301 },
-  { source: "/about-us", destination: "/about", statusCode: 301 },
-  { source: "/old-about-2", destination: "/about", statusCode: 301 },
-  { source: "/our-instructors", destination: "/about", statusCode: 301 },
+  { source: "/about", destination: "/about-us", statusCode: 301 },
+  { source: "/old-about-2", destination: "/about-us", statusCode: 301 },
+  { source: "/our-instructors", destination: "/about-us", statusCode: 301 },
   { source: "/consultation", destination: "/contact", statusCode: 301 },
   { source: "/contact-us", destination: "/contact", statusCode: 301 },
   { source: "/google-ads-lander", destination: "/workplace-yoga-australia", statusCode: 301 },

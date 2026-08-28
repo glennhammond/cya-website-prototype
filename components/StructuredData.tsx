@@ -77,10 +77,10 @@ export function FounderStructuredData() {
       data={{
         "@context": "https://schema.org",
         "@type": "Person",
-        "@id": `${origin}/about#debby-lewis`,
+        "@id": `${origin}/about-us#debby-lewis`,
         name: "Debby Lewis",
         jobTitle: "Founder",
-        url: `${origin}/about`,
+        url: `${origin}/about-us`,
         worksFor: { "@id": organisationId },
       }}
     />

@@ -82,10 +82,9 @@ const indexableRoutes = [
   "/workplace-pilates",
   "/meditation-mindfulness",
   "/workplace-wellbeing-workshops",
-  "/expert-experiences",
   "/online-wellbeing",
   "/blog",
-  "/about",
+  "/about-us",
   "/contact",
 ];
 
@@ -96,7 +95,6 @@ const serviceRoutes = [
   "/workplace-pilates",
   "/meditation-mindfulness",
   "/workplace-wellbeing-workshops",
-  "/expert-experiences",
   "/online-wellbeing",
 ];
 
@@ -114,6 +112,7 @@ const insightRoutes = [
 const controlledNoindexRoutes = [
   "/case-studies",
   "/conferences-events",
+  "/expert-experiences",
   "/member-access",
   "/workplace-yoga-australia",
   "/online-wellbeing-1",
@@ -128,7 +127,7 @@ const controlledNoindexRoutes = [
 
 const redirects = [
   ["/home", "/"],
-  ["/getting-started", "/"],
+  ["/getting-started", "/contact"],
   ["/workplace-wellbeing", "/"],
   ["/programs", "/workplace-wellbeing-programs"],
   ["/personalised-wellbeing-programs", "/workplace-wellbeing-programs"],
@@ -139,12 +138,12 @@ const redirects = [
   ["/proof/case-study", "/case-studies"],
   ["/reviews", "/case-studies"],
   ["/testimonials", "/case-studies"],
-  ["/about-us", "/about"],
-  ["/old-about-2", "/about"],
+  ["/about", "/about-us"],
+  ["/old-about-2", "/about-us"],
   ["/old-bespoke-services", "/workplace-wellbeing-programs"],
   ["/old-services", "/workplace-wellbeing-programs"],
   ["/what-we-offer", "/workplace-wellbeing-programs"],
-  ["/our-instructors", "/about"],
+  ["/our-instructors", "/about-us"],
   ["/consultation", "/contact"],
   ["/contact-us", "/contact"],
   ["/services", "/movement"],
@@ -210,7 +209,7 @@ try {
     check(hasSchemaType(html, "BreadcrumbList"), `Insight BreadcrumbList schema renders: ${pathname}`);
   }
 
-  const aboutResponse = await request("/about");
+  const aboutResponse = await request("/about-us");
   const aboutHtml = await aboutResponse.text();
   check(hasSchemaType(aboutHtml, "Person"), "About renders founder Person schema");
   check(hasSchemaType(aboutHtml, "BreadcrumbList"), "About renders BreadcrumbList schema");
@@ -230,7 +229,7 @@ try {
     method: "POST",
     headers: { "content-type": "application/json" },
     body: JSON.stringify({
-      firstName: "QA",
+      name: "QA Test",
       workEmail: "qa@example.com",
       organisation: "QA",
       interest: "studio",
@@ -247,7 +246,7 @@ try {
     method: "POST",
     headers: { "content-type": "application/json" },
     body: JSON.stringify({
-      firstName: "QA",
+      name: "QA Test",
       workEmail: "qa@example.com",
       context: "Automated minimum-field validation only",
       privacyConsent: true,

@@ -1,6 +1,6 @@
 # CYA Website 2027 — Repository Authority and Consolidation
 
-Status: **implementation authority locked / consolidation in qualification / no production cutover authorised**
+Status: **implementation authority locked / consolidation merged and qualified / public production cutover not yet executed**
 
 ## 1. Sole implementation authority
 
@@ -8,9 +8,14 @@ The only implementation repository for the CYA Website 2027 is:
 
 `glennhammond/cya-website-prototype`
 
-The qualified consolidation base is Phase 14 head:
+The qualified Phase 14 base before the merged consolidation is:
 
 `1db06a2d2ebe26c51ad40e01ef6dc0e56fde02ed`
+
+PR #4 merged the qualified consolidation into both `main` and
+`phase-14-integrated-production-candidate` at verified commit
+`78105045f3293100ffbd829807e7ce331a3731a0`. The current release authority is
+the later Phase 15 cutover-control branch and record.
 
 The live public website remains the current Squarespace site. No repository consolidation action authorises a production promotion, Squarespace replacement or DNS change.
 

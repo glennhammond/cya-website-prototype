@@ -1,12 +1,18 @@
 # CYA Website — Phase 11.4 Production Migration Runbook
 
 **Prepared:** 26 August 2026  
-**Current status:** **LAUNCH-READY / PRODUCTION CUTOVER AUTHORISED / DNS NOT YET CHANGED**  
+**Current status:** **SUPERSEDED FOR RELEASE EXECUTION / DNS NOT YET CHANGED**
 **Target Vercel project:** `cya-website-prototype` (`prj_nNwC7crwnAAqCEnvXYQRlVyA3ESo`)  
 **Do not use:** separate Vercel `cya-site` project  
 **Canonical host:** `https://www.corporateyoga.com.au`
 
 ## 1. Purpose
+
+> **Current execution authority:** Use
+> `CYA_Production_Cutover_Plan_Final_Backup_and_Release_Approval_2026-08-29.md`.
+> This Phase 11.4 document remains historical migration evidence. Its older
+> preview-promotion sequence must not be used because preview builds bake a
+> crawl-blocking robots response.
 
 Move the decision-complete Phase 11.3 / qualified Phase 11.4 CYA website onto the production domain without sacrificing organic authority, email/DNS services, Wellbeing Studio, security or rollback capability.
 

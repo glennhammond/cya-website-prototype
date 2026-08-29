@@ -1,13 +1,19 @@
 # CYA Website — Production Cutover Plan, Final Backup and Release Approval
 
 **Prepared:** 29 August 2026  
-**Status:** **PRE-RELEASE QUALIFIED / FINAL PUBLIC CUTOVER APPROVAL PENDING**  
+**Status:** **DORMANT DEVELOPMENT SAFEGUARD / NO PUBLIC RELEASE APPROVAL REQUESTED**
 **Authoritative repository:** `glennhammond/cya-website-prototype`  
 **Release branch:** `phase-15-production-cutover-control`  
 **Vercel project:** `cya-website-prototype` (`prj_nNwC7crwnAAqCEnvXYQRlVyA3ESo`)  
 **Canonical public host:** `https://www.corporateyoga.com.au`
 
 ## 1. Release authority
+
+> **Development hold:** The CYA redesign remains in active development and is
+> not content-complete, design-complete or approved for public release. This
+> document preserves an earlier technical baseline, backup and future cutover
+> method only. It is not an active launch instruction or pending approval
+> request.
 
 PR #4 was merged on 28 August 2026. At the start of this phase, both `main` and
 `phase-14-integrated-production-candidate` pointed to verified merge commit
@@ -17,9 +23,13 @@ This phase found and removed the remaining preview-only footer statement
 `Prototype build - not for public release.` The source QA now requires that
 statement to be absent from every release artifact.
 
-The immutable runtime release is remote commit
+The preserved technical runtime baseline is remote commit
 `f193e357237bf197d8cde3f1527713523dd458fe`. It is preserved on both the release
 branch and the dedicated pre-cutover backup branch recorded in section 11.
+
+Any later design, content, Insights or application change supersedes its runtime
+qualification. A new complete qualification must be performed against the
+eventual content-complete head before public release is reconsidered.
 
 ## 2. Current public-host baseline and rollback authority
 
@@ -213,20 +223,32 @@ only after a separate explicit decision.
 - Public DNS changed: **NO**
 - Squarespace retained: **YES**
 
-## 12. Explicit release approval
+## 12. Reactivation and future release approval
 
-The phase is ready for the final owner decision only after section 11 contains a
-published release SHA, backup branch and READY preview.
+There is no outstanding public-release approval request. Do not ask Glenn to
+approve this preserved runtime while the redesign remains in development.
 
-Approval must identify the exact release SHA and authorise all three actions:
+Reactivate cutover planning only after Glenn explicitly confirms that the
+redesign is content-complete and ready for final release qualification. At that
+point:
+
+1. identify the new authoritative head;
+2. re-run the full source, production-build, rendered, hosted desktop/mobile,
+   conversion and runtime gates;
+3. capture a new backup and rollback record;
+4. replace or supersede this dormant plan with the current evidence; and
+5. present a new exact-SHA public-release decision.
+
+Any future approval must identify the newly qualified exact release SHA and
+authorise all three actions:
 
 1. deploy that SHA to Vercel Production;
 2. attach the apex and `www` production domains;
 3. replace only the five Squarespace apex/`www` website-routing records in
    GoDaddy with the exact Vercel values.
 
-No earlier approval to push, merge, preview or plan should be interpreted as
-permission for these public release actions.
+No earlier approval to push, merge, preview, plan or preserve this dormant
+baseline should be interpreted as permission for these public release actions.
 
 ---
 

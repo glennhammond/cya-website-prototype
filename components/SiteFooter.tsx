@@ -4,11 +4,6 @@ import { primaryNav, memberSignInHref } from "@/content/navigation";
 import { site } from "@/content/site";
 
 export function SiteFooter() {
-  // Vercel Preview builds should retain the prototype warning. Generic
-  // production builds (including GitHub's `next build`) must not bake it into
-  // public HTML merely because VERCEL_ENV is absent.
-  const showPrototypeWarning = process.env.NODE_ENV !== "production" || process.env.VERCEL_ENV === "preview";
-
   return (
     <footer id="site-footer" className="border-t border-divider bg-teal-dark text-white">
       <Container className="grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-5">
@@ -47,7 +42,6 @@ export function SiteFooter() {
           </p>
           <p>
             &copy; {new Date().getFullYear()} {site.name}.
-            {showPrototypeWarning && " Prototype build - not for public release."}
           </p>
         </Container>
       </div>

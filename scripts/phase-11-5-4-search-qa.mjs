@@ -340,12 +340,8 @@ check(robots.includes('disallow: "/"'), "preview robots blocks crawling");
 
 const footer = read("components/SiteFooter.tsx");
 check(
-  footer.includes('process.env.NODE_ENV !== "production"') && footer.includes('process.env.VERCEL_ENV === "preview"'),
-  "footer warning distinguishes local/preview from generic production builds",
-);
-check(
-  footer.includes('showPrototypeWarning && " Prototype build - not for public release."'),
-  "prototype warning is restricted to local development or Vercel Preview",
+  !footer.includes("Prototype build - not for public release") && !footer.includes("showPrototypeWarning"),
+  "prototype warning is absent from every release artifact",
 );
 
 if (errors.length > 0) {

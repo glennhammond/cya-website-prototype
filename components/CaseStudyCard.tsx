@@ -15,7 +15,7 @@ const VARIANT_BY_ROLE = {
 export function CaseStudyCard({ study }: { study: CaseStudy }) {
   const variant = VARIANT_BY_ROLE[study.storyRole];
   return (
-    <article className="flex h-full flex-col overflow-hidden rounded-[var(--radius-card)] border border-divider bg-white shadow-[var(--shadow-card)]">
+    <article className="cya-card flex h-full flex-col overflow-hidden">
       <div className="relative flex h-36 items-center justify-center bg-mist">
         <svg viewBox="0 0 100 60" aria-hidden="true" className="h-16 w-28 text-teal opacity-70">
           {VariantMark(variant)}

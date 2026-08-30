@@ -32,8 +32,8 @@ export function DividerList({
       <Container>
         <div className="max-w-2xl">
           <Kicker>{kicker}</Kicker>
-          <h2 className="mt-3 text-heading-lg">{heading}</h2>
-          {body && <p className="mt-4 text-lg leading-relaxed text-body">{body}</p>}
+          <h2 className="cya-section-title mt-5">{heading}</h2>
+          {body && <p className="cya-lead mt-5">{body}</p>}
         </div>
         <dl className="mt-10 divide-y divide-divider border-t border-b border-divider">
           {items.map((item) => (
@@ -42,7 +42,7 @@ export function DividerList({
               <dd className="flex flex-wrap items-baseline gap-x-3 text-sm text-body">
                 {item.body}
                 {item.href && item.cta && (
-                  <Link href={item.href} className="font-bold text-teal-dark underline decoration-2 underline-offset-4">
+                  <Link href={item.href} className="font-bold text-teal-dark underline decoration-2 underline-offset-4 hover:text-teal">
                     {item.cta}
                   </Link>
                 )}

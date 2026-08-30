@@ -32,7 +32,7 @@ export function WaysToWork({
 
         <div className="mt-12 grid gap-6 sm:grid-cols-3 sm:gap-7">
           {pathways.map((pathway) => (
-            <Link key={pathway.href} href={pathway.href} className="group flex flex-col overflow-hidden rounded-[var(--radius-card)] border border-divider bg-white shadow-[0_12px_36px_rgba(14,67,74,0.06)] transition-transform duration-200 hover:-translate-y-1">
+            <Link key={pathway.href} href={pathway.href} className="cya-card cya-card-link group flex flex-col overflow-hidden">
               <div className="relative aspect-[4/3] overflow-hidden">
                 <ImageMedia asset={pathway.image} treatment="bleed" sizes="(min-width: 1024px) 33vw, 100vw" />
               </div>

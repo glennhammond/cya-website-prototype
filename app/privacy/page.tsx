@@ -28,8 +28,8 @@ export default function PrivacyPage() {
             <Kicker>Privacy</Kicker>
             <EvidenceBadge status="legal-review" note="Full privacy policy requires legal review before publication (Strategic Source of Truth, Section E)." />
           </div>
-          <h1 className="mt-3 text-[32px] sm:text-[42px]">Privacy policy</h1>
-          <p className="mt-4 max-w-2xl text-lg leading-relaxed text-body">
+          <h1 className="cya-page-title mt-5">Privacy policy</h1>
+          <p className="cya-lead mt-6 max-w-2xl">
             This page sets out the structure CYA&rsquo;s privacy policy will follow. The wording below is a
             working outline, not the final, legally reviewed policy.
           </p>

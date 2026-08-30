@@ -16,15 +16,15 @@ export default function MovementPage() {
       <ServiceStructuredData name="Workplace Movement, Yoga & Pilates" description="Workplace movement including yoga, Pilates, mobility and desk movement, adapted to real teams, spaces and levels of experience." path="/movement" breadcrumbLabel="Movement" />
       <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Movement" }]} />
 
-      <section className="bg-[var(--cya-surface-page)] py-16 lg:py-20">
+      <section className="cya-page-hero">
         <ProductionContainer className="grid gap-10 lg:grid-cols-[1.5fr_0.8fr] lg:items-center">
           <div>
             <ProductionKicker>Movement for workplaces</ProductionKicker>
-            <h1 className="mt-5 max-w-4xl text-[clamp(2.8rem,5vw,4.5rem)] font-bold leading-[1.05] tracking-[-0.02em]">Find the kind of movement that fits the people, setting and moment.</h1>
-            <p className="mt-6 max-w-3xl text-lg leading-8 text-[var(--cya-body)]">Compare workplace yoga, Pilates and adaptable movement through the group, available space and what the working day needs to support.</p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row"><ProductionAction href="#movement-options">Compare movement options</ProductionAction><ProductionAction href="/contact" style="secondary">Start planning</ProductionAction></div>
+            <h1 className="cya-page-title mt-5">Find the kind of movement that fits the people, setting and moment.</h1>
+            <p className="cya-lead mt-6">Compare workplace yoga, Pilates and adaptable movement through the group, available space and what the working day needs to support.</p>
+            <div className="cya-action-row mt-8"><ProductionAction href="#movement-options">Compare movement options</ProductionAction><ProductionAction href="/contact" style="secondary">Start planning</ProductionAction></div>
           </div>
-          <aside className="border border-[var(--cya-divider)] bg-white p-8">
+          <aside className="cya-panel bg-[var(--cya-surface-base)]">
             <ProductionKicker>Start with context</ProductionKicker>
             <ul className="mt-6 space-y-5 text-lg font-semibold"><li>People and confidence</li><li>Space and environment</li><li>Moment in the working day</li></ul>
           </aside>
@@ -41,11 +41,11 @@ export default function MovementPage() {
         candidate="/images/selected/cya-workplace-wellbeing-hero-warehouse-group.webp"
       />
 
-      <section id="movement-options" className="bg-white py-20 lg:py-24">
+      <section id="movement-options" className="cya-section scroll-mt-24 bg-[var(--cya-surface-base)]">
         <ProductionContainer>
           <ProductionKicker>Compare the movement options</ProductionKicker>
-          <h2 className="mt-5 text-4xl font-bold tracking-[-0.015em] lg:text-5xl">Different formats solve different workplace needs.</h2>
-          <p className="mt-5 max-w-4xl text-lg leading-8 text-[var(--cya-body)]">Each format has its own practical strengths. Start with the group, room and purpose rather than assuming one option will suit every workplace.</p>
+          <h2 className="cya-section-title mt-5">Different formats solve different workplace needs.</h2>
+          <p className="cya-lead mt-5 max-w-4xl">Each format has its own practical strengths. Start with the group, room and purpose rather than assuming one option will suit every workplace.</p>
           <div className="mt-10 grid gap-5 md:grid-cols-3">
             <ProductionCard title="Workplace Yoga" body="Calm, mobility and reset—adapted to the room and confidence of the group." href="/workplace-yoga" />
             <ProductionCard title="Workplace Pilates" body="Strength, posture and focused movement with practical workplace modifications." href="/workplace-pilates" />
@@ -54,10 +54,10 @@ export default function MovementPage() {
         </ProductionContainer>
       </section>
 
-      <section className="bg-[var(--cya-surface-page)] py-20 lg:py-24">
+      <section className="cya-section bg-[var(--cya-surface-page)]">
         <ProductionContainer>
           <ProductionKicker>Choose through context</ProductionKicker>
-          <h2 className="mt-5 text-4xl font-bold lg:text-5xl">People, place and moment shape the right format.</h2>
+          <h2 className="cya-section-title mt-5">People, place and moment shape the right format.</h2>
           <div className="mt-10 grid gap-5 md:grid-cols-3">
             <ProductionCard title="People" body="Confidence, access and participation range." tone="paper" />
             <ProductionCard title="Place" body="Room, equipment, clothing and delivery environment." tone="paper" />

@@ -2,10 +2,10 @@ import Link from "next/link";
 import type { MouseEventHandler, ReactNode } from "react";
 import type { CTAVariant } from "@/lib/types";
 
-const base = "inline-flex min-h-12 items-center justify-center gap-2 rounded-[4px] px-6 text-[15px] font-semibold leading-5 transition-colors";
+const base = "inline-flex min-h-12 items-center justify-center gap-2 rounded-[var(--radius-control)] px-6 text-[15px] font-semibold leading-5 transition-colors";
 
 const variants: Record<CTAVariant, string> = {
-  primary: "bg-teal text-white hover:bg-teal-dark",
+  primary: "border border-teal bg-teal text-white hover:border-teal-dark hover:bg-teal-dark",
   secondary: "border border-teal bg-white text-teal-dark hover:bg-mist",
   text: "min-h-0 rounded-none px-0 text-sm text-teal-dark underline decoration-2 underline-offset-4 hover:text-teal",
 };

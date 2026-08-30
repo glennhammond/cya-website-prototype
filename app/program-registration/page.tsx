@@ -14,14 +14,14 @@ export const metadata: Metadata = {
 
 export default function ProgramRegistrationPage() {
   return (
-    <section className="bg-[var(--cya-surface-page)] py-20 lg:py-28">
+    <section className="cya-page-hero">
       <ProductionContainer>
         <div className="max-w-3xl">
           <ProductionKicker>Cromwell wellbeing program</ProductionKicker>
-          <h1 className="mt-5 text-[clamp(2.8rem,5vw,4.5rem)] font-bold leading-[1.05] text-[var(--cya-teal-dark)]">
+          <h1 className="cya-page-title mt-5">
             Register for the Cromwell wellbeing program.
           </h1>
-          <p className="mt-6 text-lg leading-8 text-[var(--cya-body)]">
+          <p className="cya-lead mt-6">
             Continue to the CYA Wellbeing Studio to create your account and access the program. You will enter
             your registration details securely in the Studio signup process.
           </p>

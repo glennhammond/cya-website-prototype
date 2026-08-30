@@ -16,13 +16,15 @@ export function CTASection({
   secondaryCta?: CTA;
 }) {
   return (
-    <Section tone="mist">
-      <Container className="studio-panel text-center">
-        <div className="mx-auto max-w-2xl">
-          <Kicker>{kicker}</Kicker>
-          <h2 className="mt-3 text-heading-lg">{heading}</h2>
-          <p className="mt-4 text-lg leading-relaxed text-body">{body}</p>
-          <div className="mt-8 flex flex-wrap justify-center gap-4">
+    <Section tone="page">
+      <Container>
+        <div className="cya-panel grid gap-8 px-8 py-10 md:grid-cols-[1fr_auto] md:items-center lg:px-12">
+          <div className="max-w-3xl">
+            <Kicker>{kicker}</Kicker>
+            <h2 className="mt-5 text-3xl font-semibold text-teal-dark lg:text-4xl">{heading}</h2>
+            <p className="mt-3 max-w-3xl text-base leading-7 text-body">{body}</p>
+          </div>
+          <div className="cya-action-row md:justify-end">
             <CtaLink href={cta.href} variant={cta.variant ?? "primary"} external={cta.external}>
               {cta.label}
             </CtaLink>

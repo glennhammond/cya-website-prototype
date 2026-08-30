@@ -21,12 +21,12 @@ export function ProofPageHero({
   actions?: CTA[];
 }) {
   return (
-    <section className="bg-[var(--cya-surface-page)] py-12 sm:py-16 lg:py-20">
+    <section className="cya-page-hero">
       <Container>
         <div className="max-w-2xl">
           <Kicker>{kicker}</Kicker>
-          <h1 className="mt-4 text-heading-lg">{heading}</h1>
-          <p className="mt-4 text-lg leading-relaxed text-body">{body}</p>
+          <h1 className="cya-page-title mt-5">{heading}</h1>
+          <p className="cya-lead mt-6">{body}</p>
         </div>
         <ol className="mt-10 grid gap-6 border-t border-divider pt-8 sm:grid-cols-2 lg:grid-cols-4">
           {principles.map((principle, index) => (
@@ -39,7 +39,7 @@ export function ProofPageHero({
           ))}
         </ol>
         {actions && actions.length > 0 && (
-          <div className="mt-8 flex flex-wrap gap-4">
+          <div className="cya-action-row mt-8">
             {actions.map((action) => (
               <CtaLink key={action.label} href={action.href} variant={action.variant}>
                 {action.label}

@@ -27,8 +27,8 @@ export default function TermsPage() {
             <Kicker>Terms</Kicker>
             <EvidenceBadge status="legal-review" note="Full terms of use require legal review before publication." />
           </div>
-          <h1 className="mt-3 text-[32px] sm:text-[42px]">Website terms</h1>
-          <p className="mt-4 max-w-2xl text-lg leading-relaxed text-body">
+          <h1 className="cya-page-title mt-5">Website terms</h1>
+          <p className="cya-lead mt-6 max-w-2xl">
             This page sets out the structure CYA&rsquo;s website terms will follow. The wording below is a working
             outline, not the final, legally reviewed terms.
           </p>

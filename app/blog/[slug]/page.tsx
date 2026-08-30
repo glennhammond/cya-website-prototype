@@ -70,10 +70,10 @@ export default async function InsightArticlePage({
           <Container>
             <div className="mx-auto max-w-3xl">
               <Kicker>{article.category}</Kicker>
-              <h1 className="mt-3 text-[36px] font-bold leading-tight text-teal-dark sm:text-[52px]">
+              <h1 className="cya-page-title mt-5">
                 {article.title}
               </h1>
-              <p className="mt-5 text-xl leading-relaxed text-body">{article.summary}</p>
+              <p className="cya-lead mt-6 text-xl">{article.summary}</p>
               <div className="mt-7 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-body">
                 <span>{article.author}</span>
                 <span aria-hidden="true">·</span>
@@ -160,7 +160,7 @@ export default async function InsightArticlePage({
                 </aside>
               )}
 
-              <div className="mt-12 rounded-[var(--radius-card)] border border-divider bg-white p-6 text-sm leading-relaxed text-body">
+              <div className="cya-reading-surface mt-12 p-6 text-sm leading-relaxed text-body">
                 This article is general workplace wellbeing information, not medical or psychological advice. CYA
                 refreshes older guidance where needed so service claims remain proportionate to the available evidence.
               </div>

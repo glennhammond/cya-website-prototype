@@ -49,33 +49,33 @@ export function SpecialistServiceProduction({
 }) {
   return (
     <>
-      <section className="bg-[var(--cya-surface-page)] py-16 lg:py-20">
+      <section className="cya-page-hero">
         <ProductionContainer>
           <ProductionKicker>{kicker}</ProductionKicker>
-          <h1 className="mt-5 max-w-5xl text-[clamp(2.8rem,5vw,4.5rem)] font-bold leading-[1.05] tracking-[-0.02em]">{heading}</h1>
-          <p className="mt-6 max-w-3xl text-lg leading-8 text-[var(--cya-body)]">{body}</p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row"><ProductionAction href={primaryAction.href}>{primaryAction.label}</ProductionAction><ProductionAction href="/movement" style="secondary">Compare movement options</ProductionAction></div>
-          <p className="mt-8 border border-[var(--cya-divider)] bg-white px-5 py-4 text-sm font-medium text-[var(--cya-teal-dark)]">{evidenceLine}</p>
+          <h1 className="cya-page-title mt-5">{heading}</h1>
+          <p className="cya-lead mt-6">{body}</p>
+          <div className="cya-action-row mt-8"><ProductionAction href={primaryAction.href}>{primaryAction.label}</ProductionAction><ProductionAction href="/movement" style="secondary">Compare movement options</ProductionAction></div>
+          <p className="cya-reading-surface mt-8 max-w-3xl px-5 py-4 text-sm font-medium text-[var(--cya-teal-dark)]">{evidenceLine}</p>
         </ProductionContainer>
       </section>
 
       <ReviewImageDirection id={imageLabel} {...imageBrief} candidate={image.src} />
 
-      <section className="bg-[var(--cya-surface-subtle)] py-20 lg:py-24">
+      <section className="cya-section bg-[var(--cya-surface-subtle)]">
         <ProductionContainer>
           <ProductionKicker>{firstKicker}</ProductionKicker>
-          <h2 className="mt-5 max-w-5xl text-4xl font-bold lg:text-5xl">{firstHeading}</h2>
-          {firstBody && <p className="mt-5 max-w-4xl text-lg leading-8 text-[var(--cya-body)]">{firstBody}</p>}
+          <h2 className="cya-section-title mt-5">{firstHeading}</h2>
+          {firstBody && <p className="cya-lead mt-5 max-w-4xl">{firstBody}</p>}
           <div className={`mt-10 grid gap-5 ${firstCards.length === 4 ? "sm:grid-cols-2 lg:grid-cols-4" : "md:grid-cols-3"}`}>
             {firstCards.map((card) => <ProductionCard key={card.title} {...card} />)}
           </div>
         </ProductionContainer>
       </section>
 
-      <section className="bg-[var(--cya-surface-page)] py-20 lg:py-24">
+      <section className="cya-section bg-[var(--cya-surface-page)]">
         <ProductionContainer>
           <ProductionKicker>{secondKicker}</ProductionKicker>
-          <h2 className="mt-5 max-w-5xl text-4xl font-bold lg:text-5xl">{secondHeading}</h2>
+          <h2 className="cya-section-title mt-5">{secondHeading}</h2>
           <div className="mt-10 grid gap-5 md:grid-cols-3">
             {secondCards.map((card) => <ProductionCard key={card.title} {...card} tone="paper" />)}
           </div>

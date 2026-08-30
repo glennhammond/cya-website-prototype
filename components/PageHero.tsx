@@ -16,13 +16,13 @@ export function PageHero({
   const imageFirst = imagePosition === "left";
 
   return (
-    <section className="bg-[var(--cya-surface-page)] py-16 sm:py-20 lg:py-24">
+    <section className="cya-page-hero">
       <Container>
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
           <div className={imageFirst ? "lg:order-2" : ""}>
-            <Kicker tone="aqua">{intro.kicker}</Kicker>
-            <h1 className="mt-4 text-heading-lg text-[var(--cya-text-primary)]">{intro.heading}</h1>
-            <p className="mt-4 max-w-lg text-lg leading-relaxed text-[var(--cya-text-body)]">{intro.body}</p>
+            <Kicker>{intro.kicker}</Kicker>
+            <h1 className="cya-page-title mt-5">{intro.heading}</h1>
+            <p className="cya-lead mt-6">{intro.body}</p>
             {intro.meta && intro.meta.length > 0 && (
               <ul className="mt-5 flex flex-wrap gap-2">
                 {intro.meta.map((item) => (
@@ -33,7 +33,7 @@ export function PageHero({
               </ul>
             )}
             {intro.actions && intro.actions.length > 0 && (
-              <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
+              <div className="cya-action-row mt-8">
                 {intro.actions.map((action) => (
                   <CtaLink key={action.label} href={action.href} variant={action.variant} className="w-full sm:w-auto">
                     {action.label}

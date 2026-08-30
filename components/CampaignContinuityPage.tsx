@@ -28,15 +28,15 @@ export function CampaignContinuityPage({
 }: CampaignContinuityPageProps) {
   return (
     <>
-      <section className="bg-[var(--cya-surface-page)] py-16 lg:py-24">
+      <section className="cya-page-hero">
         <ProductionContainer>
           <div className="max-w-5xl">
             <ProductionKicker>{kicker}</ProductionKicker>
-            <h1 className="mt-5 max-w-4xl text-[clamp(2.8rem,5vw,4.5rem)] font-bold leading-[1.05] text-[var(--cya-teal-dark)]">
+            <h1 className="cya-page-title mt-5">
               {heading}
             </h1>
-            <p className="mt-6 max-w-3xl text-lg leading-8 text-[var(--cya-body)]">{body}</p>
-            <div className="mt-8 flex flex-wrap gap-3">
+            <p className="cya-lead mt-6">{body}</p>
+            <div className="cya-action-row mt-8">
               <ProductionAction href={ctaHref}>{ctaLabel}</ProductionAction>
               {secondaryLabel && secondaryHref ? (
                 <ProductionAction href={secondaryHref} style="secondary">
@@ -48,11 +48,11 @@ export function CampaignContinuityPage({
         </ProductionContainer>
       </section>
 
-      <section className="bg-[var(--cya-surface-subtle)] py-16 lg:py-20">
+      <section className="cya-section bg-[var(--cya-surface-subtle)]">
         <ProductionContainer>
           <div className="max-w-6xl">
             <ProductionKicker>Designed around the workplace</ProductionKicker>
-            <h2 className="mt-5 text-3xl font-bold text-[var(--cya-teal-dark)] lg:text-5xl">
+            <h2 className="cya-section-title mt-5">
               A practical fit for real workplaces
             </h2>
             <ul className="mt-10 grid gap-5 md:grid-cols-3">

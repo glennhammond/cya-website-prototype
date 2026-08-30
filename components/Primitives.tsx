@@ -12,7 +12,7 @@ export function Container({
 }) {
   const maxWidth = size === "narrow" ? "max-w-[var(--container-narrow)]" : "max-w-[var(--container-max)]";
   return (
-    <div className={`mx-auto w-full ${maxWidth} px-6 sm:px-10 lg:px-16 ${className}`}>
+    <div className={`mx-auto w-full ${maxWidth} px-6 sm:px-10 lg:px-12 ${className}`}>
       {children}
     </div>
   );
@@ -45,7 +45,7 @@ export function Section({
     <Tag
       id={id}
       aria-label={ariaLabel}
-      className={`scroll-mt-24 ${toneClass} py-10 sm:py-14 lg:py-16 ${className}`}
+      className={`cya-section scroll-mt-24 ${toneClass} ${className}`}
     >
       {children}
     </Tag>
@@ -54,7 +54,7 @@ export function Section({
 
 export function Kicker({
   children,
-  tone = "gold",
+  tone = "aqua",
 }: {
   children: ReactNode;
   tone?: "gold" | "aqua" | "white" | "pale";

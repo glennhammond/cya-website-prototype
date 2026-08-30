@@ -29,18 +29,18 @@ export default function CaseStudiesPage() {
   return (
     <>
       <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Case studies" }]} />
-      <section className="bg-[var(--cya-surface-page)] py-16 lg:py-20">
+      <section className="cya-page-hero">
         <ProductionContainer className="grid gap-10 lg:grid-cols-[1.4fr_0.8fr] lg:items-center">
           <div>
             <ProductionKicker>Work shown in context</ProductionKicker>
-            <h1 className="mt-5 max-w-4xl text-[clamp(2.8rem,5vw,4.5rem)] font-bold leading-[1.05]">
+            <h1 className="cya-page-title mt-5">
               The situation matters as much as the session.
             </h1>
-            <p className="mt-6 max-w-3xl text-lg leading-8 text-[var(--cya-body)]">
+            <p className="cya-lead mt-6">
               CYA case studies connect a workplace need with the choices made, the way the
               experience was delivered and what the organisation learned from it.
             </p>
-            <div className="mt-8 flex gap-3">
+            <div className="cya-action-row mt-8">
               <ProductionAction href="#stories">
                 Explore the approach
               </ProductionAction>
@@ -49,7 +49,7 @@ export default function CaseStudiesPage() {
               </ProductionAction>
             </div>
           </div>
-          <aside className="border border-[var(--cya-divider)] bg-white p-8 text-[var(--cya-teal-dark)]">
+          <aside className="cya-panel bg-[var(--cya-surface-base)] text-[var(--cya-teal-dark)]">
             <ProductionKicker>What a useful story shows</ProductionKicker>
             <ul className="mt-6 space-y-4">
               <li>The workplace context and need</li>
@@ -70,13 +70,13 @@ export default function CaseStudiesPage() {
         candidate="/images/cya-collage-event.jpg"
       />
 
-      <section id="stories" className="bg-[var(--cya-surface-base)] py-20 lg:py-24">
+      <section id="stories" className="cya-section scroll-mt-24 bg-[var(--cya-surface-base)]">
         <ProductionContainer>
           <ProductionKicker>Decisions in context</ProductionKicker>
-          <h2 className="mt-5 max-w-5xl text-4xl font-bold lg:text-5xl">
+          <h2 className="cya-section-title mt-5">
             Look for the workplace situation closest to yours.
           </h2>
-          <p className="mt-5 max-w-4xl text-lg text-[var(--cya-body)]">
+          <p className="cya-lead mt-5 max-w-4xl">
             The most useful comparison may be the need, the delivery setting or the scale of
             the organisation—not an identical program.
           </p>

@@ -34,14 +34,14 @@ export function FeatureGrid({
       <Container>
         <div className="max-w-2xl">
           <Kicker>{kicker}</Kicker>
-          <h2 className="mt-3 text-heading-lg">{heading}</h2>
-          {body && <p className="mt-4 text-lg leading-relaxed text-body">{body}</p>}
+          <h2 className="cya-section-title mt-5">{heading}</h2>
+          {body && <p className="cya-lead mt-5">{body}</p>}
         </div>
         <ul className={`mt-10 grid gap-4 ${colClass}`}>
           {items.map((item) => (
             <li
               key={item.title}
-              className={compact ? "rounded-full border border-divider bg-white px-5 py-3" : "flex flex-col gap-2 rounded-[var(--radius-card)] border border-divider bg-white p-6"}
+              className={compact ? "cya-card px-5 py-4" : "cya-card flex flex-col gap-2 p-6"}
             >
               <p className={compact ? "text-sm font-bold text-teal-dark" : "text-lg font-bold text-teal-dark"}>{item.title}</p>
               {!compact && <p className="text-sm leading-relaxed text-body">{item.body}</p>}

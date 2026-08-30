@@ -124,7 +124,7 @@ for (const heroFile of [
   "app/workplace-wellbeing-workshops/page.tsx",
 ]) {
   const source = await readFile(path.join(root, heroFile), "utf8");
-  if (!source.includes("bg-[var(--cya-surface-page)]")) {
+  if (!source.includes("bg-[var(--cya-surface-page)]") && !source.includes("cya-page-hero")) {
     failures.push(`${heroFile}: page hero must use the surface/page token`);
   }
 }

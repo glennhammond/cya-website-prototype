@@ -19,7 +19,7 @@ export function QuietIntro({ heading, body, image }: { heading: string; body: st
             <h2 className="mt-6 max-w-[17ch] text-heading-lg text-teal-dark">{heading}</h2>
             <p className="mt-6 max-w-[54ch] text-lg leading-relaxed text-body">{body}</p>
           </div>
-          <div className="relative aspect-[4/3] overflow-hidden rounded-[var(--radius-card)] shadow-[0_16px_40px_rgba(14,67,74,0.1)]">
+          <div className="relative aspect-[4/3] overflow-hidden rounded-[var(--radius-card)] border border-divider">
             <ImageMedia asset={image} treatment="bleed" sizes="(min-width: 1024px) 42vw, 100vw" />
           </div>
         </div>

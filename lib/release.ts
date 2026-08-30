@@ -7,7 +7,7 @@ export function releaseIndexingEnabled() {
 }
 
 export function analyticsTrackingEnabled() {
-  return isProductionDeployment() && process.env.CYA_ANALYTICS_ENABLED === "true";
+  return process.env.CYA_ANALYTICS_ENABLED === "true";
 }
 
 export function enquirySubmissionEnabled() {

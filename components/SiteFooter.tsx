@@ -1,9 +1,10 @@
 import Link from "next/link";
 import { Container } from "@/components/Primitives";
+import { AnalyticsPreferencesButton } from "@/components/AnalyticsPreferencesButton";
 import { primaryNav, memberSignInHref } from "@/content/navigation";
 import { site } from "@/content/site";
 
-export function SiteFooter() {
+export function SiteFooter({ analyticsPreferencesEnabled = false }: { analyticsPreferencesEnabled?: boolean }) {
   // Vercel Preview builds should retain the prototype warning. Generic
   // production builds (including GitHub's `next build`) must not bake it into
   // public HTML merely because VERCEL_ENV is absent.
@@ -38,6 +39,7 @@ export function SiteFooter() {
           </a>
           <Link href="/privacy" className="text-sm text-white/85 hover:text-white">Privacy</Link>
           <Link href="/terms" className="text-sm text-white/85 hover:text-white">Terms</Link>
+          {analyticsPreferencesEnabled ? <AnalyticsPreferencesButton /> : null}
         </nav>
       </Container>
       <div className="border-t border-white/15">

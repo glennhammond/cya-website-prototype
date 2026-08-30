@@ -12,7 +12,7 @@ export default function WorkplacePilatesPage() {
     <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Movement", href: "/movement" }, { label: "Workplace Pilates" }]} />
     <SpecialistServiceProduction
       kicker="Fit for here · Workplace Pilates"
-      heading="Workplace Pilates for strength, posture and useful movement."
+      heading="Workplace Pilates for strength, posture and useful movement"
       body="Practical Pilates sessions shaped around the team, available space, equipment, timing and confidence in the room."
       primaryAction={{ label: "Plan workplace Pilates", href: "/contact?interest=one-off" }}
       image={media.movementGroupIndustrial}

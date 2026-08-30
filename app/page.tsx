@@ -60,7 +60,7 @@ export default function Home() {
       <section className="bg-[var(--cya-surface-page)] py-20 lg:py-24">
         <ProductionContainer>
           <ProductionKicker>What we offer</ProductionKicker>
-          <h2 className="mt-5 text-3xl font-bold lg:text-4xl">Explore our workplace wellbeing services.</h2>
+          <h2 className="mt-5 text-3xl font-bold lg:text-4xl">Explore our workplace wellbeing services</h2>
           <div className="mt-8 grid gap-5 md:grid-cols-3">
             <ProductionCard number="01" title="Workplace Yoga" body="Calm, mobility and reset, adapted to the room and confidence of the group." href="/workplace-yoga" />
             <ProductionCard number="02" title="Workplace Pilates" body="Strength, posture and focused movement shaped around a practical workplace set-up." href="/workplace-pilates" />
@@ -75,7 +75,7 @@ export default function Home() {
       <section className="bg-[var(--cya-surface-subtle)] py-20 lg:py-24">
         <ProductionContainer>
           <ProductionKicker>One-off or ongoing</ProductionKicker>
-          <h2 className="mt-5 max-w-4xl text-4xl font-bold lg:text-5xl">Start with one session. Build on what works.</h2>
+          <h2 className="mt-5 max-w-4xl text-4xl font-bold lg:text-5xl">Start with one session. Build on what works</h2>
           <p className="mt-5 max-w-4xl text-lg leading-8 text-[var(--cya-body)]">You can begin with a single session without committing to an ongoing program. If it works for your people, we can repeat it, create a regular program or extend support through Wellbeing Studio.</p>
           <div className="mt-10 grid gap-5 md:grid-cols-3">
             <ProductionCard number="01" title="One-off session" body="Start with workplace yoga, Pilates, mindfulness, a workshop or an event session." />
@@ -88,7 +88,7 @@ export default function Home() {
         <ProductionContainer className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:items-center lg:gap-16">
           <div>
             <ProductionKicker>Wellbeing Studio by Corporate Yoga Australia</ProductionKicker>
-            <h2 className="mt-5 max-w-3xl text-4xl font-bold tracking-[-0.015em] lg:text-5xl">Wellbeing that stays useful between live moments.</h2>
+            <h2 className="mt-5 max-w-3xl text-4xl font-bold tracking-[-0.015em] lg:text-5xl">Wellbeing that stays useful between live moments</h2>
             <p className="mt-5 max-w-3xl text-lg leading-8 text-[var(--cya-body)]">Wellbeing Studio is Corporate Yoga Australia’s connected participant-experience layer: a place people can return to for useful actions, live connection and practical wellbeing support across the working year.</p>
             <div className="mt-8">
               <ProductionAction href="/online-wellbeing" style="secondary">Explore Wellbeing Studio</ProductionAction>
@@ -106,7 +106,7 @@ export default function Home() {
         </ProductionContainer>
       </section>
 
-      <ProductionClosing heading="Plan something that fits." body="Tell us what needs to happen, who it is for and what working life looks like there." />
+      <ProductionClosing heading="Plan something that fits" body="Tell us what needs to happen, who it is for and what working life looks like there." />
     </>
   );
 }

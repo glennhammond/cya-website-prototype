@@ -23,7 +23,7 @@ export function HomepageProof() {
         <div className="max-w-5xl">
           <ProductionKicker>Workplace experience since 2014</ProductionKicker>
           <h2 id="homepage-proof-heading" className="mt-5 text-4xl font-bold tracking-[-0.015em] lg:text-5xl">
-            Real workplaces. Practical wellbeing. Built around working life.
+            Real workplaces. Practical wellbeing. Built around working life
           </h2>
           <p className="mt-6 max-w-4xl text-lg leading-8 text-[var(--cya-body)]">
             Corporate Yoga Australia plans and delivers workplace yoga, Pilates, mindfulness, workshops and wellbeing programs for Australian organisations — onsite, online and across multiple locations.

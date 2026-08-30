@@ -12,7 +12,7 @@ export default function WellbeingProgram2026Page() {
   return (
     <CampaignContinuityPage
       kicker="2026 workplace wellbeing planning"
-      heading="Turn wellbeing intent into a program people can experience."
+      heading="Turn wellbeing intent into a program people can experience"
       body="Bring together the right mix of live sessions, focused experiences and ongoing support for your workplace in 2026."
       benefits={[
         "A program shaped around your workforce, locations and priorities.",

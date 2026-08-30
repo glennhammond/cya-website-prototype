@@ -34,7 +34,7 @@ export default function CaseStudiesPage() {
           <div>
             <ProductionKicker>Work shown in context</ProductionKicker>
             <h1 className="mt-5 max-w-4xl text-[clamp(2.8rem,5vw,4.5rem)] font-bold leading-[1.05]">
-              The situation matters as much as the session.
+              The situation matters as much as the session
             </h1>
             <p className="mt-6 max-w-3xl text-lg leading-8 text-[var(--cya-body)]">
               CYA case studies connect a workplace need with the choices made, the way the
@@ -74,7 +74,7 @@ export default function CaseStudiesPage() {
         <ProductionContainer>
           <ProductionKicker>Decisions in context</ProductionKicker>
           <h2 className="mt-5 max-w-5xl text-4xl font-bold lg:text-5xl">
-            Look for the workplace situation closest to yours.
+            Look for the workplace situation closest to yours
           </h2>
           <p className="mt-5 max-w-4xl text-lg text-[var(--cya-body)]">
             The most useful comparison may be the need, the delivery setting or the scale of
@@ -104,7 +104,7 @@ export default function CaseStudiesPage() {
           ) : (
             <div className="mt-12 max-w-3xl border-l-4 border-[var(--cya-coral)] bg-white p-7">
               <h3 className="text-2xl font-bold text-[var(--cya-teal-dark)]">
-                Detailed client stories are being prepared.
+                Detailed client stories are being prepared
               </h3>
               <p className="mt-3 text-[var(--cya-body)]">
                 In the meantime, tell us the situation you are working with. We can talk
@@ -120,7 +120,7 @@ export default function CaseStudiesPage() {
       </section>
 
       <ProductionClosing
-        heading="Start with the situation you need to solve."
+        heading="Start with the situation you need to solve"
         body="CYA can help shape the format, delivery and next step around your workplace."
       />
     </>

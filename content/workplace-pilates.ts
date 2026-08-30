@@ -86,13 +86,13 @@ export const deliveryModes: FeatureItem[] = [
 
 export const facilitatorGate = {
   kicker: "Facilitator fit",
-  heading: "Match the practitioner to the Pilates brief.",
+  heading: "Match the practitioner to the Pilates brief",
   body: "CYA's current public material confirms Pilates as part of its facilitator network and identifies current Pilates capability within the team. For an actual booking, CYA confirms the practitioner, location, availability and relevant qualification for the session. Individual credential details are only published where those records have been verified.",
 };
 
 export const evidenceGate = {
   kicker: "Evidence and claims",
-  heading: "Describe the real Pilates service without promising health outcomes.",
+  heading: "Describe the real Pilates service without promising health outcomes",
   body: "CYA's current service material supports mat Pilates, one-off and recurring classes, mixed yoga and Pilates formats, onsite and online delivery, and tailored workplace programs. This page therefore does not need to wait for a case study to exist. It should continue to avoid claims about injury prevention, posture correction, pain relief or guaranteed health outcomes unless stronger evidence is approved for those specific claims.",
 };
 
@@ -119,7 +119,7 @@ export const relatedPaths: FeatureItem[] = [
 
 export const closingCTA = {
   kicker: "Next step",
-  heading: "Tell CYA what kind of Pilates session you are considering.",
+  heading: "Tell CYA what kind of Pilates session you are considering",
   body: "Share the team size, location, available room, timing and whether you are planning one session or a recurring class. CYA can confirm the appropriate practitioner and practical setup before anything is booked.",
   cta: { label: "Discuss Workplace Pilates", href: "/contact?interest=one-off", variant: "primary" as const },
 };

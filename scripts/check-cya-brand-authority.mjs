@@ -70,6 +70,16 @@ for (const file of files) {
   if (source.includes('style="ochre"')) failures.push(`${relative}: legacy ochre action treatment is not permitted`);
   if (source.includes("Plan with CYA")) failures.push(`${relative}: retired public CTA “Plan with CYA” is not permitted; use “Start planning”`);
 
+  const terminalFullStopHeadings = [
+    ...source.matchAll(/\bheading\s*:\s*"[^"\n]*\."/g),
+    ...source.matchAll(/\bheading="[^"\n]*\."/g),
+    ...source.matchAll(/<h[1-6]\b[^>]*>\s*[^<{][^<]*\.\s*<\/h[1-6]>/gs),
+  ];
+  for (const match of terminalFullStopHeadings) {
+    const line = source.slice(0, match.index).split("\n").length;
+    failures.push(`${relative}:${line}: standard headings must not end with a full stop`);
+  }
+
   const incorrectlyCapitalisedYoga = source.match(/\b(?:workplace|studio|one|live|recurring|mixed|with|alongside|from|such as|join|comfortable with|Compare|including|Accessible|practical|CYA) Yoga\b/g) ?? [];
   for (const phrase of incorrectlyCapitalisedYoga) {
     failures.push(`${relative}: use sentence-case “yoga” in prose (${phrase})`);

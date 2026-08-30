@@ -12,7 +12,7 @@ export default function OnlineWellbeing2026Page() {
   return (
     <CampaignContinuityPage
       kicker="Plan online wellbeing for 2026"
-      heading="Build a wellbeing rhythm your team can actually use."
+      heading="Build a wellbeing rhythm your team can actually use"
       body="Shape a practical 2026 program around live online experiences, useful resources and the realities of your workforce."
       benefits={[
         "A cadence designed around business priorities and employee availability.",

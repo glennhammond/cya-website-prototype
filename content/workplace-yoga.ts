@@ -35,7 +35,7 @@ export const sessionFits: FeatureItem[] = [
 
 export const participationFeature = {
   kicker: "Participation",
-  heading: "Designed for people who may never choose a yoga studio.",
+  heading: "Designed for people who may never choose a yoga studio",
   body: "CYA does not assume confidence, flexibility or yoga experience. Sessions can be adapted to varied bodies, roles, available space and clothing, with clear options so people can participate at an appropriate level.",
 };
 
@@ -75,7 +75,7 @@ export const deliveryModes: FeatureItem[] = [
 
 export const facilitatorFeature = {
   kicker: "Facilitator fit",
-  heading: "A human-led service, not a class dropped into a calendar.",
+  heading: "A human-led service, not a class dropped into a calendar",
   body: "CYA coordinates the brief, facilitator match and delivery details with the workplace. Individual facilitator credentials and profiles are published only when verified; the service model does not rely on unsupported credential or outcome claims.",
 };
 
@@ -100,7 +100,7 @@ export const practicalLogistics: FeatureItem[] = [
 
 export const authorityResource = {
   kicker: "Planning workplace yoga",
-  heading: "Introducing yoga at work without making participation difficult.",
+  heading: "Introducing yoga at work without making participation difficult",
   body: "CYA's established yoga-at-work guidance covers practical considerations for introducing yoga in a workplace. It supports this service page with useful planning context rather than duplicating the same content here.",
   cta: {
     label: "Read 8 tips to successfully introduce yoga at work",

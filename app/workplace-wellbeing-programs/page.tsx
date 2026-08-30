@@ -20,7 +20,7 @@ export default function WorkplaceWellbeingProgramsPage() {
         <ProductionContainer className="grid gap-10 lg:grid-cols-[1.4fr_0.8fr] lg:items-center">
           <div>
             <ProductionKicker>Working rhythm · managed partnership</ProductionKicker>
-            <h1 className="mt-5 max-w-3xl text-[clamp(2.8rem,5vw,4.5rem)] font-bold leading-[1.05] tracking-[-0.02em]">A wellbeing program people can genuinely use.</h1>
+            <h1 className="mt-5 max-w-3xl text-[clamp(2.8rem,5vw,4.5rem)] font-bold leading-[1.05] tracking-[-0.02em]">A wellbeing program people can genuinely use</h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-[var(--cya-body)]">A wellbeing program should fit the organisation—not the other way around. CYA plans the right mix, coordinates the people, connects live and digital experiences, and adapts the rhythm with you.</p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row"><ProductionAction href="/contact?interest=program">Plan a program</ProductionAction><ProductionAction href="#program-structure" style="secondary">See how programs can work</ProductionAction></div>
           </div>
@@ -36,13 +36,13 @@ export default function WorkplaceWellbeingProgramsPage() {
       <section id="program-structure" className="bg-[var(--cya-surface-page)] py-20 lg:py-24">
         <ProductionContainer>
           <ProductionKicker>Composed around your organisation</ProductionKicker>
-          <h2 className="mt-5 text-4xl font-bold tracking-[-0.015em] lg:text-5xl">Recognisable experiences. One managed relationship.</h2>
+          <h2 className="mt-5 text-4xl font-bold tracking-[-0.015em] lg:text-5xl">Recognisable experiences. One managed relationship</h2>
           <div className="mt-10 grid gap-5 md:grid-cols-3">
             <ProductionCard title="Start with useful access" body="A focused live or digital rhythm for a defined workforce need." tone="white" />
             <ProductionCard title="Build a connected rhythm" body="A curated mix of movement, mindfulness, experts and Studio continuity." tone="field" />
             <ProductionCard title="Shape a deeper partnership" body="A tailored program with coordination, reporting and review." tone="paper" />
           </div>
-          <h2 className="mt-14 text-3xl font-bold lg:text-4xl">The program is credible because the operating model is visible.</h2>
+          <h2 className="mt-14 text-3xl font-bold lg:text-4xl">The program is credible because the operating model is visible</h2>
           <div className="mt-8 grid gap-5 md:grid-cols-3">
             <ProductionCard number="01" title="Human curation" body="Facilitator and format matched to context." />
             <ProductionCard number="02" title="Practical coordination" body="One accountable relationship and clear delivery plan." />
@@ -54,7 +54,7 @@ export default function WorkplaceWellbeingProgramsPage() {
       <section className="bg-[var(--cya-surface-base)] py-20 lg:py-24">
         <ProductionContainer>
           <ProductionKicker>Procurement confidence</ProductionKicker>
-          <h2 className="mt-5 max-w-4xl text-4xl font-bold lg:text-5xl">Clear enough to approve. Human enough to work.</h2>
+          <h2 className="mt-5 max-w-4xl text-4xl font-bold lg:text-5xl">Clear enough to approve. Human enough to work</h2>
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             <ProductionCard title="Scope" body="Audience, locations, cadence and delivery format agreed before launch." tone="field" />
             <ProductionCard title="Safeguards" body="Access, consent, facilitator fit and escalation boundaries made explicit." tone="field" />
@@ -62,7 +62,7 @@ export default function WorkplaceWellbeingProgramsPage() {
             <ProductionCard title="Review" body="A visible rhythm for learning, adapting and deciding what continues." tone="field" />
           </div>
           <div className="mt-8 grid gap-6 border border-[var(--cya-divider)] bg-[var(--cya-surface-subtle)] px-8 py-9 md:grid-cols-[1fr_auto] md:items-center">
-            <div><ProductionKicker>A useful starting point</ProductionKicker><h3 className="mt-4 text-2xl font-semibold">A program does not have to begin as a year-long commitment.</h3><p className="mt-3 max-w-3xl text-[var(--cya-body)]">Start with a focused pilot, a recurring rhythm or a broader connected plan when that depth is appropriate.</p></div>
+            <div><ProductionKicker>A useful starting point</ProductionKicker><h3 className="mt-4 text-2xl font-semibold">A program does not have to begin as a year-long commitment</h3><p className="mt-3 max-w-3xl text-[var(--cya-body)]">Start with a focused pilot, a recurring rhythm or a broader connected plan when that depth is appropriate.</p></div>
             <ProductionAction href="/contact?interest=program">Discuss the right starting point</ProductionAction>
           </div>
         </ProductionContainer>
@@ -71,7 +71,7 @@ export default function WorkplaceWellbeingProgramsPage() {
       <section className="bg-white py-20 lg:py-24">
         <ProductionContainer>
           <ProductionKicker>Participation and scope</ProductionKicker>
-          <h2 className="mt-5 max-w-4xl text-4xl font-bold lg:text-5xl">Make the program easier to use without making it carry the whole wellbeing system.</h2>
+          <h2 className="mt-5 max-w-4xl text-4xl font-bold lg:text-5xl">Make the program easier to use without making it carry the whole wellbeing system</h2>
           <p className="mt-6 max-w-4xl text-lg leading-8 text-[var(--cya-body)]">CYA can help plan accessible formats, practical communications, protected opportunities to participate and an aggregate review rhythm. An internal sponsor and a clearly bounded Wellbeing Champion can support awareness, logistics and feedback; they do not become responsible for colleagues&apos; wellbeing, complaints, HR, WHS or mental-health care.</p>
           <div className="mt-10 grid gap-5 md:grid-cols-3">
             <ProductionCard title="Fit the workday" body="Consider locations, schedules, operational demands, accessibility and the time people can realistically use." tone="paper" />
@@ -85,7 +85,7 @@ export default function WorkplaceWellbeingProgramsPage() {
           <div className="mt-8"><ProductionAction href="/blog/the-nervous-system-solution-why-your-wellbeing-program-isnt-working-and-what-to-do-instead" style="secondary">Read the participation guide</ProductionAction></div>
         </ProductionContainer>
       </section>
-      <ProductionClosing heading="Shape a program people can trust." body="Start with the organisational need, practical constraints and the change you need to support." />
+      <ProductionClosing heading="Shape a program people can trust" body="Start with the organisational need, practical constraints and the change you need to support." />
     </>
   );
 }

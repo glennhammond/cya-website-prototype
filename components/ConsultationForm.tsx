@@ -144,7 +144,7 @@ export function ConsultationForm({ initialInterest }: { initialInterest?: string
   if (status === "failure") {
     return (
       <div role="alert" className="rounded-[var(--radius-card)] border-2 border-error bg-white p-8">
-        <h2 className="text-2xl text-error">Your enquiry didn&rsquo;t go through.</h2>
+        <h2 className="text-2xl text-error">Your enquiry didn&rsquo;t go through</h2>
         <p className="mt-3 text-base leading-relaxed text-body">
           Something went wrong submitting this form. Please try again, call CYA on 1300 373 363 or email
           info@corporateyoga.com.au.

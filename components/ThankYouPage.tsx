@@ -14,7 +14,7 @@ export function ThankYouPage({ online = false }: { online?: boolean }) {
         <div className="max-w-3xl border-l-4 border-[var(--cya-gold)] pl-7 sm:pl-10">
           <ProductionKicker>Enquiry received</ProductionKicker>
           <h1 className="mt-5 text-[clamp(2.8rem,5vw,4.5rem)] font-bold leading-[1.05] text-[var(--cya-teal-dark)]">
-            Thank you.
+            Thank you
           </h1>
           <p className="mt-6 text-lg leading-8 text-[var(--cya-body)]">
             {online

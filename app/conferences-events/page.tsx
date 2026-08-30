@@ -27,7 +27,7 @@ export default function ConferencesEventsPage() {
           <div>
             <ProductionKicker>Conferences and events</ProductionKicker>
             <h1 className="mt-5 max-w-4xl text-[clamp(2.8rem,5vw,4.5rem)] font-bold leading-[1.05]">
-              Build energy, calm and connection into the agenda.
+              Build energy, calm and connection into the agenda
             </h1>
             <p className="mt-6 max-w-3xl text-lg leading-8 text-[var(--cya-body)]">
               From a short activation to morning movement, mindfulness or a practical wellbeing session, CYA designs around the audience, venue and run sheet.
@@ -47,25 +47,25 @@ export default function ConferencesEventsPage() {
       <section className="bg-white py-20 lg:py-24">
         <ProductionContainer>
           <ProductionKicker>Where CYA fits into the agenda</ProductionKicker>
-          <h2 className="mt-5 text-4xl font-bold lg:text-5xl">Support the moment the agenda needs.</h2>
+          <h2 className="mt-5 text-4xl font-bold lg:text-5xl">Support the moment the agenda needs</h2>
           <div className="mt-10 grid gap-5 md:grid-cols-3">{agendaMoments.map((item) => <ProductionCard key={item.title} title={item.title} body={item.body} />)}</div>
         </ProductionContainer>
       </section>
       <section id="formats" className="bg-[var(--cya-surface-subtle)] py-20 lg:py-24">
         <ProductionContainer>
           <ProductionKicker>Activation formats</ProductionKicker>
-          <h2 className="mt-5 text-4xl font-bold lg:text-5xl">From a short reset to a broader wellbeing stream.</h2>
+          <h2 className="mt-5 text-4xl font-bold lg:text-5xl">From a short reset to a broader wellbeing stream</h2>
           <div className="mt-10 grid gap-5 md:grid-cols-3">{activationFormats.map((item) => <ProductionCard key={item.title} title={item.title} body={item.body} tone="paper" />)}</div>
         </ProductionContainer>
       </section>
       <section className="bg-[var(--cya-surface-page)] py-20 lg:py-24">
         <ProductionContainer>
           <ProductionKicker>Delivery logistics</ProductionKicker>
-          <h2 className="mt-5 text-4xl font-bold lg:text-5xl">What CYA confirms before the day.</h2>
+          <h2 className="mt-5 text-4xl font-bold lg:text-5xl">What CYA confirms before the day</h2>
           <div className="mt-10 grid gap-5 md:grid-cols-4">{logistics.map((item) => <ProductionCard key={item.title} title={item.title} body={item.body} tone="paper" />)}</div>
         </ProductionContainer>
       </section>
-      <ProductionClosing heading="One activation or a connected event experience." body="Start with the audience, agenda and venue. CYA can shape one useful moment or coordinate several experiences when that helps." href="/contact?interest=conference" action="Discuss your conference" />
+      <ProductionClosing heading="One activation or a connected event experience" body="Start with the audience, agenda and venue. CYA can shape one useful moment or coordinate several experiences when that helps." href="/contact?interest=conference" action="Discuss your conference" />
     </>
   );
 }

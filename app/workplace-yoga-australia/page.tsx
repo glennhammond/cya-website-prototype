@@ -12,7 +12,7 @@ export default function WorkplaceYogaAustraliaPage() {
   return (
     <CampaignContinuityPage
       kicker="Workplace yoga across Australia"
-      heading="Help your team feel better, focus better and perform better."
+      heading="Help your team feel better, focus better and perform better"
       body="Bring practical, facilitator-led movement into the working day with a format shaped around your people, locations and timetable."
       benefits={[
         "Onsite or online delivery for office, hybrid and distributed teams.",

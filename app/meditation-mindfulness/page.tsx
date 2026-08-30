@@ -12,7 +12,7 @@ export default function MeditationMindfulnessPage() {
     <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Mindfulness & Meditation" }]} />
     <SpecialistServiceProduction
       kicker="Mindfulness without performance"
-      heading="A useful pause in the working day."
+      heading="A useful pause in the working day"
       body="Guided meditation and mindfulness experiences that respect different levels of confidence, attention and comfort."
       primaryAction={{ label: "Plan a session", href: "/contact?interest=one-off" }}
       image={media.aboutWorldview}

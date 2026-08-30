@@ -19,7 +19,7 @@ export default function ProgramRegistrationPage() {
         <div className="max-w-3xl">
           <ProductionKicker>Cromwell wellbeing program</ProductionKicker>
           <h1 className="mt-5 text-[clamp(2.8rem,5vw,4.5rem)] font-bold leading-[1.05] text-[var(--cya-teal-dark)]">
-            Register for the Cromwell wellbeing program.
+            Register for the Cromwell wellbeing program
           </h1>
           <p className="mt-6 text-lg leading-8 text-[var(--cya-body)]">
             Continue to the CYA Wellbeing Studio to create your account and access the program. You will enter

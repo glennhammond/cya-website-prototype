@@ -12,7 +12,7 @@ export default function WorkplaceYogaPage() {
     <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Movement", href: "/movement" }, { label: "Workplace Yoga" }]} />
     <SpecialistServiceProduction
       kicker="Fit for here · Workplace Yoga"
-      heading="Workplace Yoga that respects the room, the people and the working day."
+      heading="Workplace Yoga that respects the room, the people and the working day"
       body="Practical sessions for offices, teams, conferences and hybrid work, with no assumed experience and a format adapted to the space, confidence and mobility in the room."
       primaryAction={{ label: "Plan workplace yoga", href: "/contact?interest=one-off" }}
       image={media.homeOneOff}

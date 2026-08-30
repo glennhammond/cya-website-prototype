@@ -21,13 +21,13 @@ export const organisationalNeeds: FeatureItem[] = [
 
 export const planningFeature = {
   kicker: "How CYA plans",
-  heading: "Start with the organisation, then choose the mix.",
+  heading: "Start with the organisation, then choose the mix",
   body: "CYA clarifies the workforce, locations, practical constraints, important dates and purpose before recommending a cadence or collection of experiences. The plan can stay small, change over time or include a broader annual rhythm when that is genuinely useful.",
 };
 
 export const whyContinuity = {
   kicker: "Why continuity can help",
-  heading: "Repeat what is useful, connect what belongs together.",
+  heading: "Repeat what is useful, connect what belongs together",
   body: "Some workplaces need one well-run session. Others benefit from repeated access, several complementary formats or a plan across locations and dates. CYA treats continuity as an organisational option rather than a compulsory upgrade.",
 };
 
@@ -75,13 +75,13 @@ export const whatCyaCoordinates: FeatureItem[] = [
 
 export const multiSiteFeature = {
   kicker: "Multi-site support",
-  heading: "One coordinated plan across several locations.",
+  heading: "One coordinated plan across several locations",
   body: "CYA's national facilitator network supports organisations coordinating delivery across multiple sites, with each location and format confirmed against real practitioner capacity rather than a blanket promise of coverage.",
 };
 
 export const reportingFeature = {
   kicker: "Reporting & evidence",
-  heading: "Useful visibility without pretending wellbeing is a dashboard score.",
+  heading: "Useful visibility without pretending wellbeing is a dashboard score",
   body: "For ongoing work, CYA can agree what practical participation, delivery and feedback information is available and useful to review. Reporting remains aggregate and privacy-aware; individual activity or inferred wellbeing status is not exposed to employers.",
 };
 
@@ -104,7 +104,7 @@ export const procurementQuestions: FeatureItem[] = [
 
 export const closingCTA = {
   kicker: "Next step",
-  heading: "Plan the level of continuity that fits.",
+  heading: "Plan the level of continuity that fits",
   body: "Bring the workforce, locations, dates and current need. CYA can help shape a proportionate program - or tell you when a simpler one-off engagement is enough.",
   cta: { label: "Plan a wellbeing program", href: "/contact?interest=recurring", variant: "primary" as const },
 };

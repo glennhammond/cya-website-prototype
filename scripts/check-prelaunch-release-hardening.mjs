@@ -13,6 +13,9 @@ const attribution = read("components/AttributionCapture.tsx");
 const contact = read("app/contact/page.tsx");
 const form = read("components/ConsultationForm.tsx");
 const enquiryRoute = read("app/api/enquiries/route.ts");
+const retiredHelper = read("lib/retired-route.ts");
+const routeDecisions = JSON.parse(read("config/phase-11-5-4-route-decisions.json"));
+const approvals = JSON.parse(read("config/launch-approvals.json"));
 
 for (const flag of [
   "CYA_PRIVACY_POLICY_APPROVED === \"true\"",
@@ -21,7 +24,7 @@ for (const flag of [
   "CYA_ANALYTICS_ENABLED === \"true\"",
   "CYA_ENQUIRY_SUBMISSION_ENABLED === \"true\"",
 ]) {
-  assert.match(release, new RegExp(flag.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
+  assert.ok(release.includes(flag), `release control missing: ${flag}`);
 }
 assert.match(release, /VERCEL_ENV === "production"/);
 assert.match(release, /privacyPolicyApproved\(\)[\s\S]*CYA_ANALYTICS_ENABLED/);
@@ -57,6 +60,57 @@ assert.match(enquiryRoute, /conversionEligible: false/);
 assert.match(enquiryRoute, /conversionEligible: true/);
 assert.doesNotMatch(enquiryRoute, /ipAddress|hubspotutk|successRoute/);
 assert.match(enquiryRoute, /consentToProcess: true/);
+
+assert.match(retiredHelper, /status: 410/);
+assert.match(retiredHelper, /X-Robots-Tag/);
+assert.match(retiredHelper, /noindex, nofollow/);
+for (const route of [
+  "app/program-registration/route.ts",
+  "app/contact-thank-you/route.ts",
+  "app/contact-thank-you-online/route.ts",
+  "app/contact-thank-you-online-1/route.ts",
+  "app/google-ads-lander/route.ts",
+]) {
+  assert.match(read(route), /retiredRouteResponse/);
+}
+
+for (const [source, destination] of [
+  ["/workplace-yoga-australia", "/workplace-yoga"],
+  ["/online-wellbeing-2026", "/online-wellbeing"],
+  ["/online-wellbeing-1", "/online-wellbeing"],
+  ["/online-wellbeing-landing-page", "/online-wellbeing"],
+  ["/online-wellbeing-learn-more-here", "/online-wellbeing"],
+  ["/2026-wellbeing-program", "/workplace-wellbeing-programs"],
+  ["/2026-wellbeing-program-1", "/workplace-wellbeing-programs"],
+  ["/2026-wellbeing-program-1-1", "/workplace-wellbeing-programs"],
+]) {
+  assert.ok(config.includes(`source: \"${source}\"`) && config.includes(`destination: \"${destination}\"`), `missing migration ${source}`);
+}
+assert.doesNotMatch(config, /source: "\/google-ads-lander"/);
+assert.doesNotMatch(config, /source: "\/contact-thank-you/);
+
+assert.equal(routeDecisions.version, "2.0");
+assert.equal(routeDecisions.retiredRoutes.length, 5);
+assert.ok(routeDecisions.campaignRoutes.every((route) => route.ownerConfirmed === true));
+for (const key of [
+  "renderedServerQaPassed",
+  "hostedBrowserQaPassed",
+  "phase1154HostedBrowserQaPassed",
+  "googleAdsConversionConfigurationChecked",
+  "hubspotDebNotificationVerified",
+  "productionEnquiryFormLiveSubmissionVerified",
+  "privacyPolicyApproved",
+  "hostingDpaConfirmed",
+  "analyticsConsentQualified",
+  "migrationHttpQualified",
+  "currentDesignReconciled",
+  "externalAccessibilityQualified",
+  "performanceQualified",
+  "studioHandoffQualified",
+  "releaseIndexingApproved",
+]) {
+  assert.equal(approvals[key], false, `fresh release gate must remain open: ${key}`);
+}
 
 assert.match(robots, /releaseIndexingEnabled/);
 assert.match(robots, /disallow: "\/"/);

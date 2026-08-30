@@ -1,5 +1,5 @@
 {
-  "version": "2.2",
+  "version": "2.3",
   "authority": "CYA Website pre-launch release gates — current redesign candidate",
   "photographyPublicationApproved": true,
   "pilatesPublicationApproved": true,
@@ -20,9 +20,10 @@
   "privacyPolicyApproved": false,
   "websiteTermsApproved": false,
   "hostingDpaConfirmed": true,
+  "wafRateLimitQualified": false,
   "analyticsConsentQualified": false,
   "migrationHttpQualified": true,
-  "currentDesignReconciled": false,
+  "currentDesignReconciled": true,
   "externalAccessibilityQualified": false,
   "performanceQualified": false,
   "studioHandoffQualified": false,

@@ -31,7 +31,7 @@ export default function Home() {
           <figure className="relative mt-10 aspect-[3/2] overflow-hidden border border-[var(--cya-divider)] bg-white lg:col-start-2 lg:row-start-1 lg:row-span-3 lg:mt-0 lg:self-start">
             <Image
               src="/images/selected/cya-home-hero-debby-workplace-movement.jpg"
-              alt="A CYA facilitator leads an approachable movement session with a workplace participant."
+              alt="A Corporate Yoga Australia facilitator leads an approachable movement session with a workplace participant."
               fill
               priority
               sizes="(min-width: 1536px) 672px, (min-width: 1280px) 46vw, (min-width: 1024px) 44vw, 100vw"
@@ -80,7 +80,7 @@ export default function Home() {
           <div className="mt-10 grid gap-5 md:grid-cols-3">
             <ProductionCard number="01" title="One-off session" body="Start with workplace yoga, Pilates, mindfulness, a workshop or an event session." />
             <ProductionCard number="02" title="Ongoing wellbeing program" body="Build successful sessions into a regular program shaped around your people and workplace." />
-            <ProductionCard number="03" title="Support between sessions" body="Add Wellbeing Studio access so participants can return to practical support throughout the working week." />
+            <ProductionCard number="03" title="Support between sessions" body="As part of an ongoing workplace wellbeing program, Wellbeing Studio gives participants practical support they can return to between live sessions and throughout the working week." />
           </div>
         </ProductionContainer>
       </section>

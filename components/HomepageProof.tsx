@@ -26,7 +26,7 @@ export function HomepageProof() {
             Real workplaces. Practical wellbeing. Built around working life.
           </h2>
           <p className="mt-6 max-w-4xl text-lg leading-8 text-[var(--cya-body)]">
-            CYA plans and delivers workplace yoga, Pilates, mindfulness, workshops and wellbeing programs for Australian organisations — onsite, online and across multiple locations.
+            Corporate Yoga Australia plans and delivers workplace yoga, Pilates, mindfulness, workshops and wellbeing programs for Australian organisations — onsite, online and across multiple locations.
           </p>
         </div>
 
@@ -34,7 +34,7 @@ export function HomepageProof() {
           <figure className="relative aspect-[4/3] overflow-hidden bg-[var(--cya-surface-page)] sm:aspect-[16/10] lg:aspect-auto lg:min-h-[30rem]">
             <Image
               src="/images/selected/cya-proof-hero-group-practice.webp"
-              alt="A CYA facilitator guides a group through a shared movement practice."
+              alt="A Corporate Yoga Australia facilitator guides a group through a shared movement practice."
               fill
               sizes="(min-width: 1280px) 720px, (min-width: 1024px) 58vw, 100vw"
               className="object-cover object-center"
@@ -43,7 +43,7 @@ export function HomepageProof() {
 
           <div className="bg-[var(--cya-surface-warm)] px-7 py-9 sm:px-10 sm:py-11 lg:border-l lg:border-[var(--cya-divider)] lg:px-12 lg:py-14">
             <p className="text-xs font-bold uppercase tracking-[0.14em] text-[var(--cya-ochre-ink)]">
-              CYA in practice
+              Our approach in practice
             </p>
             <dl className="mt-8 border-t border-[var(--cya-mid-neutral)]/50">
               {proofPoints.map((point) => (

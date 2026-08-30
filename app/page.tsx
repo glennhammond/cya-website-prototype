@@ -27,7 +27,7 @@ export default function Home() {
         <ProductionContainer className="grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:gap-20">
           <div>
             <ProductionKicker>Work Wellness into Your Workday</ProductionKicker>
-            <h1 className="mt-6 max-w-[13ch] text-[clamp(3rem,5vw,4.5rem)] font-bold leading-[1.07] tracking-[-0.02em] text-[var(--cya-ink)]">Useful wellbeing, built around real work.</h1>
+            <h1 className="mt-6 max-w-3xl text-[clamp(3rem,4.2vw,4.5rem)] font-bold leading-[1.07] tracking-[-0.02em] text-[var(--cya-ink)]">Useful wellbeing, built around real work.</h1>
             <p className="mt-7 max-w-3xl text-[clamp(1.15rem,1.6vw,1.4rem)] leading-[1.55] text-[var(--cya-body)]">From corporate yoga and Pilates to workshops, campaign moments and recurring wellbeing, CYA helps organisations shape practical workplace wellbeing around their people, context and working day.</p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <ProductionAction href="/contact">Plan with CYA</ProductionAction>

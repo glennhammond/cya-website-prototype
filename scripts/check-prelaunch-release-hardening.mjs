@@ -114,7 +114,7 @@ assert.equal(routeDecisions.retiredRouteFamilies.length, 2);
 assert.ok(routeDecisions.campaignRoutes.every((route) => route.ownerConfirmed === true));
 
 assert.equal(approvals.hostingDpaConfirmed, true, "Vercel Pro/DPA evidence must be recorded");
-assert.equal(approvals.currentDesignReconciled, false, "final redesign reconciliation must remain open while the design workbench is moving");
+assert.equal(approvals.currentDesignReconciled, true, "release candidate must include the exact current redesign head");
 for (const key of [
   "hostedBrowserQaPassed",
   "phase1154HostedBrowserQaPassed",
@@ -123,6 +123,7 @@ for (const key of [
   "productionEnquiryFormLiveSubmissionVerified",
   "privacyPolicyApproved",
   "websiteTermsApproved",
+  "wafRateLimitQualified",
   "analyticsConsentQualified",
   "externalAccessibilityQualified",
   "performanceQualified",

@@ -107,7 +107,7 @@ assert.equal(routeDecisions.retiredRoutes.length, 5);
 assert.ok(routeDecisions.campaignRoutes.every((route) => route.ownerConfirmed === true));
 
 assert.equal(approvals.hostingDpaConfirmed, true, "Vercel Pro/DPA evidence must be recorded");
-assert.equal(approvals.currentDesignReconciled, true, "current redesign snapshot must be reconciled");
+assert.equal(approvals.currentDesignReconciled, false, "final redesign reconciliation must remain open while the design workbench is moving");
 for (const key of [
   "renderedServerQaPassed",
   "hostedBrowserQaPassed",

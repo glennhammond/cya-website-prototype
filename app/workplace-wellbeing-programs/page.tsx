@@ -85,7 +85,7 @@ export default function WorkplaceWellbeingProgramsPage() {
         <ProductionContainer>
           <ProductionKicker>Designed for participation</ProductionKicker>
           <h2 className="mt-5 text-4xl font-bold lg:text-5xl xl:whitespace-nowrap">Make workplace wellbeing practical to join</h2>
-          <p className="mt-6 max-w-4xl text-lg leading-8 text-[var(--cya-body)]">We plan delivery around your locations, schedules, access needs and the time people can realistically use. Participants receive clear information, choose whether to take part and are not individually monitored or assessed.</p>
+          <p className="mt-6 max-w-4xl text-lg leading-8 text-[var(--cya-body)]">We plan delivery around your locations, schedules, access needs and the time people can realistically use. Participants receive clear information, choose whether to take part and are not individually <span className="whitespace-nowrap">monitored or assessed.</span></p>
           <div className="mt-10 grid gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-center lg:gap-14">
             <div className="border-y border-[var(--cya-divider)]">
               <article className="grid grid-cols-[2.5rem_1fr] gap-4 border-b border-[var(--cya-divider)] py-6">
@@ -155,9 +155,7 @@ export default function WorkplaceWellbeingProgramsPage() {
             {[
               ["What can a workplace wellbeing program include?", "A program can combine workplace yoga, Pilates, mindfulness, workshops, expert-led sessions and Wellbeing Studio support. The mix is shaped around your people, locations, schedules and goals."],
               ["Can we begin with one session or a pilot?", "Yes. You can begin with one experience, a short series or a focused pilot before deciding whether ongoing support would be useful."],
-              ["How is delivery adapted across locations and workforces?", "We confirm the people, environment, access needs, available space and working patterns before recommending formats, facilitators and a delivery schedule."],
-              ["How do hybrid and remote teams participate?", "Programs can combine onsite delivery, live online sessions and Wellbeing Studio access so people can take part across different locations and working arrangements."],
-              ["How can Wellbeing Studio support an ongoing program?", "Wellbeing Studio can provide guided practices and live or on-demand support between facilitated sessions, where that continuity suits the program."],
+              ["Can programs support different locations, workforces and hybrid teams?", "Yes. We confirm the people, locations, access needs, available spaces and working patterns before recommending a mix of onsite delivery, live online sessions and Wellbeing Studio support."],
               ["How are facilitators selected?", "Facilitators are matched to the service, participant group, workplace setting and delivery requirements. Availability and suitability are confirmed before launch."],
               ["What participation and reporting information is available?", "This depends on the delivery model. We agree reporting expectations before launch and keep employer reporting aggregate, proportionate and privacy-aware."],
               ["How is program pricing determined?", "Pricing reflects the mix of services, delivery mode, frequency, locations, participant reach and the coordination or reporting required. We scope these factors before providing a proposal."],
@@ -175,7 +173,7 @@ export default function WorkplaceWellbeingProgramsPage() {
         </ProductionContainer>
       </section>
 
-      <ProductionClosing heading="Shape a program people can trust" body="Start with the organisational need, practical constraints and the change you need to support." />
+      <ProductionClosing heading="Plan a workplace wellbeing program that fits" body="Tell us about your people, locations, schedules and goals. We’ll help shape a practical starting point, whether that is one session, a pilot or an ongoing program." />
     </>
   );
 }

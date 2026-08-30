@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { HomeStructuredData } from "@/components/StructuredData";
 import { ProductionAction, ProductionCard, ProductionClosing, ProductionContainer, ProductionKicker } from "@/components/ProductionPrimitives";
@@ -33,9 +34,16 @@ export default function Home() {
               <ProductionAction href="/movement" style="secondary">Explore movement</ProductionAction>
             </div>
           </div>
-          <div className="relative aspect-[3/2] min-h-[300px] border border-[var(--cya-divider)] bg-gradient-to-br from-[var(--cya-field-note)] via-white to-white" aria-label="Image placeholder: genuine CYA workplace wellbeing experience">
-            <span aria-hidden="true" className="absolute left-8 top-8 h-12 w-12 border-l-4 border-t-4 border-[var(--cya-teal)] sm:left-10 sm:top-10" />
-          </div>
+          <figure className="relative aspect-[3/2] overflow-hidden border border-[var(--cya-divider)] bg-white">
+            <Image
+              src="/images/selected/cya-home-hero-debby-workplace-movement.jpg"
+              alt="A CYA facilitator leads an approachable movement session with a workplace participant."
+              fill
+              priority
+              sizes="(min-width: 1024px) 40vw, 100vw"
+              className="object-cover object-[center_52%]"
+            />
+          </figure>
         </ProductionContainer>
       </section>
 
@@ -44,9 +52,9 @@ export default function Home() {
         job="Context"
         subject="CYA delivering an approachable wellbeing experience in a real Australian workplace, with the facilitator and working environment both visible."
         treatment="Light, contained 3:2 editorial image. Keep the image separate from the hero text and preserve generous white space."
-        format="3:2 desktop · adaptable to 4:3 mobile"
+        format="3:2 desktop and mobile"
         avoid="A dark full-width hero, studio yoga, extreme poses, a single warehouse dominating the brand, or text placed over busy faces."
-        candidate="/images/selected/cya-workplace-wellbeing-hero-warehouse-group.webp"
+        candidate="/images/selected/cya-home-hero-debby-workplace-movement.jpg"
       />
 
       <section id="needs" className="bg-[var(--cya-canvas)] py-20 lg:py-24">

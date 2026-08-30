@@ -73,7 +73,7 @@ export default function Home() {
         <ProductionContainer>
           <ProductionKicker>Start with what is useful now</ProductionKicker>
           <h2 className="mt-5 max-w-4xl text-4xl font-bold lg:text-5xl">One session can stay one session.</h2>
-          <p className="mt-5 max-w-4xl text-lg leading-8 text-[var(--cya-body)]">If the need grows, CYA can repeat what works, connect experiences into a useful rhythm or extend support between live moments. Nothing is forced.</p>
+          <p className="mt-5 max-w-4xl text-lg leading-8 text-[var(--cya-body)]">If the need grows, we can repeat what works, connect experiences into a useful rhythm or extend support between live moments. Nothing is forced.</p>
           <div className="mt-10 grid gap-5 md:grid-cols-3">
             <ProductionCard number="01" title="One useful experience" body="Start with a moment people can recognise." />
             <ProductionCard number="02" title="A repeatable rhythm" body="Build continuity around changing work." />
@@ -81,6 +81,28 @@ export default function Home() {
           </div>
         </ProductionContainer>
       </section>
+      <section className="bg-[var(--cya-surface-base)] py-20 lg:py-24">
+        <ProductionContainer className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:items-center lg:gap-16">
+          <div>
+            <ProductionKicker>Wellbeing Studio by Corporate Yoga Australia</ProductionKicker>
+            <h2 className="mt-5 max-w-3xl text-4xl font-bold tracking-[-0.015em] lg:text-5xl">Wellbeing that stays useful between live moments.</h2>
+            <p className="mt-5 max-w-3xl text-lg leading-8 text-[var(--cya-body)]">Wellbeing Studio is Corporate Yoga Australia’s connected participant-experience layer: a place people can return to for useful actions, live connection and practical wellbeing support across the working year.</p>
+            <div className="mt-8">
+              <ProductionAction href="/online-wellbeing" style="secondary">Explore Wellbeing Studio</ProductionAction>
+            </div>
+          </div>
+          <figure className="relative aspect-[2048/970] overflow-hidden border border-[var(--cya-divider)] bg-[var(--cya-surface-page)]">
+            <Image
+              src="/images/selected/wellbeing-studio-placeholder.png"
+              alt="Wellbeing Studio interface showing options for different moments in the working day."
+              fill
+              sizes="(min-width: 1024px) 54vw, 100vw"
+              className="object-contain"
+            />
+          </figure>
+        </ProductionContainer>
+      </section>
+
       <ProductionClosing heading="Plan something that fits." body="Tell us what needs to happen, who it is for and what working life looks like there." />
     </>
   );

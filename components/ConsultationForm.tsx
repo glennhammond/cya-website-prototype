@@ -271,12 +271,11 @@ export function ConsultationForm({
             className="mt-1 h-4 w-4"
           />
           <span>
-            I understand CYA will use these details to respond to my enquiry and process them
-            through HubSpot, as described in the{" "}
-            <Link className="font-semibold underline underline-offset-4" href="/privacy">
-              privacy information
-            </Link>
-            . <span aria-hidden="true">*</span>
+            Corporate Yoga Australia uses the information you provide here to respond to and manage your workplace wellbeing enquiry. Submitting this form does not subscribe you to marketing communications. See our{" "}
+            <Link className="font-semibold underline underline-offset-4" href="/privacy-policy">
+              Privacy Policy
+            </Link>{" "}
+            for how we handle personal information. <span aria-hidden="true">*</span>
           </span>
         </label>
         {errors.some((e) => e.id === "privacyConsent") && (

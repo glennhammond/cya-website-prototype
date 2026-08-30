@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useRef, useState, type ChangeEvent, type FormEvent } from "react";
 import { ErrorSummary, type FormError } from "@/components/ErrorSummary";
 import { useAnnotation } from "@/lib/annotation";
@@ -226,7 +227,12 @@ export function ConsultationForm({ initialInterest }: { initialInterest?: string
             className="mt-1 h-4 w-4"
           />
           <span>
-            I understand CYA will process this enquiry in line with its privacy policy. <span aria-hidden="true">*</span>
+            I understand CYA will use these details to respond to my enquiry and process them
+            through HubSpot, as described in the{" "}
+            <Link className="font-semibold underline underline-offset-4" href="/privacy">
+              privacy policy
+            </Link>
+            . <span aria-hidden="true">*</span>
           </span>
         </label>
         {errors.some((e) => e.id === "privacyConsent") && (

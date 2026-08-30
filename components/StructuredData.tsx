@@ -1,5 +1,28 @@
 const origin = "https://www.corporateyoga.com.au";
 const organisationId = `${origin}/#organisation`;
+const founderId = `${origin}/about-us#debby-lewis`;
+
+const organisationNode = {
+  "@type": "Organization",
+  "@id": organisationId,
+  name: "Corporate Yoga Australia",
+  legalName: "Deborah Gail Lewis trading as Corporate Yoga Australia",
+  url: origin,
+  logo: `${origin}/brand/cya-logo-mark.svg`,
+  description:
+    "Human-led workplace Yoga, Pilates, mindfulness, workshops and wellbeing programs for Australian organisations, delivered onsite, online and across locations.",
+  foundingDate: "2014",
+  telephone: "1300 373 363",
+  email: "info@corporateyoga.com.au",
+  areaServed: { "@type": "Country", name: "Australia" },
+  founder: { "@id": founderId },
+  sameAs: [
+    "https://au.linkedin.com/company/corporate-yoga-australia",
+    "https://www.instagram.com/corporateyoga_australia/",
+    "https://www.facebook.com/corporateyogaaustralia/",
+    "https://x.com/corporateyogis",
+  ],
+};
 
 type BreadcrumbItem = {
   name: string;
@@ -34,13 +57,7 @@ export function HomeStructuredData() {
       data={{
         "@context": "https://schema.org",
         "@graph": [
-          {
-            "@type": "Organization",
-            "@id": organisationId,
-            name: "Corporate Yoga Australia",
-            url: origin,
-            foundingDate: "2014",
-          },
+          organisationNode,
           {
             "@type": "WebSite",
             "@id": `${origin}/#website`,
@@ -77,11 +94,15 @@ export function FounderStructuredData() {
       data={{
         "@context": "https://schema.org",
         "@type": "Person",
-        "@id": `${origin}/about-us#debby-lewis`,
+        "@id": founderId,
         name: "Debby Lewis",
         jobTitle: "Founder",
         url: `${origin}/about-us`,
         worksFor: { "@id": organisationId },
+        sameAs: [
+          "https://au.linkedin.com/in/lewisdebby",
+          "https://www.instagram.com/debby_lewis/",
+        ],
       }}
     />
   );
@@ -108,6 +129,7 @@ export function ServiceStructuredData({
       data={{
         "@context": "https://schema.org",
         "@graph": [
+          organisationNode,
           {
             "@type": "Service",
             "@id": `${url}#service`,
@@ -133,6 +155,8 @@ export function ArticleStructuredData({
   description,
   path,
   authorName,
+  editorName,
+  reviewerName,
   datePublished,
   dateModified,
 }: {
@@ -140,16 +164,25 @@ export function ArticleStructuredData({
   description: string;
   path: string;
   authorName: string;
+  editorName?: string;
+  reviewerName?: string;
   datePublished: string;
   dateModified: string;
 }) {
   const url = new URL(path, origin).toString();
+  const author =
+    authorName === "Corporate Yoga Australia"
+      ? { "@id": organisationId }
+      : authorName === "Debby Lewis"
+        ? { "@id": founderId }
+        : { "@type": "Person", name: authorName };
 
   return (
     <JsonLd
       data={{
         "@context": "https://schema.org",
         "@graph": [
+          organisationNode,
           {
             "@type": "Article",
             "@id": `${url}#article`,
@@ -158,10 +191,9 @@ export function ArticleStructuredData({
             url,
             datePublished,
             dateModified,
-            author: {
-              "@type": authorName === "Corporate Yoga Australia" ? "Organization" : "Person",
-              name: authorName,
-            },
+            author,
+            ...(editorName ? { editor: { "@type": "Person", name: editorName } } : {}),
+            ...(reviewerName ? { reviewedBy: { "@type": "Person", name: reviewerName } } : {}),
             publisher: { "@id": organisationId },
             mainEntityOfPage: url,
             inLanguage: "en-AU",

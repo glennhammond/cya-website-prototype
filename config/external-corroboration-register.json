@@ -1,0 +1,103 @@
+{
+  "version": "1.0.0",
+  "authority": "CYA Search Visibility — Evidence, Answers & Corroboration 02",
+  "evidenceDate": "2026-08-30",
+  "principle": "Earn and preserve references that make sense because the relationship, delivery or expertise is real; never acquire mentions merely to influence rankings or AI answers.",
+  "protectedExistingAuthority": [
+    {
+      "id": "BEA",
+      "source": "Business Events Australia / Tourism Australia",
+      "domain": "australia.com",
+      "evidence": "Business-events itinerary referencing a private Yoga session",
+      "destination": "/",
+      "status": "verified-live-in-authority-audit-2026-08-26",
+      "nextAction": "Protect through migration; confirm the reference after the migration safety gate."
+    },
+    {
+      "id": "BRISBANE-BUSINESS",
+      "source": "Brisbane Business Hub",
+      "domain": "brisbane.qld.au",
+      "evidence": "Lord Mayor's Women in Business Grant recipient listing",
+      "destination": "/",
+      "status": "verified-live-in-authority-audit-2026-08-26",
+      "nextAction": "Protect the direct canonical Home link and verify after migration."
+    },
+    {
+      "id": "BESYDNEY",
+      "source": "BESydney",
+      "domain": "besydney.com.au",
+      "evidence": "Sydney wellness activities editorial page",
+      "destination": "/",
+      "status": "verified-live-in-authority-audit-2026-08-26",
+      "nextAction": "Protect first; seek a direct canonical update only if there is an easy relationship route after launch."
+    },
+    {
+      "id": "ALSCO",
+      "source": "Alsco Australia",
+      "domain": "alsco.com.au",
+      "evidence": "Workplace activities editorial references",
+      "destination": "/",
+      "status": "verified-live-in-authority-audit-2026-08-26",
+      "nextAction": "Preserve the qualified /getting-started one-hop redirect and consider a direct-link update after migration."
+    }
+  ],
+  "firstRelationshipTargets": [
+    {
+      "id": "CLIENT-PROOF",
+      "lane": "client and workplace relationship",
+      "target": "One existing client with a substantive, permission-approved program story",
+      "asset": "Co-published or source-attributed case study",
+      "destination": "/case-studies",
+      "gate": "Named client, factual evidence, client permission and Case Studies indexation approval"
+    },
+    {
+      "id": "CHAMPION-PILOT",
+      "lane": "client and workplace relationship",
+      "target": "The eventual named Wellbeing Champion paid-pilot buyer",
+      "asset": "Pilot method, limitations and lessons rather than a promotional testimonial",
+      "destination": "/workplace-wellbeing-programs",
+      "gate": "Paid pilot completion, evaluation evidence, written permission and separate eLearning Studio reporting"
+    },
+    {
+      "id": "EXPERT-ATTRIBUTION",
+      "lane": "expert and professional authority",
+      "target": "A genuine CYA practitioner or expert who substantively reviews an Insight",
+      "asset": "Named expert review, profile and natural reference from the expert's professional presence",
+      "destination": "/blog",
+      "gate": "Real expertise, completed substantive review and explicit attribution permission"
+    },
+    {
+      "id": "EVENT-PARTNER",
+      "lane": "business events and venues",
+      "target": "One existing event, venue or conference relationship evidenced by real delivery",
+      "asset": "Agenda-fit wellbeing guide or partner listing",
+      "destination": "/conferences-events",
+      "gate": "Product and evidence complete; Conferences & Events indexation separately approved"
+    }
+  ],
+  "ownedEntityPresence": [
+    {
+      "channel": "LinkedIn company profile",
+      "url": "https://au.linkedin.com/company/corporate-yoga-australia",
+      "purpose": "Align entity description while preserving CYA's Yoga identity and broader program capability."
+    },
+    {
+      "channel": "Debby Lewis LinkedIn profile",
+      "url": "https://au.linkedin.com/in/lewisdebby",
+      "purpose": "Corroborate founder identity and genuine practitioner leadership."
+    },
+    {
+      "channel": "CYA Instagram",
+      "url": "https://www.instagram.com/corporateyoga_australia/",
+      "purpose": "Maintain consistent brand, service and founder relationships."
+    }
+  ],
+  "excluded": [
+    "Bulk directories",
+    "Paid dofollow placements",
+    "Reciprocal-link quotas",
+    "Thin guest posts",
+    "Invented awards, research or statistics",
+    "References requiring unsupported health, productivity, psychosocial-control or compliance claims"
+  ]
+}

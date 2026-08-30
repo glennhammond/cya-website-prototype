@@ -53,14 +53,14 @@ export const primaryNav: NavItem[] = [
     href: "/about-us",
     children: [
       {
-        label: "Case Studies",
-        href: "/case-studies",
-        description: "Evidence from real organisational contexts.",
+        label: "About CYA",
+        href: "/about-us",
+        description: "Meet the people and principles behind Corporate Yoga Australia.",
       },
       {
-        label: "About Us",
-        href: "/about-us",
-        description: "CYA's story, people and service character.",
+        label: "Case Studies",
+        href: "/case-studies",
+        description: "See how workplace needs, delivery choices and outcomes connect.",
       },
     ],
   },

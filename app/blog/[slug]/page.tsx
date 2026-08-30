@@ -52,6 +52,8 @@ export default async function InsightArticlePage({
         description={article.summary}
         path={`/blog/${article.slug}`}
         authorName={article.author}
+        editorName={article.editor}
+        reviewerName={article.expertReviewer?.name}
         datePublished={article.datePublished}
         dateModified={article.dateModified}
       />
@@ -79,6 +81,16 @@ export default async function InsightArticlePage({
                 <span aria-hidden="true">·</span>
                 <span>Refreshed {dateFormatter.format(new Date(article.dateModified))}</span>
               </div>
+              {(article.editor || article.expertReviewer) && (
+                <div className="mt-3 space-y-1 text-sm leading-relaxed text-body">
+                  {article.editor && <p>Editorial production: {article.editor}</p>}
+                  {article.expertReviewer && (
+                    <p>
+                      Expert review: {article.expertReviewer.name}, {article.expertReviewer.role}
+                    </p>
+                  )}
+                </div>
+              )}
             </div>
           </Container>
         </Section>
@@ -123,6 +135,30 @@ export default async function InsightArticlePage({
                   ))}
                 </ul>
               </aside>
+
+              {article.sources && article.sources.length > 0 && (
+                <aside className="mt-10 border-t border-divider pt-8">
+                  <h2 className="text-heading-sm text-teal-dark">Sources and scope</h2>
+                  <p className="mt-3 text-sm leading-relaxed text-body">
+                    These sources support the organisational and psychosocial-risk boundaries in this guidance. They
+                    do not turn CYA services into WHS advice or controls.
+                  </p>
+                  <ul className="mt-5 space-y-3 text-sm leading-relaxed text-body">
+                    {article.sources.map((source) => (
+                      <li key={source.href}>
+                        <a
+                          href={source.href}
+                          rel="noreferrer"
+                          className="font-bold text-teal-dark underline decoration-2 underline-offset-4 hover:text-teal"
+                        >
+                          {source.title}
+                        </a>{" "}
+                        — {source.publisher}
+                      </li>
+                    ))}
+                  </ul>
+                </aside>
+              )}
 
               <div className="mt-12 rounded-[var(--radius-card)] border border-divider bg-white p-6 text-sm leading-relaxed text-body">
                 This article is general workplace wellbeing information, not medical or psychological advice. CYA

@@ -1,5 +1,6 @@
 import type { MediaAsset } from "@/lib/types";
-import { ProductionAction, ProductionCard, ProductionClosing, ProductionContainer, ProductionKicker, ProductionPhoto } from "@/components/ProductionPrimitives";
+import { ProductionAction, ProductionCard, ProductionClosing, ProductionContainer, ProductionKicker } from "@/components/ProductionPrimitives";
+import { ReviewImageDirection } from "@/components/ReviewImageDirection";
 
 type ServiceCard = { title: string; body: string; href?: string };
 
@@ -10,6 +11,7 @@ export function SpecialistServiceProduction({
   primaryAction,
   image,
   imageLabel,
+  imageBrief,
   evidenceLine,
   firstKicker,
   firstHeading,
@@ -28,6 +30,13 @@ export function SpecialistServiceProduction({
   primaryAction: { label: string; href: string };
   image: MediaAsset;
   imageLabel: string;
+  imageBrief: {
+    job: "Context" | "Participation" | "Human trust" | "Evidence";
+    subject: string;
+    treatment: string;
+    format: string;
+    avoid: string;
+  };
   evidenceLine: string;
   firstKicker: string;
   firstHeading: string;
@@ -53,7 +62,7 @@ export function SpecialistServiceProduction({
         </ProductionContainer>
       </section>
 
-      <ProductionPhoto asset={image} label={imageLabel} priority />
+      <ReviewImageDirection id={imageLabel} {...imageBrief} candidate={image.src} />
 
       <section className="bg-[var(--cya-field-note)] py-20 lg:py-24">
         <ProductionContainer>

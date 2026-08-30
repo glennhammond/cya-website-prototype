@@ -8,6 +8,9 @@
     "start": "next start",
     "lint": "eslint",
     "qa:search": "node scripts/phase-11-5-4-search-qa.mjs",
+    "qa:ai-search": "node scripts/phase-15-ai-search-qa.mjs",
+    "qa:search-visibility-evidence": "node scripts/phase-16-evidence-answers-qa.mjs",
+    "qa:search-visibility-evidence-rendered": "node scripts/phase-16-evidence-rendered-qa.mjs",
     "qa:rendered-smoke": "node scripts/phase-11-5-4-rendered-smoke.mjs",
     "qa:launch": "node scripts/phase-11-5-4-launch-readiness.mjs"
   },

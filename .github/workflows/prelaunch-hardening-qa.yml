@@ -1,0 +1,77 @@
+name: CYA Pre-launch Hardening QA
+
+on:
+  push:
+    branches:
+      - feat/cya-prelaunch-release-hardening-01
+  pull_request:
+    branches:
+      - main
+
+concurrency:
+  group: cya-prelaunch-hardening-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  prelaunch-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Release-control regression guard
+        run: npm run qa:release-controls
+
+      - name: CYA brand authority
+        run: npm run qa:brand
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Search architecture QA
+        run: npm run qa:search
+
+      - name: AI-search foundation QA
+        run: npm run qa:ai-search
+
+      - name: Evidence and answer-surface QA
+        run: npm run qa:search-visibility-evidence
+
+      - name: Build fail-closed pre-launch candidate
+        env:
+          VERCEL_ENV: preview
+          CYA_PRIVACY_POLICY_APPROVED: "false"
+          CYA_HOSTING_DPA_CONFIRMED: "false"
+          CYA_INDEXING_ENABLED: "false"
+          CYA_ANALYTICS_ENABLED: "false"
+          CYA_ENQUIRY_SUBMISSION_ENABLED: "false"
+        run: npm run build
+
+      - name: Rendered HTTP smoke
+        env:
+          VERCEL_ENV: preview
+        run: npm run qa:rendered-smoke
+
+      - name: Rendered evidence QA
+        env:
+          VERCEL_ENV: preview
+        run: npm run qa:search-visibility-evidence-rendered
+
+      - name: Explain intentionally open launch gates
+        run: |
+          echo "Pre-launch QA complete."
+          echo "qa:launch is intentionally excluded: privacy approval, final design reconciliation, browser/accessibility/performance, WAF and controlled HubSpot E2E remain release gates."

@@ -56,7 +56,7 @@ export default function Home() {
 
       <section className="bg-[var(--cya-surface-page)] py-20 lg:py-24">
         <ProductionContainer>
-          <ProductionKicker>Recognisable experiences</ProductionKicker>
+          <ProductionKicker>What we offer</ProductionKicker>
           <h2 className="mt-5 text-3xl font-bold lg:text-4xl">Explore our workplace wellbeing services.</h2>
           <div className="mt-8 grid gap-5 md:grid-cols-3">
             <ProductionCard number="01" title="Workplace Yoga" body="Calm, mobility and reset, adapted to the room and confidence of the group." href="/workplace-yoga" />

@@ -39,18 +39,35 @@ export default function WorkplaceWellbeingProgramsPage() {
 
       <section id="program-structure" className="bg-[var(--cya-surface-page)] py-20 lg:py-24">
         <ProductionContainer>
-          <ProductionKicker>Composed around your organisation</ProductionKicker>
-          <h2 className="mt-5 text-4xl font-bold tracking-[-0.015em] lg:text-5xl">Recognisable experiences. One managed relationship</h2>
-          <div className="mt-10 grid gap-5 md:grid-cols-3">
-            <ProductionCard title="Start with useful access" body="A focused live or digital rhythm for a defined workforce need." tone="white" />
-            <ProductionCard title="Build a connected rhythm" body="A curated mix of movement, mindfulness, experts and Studio continuity." tone="field" />
-            <ProductionCard title="Shape a deeper partnership" body="A tailored program with coordination, reporting and review." tone="paper" />
+          <ProductionKicker>Built around your workplace</ProductionKicker>
+          <h2 className="mt-5 max-w-5xl text-4xl font-bold tracking-[-0.015em] lg:text-5xl">A program that fits different people, places and working patterns</h2>
+          <p className="mt-6 max-w-4xl text-lg leading-8 text-[var(--cya-body)]">Workplace wellbeing programs can combine yoga, Pilates, mindfulness, workshops and Wellbeing Studio support in ways that suit your locations, schedules and workforce.</p>
+          <div className="mt-10 grid gap-6 md:grid-cols-2">
+            <article className="overflow-hidden border border-[var(--cya-divider)] bg-[var(--cya-surface-base)]">
+              <figure className="relative aspect-[3/2]"><Image src="/images/selected/cya-home-oneoff-desk-stretch.webp" alt="A facilitator guides an employee through an accessible workplace movement session" fill sizes="(min-width: 768px) 50vw, 100vw" className="object-cover" /></figure>
+              <div className="p-6"><h3 className="text-2xl font-semibold text-[var(--cya-teal-dark)]">Office-based teams</h3><p className="mt-3 leading-7 text-[var(--cya-body)]">Accessible sessions that fit meeting rooms, shared spaces and the working day.</p></div>
+            </article>
+            <article className="overflow-hidden border border-[var(--cya-divider)] bg-[var(--cya-surface-base)]">
+              <figure className="relative aspect-[3/2]"><Image src="/images/selected/cya-movement-group-industrial.webp" alt="Employees pause together during a facilitated session in an industrial workplace" fill sizes="(min-width: 768px) 50vw, 100vw" className="object-cover" /></figure>
+              <div className="p-6"><h3 className="text-2xl font-semibold text-[var(--cya-teal-dark)]">Operational workplaces</h3><p className="mt-3 leading-7 text-[var(--cya-body)]">Practical formats adapted to the environment, workforce and available space.</p></div>
+            </article>
+            <article className="overflow-hidden border border-[var(--cya-divider)] bg-[var(--cya-surface-base)]">
+              <figure className="relative aspect-[3/2]"><Image src="/images/selected/cya-programs-multisite-outdoor.webp" alt="Employees in high-visibility workwear take part in an outdoor wellbeing session" fill sizes="(min-width: 768px) 50vw, 100vw" className="object-cover" /></figure>
+              <div className="p-6"><h3 className="text-2xl font-semibold text-[var(--cya-teal-dark)]">Multi-site and distributed teams</h3><p className="mt-3 leading-7 text-[var(--cya-body)]">Coordinated delivery across locations, schedules and different ways of working.</p></div>
+            </article>
+            <article className="overflow-hidden border border-[var(--cya-divider)] bg-[var(--cya-surface-base)]">
+              <figure className="relative aspect-[3/2]"><Image src="/images/selected/cya-conferences-studio-remote-grid.webp" alt="Employees join an online wellbeing session from different locations" fill sizes="(min-width: 768px) 50vw, 100vw" className="object-cover" /></figure>
+              <div className="p-6"><h3 className="text-2xl font-semibold text-[var(--cya-teal-dark)]">Hybrid and online participation</h3><p className="mt-3 leading-7 text-[var(--cya-body)]">Live connection and Wellbeing Studio support between in-person sessions.</p></div>
+            </article>
           </div>
-          <h2 className="mt-14 text-3xl font-bold lg:text-4xl">The program is credible because the operating model is visible</h2>
-          <div className="mt-8 grid gap-5 md:grid-cols-3">
-            <ProductionCard number="01" title="Human curation" body="Facilitator and format matched to context." />
-            <ProductionCard number="02" title="Practical coordination" body="One accountable relationship and clear delivery plan." />
-            <ProductionCard number="03" title="Useful reporting" body="Evidence that supports decisions without overstating impact." />
+          <div className="mt-20 bg-[var(--cya-surface-subtle)] px-8 py-10 lg:px-12 lg:py-12">
+            <ProductionKicker>How we make it work</ProductionKicker>
+            <h2 className="mt-5 max-w-4xl text-3xl font-bold lg:text-4xl">One program, planned and managed with you</h2>
+            <div className="mt-8 grid gap-5 md:grid-cols-3">
+              <ProductionCard number="01" title="Plan around your workplace" body="Agree the audience, locations, schedule, access needs and program goals." />
+              <ProductionCard number="02" title="Coordinate delivery" body="Match facilitators and formats, organise sessions and support participant communications." />
+              <ProductionCard number="03" title="Review and adapt" body="Use participation, feedback and delivery experience to decide what should continue or change." />
+            </div>
           </div>
         </ProductionContainer>
       </section>

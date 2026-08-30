@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { HomeStructuredData } from "@/components/StructuredData";
+import { HomepageProof } from "@/components/HomepageProof";
 import { ProductionAction, ProductionCard, ProductionClosing, ProductionContainer, ProductionKicker } from "@/components/ProductionPrimitives";
 
 export const metadata: Metadata = {
@@ -53,6 +54,8 @@ export default function Home() {
           </div>
         </ProductionContainer>
       </section>
+
+      <HomepageProof />
 
       <section className="bg-[var(--cya-surface-page)] py-20 lg:py-24">
         <ProductionContainer>

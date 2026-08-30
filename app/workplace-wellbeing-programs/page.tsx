@@ -81,23 +81,91 @@ export default function WorkplaceWellbeingProgramsPage() {
         </ProductionContainer>
       </section>
 
-      <section className="bg-white py-20 lg:py-24">
-        <ProductionContainer>
-          <ProductionKicker>Participation and scope</ProductionKicker>
-          <h2 className="mt-5 max-w-4xl text-4xl font-bold lg:text-5xl">Make the program easier to use without making it carry the whole wellbeing system</h2>
-          <p className="mt-6 max-w-4xl text-lg leading-8 text-[var(--cya-body)]">CYA can help plan accessible formats, practical communications, protected opportunities to participate and an aggregate review rhythm. An internal sponsor and a clearly bounded Wellbeing Champion can support awareness, logistics and feedback; they do not become responsible for colleagues&apos; wellbeing, complaints, HR, WHS or mental-health care.</p>
-          <div className="mt-10 grid gap-5 md:grid-cols-3">
-            <ProductionCard title="Fit the workday" body="Consider locations, schedules, operational demands, accessibility and the time people can realistically use." tone="paper" />
-            <ProductionCard title="Keep participation voluntary" body="Give people clear information and more than one useful way to take part without monitoring individual wellbeing." tone="paper" />
-            <ProductionCard title="Learn proportionately" body="Review access, delivery, aggregate participation and voluntary feedback without claiming health, productivity or compliance outcomes." tone="paper" />
+      <section className="bg-[var(--cya-surface-subtle)] py-20 lg:py-24">
+        <ProductionContainer className="grid gap-10 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:items-center lg:gap-14">
+          <figure className="relative aspect-[4/3] overflow-hidden border border-[var(--cya-divider)] bg-[var(--cya-surface-base)]">
+            <Image
+              src="/images/selected/cya-home-hero-workplace-session.webp"
+              alt="Employees take part in an accessible seated workplace yoga session in a meeting room"
+              fill
+              sizes="(min-width: 1024px) 44vw, 100vw"
+              className="object-cover"
+            />
+          </figure>
+          <div>
+            <ProductionKicker>Participation that fits the workday</ProductionKicker>
+            <h2 className="mt-5 max-w-3xl text-4xl font-bold lg:text-5xl">Make it easier for people to take part</h2>
+            <p className="mt-6 max-w-3xl text-lg leading-8 text-[var(--cya-body)]">We help plan delivery around your locations, schedules, access needs and the time people can realistically use. Participation remains voluntary, communications stay clear and review focuses on aggregate information rather than individual wellbeing.</p>
+            <div className="mt-8 border-y border-[var(--cya-divider)]">
+              <div className="grid gap-2 border-b border-[var(--cya-divider)] py-5 sm:grid-cols-[12rem_1fr] sm:gap-6">
+                <h3 className="font-semibold text-[var(--cya-teal-dark)]">Accessible by design</h3>
+                <p className="leading-7 text-[var(--cya-body)]">Choose times, formats and locations that reflect how your people actually work.</p>
+              </div>
+              <div className="grid gap-2 border-b border-[var(--cya-divider)] py-5 sm:grid-cols-[12rem_1fr] sm:gap-6">
+                <h3 className="font-semibold text-[var(--cya-teal-dark)]">Clear before launch</h3>
+                <p className="leading-7 text-[var(--cya-body)]">Give participants practical information about what to expect and how to join.</p>
+              </div>
+              <div className="grid gap-2 py-5 sm:grid-cols-[12rem_1fr] sm:gap-6">
+                <h3 className="font-semibold text-[var(--cya-teal-dark)]">Respectful review</h3>
+                <p className="leading-7 text-[var(--cya-body)]">Use aggregate participation and voluntary feedback to improve delivery without monitoring individual wellbeing.</p>
+              </div>
+            </div>
           </div>
-          <aside className="mt-10 border-l-4 border-[var(--cya-ochre)] bg-[var(--cya-surface-page)] px-7 py-6">
-            <h3 className="text-2xl font-semibold text-[var(--cya-teal-dark)]">Where CYA fits alongside psychosocial risk management</h3>
-            <p className="mt-3 max-w-4xl leading-7 text-[var(--cya-body)]">Wellbeing activities can complement a broader organisational approach, but they do not replace identifying psychosocial hazards, consulting workers, assessing and controlling risks, reviewing controls, changing harmful work conditions or obtaining appropriate WHS, clinical or legal advice. CYA is a workplace wellbeing provider, not an EAP or psychosocial-compliance service.</p>
-          </aside>
-          <div className="mt-8"><ProductionAction href="/blog/the-nervous-system-solution-why-your-wellbeing-program-isnt-working-and-what-to-do-instead" style="secondary">Read the participation guide</ProductionAction></div>
         </ProductionContainer>
       </section>
+
+      <section className="bg-[var(--cya-surface-page)] py-20 lg:py-24">
+        <ProductionContainer className="grid gap-10 lg:grid-cols-[minmax(0,1.02fr)_minmax(0,0.98fr)] lg:items-center lg:gap-14">
+          <div>
+            <ProductionKicker>Experience in practice</ProductionKicker>
+            <h2 className="mt-5 max-w-3xl text-4xl font-bold lg:text-5xl">Workplace wellbeing delivered for established organisations</h2>
+            <p className="mt-6 max-w-3xl text-lg leading-8 text-[var(--cya-body)]">Our client relationships include Cromwell Property Group. We bring the same careful planning, coordination and participant-focused delivery to every workplace program.</p>
+            <p className="mt-4 max-w-3xl text-sm leading-6 text-[var(--cya-body)]">Program details, results and client comments are only published when they have been verified and approved.</p>
+            <div className="mt-8"><ProductionAction href="/contact?interest=program" style="secondary">Discuss a similar need</ProductionAction></div>
+          </div>
+          <figure className="overflow-hidden border border-[var(--cya-divider)] bg-[var(--cya-surface-base)]">
+            <div className="relative aspect-[4/3]">
+              <Image
+                src="/images/selected/cya-workplace-wellbeing-lunch-learn-team.webp"
+                alt="Employees take part in a facilitated movement session at work"
+                fill
+                sizes="(min-width: 1024px) 44vw, 100vw"
+                className="object-cover"
+              />
+            </div>
+            <figcaption className="border-t border-[var(--cya-divider)] px-5 py-3 text-sm text-[var(--cya-body)]">Representative workplace delivery</figcaption>
+          </figure>
+        </ProductionContainer>
+      </section>
+
+      <section className="bg-[var(--cya-surface-base)] py-20 lg:py-24">
+        <ProductionContainer>
+          <ProductionKicker>Practical questions</ProductionKicker>
+          <h2 className="mt-5 max-w-4xl text-4xl font-bold lg:text-5xl">Questions organisations ask before getting started</h2>
+          <div className="mt-10 border-t border-[var(--cya-divider)]">
+            {[
+              ["What can a workplace wellbeing program include?", "A program can combine workplace yoga, Pilates, mindfulness, workshops, expert-led sessions and Wellbeing Studio support. The mix is shaped around your people, locations, schedules and goals."],
+              ["Can we begin with one session or a pilot?", "Yes. You can begin with one experience, a short series or a focused pilot before deciding whether ongoing support would be useful."],
+              ["How is delivery adapted across locations and workforces?", "We confirm the people, environment, access needs, available space and working patterns before recommending formats, facilitators and a delivery schedule."],
+              ["How do hybrid and remote teams participate?", "Programs can combine onsite delivery, live online sessions and Wellbeing Studio access so people can take part across different locations and working arrangements."],
+              ["How can Wellbeing Studio support an ongoing program?", "Wellbeing Studio can provide guided practices and live or on-demand support between facilitated sessions, where that continuity suits the program."],
+              ["How are facilitators selected?", "Facilitators are matched to the service, participant group, workplace setting and delivery requirements. Availability and suitability are confirmed before launch."],
+              ["What participation and reporting information is available?", "This depends on the delivery model. We agree reporting expectations before launch and keep employer reporting aggregate, proportionate and privacy-aware."],
+              ["How is program pricing determined?", "Pricing reflects the mix of services, delivery mode, frequency, locations, participant reach and the coordination or reporting required. We scope these factors before providing a proposal."],
+              ["Does a wellbeing program replace psychosocial risk management?", "No. Workplace wellbeing activities can complement a broader organisational approach, but they do not replace identifying and controlling psychosocial hazards, consulting workers or obtaining appropriate WHS, clinical or legal advice."],
+            ].map(([question, answer]) => (
+              <details key={question} className="group border-b border-[var(--cya-divider)]">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-6 text-lg font-semibold text-[var(--cya-teal-dark)] [&::-webkit-details-marker]:hidden">
+                  <span>{question}</span>
+                  <span aria-hidden="true" className="text-2xl font-normal leading-none transition-transform group-open:rotate-45">+</span>
+                </summary>
+                <p className="max-w-4xl pb-6 pr-12 leading-7 text-[var(--cya-body)]">{answer}</p>
+              </details>
+            ))}
+          </div>
+        </ProductionContainer>
+      </section>
+
       <ProductionClosing heading="Shape a program people can trust" body="Start with the organisational need, practical constraints and the change you need to support." />
     </>
   );

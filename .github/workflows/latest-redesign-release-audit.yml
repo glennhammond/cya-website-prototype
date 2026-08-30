@@ -1,0 +1,62 @@
+name: Latest redesign release audit
+
+on:
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Production dependency audit
+        continue-on-error: true
+        run: npm audit --omit=dev --audit-level=high
+      - name: Brand authority
+        continue-on-error: true
+        run: npm run qa:brand
+      - name: Lint
+        continue-on-error: true
+        run: npm run lint
+      - name: Search architecture
+        continue-on-error: true
+        run: npm run qa:search
+      - name: AI-search foundation
+        continue-on-error: true
+        run: npm run qa:ai-search
+      - name: Evidence and answer surfaces
+        continue-on-error: true
+        run: npm run qa:search-visibility-evidence
+      - name: Production build
+        continue-on-error: true
+        env:
+          VERCEL_ENV: production
+        run: npm run build
+      - name: Rendered production smoke
+        continue-on-error: true
+        env:
+          VERCEL_ENV: production
+        run: npm run qa:rendered-smoke
+      - name: Rendered evidence
+        continue-on-error: true
+        env:
+          VERCEL_ENV: production
+        run: npm run qa:search-visibility-evidence-rendered
+      - name: Historical launch gate diagnostic
+        continue-on-error: true
+        run: npm run qa:launch
+      - name: Audit note
+        run: echo "Diagnostic only. This workflow does not grant release approval or change production."

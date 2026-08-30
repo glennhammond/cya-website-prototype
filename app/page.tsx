@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { HomeStructuredData } from "@/components/StructuredData";
 import { ProductionAction, ProductionCard, ProductionClosing, ProductionContainer, ProductionKicker } from "@/components/ProductionPrimitives";
-import { ReviewImageDirection } from "@/components/ReviewImageDirection";
 
 export const metadata: Metadata = {
   title: { absolute: "Corporate Yoga Australia | Workplace Wellbeing Programs" },
@@ -44,16 +43,6 @@ export default function Home() {
           </div>
         </ProductionContainer>
       </section>
-
-      <ReviewImageDirection
-        id="IMAGE 01 · HOME WORKPLACE CONTEXT"
-        job="Context"
-        subject="CYA delivering an approachable wellbeing experience in a real Australian workplace, with the facilitator and working environment both visible."
-        treatment="Light, contained 3:2 editorial image. Keep the image separate from the hero text and preserve generous white space."
-        format="3:2 desktop and mobile"
-        avoid="A dark full-width hero, studio yoga, extreme poses, a single warehouse dominating the brand, or text placed over busy faces."
-        candidate="/images/selected/cya-home-hero-debby-workplace-movement.jpg"
-      />
 
       <section id="needs" className="bg-[var(--cya-canvas)] py-20 lg:py-24">
         <ProductionContainer>

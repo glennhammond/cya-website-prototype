@@ -23,7 +23,7 @@ The consolidated candidate is now the review surface. Sites 1 and 2 remain evide
 | Brand colours, typography and component roles | CYA Design System v1.0 |
 | Visual direction | Light-led surfaces; no full dark-teal slabs except the footer |
 | Homepage hero | Glenn's approved light two-column hero reference |
-| Brand line | **Work Wellness into Your Workday** above the H1 |
+| Homepage H1 / locked brand line | **Work Wellness into Your Workday** |
 | Search, SEO, AEO and GEO copy | Qualified Site 1/search-project authority |
 | Useful Site 2 copy | Retained where it improves clarity, humanity or service understanding without weakening search authority |
 | Images | Numbered review placeholders and written direction until Glenn and Deb approve a candidate |
@@ -33,12 +33,12 @@ The consolidated candidate is now the review surface. Sites 1 and 2 remain evide
 
 ### Home — `/`
 
-- **Site 1 H1:** Useful wellbeing, built around real work.
+- **Site 1 supporting proposition:** Useful wellbeing, built around real work.
 - **Site 2 H1:** Work wellness into your workday.
-- **Consolidated H1:** **Useful wellbeing, built around real work.**
-- **Brand line:** **Work Wellness into Your Workday**
+- **Consolidated H1 / locked brand line:** **Work Wellness into Your Workday**
+- **Supporting proposition:** **Useful wellbeing, built around real work.**
 - **Consolidated lead:** From corporate yoga and Pilates to workshops, campaign moments and recurring wellbeing, CYA helps organisations shape practical workplace wellbeing around their people, context and working day.
-- **Decision:** Site 1's H1, lead and decision-led structure are retained. Site 2's use of the tagline as the principal heading is corrected: the tagline remains prominent as the CYA brand line above the H1.
+- **Decision:** The protected CYA brand line is the homepage hero H1. Site 1's useful supporting proposition, lead and decision-led structure are retained beneath it.
 
 ### Movement — `/movement`
 
@@ -139,7 +139,7 @@ The consolidated candidate is now the review surface. Sites 1 and 2 remain evide
 ## 4. Visual decisions now enforced
 
 - The homepage uses the approved light two-column hero rather than a dark image hero or bordered context card.
-- **Work Wellness into Your Workday** is the brand line; **Useful wellbeing, built around real work.** is the H1.
+- **Work Wellness into Your Workday** is the locked brand line and homepage hero H1; **Useful wellbeing, built around real work.** is its supporting proposition.
 - Primary Teal is `#17535B`.
 - Deep Teal is `#0E434A`.
 - Signal Ochre is `#C99A3E`.

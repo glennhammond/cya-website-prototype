@@ -61,6 +61,12 @@ for (const file of files) {
 }
 
 const home = await readFile(path.join(root, "app/page.tsx"), "utf8");
+if (!/<h1[^>]*>Work Wellness into Your Workday<\/h1>/.test(home)) {
+  failures.push("app/page.tsx: the protected brand line must be the homepage hero H1");
+}
+if (/<h1[^>]*>Useful wellbeing, built around real work\.<\/h1>/.test(home)) {
+  failures.push("app/page.tsx: the supporting proposition must not replace the protected brand-line H1");
+}
 for (const required of [
   "Work Wellness into Your Workday",
   "Useful wellbeing, built around real work.",

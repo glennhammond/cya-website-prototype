@@ -26,7 +26,7 @@ export default function Home() {
       <section className="bg-[var(--cya-canvas)] py-16 sm:py-20 lg:py-24">
         <ProductionContainer className="grid max-w-[1440px] lg:grid-cols-[minmax(0,1.08fr)_minmax(0,0.92fr)] lg:gap-x-14 xl:grid-cols-[minmax(0,1.04fr)_minmax(0,0.96fr)] xl:gap-x-16">
           <h1 className="max-w-3xl text-[clamp(3rem,4.2vw,4.5rem)] font-bold leading-[1.07] tracking-[-0.02em] text-[var(--cya-teal)] lg:col-start-1 lg:row-start-1">Work Wellness into Your Workday</h1>
-          <p className="mt-7 max-w-3xl text-[clamp(1.15rem,1.6vw,1.4rem)] leading-[1.55] text-[var(--cya-body)] lg:col-start-1 lg:row-start-2">From corporate yoga and Pilates to workshops, conferences, events and ongoing wellbeing programs, we help organisations create practical workplace wellbeing that fits their people, context and working day.</p>
+          <p className="mt-7 max-w-3xl text-[clamp(1.15rem,1.6vw,1.4rem)] leading-[1.55] text-[var(--cya-body)] lg:col-start-1 lg:row-start-2">From workplace yoga and Pilates to workshops, conferences, events and ongoing wellbeing programs, we help organisations create practical workplace wellbeing that fits their people, context and working day.</p>
           <figure className="relative mt-10 aspect-[3/2] overflow-hidden border border-[var(--cya-divider)] bg-white lg:col-start-2 lg:row-start-1 lg:row-span-3 lg:mt-0 lg:self-start">
             <Image
               src="/images/selected/cya-home-hero-debby-workplace-movement.jpg"

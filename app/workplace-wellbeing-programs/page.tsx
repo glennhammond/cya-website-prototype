@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { ServiceStructuredData } from "@/components/StructuredData";
 import { ProductionAction, ProductionCard, ProductionClosing, ProductionContainer, ProductionKicker } from "@/components/ProductionPrimitives";
-import { ReviewImageDirection } from "@/components/ReviewImageDirection";
 
 export const metadata: Metadata = {
   title: { absolute: "Workplace Wellbeing Programs Australia | Corporate Yoga Australia" },
@@ -17,21 +17,25 @@ export default function WorkplaceWellbeingProgramsPage() {
       <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Workplace wellbeing programs" }]} />
 
       <section className="bg-[var(--cya-surface-page)] py-16 lg:py-20">
-        <ProductionContainer className="grid gap-10 lg:grid-cols-[1.4fr_0.8fr] lg:items-center">
+        <ProductionContainer className="grid max-w-[1440px] gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-center lg:gap-14 xl:gap-16">
           <div>
-            <ProductionKicker>Working rhythm · managed partnership</ProductionKicker>
-            <h1 className="mt-5 max-w-3xl text-[clamp(2.8rem,5vw,4.5rem)] font-bold leading-[1.05] tracking-[-0.02em]">A wellbeing program people can genuinely use</h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-[var(--cya-body)]">A wellbeing program should fit the organisation—not the other way around. CYA plans the right mix, coordinates the people, connects live and digital experiences, and adapts the rhythm with you.</p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row"><ProductionAction href="/contact?interest=program">Plan a program</ProductionAction><ProductionAction href="#program-structure" style="secondary">See how programs can work</ProductionAction></div>
+            <ProductionKicker>Workplace wellbeing programs</ProductionKicker>
+            <h1 className="mt-5 max-w-3xl text-[clamp(2.8rem,4.6vw,4.5rem)] font-bold leading-[1.05] tracking-[-0.02em]">A workplace wellbeing program built around how your people work</h1>
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-[var(--cya-body)]">Bring together workplace yoga, Pilates, mindfulness, workshops and Wellbeing Studio support in a program shaped around your people, locations, schedules and goals.</p>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row"><ProductionAction href="/contact?interest=program">Start planning</ProductionAction><ProductionAction href="#program-structure" style="secondary">See how programs work</ProductionAction></div>
           </div>
-          <aside className="bg-[var(--cya-surface-warm)] p-8 text-[var(--cya-teal-dark)]">
-            <ProductionKicker>What procurement needs to know</ProductionKicker>
-            <ul className="mt-6 space-y-4 text-base"><li>Reach and delivery model</li><li>Facilitator fit and quality</li><li>Participation access</li><li>Reporting and governance</li></ul>
-          </aside>
+          <figure className="relative aspect-[3/2] overflow-hidden border border-[var(--cya-divider)] bg-[var(--cya-surface-base)]">
+            <Image
+              src="/images/selected/cya-workplace-wellbeing-hero-warehouse-group.webp"
+              alt="Employees take part in a facilitated workplace yoga session in a warehouse"
+              fill
+              priority
+              sizes="(min-width: 1440px) 650px, (min-width: 1024px) 46vw, 100vw"
+              className="object-cover"
+            />
+          </figure>
         </ProductionContainer>
       </section>
-
-      <ReviewImageDirection id="IMAGE 07 · MANAGED WELLBEING PROGRAM" job="Human trust" subject="A genuine CYA planning or delivery moment that demonstrates human coordination across an organisation—not merely a single exercise class." treatment="Light-led 3:2 image with a clear relationship or planning cue. A second approved delivery image may be added later as evidence." format="3:2 desktop · adaptable to 4:3 mobile" avoid="Generic corporate meetings, unverified client branding, dashboards implying unavailable reporting or one activity representing the entire program." candidate="/images/selected/cya-programs-hero.webp" />
 
       <section id="program-structure" className="bg-[var(--cya-surface-page)] py-20 lg:py-24">
         <ProductionContainer>

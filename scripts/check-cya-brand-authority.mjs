@@ -75,7 +75,7 @@ if (home.includes("Useful wellbeing, built around real work.")) {
 for (const required of [
   "Work Wellness into Your Workday",
   "From corporate yoga and Pilates to workshops, campaign moments and recurring wellbeing",
-  "Explore movement",
+  "Explore workplace wellbeing programs",
 ]) {
   if (!home.includes(required)) failures.push(`app/page.tsx: approved hero content missing: ${required}`);
 }

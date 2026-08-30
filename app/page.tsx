@@ -31,7 +31,7 @@ export default function Home() {
             <p className="mt-7 max-w-3xl text-[clamp(1.15rem,1.6vw,1.4rem)] leading-[1.55] text-[var(--cya-body)]">From corporate yoga and Pilates to workshops, campaign moments and recurring wellbeing, CYA helps organisations shape practical workplace wellbeing around their people, context and working day.</p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <ProductionAction href="/contact">Plan with CYA</ProductionAction>
-              <ProductionAction href="/movement" style="secondary">Explore movement</ProductionAction>
+              <ProductionAction href="/workplace-wellbeing-programs" style="secondary">Explore workplace wellbeing programs</ProductionAction>
             </div>
           </div>
           <figure className="relative aspect-[3/2] overflow-hidden border border-[var(--cya-divider)] bg-white">

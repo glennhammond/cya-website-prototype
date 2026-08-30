@@ -74,13 +74,13 @@ export const utilityNav: NavItem[] = [
 export const memberSignInHref = "https://studio.corporateyoga.com.au";
 
 export const primaryCTA: CTA = {
-  label: "Plan with CYA",
+  label: "Start planning",
   href: "/contact",
   variant: "primary",
 };
 
 /** Shorter form for the fixed-width header bar; full phrase is used everywhere else. */
-export const primaryCTAShort = "Plan with CYA";
+export const primaryCTAShort = "Start planning";
 
 export const footerLegalNav: NavItem[] = [
   { label: "Privacy", href: "/privacy" },

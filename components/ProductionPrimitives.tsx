@@ -38,7 +38,7 @@ export function ProductionCard({ number, title, body, href, tone = "white" }: { 
   return href ? <Link href={href} className="block h-full transition-transform hover:-translate-y-0.5">{content}</Link> : content;
 }
 
-export function ProductionClosing({ heading, body, href = "/contact", action = "Plan with CYA" }: { heading: string; body: string; href?: string; action?: string }) {
+export function ProductionClosing({ heading, body, href = "/contact", action = "Start planning" }: { heading: string; body: string; href?: string; action?: string }) {
   return (
     <section className="bg-[var(--cya-canvas)] py-16 lg:py-20">
       <ProductionContainer>

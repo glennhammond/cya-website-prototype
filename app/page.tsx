@@ -30,7 +30,7 @@ export default function Home() {
             <h1 className="max-w-3xl text-[clamp(3rem,4.2vw,4.5rem)] font-bold leading-[1.07] tracking-[-0.02em] text-[var(--cya-teal)]">Work Wellness into Your Workday</h1>
             <p className="mt-7 max-w-3xl text-[clamp(1.15rem,1.6vw,1.4rem)] leading-[1.55] text-[var(--cya-body)]">From corporate yoga and Pilates to workshops, campaign moments and recurring wellbeing, CYA helps organisations shape practical workplace wellbeing around their people, context and working day.</p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <ProductionAction href="/contact">Plan with CYA</ProductionAction>
+              <ProductionAction href="/contact">Start planning</ProductionAction>
               <ProductionAction href="/workplace-wellbeing-programs" style="secondary">Explore workplace wellbeing programs</ProductionAction>
             </div>
           </div>

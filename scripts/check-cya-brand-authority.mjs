@@ -58,6 +58,7 @@ for (const file of files) {
 
   if (source.includes('tone="teal"')) failures.push(`${relative}: legacy teal section tone is not permitted`);
   if (source.includes('style="ochre"')) failures.push(`${relative}: legacy ochre action treatment is not permitted`);
+  if (source.includes("Plan with CYA")) failures.push(`${relative}: retired public CTA “Plan with CYA” is not permitted; use “Start planning”`);
 
   const incorrectlyCapitalisedYoga = source.match(/\b(?:workplace|studio|one|live|recurring|mixed|with|alongside|from|such as|join|comfortable with|Compare|including|Accessible|practical|CYA) Yoga\b/g) ?? [];
   for (const phrase of incorrectlyCapitalisedYoga) {

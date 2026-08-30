@@ -13,12 +13,12 @@ const STATUS_LABEL: Record<EvidenceStatus, string> = {
 };
 
 const STATUS_CLASS: Record<EvidenceStatus, string> = {
-  approved: "bg-[#DCEFE3] text-[#1E5B3A]",
-  "safe-working-copy": "bg-[#E3EEF6] text-[#1E4E75]",
-  "evidence-required": "bg-[#FBE9D6] text-[#8A5A1E]",
-  "commercial-dependency": "bg-[#F3E4E4] text-[#7A2E2E]",
-  "legal-review": "bg-[#F1E4F3] text-[#6A2E75]",
-  placeholder: "bg-[#E9E9E9] text-[#4A4A4A]",
+  approved: "bg-[var(--cya-surface-subtle)] text-[var(--cya-teal-dark)]",
+  "safe-working-copy": "bg-[var(--cya-paper)] text-[var(--cya-teal-dark)]",
+  "evidence-required": "bg-[var(--cya-warm-neutral)] text-[var(--cya-ochre-ink)]",
+  "commercial-dependency": "bg-[var(--cya-pale-highlight)] text-[var(--cya-error)]",
+  "legal-review": "bg-[var(--cya-paper)] text-[var(--cya-ink)]",
+  placeholder: "bg-[var(--cya-surface-subtle)] text-[var(--cya-ink)]",
 };
 
 export function EvidenceBadge({ status, note }: { status: EvidenceStatus; note?: string }) {

@@ -30,7 +30,7 @@ export const sessionTypes: FeatureItem[] = [
 
 export const participationFeature = {
   kicker: "Approach",
-  heading: "Approachable enough for a busy workplace.",
+  heading: "Approachable enough for a busy workplace",
   body: "The session is shaped around the audience, available time and setting. CYA can keep the practice short and simple, or build a deeper workshop or series when that better matches the organisation's purpose.",
 };
 
@@ -42,13 +42,13 @@ export const deliveryModes: FeatureItem[] = [
 
 export const facilitatorFeature = {
   kicker: "Human-led delivery",
-  heading: "The facilitator matters as much as the format.",
+  heading: "The facilitator matters as much as the format",
   body: "CYA matches the brief with an appropriate practitioner and coordinates the practical delivery with the client. Named facilitator profiles and credentials should only be published once verified for the specific service being promoted.",
 };
 
 export const authorityResource = {
   kicker: "A useful starting point",
-  heading: "Check in with yourself before adding more to the day.",
+  heading: "Check in with yourself before adding more to the day",
   body: "CYA's existing Check In With Yourself article provides a practical editorial pathway into mindfulness. The service page should use that resource to deepen understanding rather than repeating it as sales copy.",
   cta: {
     label: "Read Check In With Yourself",
@@ -80,7 +80,7 @@ export const relatedPaths: FeatureItem[] = [
 
 export const closingCTA = {
   kicker: "Next step",
-  heading: "Tell CYA what kind of pause or practice would help.",
+  heading: "Tell CYA what kind of pause or practice would help",
   body: "The first conversation can be about one short meditation, a workshop, a series or a broader program. There is no required level of commitment.",
   cta: { label: "Discuss mindfulness & meditation", href: "/contact?interest=one-off", variant: "primary" as const },
 };

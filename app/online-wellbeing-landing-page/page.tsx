@@ -12,7 +12,7 @@ export default function OnlineWellbeingLandingPage() {
   return (
     <CampaignContinuityPage
       kicker="Online wellbeing"
-      heading="A human-led wellbeing experience for modern teams."
+      heading="A human-led wellbeing experience for modern teams"
       body="Give people simple ways to join live, practise between sessions and stay connected to a useful wellbeing rhythm."
       benefits={[
         "Live experiences led by experienced facilitators.",

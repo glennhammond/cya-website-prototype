@@ -38,7 +38,7 @@ export default function ExpertExperiencesPage() {
       <PageHero intro={expertHero} image={media.workplaceWellbeingLunchLearn} imagePosition="left" />
       <FeatureGrid
         kicker="Experience formats"
-        heading="Make expertise useful inside the working day."
+        heading="Make expertise useful inside the working day"
         items={experienceFormats}
         tone="white"
         columns={4}
@@ -46,13 +46,13 @@ export default function ExpertExperiencesPage() {
       />
       <DividerList
         kicker="How CYA matches the experience"
-        heading="The person, topic and format need to fit together."
+        heading="The person, topic and format need to fit together"
         items={matchingPrinciples}
         tone="mist"
       />
       <DividerList
         kicker="Related pathways"
-        heading="Choose the clearest route for the workplace need."
+        heading="Choose the clearest route for the workplace need"
         items={expertRelatedPaths}
         tone="white"
       />

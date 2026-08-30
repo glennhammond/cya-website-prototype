@@ -1,82 +1,71 @@
 import type { Metadata } from "next";
-import { PageHero } from "@/components/PageHero";
-import { FeatureGrid } from "@/components/FeatureGrid";
-import { StatementList } from "@/components/StatementList";
-import { DividerList } from "@/components/DividerList";
-import { EditorialFeature } from "@/components/EditorialFeature";
-import { CTASection } from "@/components/CTASection";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
-import { ProofNote } from "@/components/ProofNote";
+import { ReviewImageDirection } from "@/components/ReviewImageDirection";
 import {
-  conferencesHero,
-  agendaMoments,
-  activationFormats,
-  eventRhythm,
-  studioAccessFeature,
-  logistics,
-  closingCTA,
-} from "@/content/conferences";
-import { media } from "@/content/media";
+  ProductionAction,
+  ProductionCard,
+  ProductionClosing,
+  ProductionContainer,
+  ProductionKicker,
+} from "@/components/ProductionPrimitives";
+import { activationFormats, agendaMoments, logistics } from "@/content/conferences";
 
 export const metadata: Metadata = {
   title: "Conferences and Events",
   description:
     "Workplace wellbeing activations, movement, mindfulness and practical sessions designed around the audience, venue and event run sheet.",
-  alternates: {
-    canonical: "/conferences-events",
-  },
-  robots: {
-    index: false,
-    follow: true,
-  },
+  alternates: { canonical: "/conferences-events" },
+  robots: { index: false, follow: true },
 };
 
 export default function ConferencesEventsPage() {
   return (
     <>
       <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Conferences and events" }]} />
-      <PageHero intro={conferencesHero} image={media.conferencesHero} imagePosition="right" />
-      <StatementList
-        kicker="Where CYA fits into the agenda"
-        heading="Support the moment the agenda needs."
-        body="Use movement to reset a head-heavy day, mindfulness to create focus, or practical learning to give delegates something useful to take away."
-        items={agendaMoments}
-        tone="mist"
-        columns={3}
-      />
-      <FeatureGrid
-        id="formats"
-        kicker="Activation formats"
-        heading="From a short reset to a broader wellbeing stream."
-        items={activationFormats}
-        tone="white"
-        columns={3}
-      />
-      <DividerList
-        kicker="Example event rhythm"
-        heading="An illustrative run sheet, not a fixed package."
-        body="This example does not imply a required sequence or duration - CYA designs around your actual agenda."
-        items={eventRhythm}
-        tone="mist"
-      />
-      <EditorialFeature
-        kicker={studioAccessFeature.kicker}
-        heading={studioAccessFeature.heading}
-        body={studioAccessFeature.body}
-        cta={{ label: "Explore online wellbeing", href: "/online-wellbeing", variant: "secondary" }}
-        image={media.conferencesStudioAccess}
-      />
-      <DividerList kicker="Delivery logistics" heading="What CYA confirms before the day." items={logistics} tone="mist" />
-
-      <ProofNote
-        placeholderVariant="conference"
-        placeholderCaption="Case study placeholder - event context, scale and organiser confidence."
-        note="Requires event brief, delivery facts and organiser permission before publication."
-        heading="Organiser confidence, evidenced."
-        body="Event case studies will show context, scale, delivery and organiser response. These remain placeholders until a specific event story is confirmed and permissioned."
-      />
-
-      <CTASection kicker={closingCTA.kicker} heading={closingCTA.heading} body={closingCTA.body} cta={closingCTA.cta} />
+      <section className="bg-[var(--cya-surface-page)] py-16 lg:py-20">
+        <ProductionContainer className="grid gap-10 lg:grid-cols-[1.4fr_0.8fr] lg:items-center">
+          <div>
+            <ProductionKicker>Conferences and events</ProductionKicker>
+            <h1 className="mt-5 max-w-4xl text-[clamp(2.8rem,5vw,4.5rem)] font-bold leading-[1.05]">
+              Build energy, calm and connection into the agenda
+            </h1>
+            <p className="mt-6 max-w-3xl text-lg leading-8 text-[var(--cya-body)]">
+              From a short activation to morning movement, mindfulness or a practical wellbeing session, CYA designs around the audience, venue and run sheet.
+            </p>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <ProductionAction href="/contact?interest=conference">Discuss your conference</ProductionAction>
+              <ProductionAction href="#formats" style="secondary">Explore activation formats</ProductionAction>
+            </div>
+          </div>
+          <aside className="border border-[var(--cya-divider)] bg-white p-8">
+            <ProductionKicker>Start with the agenda</ProductionKicker>
+            <ul className="mt-6 space-y-4 text-lg font-semibold"><li>Audience and participation</li><li>Moment in the run sheet</li><li>Venue and practical set-up</li></ul>
+          </aside>
+        </ProductionContainer>
+      </section>
+      <ReviewImageDirection id="IMAGE 11 · EVENT OR CONFERENCE ACTIVATION" job="Context" subject="A genuine CYA activation within a conference or event, showing how the experience fits the venue, audience and agenda." treatment="Contained 3:2 image with event context and natural participation. Preserve the light-led page rather than turning the photograph into a hero background." format="3:2 desktop · adaptable to 4:3 mobile" avoid="Generic keynote imagery, empty stages, unreadable screens, unapproved event branding or an image that implies an official partnership." candidate="/images/selected/cya-conferences-events-hero.webp" />
+      <section className="bg-white py-20 lg:py-24">
+        <ProductionContainer>
+          <ProductionKicker>Where CYA fits into the agenda</ProductionKicker>
+          <h2 className="mt-5 text-4xl font-bold lg:text-5xl">Support the moment the agenda needs</h2>
+          <div className="mt-10 grid gap-5 md:grid-cols-3">{agendaMoments.map((item) => <ProductionCard key={item.title} title={item.title} body={item.body} />)}</div>
+        </ProductionContainer>
+      </section>
+      <section id="formats" className="bg-[var(--cya-surface-subtle)] py-20 lg:py-24">
+        <ProductionContainer>
+          <ProductionKicker>Activation formats</ProductionKicker>
+          <h2 className="mt-5 text-4xl font-bold lg:text-5xl">From a short reset to a broader wellbeing stream</h2>
+          <div className="mt-10 grid gap-5 md:grid-cols-3">{activationFormats.map((item) => <ProductionCard key={item.title} title={item.title} body={item.body} tone="paper" />)}</div>
+        </ProductionContainer>
+      </section>
+      <section className="bg-[var(--cya-surface-page)] py-20 lg:py-24">
+        <ProductionContainer>
+          <ProductionKicker>Delivery logistics</ProductionKicker>
+          <h2 className="mt-5 text-4xl font-bold lg:text-5xl">What CYA confirms before the day</h2>
+          <div className="mt-10 grid gap-5 md:grid-cols-4">{logistics.map((item) => <ProductionCard key={item.title} title={item.title} body={item.body} tone="paper" />)}</div>
+        </ProductionContainer>
+      </section>
+      <ProductionClosing heading="One activation or a connected event experience" body="Start with the audience, agenda and venue. CYA can shape one useful moment or coordinate several experiences when that helps." href="/contact?interest=conference" action="Discuss your conference" />
     </>
   );
 }

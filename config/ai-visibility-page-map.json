@@ -1,0 +1,146 @@
+{
+  "version": "1.0.0",
+  "authority": "CYA Search Visibility — SEO, AEO & GEO Foundation 01",
+  "prepared": "2026-08-30",
+  "rules": [
+    "Commercial pages own transactional intent; Insights explain and support.",
+    "The opening paragraph must directly answer the page's central buyer question.",
+    "Visible text, metadata and structured data must describe the same real offer.",
+    "Evidence-dependent claims remain withheld or explicitly qualified.",
+    "One-off services remain legitimate outcomes; programs must not be forced.",
+    "Wellbeing activities do not replace psychosocial hazard identification, consultation, controls or professional advice.",
+    "Case studies remain noindex until permission and evidence gates pass."
+  ],
+  "pages": [
+    {
+      "path": "/",
+      "status": "index-qualified",
+      "centralQuestion": "What does Corporate Yoga Australia provide, and is it relevant to our workplace?",
+      "directAnswerContract": ["human-led workplace Yoga and wellbeing", "Australia-wide delivery", "one-off and ongoing options", "onsite, online and multi-location delivery"],
+      "primaryEntity": "Corporate Yoga Australia",
+      "schema": ["Organization", "WebSite"],
+      "evidenceRequired": ["founding date", "service capability", "national coverage", "approved proof"],
+      "support": ["/workplace-yoga", "/workplace-wellbeing-programs", "/about-us"]
+    },
+    {
+      "path": "/workplace-wellbeing-programs",
+      "status": "index-qualified",
+      "centralQuestion": "How can CYA plan and deliver a workplace wellbeing program that fits our organisation?",
+      "directAnswerContract": ["planning relationship", "programme cadence", "experience mix", "participation support", "reporting scope", "onsite, online, hybrid and multi-site formats"],
+      "primaryEntity": "Workplace Wellbeing Programs",
+      "schema": ["Service", "BreadcrumbList"],
+      "evidenceRequired": ["real programme examples", "engagement method", "reporting reality", "delivery capacity"],
+      "support": ["/blog/the-nervous-system-solution-why-your-wellbeing-program-isnt-working-and-what-to-do-instead", "/online-wellbeing", "/contact"]
+    },
+    {
+      "path": "/movement",
+      "status": "index-qualified",
+      "centralQuestion": "Which form of workplace movement fits our people, space and workday?",
+      "directAnswerContract": ["Yoga, Pilates and desk-friendly movement comparison", "accessibility", "space and equipment", "delivery formats"],
+      "primaryEntity": "Workplace Movement",
+      "schema": ["Service", "BreadcrumbList"],
+      "evidenceRequired": ["genuine formats", "inclusion boundaries", "facilitator capability"],
+      "support": ["/workplace-yoga", "/workplace-pilates"]
+    },
+    {
+      "path": "/workplace-yoga",
+      "status": "index-qualified",
+      "centralQuestion": "Can CYA deliver an inclusive workplace Yoga session that fits our team and workplace?",
+      "directAnswerContract": ["session formats", "beginner suitability", "onsite and online delivery", "duration, space and equipment", "one-off and recurring options"],
+      "primaryEntity": "Workplace Yoga",
+      "schema": ["Service", "BreadcrumbList"],
+      "evidenceRequired": ["qualified facilitators", "real delivery contexts", "approved client evidence"],
+      "support": ["/blog/8-tips-to-successfully-introduce-yoga-at-work", "/movement", "/contact"]
+    },
+    {
+      "path": "/workplace-pilates",
+      "status": "index-qualified",
+      "centralQuestion": "What does workplace Pilates involve and what does our organisation need to provide?",
+      "directAnswerContract": ["mat-based formats", "space and equipment", "accessibility", "onsite and online delivery", "facilitator qualifications"],
+      "primaryEntity": "Workplace Pilates",
+      "schema": ["Service", "BreadcrumbList"],
+      "evidenceRequired": ["confirmed product", "named qualified facilitators", "real Pilates proof"],
+      "support": ["/movement", "/workplace-wellbeing-programs", "/contact"]
+    },
+    {
+      "path": "/meditation-mindfulness",
+      "status": "index-qualified",
+      "centralQuestion": "Which meditation, mindfulness or breathwork format fits an ordinary workday?",
+      "directAnswerContract": ["format distinctions", "short workplace uses", "delivery modes", "comfort and scope boundaries", "facilitator expertise"],
+      "primaryEntity": "Workplace Mindfulness and Meditation",
+      "schema": ["Service", "BreadcrumbList"],
+      "evidenceRequired": ["named expertise", "safe practice boundaries", "proportionate claims"],
+      "support": ["/blog/check-in-with-yourself-with-this-simple-technique", "/blog/harnessing-the-power-of-the-breath", "/contact"]
+    },
+    {
+      "path": "/workplace-wellbeing-workshops",
+      "status": "index-qualified",
+      "centralQuestion": "Which expert-led workshop or Lunch and Learn fits our workplace need?",
+      "directAnswerContract": ["real topics", "named experts", "format and duration", "audience fit", "onsite and online delivery"],
+      "primaryEntity": "Workplace Wellbeing Workshops",
+      "schema": ["Service", "BreadcrumbList"],
+      "evidenceRequired": ["product plus expert plus demand", "credentials", "current availability"],
+      "support": ["/workplace-wellbeing-programs", "/contact"]
+    },
+    {
+      "path": "/online-wellbeing",
+      "status": "index-qualified",
+      "centralQuestion": "How does CYA support remote, hybrid and distributed teams between live sessions?",
+      "directAnswerContract": ["live short sessions", "on-demand continuity", "Wellbeing Studio relationship", "employee and organiser experience", "reporting scope"],
+      "primaryEntity": "Wellbeing Studio by Corporate Yoga Australia",
+      "schema": ["Service", "BreadcrumbList"],
+      "evidenceRequired": ["current live capability", "current content", "access model", "reporting reality"],
+      "support": ["/workplace-wellbeing-programs", "/contact"]
+    },
+    {
+      "path": "/blog",
+      "status": "index-qualified",
+      "centralQuestion": "What practical guidance can help me plan or improve workplace wellbeing?",
+      "directAnswerContract": ["planning guidance", "expert perspectives", "practical workplace practices", "clear commercial ownership"],
+      "primaryEntity": "CYA Insights",
+      "schema": ["BreadcrumbList"],
+      "evidenceRequired": ["author or reviewer", "review date", "sources for material claims", "declared service owner"],
+      "support": ["/workplace-wellbeing-programs", "/workplace-yoga", "/meditation-mindfulness"]
+    },
+    {
+      "path": "/about-us",
+      "status": "index-qualified",
+      "centralQuestion": "Who is behind CYA, what can the business genuinely deliver and why should a buyer trust it?",
+      "directAnswerContract": ["founder identity", "history", "national facilitator network", "delivery standards", "scope and contact details"],
+      "primaryEntity": "Corporate Yoga Australia and Debby Lewis",
+      "schema": ["Person", "BreadcrumbList"],
+      "evidenceRequired": ["verified biography", "current facilitator details", "approved credentials", "current coverage"],
+      "support": ["/workplace-wellbeing-programs", "/contact"]
+    },
+    {
+      "path": "/contact",
+      "status": "index-qualified",
+      "centralQuestion": "What information does CYA need to recommend the next useful step?",
+      "directAnswerContract": ["minimal required fields", "what happens next", "response commitment", "privacy boundary"],
+      "primaryEntity": "Plan with CYA enquiry",
+      "schema": ["BreadcrumbList"],
+      "evidenceRequired": ["operational response commitment", "working HubSpot flow", "privacy policy"],
+      "support": ["/privacy"]
+    },
+    {
+      "path": "/case-studies",
+      "status": "noindex-evidence-gated",
+      "centralQuestion": "What happened in real CYA engagements and what evidence supports the account?",
+      "directAnswerContract": ["context", "need", "CYA response", "delivery", "evidence", "what happened next"],
+      "primaryEntity": "CYA client evidence",
+      "schema": ["Article", "BreadcrumbList"],
+      "evidenceRequired": ["client permission", "claim verification", "asset rights", "no fabricated ROI"],
+      "support": ["/workplace-wellbeing-programs", "/contact"]
+    },
+    {
+      "path": "/conferences-events",
+      "status": "noindex-product-gated",
+      "centralQuestion": "Can CYA deliver a credible wellbeing activation in our event setting and schedule?",
+      "directAnswerContract": ["event formats", "delegate scale", "space and logistics", "city and date availability", "real event proof"],
+      "primaryEntity": "Conference and Event Wellbeing",
+      "schema": ["Service", "BreadcrumbList"],
+      "evidenceRequired": ["approved event product", "real images", "delegate scale", "delivery locations"],
+      "support": ["/workplace-wellbeing-workshops", "/contact"]
+    }
+  ]
+}

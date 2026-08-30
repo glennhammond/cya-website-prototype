@@ -15,13 +15,13 @@ export const movementHero: PageIntro = {
 export const movementTypes: FeatureItem[] = [
   {
     title: "Workplace Yoga",
-    body: "Accessible Yoga shaped around the people, space, time and purpose of the workplace brief.",
+    body: "Accessible yoga shaped around the people, space, time and purpose of the workplace brief.",
     href: "/workplace-yoga",
     cta: "Explore Workplace Yoga",
   },
   {
     title: "Workplace Pilates",
-    body: "Mat-based Pilates for one-off classes, short series, recurring sessions or mixed Yoga + Pilates rhythms, adapted to the team and available space.",
+    body: "Mat-based Pilates for one-off classes, short series, recurring sessions or mixed yoga and Pilates rhythms, adapted to the team and available space.",
     href: "/workplace-pilates",
     cta: "Explore Workplace Pilates",
   },
@@ -37,7 +37,7 @@ export const movementTypes: FeatureItem[] = [
 
 export const whoItsFor = {
   kicker: "Who it's for",
-  heading: "Teams who never expected to try this at work.",
+  heading: "Teams who never expected to try this at work",
   body: "CYA works with people who sit for long stretches, travel frequently, stand on their feet all day, or simply want a practical reset between meetings. No mat experience, uniform or particular level of ability is assumed.",
 };
 
@@ -57,7 +57,7 @@ export const whatToExpect: FeatureItem[] = [
 
 export const inclusionFeature = {
   kicker: "Inclusion and workplace adaptation",
-  heading: "Designed for varied bodies, roles and confidence levels.",
+  heading: "Designed for varied bodies, roles and confidence levels",
   body: "CYA does not assume flexibility, fitness or prior practice. Facilitators can offer modifications as part of the session, and formats adapt to boardrooms, warehouses, desks and shared community spaces alike.",
 };
 

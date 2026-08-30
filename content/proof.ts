@@ -2,7 +2,7 @@ import type { CaseStudy, PageIntro } from "@/lib/types";
 
 export const proofHero: PageIntro = {
   kicker: "Case studies",
-  heading: "Work shown in context.",
+  heading: "Work shown in context",
   body: "Explore the situation, decisions, delivery and evidence behind selected CYA engagements. These draft stories remain unpublished until client permission, dates and facts are confirmed.",
 };
 

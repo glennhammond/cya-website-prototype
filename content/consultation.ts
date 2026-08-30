@@ -2,7 +2,7 @@ import type { ConsultationInterest, PageIntro } from "@/lib/types";
 
 export const consultationHero: PageIntro = {
   kicker: "Book a wellbeing consultation",
-  heading: "Start with the need, not a package.",
+  heading: "Start with the need, not a package",
   body: "This conversation might cover one session, a short series, an event, Wellbeing Studio, an ongoing program, or annual support - there's no wrong place to start. We'll use it to understand the context and recommend a useful next step.",
 };
 

@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useRef, useState, type ChangeEvent, type FormEvent } from "react";
 import { ErrorSummary, type FormError } from "@/components/ErrorSummary";
 import { useAnnotation } from "@/lib/annotation";
@@ -143,7 +144,7 @@ export function ConsultationForm({ initialInterest }: { initialInterest?: string
   if (status === "failure") {
     return (
       <div role="alert" className="rounded-[var(--radius-card)] border-2 border-error bg-white p-8">
-        <h2 className="text-2xl text-error">Your enquiry didn&rsquo;t go through.</h2>
+        <h2 className="text-2xl text-error">Your enquiry didn&rsquo;t go through</h2>
         <p className="mt-3 text-base leading-relaxed text-body">
           Something went wrong submitting this form. Please try again, call CYA on 1300 373 363 or email
           info@corporateyoga.com.au.
@@ -152,7 +153,7 @@ export function ConsultationForm({ initialInterest }: { initialInterest?: string
           <button
             type="button"
             onClick={() => setStatus("idle")}
-            className="min-h-12 rounded-[18px] bg-gold px-6 text-[15px] font-bold text-white hover:bg-[var(--cya-gold-hover)]"
+            className="min-h-12 rounded-[4px] bg-[var(--cya-action-primary-bg)] px-6 text-[15px] font-bold text-[var(--cya-action-primary-text)] hover:bg-[var(--cya-teal-dark)]"
           >
             Try again
           </button>
@@ -226,7 +227,12 @@ export function ConsultationForm({ initialInterest }: { initialInterest?: string
             className="mt-1 h-4 w-4"
           />
           <span>
-            I understand CYA will process this enquiry in line with its privacy policy. <span aria-hidden="true">*</span>
+            I understand CYA will use these details to respond to my enquiry and process them
+            through HubSpot, as described in the{" "}
+            <Link className="font-semibold underline underline-offset-4" href="/privacy">
+              privacy policy
+            </Link>
+            . <span aria-hidden="true">*</span>
           </span>
         </label>
         {errors.some((e) => e.id === "privacyConsent") && (
@@ -240,7 +246,7 @@ export function ConsultationForm({ initialInterest }: { initialInterest?: string
         <button
           type="submit"
           disabled={status === "submitting"}
-          className="inline-flex min-h-12 w-full items-center justify-center rounded-[4px] bg-gold px-8 text-[15px] font-bold text-white transition-colors hover:bg-[var(--cya-gold-hover)] disabled:opacity-60 sm:w-auto"
+          className="inline-flex min-h-12 w-full items-center justify-center rounded-[4px] bg-[var(--cya-action-primary-bg)] px-8 text-[15px] font-bold text-[var(--cya-action-primary-text)] transition-colors hover:bg-[var(--cya-teal-dark)] disabled:opacity-60 sm:w-auto"
         >
           {status === "submitting" ? "Sending your enquiry…" : "Send your enquiry"}
         </button>

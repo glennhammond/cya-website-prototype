@@ -3,15 +3,7 @@ import { CtaLink } from "@/components/CtaLink";
 import { ImageMedia } from "@/components/ImageMedia";
 import type { MediaAsset, PageIntro } from "@/lib/types";
 
-/**
- * Shared internal-page hero archetype (brief §16 A, B, C, D, G). Same
- * gradient-over-image language as the homepage hero, for one coherent visual
- * system across the site - composition still varies per page through the
- * photograph itself, `imagePosition` (which side the text/gradient sits on)
- * and meta chips, rather than every page looking identical. Text sits inside
- * the shared `Container`, never padded directly off the viewport edge, so
- * it lines up with page headings and body copy below it.
- */
+/** Shared internal-page hero using the approved surface/page entry treatment. */
 export function PageHero({
   intro,
   image,
@@ -21,27 +13,20 @@ export function PageHero({
   image: MediaAsset;
   imagePosition?: "left" | "right";
 }) {
-  const textRight = imagePosition === "left";
+  const imageFirst = imagePosition === "left";
 
   return (
-    <section className="relative isolate min-h-[420px] overflow-hidden lg:min-h-[520px]">
-      <ImageMedia asset={image} treatment="background" priority sizes="100vw" />
-      <div
-        aria-hidden="true"
-        className={`absolute inset-0 bg-gradient-to-t from-teal-dark via-teal-dark/60 to-transparent ${
-          textRight ? "lg:bg-gradient-to-l" : "lg:bg-gradient-to-r"
-        } lg:from-teal-dark lg:via-teal-dark/50 lg:to-transparent`}
-      />
-      <div className="relative z-10 flex h-full min-h-[420px] items-end pb-8 lg:min-h-[520px] lg:items-center lg:pb-0">
-        <Container className={textRight ? "lg:flex lg:justify-end" : ""}>
-          <div className="max-w-xl">
-            <Kicker tone="pale">{intro.kicker}</Kicker>
-            <h1 className="mt-4 text-heading-lg text-white">{intro.heading}</h1>
-            <p className="mt-4 max-w-lg text-lg leading-relaxed text-white/90">{intro.body}</p>
+    <section className="bg-[var(--cya-surface-page)] py-16 sm:py-20 lg:py-24">
+      <Container>
+        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
+          <div className={imageFirst ? "lg:order-2" : ""}>
+            <Kicker tone="aqua">{intro.kicker}</Kicker>
+            <h1 className="mt-4 text-heading-lg text-[var(--cya-text-primary)]">{intro.heading}</h1>
+            <p className="mt-4 max-w-lg text-lg leading-relaxed text-[var(--cya-text-body)]">{intro.body}</p>
             {intro.meta && intro.meta.length > 0 && (
               <ul className="mt-5 flex flex-wrap gap-2">
                 {intro.meta.map((item) => (
-                  <li key={item} className="rounded-full border border-white/30 px-3.5 py-1.5 text-sm font-bold text-white">
+                  <li key={item} className="rounded-full border border-[var(--cya-divider)] bg-[var(--cya-surface-base)] px-3.5 py-1.5 text-sm font-bold text-[var(--cya-text-primary)]">
                     {item}
                   </li>
                 ))}
@@ -57,8 +42,15 @@ export function PageHero({
               </div>
             )}
           </div>
-        </Container>
-      </div>
+          <ImageMedia
+            asset={image}
+            priority
+            aspect="3/2"
+            sizes="(min-width: 1024px) 44vw, 100vw"
+            className={imageFirst ? "lg:order-1" : ""}
+          />
+        </div>
+      </Container>
     </section>
   );
 }

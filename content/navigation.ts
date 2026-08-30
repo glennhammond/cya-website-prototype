@@ -8,12 +8,12 @@ export const primaryNav: NavItem[] = [
       {
         label: "Movement",
         href: "/movement",
-        description: "Compare Yoga, Pilates, mobility and other workplace movement formats.",
+        description: "Compare yoga, Pilates, mobility and other workplace movement formats.",
       },
       {
         label: "Workplace Yoga",
         href: "/workplace-yoga",
-        description: "One-off, recurring, onsite and online Yoga adapted to real workplaces.",
+        description: "One-off, recurring, onsite and online yoga adapted to real workplaces.",
       },
       {
         label: "Workplace Pilates",
@@ -53,14 +53,14 @@ export const primaryNav: NavItem[] = [
     href: "/about-us",
     children: [
       {
-        label: "Case Studies",
-        href: "/case-studies",
-        description: "Evidence from real organisational contexts.",
+        label: "About CYA",
+        href: "/about-us",
+        description: "Meet the people and principles behind Corporate Yoga Australia.",
       },
       {
-        label: "About Us",
-        href: "/about-us",
-        description: "CYA's story, people and service character.",
+        label: "Case Studies",
+        href: "/case-studies",
+        description: "See how workplace needs, delivery choices and outcomes connect.",
       },
     ],
   },
@@ -74,13 +74,13 @@ export const utilityNav: NavItem[] = [
 export const memberSignInHref = "https://studio.corporateyoga.com.au";
 
 export const primaryCTA: CTA = {
-  label: "Plan with CYA",
+  label: "Start planning",
   href: "/contact",
   variant: "primary",
 };
 
 /** Shorter form for the fixed-width header bar; full phrase is used everywhere else. */
-export const primaryCTAShort = "Plan with CYA";
+export const primaryCTAShort = "Start planning";
 
 export const footerLegalNav: NavItem[] = [
   { label: "Privacy", href: "/privacy" },

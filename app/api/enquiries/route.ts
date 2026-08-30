@@ -49,8 +49,14 @@ function validAttribution(value: unknown): AttributionData {
   }
   const landingPage = clean(source.landingPage, 2000);
   const capturedAt = clean(source.capturedAt, 100);
+  const initialReferrer = clean(source.initialReferrer, 2000);
+  const discoveryChannel = clean(source.discoveryChannel, 100);
+  const discoverySource = clean(source.discoverySource, 100);
   if (landingPage) result.landingPage = landingPage;
   if (capturedAt) result.capturedAt = capturedAt;
+  if (initialReferrer) result.initialReferrer = initialReferrer;
+  if (discoveryChannel) result.discoveryChannel = discoveryChannel;
+  if (discoverySource) result.discoverySource = discoverySource;
   return result;
 }
 
@@ -123,6 +129,9 @@ export async function POST(request: NextRequest) {
     clean(body.role, 200) ? `Role: ${clean(body.role, 200)}` : "",
     clean(body.workforce, 100) ? `Workforce: ${clean(body.workforce, 100)}` : "",
     attribution.landingPage ? `Landing page: ${attribution.landingPage}` : "",
+    attribution.discoveryChannel ? `Discovery channel: ${attribution.discoveryChannel}` : "",
+    attribution.discoverySource ? `Discovery source: ${attribution.discoverySource}` : "",
+    attribution.initialReferrer ? `Initial referrer: ${attribution.initialReferrer}` : "",
     clean(body.sourcePage, 2000) ? `Submission page: ${clean(body.sourcePage, 2000)}` : "",
     clean(body.referrer, 2000) ? `Referrer: ${clean(body.referrer, 2000)}` : "",
     attributionSummary ? `Attribution: ${attributionSummary}` : "",
@@ -141,7 +150,7 @@ export async function POST(request: NextRequest) {
   if (phone) fields.push(field("phone", phone));
 
   const context: Record<string, string> = {
-    pageName: "Contact / Plan with CYA",
+    pageName: "Contact / Start planning",
     pageUri: clean(body.sourcePage, 2000) || "https://www.corporateyoga.com.au/contact",
   };
   const hubspotutk = clean(body.hubspotutk, 200);
@@ -161,7 +170,7 @@ export async function POST(request: NextRequest) {
         legalConsentOptions: {
           consent: {
             consentToProcess: true,
-            text: "I understand CYA will process this enquiry in line with its privacy policy.",
+            text: "I understand CYA will use these details to respond to my enquiry and process them through HubSpot, as described in the privacy policy.",
           },
         },
         skipValidation: true,

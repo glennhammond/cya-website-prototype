@@ -11,20 +11,26 @@ export default function MeditationMindfulnessPage() {
     <ServiceStructuredData name="Workplace Mindfulness & Meditation" description="Practical workplace mindfulness, guided meditation and breathwork for Australian teams." path="/meditation-mindfulness" breadcrumbLabel="Mindfulness & Meditation" />
     <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Mindfulness & Meditation" }]} />
     <SpecialistServiceProduction
-      heroTone="white"
       kicker="Mindfulness without performance"
-      heading="A useful pause in the working day."
+      heading="A useful pause in the working day"
       body="Guided meditation and mindfulness experiences that respect different levels of confidence, attention and comfort."
       primaryAction={{ label: "Plan a session", href: "/contact?interest=one-off" }}
       image={media.aboutWorldview}
-      imageLabel="CYA photography · varied access"
+      imageLabel="IMAGE 04 · MINDFULNESS WITHOUT PRESSURE"
+      imageBrief={{
+        job: "Participation",
+        subject: "A facilitator guiding an approachable workplace pause, with participants able to sit, stand or simply listen without performative poses.",
+        treatment: "Quiet, light-led 3:2 image with natural expressions and visible workplace context.",
+        format: "3:2 desktop · adaptable to 4:3 mobile",
+        avoid: "Closed-eye uniformity, forced group intimacy, clinical cues, generic meditation stock imagery or implied therapeutic outcomes.",
+      }}
       evidenceLine="Eyes open or closed. Seated or standing. Joining should never depend on prior experience."
       firstKicker="Start with what the need supports"
       firstHeading="Calm, focus and connection are different jobs."
       firstBody="The experience begins with the workplace need, then selects an appropriate format and facilitator approach."
       firstCards={[{ title: "A reset in a demanding day", body: "Short guided practices that help people pause without pretending work has disappeared." }, { title: "Focus before important work", body: "Attention practices framed for preparation, transition and clarity." }, { title: "Connection without pressure", body: "Shared moments that create permission and presence without forced disclosure." }]}
       secondKicker="Psychological safety is part of the format"
-      secondHeading="Psychological safety is part of the format"
+      secondHeading="Choice and clear boundaries make the experience easier to approach."
       secondCards={[{ title: "Choice", body: "Eyes open or closed; seated, standing or simply listening." }, { title: "Language", body: "Invitational, culturally aware and free from therapeutic claims." }, { title: "Boundaries", body: "Clear distinction between workplace wellbeing and clinical support." }]}
       closingHeading="Create a useful pause without pressure."
       closingBody="Tell us what the workplace needs to support and how people will join."

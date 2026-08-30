@@ -9,7 +9,7 @@ export const site = {
   legalEntity: "Deborah Gail Lewis, ABN 59 474 451 715, trading as Corporate Yoga Australia",
   memberSignInUrl: "https://studio.corporateyoga.com.au",
   description:
-    "Human-led workplace Yoga, Pilates, mindfulness, workshops and wellbeing programs for Australian organisations, delivered onsite, online and across locations.",
+    "Human-led workplace yoga, Pilates, mindfulness, workshops and wellbeing programs for Australian organisations, delivered onsite, online and across locations.",
 };
 
 export const responseCommitment: Evidenced<string> = {

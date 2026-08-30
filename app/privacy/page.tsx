@@ -22,7 +22,7 @@ export default function PrivacyPage() {
   return (
     <>
       <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Privacy" }]} />
-      <Section tone="white">
+      <Section tone="page">
         <Container>
           <div className="flex flex-wrap items-center gap-3">
             <Kicker>Privacy</Kicker>

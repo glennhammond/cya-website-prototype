@@ -3,7 +3,7 @@ import type { FeatureItem } from "@/components/FeatureGrid";
 
 export const onlineHero: PageIntro = {
   kicker: "Online Wellbeing",
-  heading: "Keep workplace wellbeing useful between rooms, locations and scheduled sessions.",
+  heading: "Keep workplace wellbeing useful between rooms, locations and scheduled sessions",
   body: "CYA combines live online experiences, on-demand practices, expert content and Wellbeing Studio access to support remote, hybrid and distributed teams. The proposition is an ongoing human-led service relationship, with the Studio providing continuity where it helps.",
   actions: [
     { label: "Discuss online wellbeing", href: "/contact?interest=studio", variant: "primary" },
@@ -34,7 +34,7 @@ export const onDemand: FeatureItem[] = [
 
 export const continuityFeature = {
   kicker: "Connected continuity",
-  heading: "Wellbeing Studio is the delivery layer, not the reason to buy CYA.",
+  heading: "Wellbeing Studio is the delivery layer, not the reason to buy CYA",
   body: "The Studio gives CYA a practical place to organise live access, on-demand practices, resources and program continuity. It supports the relationship between the organisation, employees and CYA rather than replacing facilitators or turning the service into software procurement.",
 };
 
@@ -53,12 +53,12 @@ export const organisationExperience: FeatureItem[] = [
 export const relatedPaths: FeatureItem[] = [
   { title: "Workplace wellbeing programs", body: "Plan live, online and other experiences as one connected program when the organisation needs broader continuity.", href: "/workplace-wellbeing-programs", cta: "Explore programs" },
   { title: "Mindfulness & meditation", body: "Use short live or on-demand mindfulness practices as part of an online or hybrid rhythm.", href: "/meditation-mindfulness", cta: "Explore mindfulness" },
-  { title: "Workplace Yoga", body: "Combine online access with a live Yoga session or recurring class when movement is part of the brief.", href: "/workplace-yoga", cta: "Explore Workplace Yoga" },
+  { title: "Workplace Yoga", body: "Combine online access with a live yoga session or recurring class when movement is part of the brief.", href: "/workplace-yoga", cta: "Explore Workplace Yoga" },
 ];
 
 export const closingCTA = {
   kicker: "Plan the right level of continuity",
-  heading: "Start with the service need, then decide what digital support belongs around it.",
+  heading: "Start with the service need, then decide what digital support belongs around it",
   body: "CYA can discuss one online experience, ongoing access, a hybrid program or how Wellbeing Studio could support an existing workplace wellbeing plan.",
   cta: { label: "Discuss online wellbeing", href: "/contact?interest=studio", variant: "primary" as const },
 };

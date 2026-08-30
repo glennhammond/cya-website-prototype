@@ -1,0 +1,98 @@
+{
+  "version": "1.0.0",
+  "authority": "CYA Wellbeing Champion — Paid Pilot & Enablement System",
+  "evidenceDate": "2026-08-30",
+  "status": "evidence-design-complete; buyer validation and paid pilot not yet authorised",
+  "objectives": [
+    {
+      "id": "CYA-PARTICIPATION",
+      "owner": "Corporate Yoga Australia",
+      "objective": "Test whether a supported internal activation contact improves awareness, access, communication quality and sustained participation in a real CYA program."
+    },
+    {
+      "id": "ELEARNING-VALIDATION",
+      "owner": "Emerging eLearning Studio",
+      "objective": "Validate a separately priced, partner-led enablement product in a real buyer and learner context without allowing technology production to precede buyer validation."
+    }
+  ],
+  "pilotShape": {
+    "readinessAndBaselineWeeks": "2–4",
+    "deliveryWeeks": 12,
+    "scope": "One site, unit or defined cohort",
+    "roles": ["One Wellbeing Champion", "One backup contact", "Named senior sponsor", "Named CYA partner lead"],
+    "cyaCheckIns": 4,
+    "decisionPoint": "Week 12 evidence review"
+  },
+  "minimumEntryConditions": [
+    "Named buyer and senior sponsor",
+    "Real cohort and defined program context",
+    "Protected paid time for the Champion and realistic participation access for workers",
+    "Suitable baseline or comparison data",
+    "Written data, privacy, consent and intellectual-property terms",
+    "Locked evaluation questions and collection plan before delivery",
+    "Separate commercial scope for CYA program value and eLearning Studio validation"
+  ],
+  "championRole": {
+    "does": [
+      "Support practical communications and reminders",
+      "Help colleagues understand available formats and access routes",
+      "Surface logistics and participation barriers",
+      "Collect or route voluntary, privacy-safe feedback",
+      "Maintain contact with the sponsor and CYA partner lead"
+    ],
+    "doesNot": [
+      "Own employee wellbeing or participation outcomes",
+      "Identify, assess, control or investigate psychosocial hazards",
+      "Receive or manage complaints, disclosures, bullying or harassment matters",
+      "Perform HR, WHS, EAP, counselling or mental-health-care functions",
+      "Monitor individual wellbeing, health status or platform behaviour",
+      "Carry the organisation's statutory duties"
+    ]
+  },
+  "evaluation": {
+    "questions": [
+      "Did eligible workers receive and understand the invitation?",
+      "Did access improve across relevant locations, schedules or formats?",
+      "Which communications and support actions were actually used?",
+      "What participation barriers persisted?",
+      "Was the Champion role workable within protected paid time?",
+      "What should continue, change or stop?",
+      "Did the enablement experience solve a real buyer and learner problem independently of CYA program performance?"
+    ],
+    "allowedMeasures": [
+      "Invitation reach where reliably available",
+      "Aggregate registrations and attendance",
+      "Repeat participation at cohort level",
+      "Delivery reliability",
+      "Voluntary participant feedback",
+      "Champion and sponsor experience",
+      "Support requests and completion friction for the enablement product"
+    ],
+    "prohibitedInferences": [
+      "Individual wellbeing or mental-health status",
+      "Causal health or productivity improvement",
+      "Psychosocial hazard control effectiveness",
+      "Legal or regulatory compliance",
+      "Employee motivation inferred from non-participation"
+    ]
+  },
+  "publicAuthorityRoute": {
+    "commercialOwner": "/workplace-wellbeing-programs",
+    "supportingInsight": "/blog/the-nervous-system-solution-why-your-wellbeing-program-isnt-working-and-what-to-do-instead",
+    "newLandingPage": "not-authorised-before-pilot-evidence",
+    "futureAssets": [
+      "An anonymised pilot method and lessons article",
+      "A buyer-facing Champion role and safeguards explainer",
+      "A permission-approved case study",
+      "A separate eLearning Studio validation record"
+    ],
+    "publicationGates": [
+      "Paid pilot completed against the locked evaluation plan",
+      "Buyer permission and confidentiality review",
+      "Sample, context and limitations stated",
+      "No causal, clinical, productivity or compliance claims",
+      "CYA program evidence and eLearning Studio evidence reported separately",
+      "No participant-identifiable data"
+    ]
+  }
+}

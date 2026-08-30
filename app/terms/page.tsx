@@ -21,7 +21,7 @@ export default function TermsPage() {
   return (
     <>
       <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Terms" }]} />
-      <Section tone="white">
+      <Section tone="page">
         <Container>
           <div className="flex flex-wrap items-center gap-3">
             <Kicker>Terms</Kicker>

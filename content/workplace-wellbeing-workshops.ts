@@ -30,7 +30,7 @@ export const featuredTopics: FeatureItem[] = [
 
 export const expertIntro = {
   kicker: "People behind the sessions",
-  heading: "Show the practitioner, not just the topic title.",
+  heading: "Show the practitioner, not just the topic title",
   body: "CYA's network includes practitioners with different specialist backgrounds. The examples below are grounded in CYA's current public team information; exact workshop assignment remains subject to topic fit, credentials and availability.",
 };
 
@@ -41,7 +41,7 @@ export const namedExperts: FeatureItem[] = [
   },
   {
     title: "Chantal — Yoga, Mindfulness & Breathwork",
-    body: "Chantal's current CYA profile identifies Yoga, Mindfulness and Breathwork expertise, making those areas visible as human-led practices rather than anonymous course topics.",
+    body: "Chantal's current CYA profile identifies yoga, mindfulness and breathwork expertise, making those areas visible as human-led practices rather than anonymous course topics.",
   },
   {
     title: "Debby Lewis — Founder, Corporate Yoga Australia",
@@ -64,7 +64,7 @@ export const deliveryModes: FeatureItem[] = [
 
 export const evidenceFeature = {
   kicker: "Evidence & claims",
-  heading: "Expert-led does not mean overclaiming.",
+  heading: "Expert-led does not mean overclaiming",
   body: "Workshop copy should distinguish practical education and participant experience from clinical, financial-advice or guaranteed performance outcomes. Any credential-sensitive topic must be matched to a verified practitioner and appropriate scope before it is promoted as a specific session.",
 };
 
@@ -77,7 +77,7 @@ export const relatedPaths: FeatureItem[] = [
 
 export const closingCTA = {
   kicker: "Choose the topic, then confirm the right expert",
-  heading: "Tell CYA what your team needs to understand, practise or discuss.",
+  heading: "Tell CYA what your team needs to understand, practise or discuss",
   body: "CYA can recommend a suitable workshop format and practitioner, or keep the engagement as one focused Lunch & Learn when that is all the workplace needs.",
   cta: { label: "Discuss a workshop", href: "/contact?interest=one-off", variant: "primary" as const },
 };

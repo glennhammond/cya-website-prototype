@@ -12,7 +12,7 @@ export default function OnlineWellbeingLearnMorePage() {
   return (
     <CampaignContinuityPage
       kicker="Online wellbeing for workplaces"
-      heading="Live support, practical resources and a reason to return."
+      heading="Live support, practical resources and a reason to return"
       body="CYA designs online wellbeing around the needs of the organisation and the day-to-day experience of the people taking part."
       benefits={[
         "Join from home, the office or across multiple locations.",

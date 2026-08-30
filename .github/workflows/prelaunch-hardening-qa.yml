@@ -18,7 +18,7 @@ permissions:
 jobs:
   prelaunch-qa:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 25
 
     steps:
       - name: Check out repository
@@ -33,25 +33,36 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Production dependency audit
+        if: always()
+        run: npm audit --omit=dev --audit-level=high
+
       - name: Release-control regression guard
+        if: always()
         run: npm run qa:release-controls
 
       - name: CYA brand authority
+        if: always()
         run: npm run qa:brand
 
       - name: Lint
+        if: always()
         run: npm run lint
 
       - name: Search architecture QA
+        if: always()
         run: npm run qa:search
 
       - name: AI-search foundation QA
+        if: always()
         run: npm run qa:ai-search
 
       - name: Evidence and answer-surface QA
+        if: always()
         run: npm run qa:search-visibility-evidence
 
       - name: Build fail-closed pre-launch candidate
+        if: always()
         env:
           VERCEL_ENV: preview
           CYA_PRIVACY_POLICY_APPROVED: "false"
@@ -62,16 +73,20 @@ jobs:
         run: npm run build
 
       - name: Rendered HTTP smoke
+        if: always()
         env:
           VERCEL_ENV: preview
         run: npm run qa:rendered-smoke
 
       - name: Rendered evidence QA
+        if: always()
         env:
           VERCEL_ENV: preview
         run: npm run qa:search-visibility-evidence-rendered
 
       - name: Explain intentionally open launch gates
+        if: always()
         run: |
-          echo "Pre-launch QA complete."
+          echo "Pre-launch evidence run complete."
           echo "qa:launch is intentionally excluded: privacy approval, final design reconciliation, browser/accessibility/performance, WAF and controlled HubSpot E2E remain release gates."
+          echo "A failing design-sensitive check is expected until the active redesign workbench is reconciled; release-control, dependency, build and other technical failures are not waived."

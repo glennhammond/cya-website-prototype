@@ -14,6 +14,8 @@ const contact = read("app/contact/page.tsx");
 const form = read("components/ConsultationForm.tsx");
 const enquiryRoute = read("app/api/enquiries/route.ts");
 const retiredHelper = read("lib/retired-route.ts");
+const privacyPolicy = read("app/privacy-policy/page.tsx");
+const footer = read("components/SiteFooter.tsx");
 const routeDecisions = JSON.parse(read("config/phase-11-5-4-route-decisions.json"));
 const approvals = JSON.parse(read("config/launch-approvals.json"));
 
@@ -43,6 +45,7 @@ assert.match(analytics, /Essential only/);
 assert.match(analytics, /<GoogleTagManager/);
 assert.match(analytics, /<GoogleAnalytics/);
 assert.match(analytics, /<AttributionCapture/);
+assert.match(analytics, /href="\/privacy-policy"/);
 assert.match(attribution, /sessionStorage/);
 
 assert.match(contact, /enquirySubmissionEnabled\(\)/);
@@ -52,6 +55,8 @@ assert.match(form, /status === "success"/);
 assert.match(form, /respond within two business days/);
 assert.match(form, /readAnalyticsConsent\(\) === "granted"/);
 assert.match(form, /event: "cya_lead_submission"/);
+assert.match(form, /Submitting this form does not subscribe you to marketing communications/);
+assert.match(form, /href="\/privacy-policy"/);
 assert.doesNotMatch(form, /window\.location\.assign|PENDING_LEAD_STORAGE_KEY|hubspotutk/);
 
 assert.match(enquiryRoute, /if \(!enquirySubmissionEnabled\(\)\)/);
@@ -60,6 +65,14 @@ assert.match(enquiryRoute, /conversionEligible: false/);
 assert.match(enquiryRoute, /conversionEligible: true/);
 assert.doesNotMatch(enquiryRoute, /ipAddress|hubspotutk|successRoute/);
 assert.match(enquiryRoute, /consentToProcess: true/);
+
+assert.match(privacyPolicy, /Working draft — 29 August 2026/);
+assert.match(privacyPolicy, /Deborah Gail Lewis, ABN 59 474 451 715/);
+assert.match(privacyPolicy, /Submitting an enquiry does <strong>not<\/strong> subscribe you to marketing communications/);
+assert.match(privacyPolicy, /robots: \{ index: false, follow: false \}/);
+assert.doesNotMatch(privacyPolicy, /Pre-publication operational checks/);
+assert.match(footer, /href="\/privacy-policy"/);
+assert.ok(config.includes('source: "/privacy"') && config.includes('destination: "/privacy-policy"'));
 
 assert.match(retiredHelper, /status: 410/);
 assert.match(retiredHelper, /X-Robots-Tag/);
@@ -92,6 +105,9 @@ assert.doesNotMatch(config, /source: "\/contact-thank-you/);
 assert.equal(routeDecisions.version, "2.0");
 assert.equal(routeDecisions.retiredRoutes.length, 5);
 assert.ok(routeDecisions.campaignRoutes.every((route) => route.ownerConfirmed === true));
+
+assert.equal(approvals.hostingDpaConfirmed, true, "Vercel Pro/DPA evidence must be recorded");
+assert.equal(approvals.currentDesignReconciled, true, "current redesign snapshot must be reconciled");
 for (const key of [
   "renderedServerQaPassed",
   "hostedBrowserQaPassed",
@@ -100,10 +116,8 @@ for (const key of [
   "hubspotDebNotificationVerified",
   "productionEnquiryFormLiveSubmissionVerified",
   "privacyPolicyApproved",
-  "hostingDpaConfirmed",
   "analyticsConsentQualified",
   "migrationHttpQualified",
-  "currentDesignReconciled",
   "externalAccessibilityQualified",
   "performanceQualified",
   "studioHandoffQualified",

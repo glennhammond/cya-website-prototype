@@ -21,10 +21,11 @@ const programModels = [
     features: ["Regular yoga, Pilates, movement or mindfulness", "Onsite, online or hybrid delivery", "Matched facilitators and dependable coordination", "Wellbeing Studio continuity where useful"],
     fit: "You want consistent, high-quality experiences with straightforward coordination.",
     action: "Plan an Access program",
-    image: "/images/selected/cya-movement-desk-stretch-office.webp",
-    imageAlt: "An employee pauses for an accessible desk stretch at work",
+    image: "/images/selected/cya-movement-facilitator-adjustment.webp",
+    imageAlt: "A facilitator supports an employee during an accessible workplace movement session",
     surface: "bg-[var(--cya-surface-page)]",
     accent: "border-[var(--cya-ochre)]",
+    layout: "lg:grid-cols-[minmax(280px,0.68fr)_minmax(0,1.32fr)]",
     imageOrder: "",
     contentOrder: "",
   },
@@ -42,6 +43,7 @@ const programModels = [
     imageAlt: "A facilitator leads a group through a shared workplace movement experience",
     surface: "bg-[var(--cya-surface-subtle)]",
     accent: "border-[var(--cya-teal)]",
+    layout: "lg:grid-cols-[minmax(0,1.32fr)_minmax(280px,0.68fr)]",
     imageOrder: "lg:order-2",
     contentOrder: "lg:order-1",
   },
@@ -59,6 +61,7 @@ const programModels = [
     imageAlt: "Corporate Yoga Australia founder Debby Lewis",
     surface: "bg-[var(--cya-surface-warm)]",
     accent: "border-[var(--cya-ochre)]",
+    layout: "lg:grid-cols-[minmax(280px,0.68fr)_minmax(0,1.32fr)]",
     imageOrder: "",
     contentOrder: "",
   },
@@ -100,7 +103,7 @@ export default function WorkplaceWellbeingProgramsPage() {
           <div className="mt-14 space-y-10">
             {programModels.map((program) => (
               <article key={program.name} className={`overflow-hidden rounded-[var(--cya-radius-panel)] border-t-4 ${program.accent} ${program.surface}`}>
-                <div className="grid lg:grid-cols-[minmax(280px,0.68fr)_minmax(0,1.32fr)]">
+                <div className={`grid ${program.layout}`}>
                   <figure className={`relative min-h-[280px] overflow-hidden lg:min-h-full ${program.imageOrder}`}>
                     <Image src={program.image} alt={program.imageAlt} fill sizes="(min-width: 1280px) 420px, (min-width: 1024px) 34vw, 100vw" className="object-cover" />
                     <span className="absolute left-6 top-6 flex size-12 items-center justify-center rounded-full bg-[var(--cya-surface-base)] text-sm font-bold text-[var(--cya-teal-dark)]" aria-hidden="true">{program.number}</span>

@@ -75,9 +75,9 @@ export default function Home() {
           <h2 className="mt-5 max-w-4xl text-4xl font-bold lg:text-5xl">One session can stay one session.</h2>
           <p className="mt-5 max-w-4xl text-lg leading-8 text-[var(--cya-body)]">If the need grows, CYA can repeat what works, connect experiences into a useful rhythm or extend support between live moments. Nothing is forced.</p>
           <div className="mt-10 grid gap-5 md:grid-cols-3">
-            <ProductionCard number="01" title="One useful experience" body="Start with a moment people can recognise." tone="paper" />
-            <ProductionCard number="02" title="A repeatable rhythm" body="Build continuity around changing work." tone="paper" />
-            <ProductionCard number="03" title="Connected support" body="Use Online Wellbeing where access or scale needs it." tone="paper" />
+            <ProductionCard number="01" title="One useful experience" body="Start with a moment people can recognise." />
+            <ProductionCard number="02" title="A repeatable rhythm" body="Build continuity around changing work." />
+            <ProductionCard number="03" title="Connected support" body="Use Online Wellbeing where access or scale needs it." />
           </div>
         </ProductionContainer>
       </section>

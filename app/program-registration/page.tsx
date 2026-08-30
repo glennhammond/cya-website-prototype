@@ -26,7 +26,7 @@ export default function ProgramRegistrationPage() {
             your registration details securely in the Studio signup process.
           </p>
           <div className="mt-8">
-            <ProductionAction href="https://studio.corporateyoga.com.au/login/signup.php" style="ochre">
+            <ProductionAction href="https://studio.corporateyoga.com.au/login/signup.php">
               Continue to Studio signup
             </ProductionAction>
           </div>

@@ -16,13 +16,13 @@ export default function WorkplaceWellbeingProgramsPage() {
       <ServiceStructuredData name="Workplace Wellbeing Programs" description="Tailored workplace wellbeing programs combining human-led experiences, practical coordination and ongoing support for Australian teams." path="/workplace-wellbeing-programs" breadcrumbLabel="Workplace wellbeing programs" />
       <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Workplace wellbeing programs" }]} />
 
-      <section className="bg-[var(--cya-teal-dark)] py-16 text-white lg:py-20">
+      <section className="bg-[var(--cya-field-note)] py-16 lg:py-20">
         <ProductionContainer className="grid gap-10 lg:grid-cols-[1.4fr_0.8fr] lg:items-center">
           <div>
-            <ProductionKicker light>Working rhythm · managed partnership</ProductionKicker>
-            <h1 className="mt-5 max-w-3xl text-[clamp(2.8rem,5vw,4.5rem)] font-bold leading-[1.05] tracking-[-0.02em] text-white">A wellbeing program people can genuinely use.</h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-white/85">A wellbeing program should fit the organisation—not the other way around. CYA plans the right mix, coordinates the people, connects live and digital experiences, and adapts the rhythm with you.</p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row"><ProductionAction href="/contact?interest=program" style="ochre">Plan a program</ProductionAction><ProductionAction href="#program-structure" style="secondary">See how programs can work</ProductionAction></div>
+            <ProductionKicker>Working rhythm · managed partnership</ProductionKicker>
+            <h1 className="mt-5 max-w-3xl text-[clamp(2.8rem,5vw,4.5rem)] font-bold leading-[1.05] tracking-[-0.02em]">A wellbeing program people can genuinely use.</h1>
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-[var(--cya-body)]">A wellbeing program should fit the organisation—not the other way around. CYA plans the right mix, coordinates the people, connects live and digital experiences, and adapts the rhythm with you.</p>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row"><ProductionAction href="/contact?interest=program">Plan a program</ProductionAction><ProductionAction href="#program-structure" style="secondary">See how programs can work</ProductionAction></div>
           </div>
           <aside className="bg-[var(--cya-paper)] p-8 text-[var(--cya-teal-dark)]">
             <ProductionKicker>What procurement needs to know</ProductionKicker>
@@ -61,9 +61,9 @@ export default function WorkplaceWellbeingProgramsPage() {
             <ProductionCard title="Measurement" body="Useful signals agreed without turning wellbeing into surveillance." tone="field" />
             <ProductionCard title="Review" body="A visible rhythm for learning, adapting and deciding what continues." tone="field" />
           </div>
-          <div className="mt-8 grid gap-6 bg-[var(--cya-teal-dark)] px-8 py-9 text-white md:grid-cols-[1fr_auto] md:items-center">
-            <div><ProductionKicker light>A useful starting point</ProductionKicker><h3 className="mt-4 text-2xl font-semibold text-white">A program does not have to begin as a year-long commitment.</h3><p className="mt-3 max-w-3xl text-white/85">Start with a focused pilot, a recurring rhythm or a broader connected plan when that depth is appropriate.</p></div>
-            <ProductionAction href="/contact?interest=program" style="secondary">Discuss the right starting point</ProductionAction>
+          <div className="mt-8 grid gap-6 border border-[var(--cya-divider)] bg-[var(--cya-field-note)] px-8 py-9 md:grid-cols-[1fr_auto] md:items-center">
+            <div><ProductionKicker>A useful starting point</ProductionKicker><h3 className="mt-4 text-2xl font-semibold">A program does not have to begin as a year-long commitment.</h3><p className="mt-3 max-w-3xl text-[var(--cya-body)]">Start with a focused pilot, a recurring rhythm or a broader connected plan when that depth is appropriate.</p></div>
+            <ProductionAction href="/contact?interest=program">Discuss the right starting point</ProductionAction>
           </div>
         </ProductionContainer>
       </section>

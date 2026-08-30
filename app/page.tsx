@@ -23,25 +23,20 @@ export default function Home() {
   return (
     <>
       <HomeStructuredData />
-      <section className="bg-[var(--cya-paper)] py-14 lg:py-16">
-        <ProductionContainer>
-          <div className="grid overflow-hidden rounded-[18px] border-2 border-[var(--cya-teal-dark)] lg:grid-cols-[2fr_1fr]">
-            <div className="p-8 sm:p-10 lg:p-12">
-              <ProductionKicker>Corporate Yoga Australia</ProductionKicker>
-              <h1 className="mt-5 max-w-3xl text-[clamp(2.7rem,5vw,4.5rem)] font-bold leading-[1.05] tracking-[-0.02em] text-[var(--cya-teal-dark)]">Work Wellness into Your Workday</h1>
-              <p className="mt-7 max-w-2xl text-2xl font-semibold leading-8 text-[var(--cya-teal-dark)]">Useful wellbeing, built around real work.</p>
-              <p className="mt-4 max-w-2xl text-lg leading-8 text-[var(--cya-body)]">From workplace Yoga and Pilates to mindfulness, workshops, campaign moments and ongoing programs, CYA shapes practical wellbeing around your people, context and working day.</p>
-            </div>
-            <div className="border-t-2 border-[var(--cya-teal-dark)] p-8 lg:border-l-2 lg:border-t-0 lg:p-10">
-              <ProductionKicker>Your context</ProductionKicker>
-              <dl className="mt-7 space-y-7">
-                <div><dt className="text-xs font-semibold uppercase text-[var(--cya-ochre-ink)]">People</dt><dd className="mt-2 text-lg">Your people and participation range</dd></div>
-                <div><dt className="text-xs font-semibold uppercase text-[var(--cya-ochre-ink)]">Moment</dt><dd className="mt-2 text-lg">What needs to happen now</dd></div>
-                <div><dt className="text-xs font-semibold uppercase text-[var(--cya-ochre-ink)]">Environment</dt><dd className="mt-2 text-lg">Where and how work is happening</dd></div>
-              </dl>
+      <section className="bg-[var(--cya-canvas)] py-16 sm:py-20 lg:py-24">
+        <ProductionContainer className="grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:gap-20">
+          <div>
+            <ProductionKicker>Work Wellness into Your Workday</ProductionKicker>
+            <h1 className="mt-6 max-w-[13ch] text-[clamp(3rem,5vw,4.5rem)] font-bold leading-[1.07] tracking-[-0.02em] text-[var(--cya-ink)]">Useful wellbeing, built around real work.</h1>
+            <p className="mt-7 max-w-3xl text-[clamp(1.15rem,1.6vw,1.4rem)] leading-[1.55] text-[var(--cya-body)]">From corporate yoga and Pilates to workshops, campaign moments and recurring wellbeing, CYA helps organisations shape practical workplace wellbeing around their people, context and working day.</p>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <ProductionAction href="/contact">Plan with CYA</ProductionAction>
+              <ProductionAction href="/movement" style="secondary">Explore movement</ProductionAction>
             </div>
           </div>
-          <div className="mt-6 flex flex-col gap-3 sm:flex-row"><ProductionAction href="/contact">Plan with CYA</ProductionAction><ProductionAction href="#needs" style="secondary">Start with what you are planning</ProductionAction></div>
+          <div className="relative aspect-[3/2] min-h-[300px] border border-[var(--cya-divider)] bg-gradient-to-br from-[var(--cya-field-note)] via-white to-white" aria-label="Image placeholder: genuine CYA workplace wellbeing experience">
+            <span aria-hidden="true" className="absolute left-8 top-8 h-12 w-12 border-l-4 border-t-4 border-[var(--cya-teal)] sm:left-10 sm:top-10" />
+          </div>
         </ProductionContainer>
       </section>
 
@@ -75,11 +70,11 @@ export default function Home() {
         </ProductionContainer>
       </section>
 
-      <section className="bg-[var(--cya-teal-dark)] py-20 text-white lg:py-24">
+      <section className="bg-[var(--cya-field-note)] py-20 lg:py-24">
         <ProductionContainer>
-          <ProductionKicker light>Start with what is useful now</ProductionKicker>
-          <h2 className="mt-5 max-w-4xl text-4xl font-bold text-white lg:text-5xl">One session can stay one session.</h2>
-          <p className="mt-5 max-w-4xl text-lg leading-8 text-white/85">If the need grows, CYA can repeat what works, connect experiences into a useful rhythm or extend support between live moments. Nothing is forced.</p>
+          <ProductionKicker>Start with what is useful now</ProductionKicker>
+          <h2 className="mt-5 max-w-4xl text-4xl font-bold lg:text-5xl">One session can stay one session.</h2>
+          <p className="mt-5 max-w-4xl text-lg leading-8 text-[var(--cya-body)]">If the need grows, CYA can repeat what works, connect experiences into a useful rhythm or extend support between live moments. Nothing is forced.</p>
           <div className="mt-10 grid gap-5 md:grid-cols-3">
             <ProductionCard number="01" title="One useful experience" body="Start with a moment people can recognise." tone="paper" />
             <ProductionCard number="02" title="A repeatable rhythm" body="Build continuity around changing work." tone="paper" />

@@ -9,8 +9,8 @@ import type { CTA, MediaAsset } from "@/lib/types";
  * (see content/media.ts homeHeroMedia comment for the equivalent hero
  * situation). A play affordance only belongs here once genuinely playable
  * media exists - until then this is a still, presented as a still, on the
- * teal ground that already differentiates it from the surrounding white/mist
- * sections and from HumanExperience's full-bleed treatment above it.
+ * light field-note ground that differentiates it from the surrounding white
+ * sections while preserving the approved light-led website direction.
  */
 export function StudioPreview({
   kicker,
@@ -26,13 +26,13 @@ export function StudioPreview({
   image: MediaAsset;
 }) {
   return (
-    <Section tone="teal">
+    <Section tone="mist">
       <Container>
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
           <div>
-            <Kicker tone="pale">{kicker}</Kicker>
-            <h2 className="mt-3 text-heading-lg text-white">{heading}</h2>
-            <p className="mt-4 text-lg leading-relaxed text-white/85">{body}</p>
+            <Kicker>{kicker}</Kicker>
+            <h2 className="mt-3 text-heading-lg text-teal-dark">{heading}</h2>
+            <p className="mt-4 text-lg leading-relaxed text-body">{body}</p>
             <div className="mt-6 flex flex-wrap gap-4">
               <CtaLink href={cta.href} variant="primary">
                 {cta.label}

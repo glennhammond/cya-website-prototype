@@ -29,19 +29,19 @@ export default function CaseStudiesPage() {
   return (
     <>
       <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Case studies" }]} />
-      <section className="bg-[var(--cya-teal-dark)] py-16 text-white lg:py-20">
+      <section className="bg-[var(--cya-field-note)] py-16 lg:py-20">
         <ProductionContainer className="grid gap-10 lg:grid-cols-[1.4fr_0.8fr] lg:items-center">
           <div>
-            <ProductionKicker light>Work shown in context</ProductionKicker>
-            <h1 className="mt-5 max-w-4xl text-[clamp(2.8rem,5vw,4.5rem)] font-bold leading-[1.05] text-white">
+            <ProductionKicker>Work shown in context</ProductionKicker>
+            <h1 className="mt-5 max-w-4xl text-[clamp(2.8rem,5vw,4.5rem)] font-bold leading-[1.05]">
               The situation matters as much as the session.
             </h1>
-            <p className="mt-6 max-w-3xl text-lg leading-8 text-white/85">
+            <p className="mt-6 max-w-3xl text-lg leading-8 text-[var(--cya-body)]">
               CYA case studies connect a workplace need with the choices made, the way the
               experience was delivered and what the organisation learned from it.
             </p>
             <div className="mt-8 flex gap-3">
-              <ProductionAction href="#stories" style="secondary">
+              <ProductionAction href="#stories">
                 Explore the approach
               </ProductionAction>
               <ProductionAction href="/contact" style="secondary">
@@ -49,7 +49,7 @@ export default function CaseStudiesPage() {
               </ProductionAction>
             </div>
           </div>
-          <aside className="bg-white p-8 text-[var(--cya-teal-dark)]">
+          <aside className="border border-[var(--cya-divider)] bg-white p-8 text-[var(--cya-teal-dark)]">
             <ProductionKicker>What a useful story shows</ProductionKicker>
             <ul className="mt-6 space-y-4">
               <li>The workplace context and need</li>
@@ -120,7 +120,6 @@ export default function CaseStudiesPage() {
       </section>
 
       <ProductionClosing
-        tone="teal"
         heading="Start with the situation you need to solve."
         body="CYA can help shape the format, delivery and next step around your workplace."
       />

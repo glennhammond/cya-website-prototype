@@ -65,7 +65,7 @@ export default function ConferencesEventsPage() {
           <div className="mt-10 grid gap-5 md:grid-cols-4">{logistics.map((item) => <ProductionCard key={item.title} title={item.title} body={item.body} tone="paper" />)}</div>
         </ProductionContainer>
       </section>
-      <ProductionClosing tone="teal" heading="One activation or a connected event experience." body="Start with the audience, agenda and venue. CYA can shape one useful moment or coordinate several experiences when that helps." href="/contact?interest=conference" action="Discuss your conference" />
+      <ProductionClosing heading="One activation or a connected event experience." body="Start with the audience, agenda and venue. CYA can shape one useful moment or coordinate several experiences when that helps." href="/contact?interest=conference" action="Discuss your conference" />
     </>
   );
 }

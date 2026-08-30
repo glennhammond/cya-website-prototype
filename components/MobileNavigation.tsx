@@ -183,7 +183,7 @@ function MenuIcon({ light = false }: { light?: boolean }) {
     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
       <path
         d="M3 5.5H17M3 10H17M3 14.5H17"
-        stroke={light ? "#ffffff" : "#253336"}
+        stroke={light ? "#ffffff" : "#222826"}
         strokeWidth="1.6"
         strokeLinecap="round"
       />
@@ -196,7 +196,7 @@ function CloseIcon() {
     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
       <path
         d="M4.5 4.5 L15.5 15.5 M15.5 4.5 L4.5 15.5"
-        stroke="#253336"
+        stroke="#222826"
         strokeWidth="1.6"
         strokeLinecap="round"
       />

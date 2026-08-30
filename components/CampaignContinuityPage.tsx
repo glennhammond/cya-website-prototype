@@ -37,7 +37,7 @@ export function CampaignContinuityPage({
             </h1>
             <p className="mt-6 max-w-3xl text-lg leading-8 text-[var(--cya-body)]">{body}</p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <ProductionAction href={ctaHref} style="ochre">{ctaLabel}</ProductionAction>
+              <ProductionAction href={ctaHref}>{ctaLabel}</ProductionAction>
               {secondaryLabel && secondaryHref ? (
                 <ProductionAction href={secondaryHref} style="secondary">
                   {secondaryLabel}

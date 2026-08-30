@@ -84,7 +84,7 @@ export function SpecialistServiceProduction({
           </div>
         </ProductionContainer>
       </section>
-      <ProductionClosing tone="teal" heading={closingHeading} body={closingBody} href={primaryAction.href} action={primaryAction.label} />
+      <ProductionClosing heading={closingHeading} body={closingBody} href={primaryAction.href} action={primaryAction.label} />
     </>
   );
 }

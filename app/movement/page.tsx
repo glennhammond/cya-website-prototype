@@ -65,7 +65,7 @@ export default function MovementPage() {
           </div>
         </ProductionContainer>
       </section>
-      <ProductionClosing tone="teal" heading="Not sure which movement experience fits?" body="Tell CYA about the group, space and purpose and we will recommend a useful starting point." action="Plan with CYA" href="/contact?interest=movement" />
+      <ProductionClosing heading="Not sure which movement experience fits?" body="Tell CYA about the group, space and purpose and we will recommend a useful starting point." action="Plan with CYA" href="/contact?interest=movement" />
     </>
   );
 }

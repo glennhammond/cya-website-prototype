@@ -37,7 +37,7 @@ export function Section({
     tone === "mist"
       ? "bg-mist"
       : tone === "teal"
-        ? "bg-teal-dark text-white"
+        ? "bg-mist"
         : "bg-white";
   return (
     <Tag
@@ -61,9 +61,9 @@ export function Kicker({
     tone === "gold"
       ? "text-ochre-ink"
       : tone === "aqua"
-        ? "text-aqua"
+        ? "text-teal"
         : tone === "pale"
-          ? "text-logo-pale"
+          ? "text-teal"
           : "text-white/80";
   return (
     <p className={`text-xs font-bold uppercase tracking-[0.08em] ${toneClass} font-[family-name:var(--font-body)]`}>

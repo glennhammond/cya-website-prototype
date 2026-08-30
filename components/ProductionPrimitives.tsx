@@ -7,15 +7,13 @@ export function ProductionContainer({ children, className = "" }: { children: Re
 }
 
 export function ProductionKicker({ children, light = false }: { children: React.ReactNode; light?: boolean }) {
-  return <p className={`text-xs font-semibold uppercase tracking-[0.08em] ${light ? "text-[#e4b454]" : "text-[var(--cya-ochre-ink)]"}`}>{children}</p>;
+  return <p className={`text-xs font-semibold uppercase tracking-[0.08em] ${light ? "text-[var(--cya-paper)]" : "text-[var(--cya-teal)]"}`}>{children}</p>;
 }
 
-export function ProductionAction({ href, children, style = "primary" }: { href: string; children: React.ReactNode; style?: "primary" | "secondary" | "ochre" }) {
+export function ProductionAction({ href, children, style = "primary" }: { href: string; children: React.ReactNode; style?: "primary" | "secondary" }) {
   const styles = style === "secondary"
     ? "border border-[var(--cya-teal)] bg-white text-[var(--cya-teal-dark)] hover:bg-[var(--cya-field-note)]"
-    : style === "ochre"
-      ? "bg-[var(--cya-gold)] text-white hover:bg-[var(--cya-gold-hover)]"
-      : "bg-[var(--cya-teal)] text-white hover:bg-[var(--cya-teal-dark)]";
+    : "bg-[var(--cya-teal)] text-white hover:bg-[var(--cya-teal-dark)]";
   return <Link href={href} className={`inline-flex min-h-12 items-center justify-center rounded-[4px] px-6 text-[15px] font-semibold transition-colors ${styles}`}>{children}</Link>;
 }
 
@@ -40,17 +38,16 @@ export function ProductionCard({ number, title, body, href, tone = "white" }: { 
   return href ? <Link href={href} className="block h-full transition-transform hover:-translate-y-0.5">{content}</Link> : content;
 }
 
-export function ProductionClosing({ heading, body, href = "/contact", action = "Plan with CYA", tone = "ochre" }: { heading: string; body: string; href?: string; action?: string; tone?: "ochre" | "teal" }) {
-  const teal = tone === "teal";
+export function ProductionClosing({ heading, body, href = "/contact", action = "Plan with CYA" }: { heading: string; body: string; href?: string; action?: string }) {
   return (
-    <section className="bg-[var(--cya-paper)] py-16 lg:py-20">
+    <section className="bg-[var(--cya-canvas)] py-16 lg:py-20">
       <ProductionContainer>
-        <div className={`grid gap-8 px-8 py-10 md:grid-cols-[1fr_auto] md:items-center lg:px-12 ${teal ? "bg-[var(--cya-teal-dark)]" : "bg-[var(--cya-gold)]"}`}>
+        <div className="grid gap-8 border border-[var(--cya-divider)] bg-[var(--cya-field-note)] px-8 py-10 md:grid-cols-[1fr_auto] md:items-center lg:px-12">
           <div>
-            <h2 className="text-3xl font-semibold text-white lg:text-4xl">{heading}</h2>
-            <p className="mt-3 max-w-3xl text-base leading-7 text-white/90">{body}</p>
+            <h2 className="text-3xl font-semibold text-[var(--cya-teal-dark)] lg:text-4xl">{heading}</h2>
+            <p className="mt-3 max-w-3xl text-base leading-7 text-[var(--cya-body)]">{body}</p>
           </div>
-          <ProductionAction href={href} style="secondary">{action}</ProductionAction>
+          <ProductionAction href={href}>{action}</ProductionAction>
         </div>
       </ProductionContainer>
     </section>

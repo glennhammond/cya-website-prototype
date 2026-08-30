@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "qa:brand": "node scripts/check-cya-brand-authority.mjs",
     "qa:search": "node scripts/phase-11-5-4-search-qa.mjs",
     "qa:ai-search": "node scripts/phase-15-ai-search-qa.mjs",
     "qa:search-visibility-evidence": "node scripts/phase-16-evidence-answers-qa.mjs",

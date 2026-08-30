@@ -1,30 +1,33 @@
 @import "tailwindcss";
 
 :root {
-  --cya-canvas: #faf9f5;
-  --cya-paper: #f5f1e8;
-  --cya-field-note: #e8efec;
-  --cya-teal: #0f4f55;
-  --cya-teal-dark: #173f43;
-  --cya-gold: #a35a00;
-  --cya-gold-hover: #8f4e00;
-  --cya-ochre: #b76500;
+  /* CYA Design System v1.0 — locked brand and surface authority. */
+  --cya-canvas: #f7f6f1;
+  --cya-paper: #f2f0e9;
+  --cya-field-note: #e7ece8;
+  --cya-warm-neutral: #e9e4d9;
+  --cya-pale-highlight: #f2f0e9;
+  --cya-teal: #17535b;
+  --cya-teal-dark: #0e434a;
+  --cya-ochre: #c99a3e;
   --cya-ochre-ink: #955000;
-  --cya-logo-teal: #5cb8b2;
-  --cya-logo-pale: #bee3e0;
-  --cya-mist: #e8efec;
+  --cya-logo-teal: #17535b;
+  --cya-logo-pale: #e7ece8;
+  --cya-mist: #e7ece8;
   --cya-white: #ffffff;
-  --cya-ink: #173f43;
-  --cya-body: #5c666b;
-  --cya-divider: #d7e4df;
-  --cya-aqua: #39aeb8;
-  --cya-error: #a33b3b;
+  --cya-ink: #222826;
+  --cya-body: #222826;
+  --cya-divider: #e7ece8;
+  --cya-aqua: #17535b;
+  --cya-error: #b85b4d;
+  --cya-coral: #b85b4d;
+  --cya-mid-neutral: #8d8f8c;
 
   --cya-radius-control: 4px;
   --cya-radius-card: 4px;
   --cya-radius-panel: 18px;
   --cya-shadow-card: none;
-  --cya-focus-ring: 0 0 0 3px #e4b454;
+  --cya-focus-ring: 0 0 0 3px #c99a3e;
   --cya-container-max: 1280px;
   --cya-container-narrow: 720px;
 
@@ -37,7 +40,7 @@
 @theme inline {
   --color-teal: var(--cya-teal);
   --color-teal-dark: var(--cya-teal-dark);
-  --color-gold: var(--cya-gold);
+  --color-gold: var(--cya-ochre);
   --color-ochre-ink: var(--cya-ochre-ink);
   --color-logo-teal: var(--cya-logo-teal);
   --color-logo-pale: var(--cya-logo-pale);

@@ -6,8 +6,8 @@ import type { NavItem } from "@/lib/types";
 
 /**
  * Desktop primary-nav dropdown. Native disclosure semantics (button +
- * aria-expanded) plus the two behaviours <details> can't give us for free:
- * Escape closes and returns focus, and clicking outside closes it too.
+ * aria-expanded) plus predictable desktop dismissal: Escape returns focus,
+ * clicking outside closes immediately, and pointer/focus rollout closes safely.
  */
 export function NavDropdown({
   item,
@@ -21,6 +21,22 @@ export function NavDropdown({
   const [open, setOpen] = useState(false);
   const rootRef = useRef<HTMLLIElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
+  const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  function cancelScheduledClose() {
+    if (closeTimerRef.current) {
+      clearTimeout(closeTimerRef.current);
+      closeTimerRef.current = null;
+    }
+  }
+
+  function scheduleClose() {
+    cancelScheduledClose();
+    closeTimerRef.current = setTimeout(() => {
+      setOpen(false);
+      closeTimerRef.current = null;
+    }, 180);
+  }
 
   useEffect(() => {
     if (!open) return;
@@ -43,8 +59,21 @@ export function NavDropdown({
     };
   }, [open]);
 
+  useEffect(() => () => cancelScheduledClose(), []);
+
   return (
-    <li ref={rootRef} className="relative">
+    <li
+      ref={rootRef}
+      className="relative"
+      onPointerEnter={cancelScheduledClose}
+      onPointerLeave={scheduleClose}
+      onBlur={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget)) {
+          cancelScheduledClose();
+          setOpen(false);
+        }
+      }}
+    >
       <button
         ref={triggerRef}
         type="button"

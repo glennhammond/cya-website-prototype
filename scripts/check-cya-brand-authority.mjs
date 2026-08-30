@@ -12,13 +12,17 @@ const approvedColours = new Set([
   "#f7f6f1", // warm background
   "#ffffff", // white
   "#e7ece8", // green-grey
-  "#e9e4d9", // warm neutral
+  "#e9e5d8", // surface/warm
+  "#455154", // text/body
   "#b85b4d", // signal red
   "#222826", // charcoal
   "#8d8f8c", // mid neutral
   "#f2f0e9", // pale highlight
   "#955000", // approved accessible ochre text role
-  "#a35a00", // approved rare-action ochre role
+]);
+
+const approvedFunctionalRgb = new Set([
+  "14,67,74", // deep teal shadows
 ]);
 
 async function collectFiles(directory) {
@@ -43,6 +47,12 @@ for (const file of files) {
     if (!approvedColours.has(colour.toLowerCase())) {
       failures.push(`${relative}: unapproved colour ${colour}`);
     }
+  }
+
+  const functionalColours = source.matchAll(/rgba?\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)/gi);
+  for (const match of functionalColours) {
+    const rgb = `${match[1]},${match[2]},${match[3]}`;
+    if (!approvedFunctionalRgb.has(rgb)) failures.push(`${relative}: unapproved functional colour rgb(${rgb})`);
   }
 
   if (relative !== "components/SiteFooter.tsx") {
@@ -75,10 +85,48 @@ if (home.includes("Useful wellbeing, built around real work.")) {
 }
 for (const required of [
   "Work Wellness into Your Workday",
-  "From corporate yoga and Pilates to workshops, campaign moments and recurring wellbeing",
+  "From workplace yoga and Pilates to workshops, conferences, events and ongoing wellbeing programs",
   "Explore workplace wellbeing programs",
 ]) {
   if (!home.includes(required)) failures.push(`app/page.tsx: approved hero content missing: ${required}`);
+}
+
+const globals = await readFile(path.join(root, "app/globals.css"), "utf8");
+for (const [token, value] of Object.entries({
+  "--cya-surface-page": "#f7f6f1",
+  "--cya-surface-base": "#ffffff",
+  "--cya-surface-subtle": "#e7ece8",
+  "--cya-surface-warm": "#e9e5d8",
+  "--cya-text-primary": "#0e434a",
+  "--cya-text-body": "#455154",
+  "--cya-action-primary-bg": "#17535b",
+})) {
+  if (!globals.includes(`${token}: ${value};`)) failures.push(`app/globals.css: ${token} must resolve to ${value}`);
+}
+
+for (const heroFile of [
+  "components/PageHero.tsx",
+  "components/ProofPageHero.tsx",
+  "components/StudioPageHero.tsx",
+  "components/SpecialistServiceProduction.tsx",
+  "components/CampaignContinuityPage.tsx",
+  "components/ThankYouPage.tsx",
+  "app/page.tsx",
+  "app/about-us/page.tsx",
+  "app/blog/page.tsx",
+  "app/case-studies/page.tsx",
+  "app/conferences-events/page.tsx",
+  "app/contact/page.tsx",
+  "app/movement/page.tsx",
+  "app/online-wellbeing/page.tsx",
+  "app/program-registration/page.tsx",
+  "app/workplace-wellbeing-programs/page.tsx",
+  "app/workplace-wellbeing-workshops/page.tsx",
+]) {
+  const source = await readFile(path.join(root, heroFile), "utf8");
+  if (!source.includes("bg-[var(--cya-surface-page)]")) {
+    failures.push(`${heroFile}: page hero must use the surface/page token`);
+  }
 }
 
 if (failures.length > 0) {

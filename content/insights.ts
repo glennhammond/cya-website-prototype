@@ -392,7 +392,7 @@ export const insightArticles: InsightArticle[] = [
     relatedLinks: [
       { label: "Explore workplace wellbeing programs", href: "/workplace-wellbeing-programs" },
       { label: "Explore Mindfulness & Meditation", href: "/meditation-mindfulness" },
-      { label: "Plan with CYA", href: "/contact?interest=recurring" },
+      { label: "Start planning", href: "/contact?interest=recurring" },
     ],
   },
   {

@@ -33,11 +33,11 @@ export function ReviewImageDirection({
   return (
     <section
       aria-label={`Review-only image direction: ${id}`}
-      className="border-y border-[var(--cya-divider)] bg-[var(--cya-canvas)] py-10 lg:py-12"
+      className="border-y border-[var(--cya-divider)] bg-[var(--cya-surface-page)] py-10 lg:py-12"
       data-review-only="image-direction"
     >
       <div className="mx-auto grid w-full max-w-[1280px] gap-7 px-6 sm:px-10 lg:grid-cols-[1.35fr_1fr] lg:px-12">
-        <div className="flex min-h-[300px] items-center justify-center border border-dashed border-[var(--cya-body)] bg-[var(--cya-paper)] px-8 text-center lg:min-h-[390px]">
+        <div className="flex min-h-[300px] items-center justify-center border border-dashed border-[var(--cya-body)] bg-[var(--cya-surface-warm)] px-8 text-center lg:min-h-[390px]">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[var(--cya-body)]">
               Review-only image position

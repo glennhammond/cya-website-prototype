@@ -22,7 +22,6 @@ export function SpecialistServiceProduction({
   secondCards,
   closingHeading,
   closingBody,
-  heroTone = "paper",
 }: {
   kicker: string;
   heading: string;
@@ -47,12 +46,10 @@ export function SpecialistServiceProduction({
   secondCards: ServiceCard[];
   closingHeading: string;
   closingBody: string;
-  heroTone?: "paper" | "field" | "white";
 }) {
-  const heroSurface = heroTone === "field" ? "bg-[var(--cya-field-note)]" : heroTone === "white" ? "bg-white" : "bg-[var(--cya-paper)]";
   return (
     <>
-      <section className={`${heroSurface} py-16 lg:py-20`}>
+      <section className="bg-[var(--cya-surface-page)] py-16 lg:py-20">
         <ProductionContainer>
           <ProductionKicker>{kicker}</ProductionKicker>
           <h1 className="mt-5 max-w-5xl text-[clamp(2.8rem,5vw,4.5rem)] font-bold leading-[1.05] tracking-[-0.02em]">{heading}</h1>
@@ -64,7 +61,7 @@ export function SpecialistServiceProduction({
 
       <ReviewImageDirection id={imageLabel} {...imageBrief} candidate={image.src} />
 
-      <section className="bg-[var(--cya-field-note)] py-20 lg:py-24">
+      <section className="bg-[var(--cya-surface-subtle)] py-20 lg:py-24">
         <ProductionContainer>
           <ProductionKicker>{firstKicker}</ProductionKicker>
           <h2 className="mt-5 max-w-5xl text-4xl font-bold lg:text-5xl">{firstHeading}</h2>
@@ -75,7 +72,7 @@ export function SpecialistServiceProduction({
         </ProductionContainer>
       </section>
 
-      <section className="bg-[var(--cya-canvas)] py-20 lg:py-24">
+      <section className="bg-[var(--cya-surface-page)] py-20 lg:py-24">
         <ProductionContainer>
           <ProductionKicker>{secondKicker}</ProductionKicker>
           <h2 className="mt-5 max-w-5xl text-4xl font-bold lg:text-5xl">{secondHeading}</h2>

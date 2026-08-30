@@ -28,7 +28,7 @@ export function CampaignContinuityPage({
 }: CampaignContinuityPageProps) {
   return (
     <>
-      <section className="bg-white py-16 lg:py-24">
+      <section className="bg-[var(--cya-surface-page)] py-16 lg:py-24">
         <ProductionContainer>
           <div className="max-w-5xl">
             <ProductionKicker>{kicker}</ProductionKicker>
@@ -48,7 +48,7 @@ export function CampaignContinuityPage({
         </ProductionContainer>
       </section>
 
-      <section className="bg-[var(--cya-canvas)] py-16 lg:py-20">
+      <section className="bg-[var(--cya-surface-subtle)] py-16 lg:py-20">
         <ProductionContainer>
           <div className="max-w-6xl">
             <ProductionKicker>Designed around the workplace</ProductionKicker>

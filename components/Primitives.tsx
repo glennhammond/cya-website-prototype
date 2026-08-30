@@ -27,18 +27,20 @@ export function Section({
   id,
 }: {
   children: ReactNode;
-  tone?: "white" | "mist" | "teal";
+  tone?: "white" | "page" | "mist" | "warm";
   className?: string;
   as?: ElementType;
   ariaLabel?: string;
   id?: string;
 }) {
   const toneClass =
-    tone === "mist"
-      ? "bg-mist"
-      : tone === "teal"
-        ? "bg-mist"
-        : "bg-white";
+    tone === "page"
+      ? "bg-[var(--cya-surface-page)]"
+      : tone === "mist"
+        ? "bg-[var(--cya-surface-subtle)]"
+        : tone === "warm"
+          ? "bg-[var(--cya-surface-warm)]"
+          : "bg-[var(--cya-surface-base)]";
   return (
     <Tag
       id={id}

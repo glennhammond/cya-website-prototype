@@ -21,7 +21,7 @@ export function ProofPageHero({
   actions?: CTA[];
 }) {
   return (
-    <section className="bg-white py-12 sm:py-16 lg:py-20">
+    <section className="bg-[var(--cya-surface-page)] py-12 sm:py-16 lg:py-20">
       <Container>
         <div className="max-w-2xl">
           <Kicker>{kicker}</Kicker>

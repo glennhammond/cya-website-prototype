@@ -3,7 +3,7 @@ import { Container, Section, Kicker } from "@/components/Primitives";
 
 export default function NotFound() {
   return (
-    <Section tone="mist">
+    <Section tone="page">
       <Container>
         <Kicker>Page not found</Kicker>
         <h1 className="mt-3 max-w-3xl text-[38px] leading-tight sm:text-[54px]">This page isn&apos;t part of the current CYA website.</h1>

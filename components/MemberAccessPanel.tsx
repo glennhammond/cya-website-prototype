@@ -5,7 +5,7 @@ import { memberSignInHref } from "@/content/navigation";
 
 export function MemberAccessPanel() {
   return (
-    <Section tone="white">
+    <Section tone="page">
       <Container>
         <div className="mx-auto max-w-2xl rounded-[var(--radius-card)] border border-divider bg-mist p-8 text-center">
           <Kicker>Wellbeing Studio members</Kicker>

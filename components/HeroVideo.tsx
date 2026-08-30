@@ -60,7 +60,7 @@ export function HeroVideo({
   }
 
   return (
-    <section className="relative isolate mx-3 mt-3 min-h-[560px] overflow-hidden rounded-[var(--cya-radius-panel)] bg-[var(--cya-canvas)] sm:mx-6 sm:mt-6 lg:mx-8 lg:min-h-[720px]">
+    <section className="relative isolate mx-3 mt-3 min-h-[560px] overflow-hidden rounded-[var(--cya-radius-panel)] bg-[var(--cya-surface-page)] sm:mx-6 sm:mt-6 lg:mx-8 lg:min-h-[720px]">
       <div className="absolute inset-0">
         <ImageMedia asset={media.poster} treatment="background" priority sizes="100vw" />
       </div>

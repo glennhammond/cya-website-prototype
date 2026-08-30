@@ -8,7 +8,7 @@ import {
 export function ThankYouPage({ online = false }: { online?: boolean }) {
   const successRoute = online ? "/contact-thank-you-online" : "/contact-thank-you";
   return (
-    <section className="bg-white py-20 lg:py-28">
+    <section className="bg-[var(--cya-surface-page)] py-20 lg:py-28">
       <LeadConversionSignal successRoute={successRoute} />
       <ProductionContainer>
         <div className="max-w-3xl border-l-4 border-[var(--cya-gold)] pl-7 sm:pl-10">

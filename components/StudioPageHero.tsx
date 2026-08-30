@@ -26,7 +26,7 @@ export function StudioPageHero({
   image: MediaAsset;
 }) {
   return (
-    <section className="bg-mist py-12 sm:py-16 lg:py-20">
+    <section className="bg-[var(--cya-surface-page)] py-12 sm:py-16 lg:py-20">
       <Container>
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
           <div>

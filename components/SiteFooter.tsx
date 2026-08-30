@@ -32,7 +32,7 @@ export function SiteFooter() {
         <nav aria-label="Explore and support" className="flex flex-col gap-2">
           <h2 className="mb-1 text-xs font-bold uppercase tracking-[0.08em] text-white/60">Explore</h2>
           <Link href="/blog" className="text-sm text-white/85 hover:text-white">Insights</Link>
-          <Link href="/contact" className="text-sm text-white/85 hover:text-white">Plan with CYA</Link>
+          <Link href="/contact" className="text-sm text-white/85 hover:text-white">Start planning</Link>
           <a href={memberSignInHref} target="_blank" rel="noopener noreferrer" className="text-sm text-white/85 hover:text-white">
             Member sign-in<span className="sr-only"> (opens in a new tab)</span>
           </a>

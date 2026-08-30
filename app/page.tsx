@@ -23,7 +23,7 @@ export default function Home() {
   return (
     <>
       <HomeStructuredData />
-      <section className="bg-[var(--cya-canvas)] py-16 sm:py-20 lg:py-24">
+      <section className="bg-[var(--cya-surface-page)] py-16 sm:py-20 lg:py-24">
         <ProductionContainer className="grid max-w-[1440px] lg:grid-cols-[minmax(0,1.08fr)_minmax(0,0.92fr)] lg:gap-x-14 xl:grid-cols-[minmax(0,1.04fr)_minmax(0,0.96fr)] xl:gap-x-16">
           <h1 className="max-w-3xl text-[clamp(3rem,4.2vw,4.5rem)] font-bold leading-[1.07] tracking-[-0.02em] text-[var(--cya-teal)] lg:col-start-1 lg:row-start-1">Work Wellness into Your Workday</h1>
           <p className="mt-7 max-w-3xl text-[clamp(1.15rem,1.6vw,1.4rem)] leading-[1.55] text-[var(--cya-body)] lg:col-start-1 lg:row-start-2">From workplace yoga and Pilates to workshops, conferences, events and ongoing wellbeing programs, we help organisations create practical workplace wellbeing that fits their people, context and working day.</p>
@@ -44,17 +44,17 @@ export default function Home() {
         </ProductionContainer>
       </section>
 
-      <section id="needs" className="bg-[var(--cya-field-note)] py-20 lg:py-24">
+      <section id="needs" className="bg-[var(--cya-surface-subtle)] py-20 lg:py-24">
         <ProductionContainer>
           <ProductionKicker>Start with your goal</ProductionKicker>
           <h2 className="mt-5 text-4xl font-bold tracking-[-0.015em] lg:text-5xl">What are you planning for your workplace?</h2>
           <div className="mt-10 border-t border-[var(--cya-divider)]">
-            {needs.map(([number, title, href]) => <Link key={number} href={href} className="grid grid-cols-[auto_1fr_auto] gap-5 border-x border-b border-[var(--cya-divider)] bg-white px-6 py-5 hover:bg-[var(--cya-paper)]"><span className="text-xs font-semibold text-[var(--cya-ochre-ink)]">{number}</span><span className="text-xl font-semibold">{title}</span><span aria-hidden="true">→</span></Link>)}
+            {needs.map(([number, title, href]) => <Link key={number} href={href} className="grid grid-cols-[auto_1fr_auto] gap-5 border-x border-b border-[var(--cya-divider)] bg-white px-6 py-5 hover:bg-[var(--cya-surface-warm)]"><span className="text-xs font-semibold text-[var(--cya-ochre-ink)]">{number}</span><span className="text-xl font-semibold">{title}</span><span aria-hidden="true">→</span></Link>)}
           </div>
         </ProductionContainer>
       </section>
 
-      <section className="bg-[var(--cya-canvas)] py-20 lg:py-24">
+      <section className="bg-[var(--cya-surface-page)] py-20 lg:py-24">
         <ProductionContainer>
           <ProductionKicker>Recognisable experiences</ProductionKicker>
           <h2 className="mt-5 text-3xl font-bold lg:text-4xl">Start with something people already understand.</h2>
@@ -69,7 +69,7 @@ export default function Home() {
         </ProductionContainer>
       </section>
 
-      <section className="bg-[var(--cya-field-note)] py-20 lg:py-24">
+      <section className="bg-[var(--cya-surface-subtle)] py-20 lg:py-24">
         <ProductionContainer>
           <ProductionKicker>Start with what is useful now</ProductionKicker>
           <h2 className="mt-5 max-w-4xl text-4xl font-bold lg:text-5xl">One session can stay one session.</h2>

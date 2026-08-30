@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 
 export default function ProgramRegistrationPage() {
   return (
-    <section className="bg-white py-20 lg:py-28">
+    <section className="bg-[var(--cya-surface-page)] py-20 lg:py-28">
       <ProductionContainer>
         <div className="max-w-3xl">
           <ProductionKicker>Cromwell wellbeing program</ProductionKicker>

@@ -22,7 +22,7 @@ export default function ConferencesEventsPage() {
   return (
     <>
       <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Conferences and events" }]} />
-      <section className="bg-[var(--cya-paper)] py-16 lg:py-20">
+      <section className="bg-[var(--cya-surface-page)] py-16 lg:py-20">
         <ProductionContainer className="grid gap-10 lg:grid-cols-[1.4fr_0.8fr] lg:items-center">
           <div>
             <ProductionKicker>Conferences and events</ProductionKicker>
@@ -51,14 +51,14 @@ export default function ConferencesEventsPage() {
           <div className="mt-10 grid gap-5 md:grid-cols-3">{agendaMoments.map((item) => <ProductionCard key={item.title} title={item.title} body={item.body} />)}</div>
         </ProductionContainer>
       </section>
-      <section id="formats" className="bg-[var(--cya-field-note)] py-20 lg:py-24">
+      <section id="formats" className="bg-[var(--cya-surface-subtle)] py-20 lg:py-24">
         <ProductionContainer>
           <ProductionKicker>Activation formats</ProductionKicker>
           <h2 className="mt-5 text-4xl font-bold lg:text-5xl">From a short reset to a broader wellbeing stream.</h2>
           <div className="mt-10 grid gap-5 md:grid-cols-3">{activationFormats.map((item) => <ProductionCard key={item.title} title={item.title} body={item.body} tone="paper" />)}</div>
         </ProductionContainer>
       </section>
-      <section className="bg-[var(--cya-canvas)] py-20 lg:py-24">
+      <section className="bg-[var(--cya-surface-page)] py-20 lg:py-24">
         <ProductionContainer>
           <ProductionKicker>Delivery logistics</ProductionKicker>
           <h2 className="mt-5 text-4xl font-bold lg:text-5xl">What CYA confirms before the day.</h2>

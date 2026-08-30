@@ -29,7 +29,7 @@ export default function CaseStudiesPage() {
   return (
     <>
       <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Case studies" }]} />
-      <section className="bg-[var(--cya-field-note)] py-16 lg:py-20">
+      <section className="bg-[var(--cya-surface-page)] py-16 lg:py-20">
         <ProductionContainer className="grid gap-10 lg:grid-cols-[1.4fr_0.8fr] lg:items-center">
           <div>
             <ProductionKicker>Work shown in context</ProductionKicker>
@@ -45,7 +45,7 @@ export default function CaseStudiesPage() {
                 Explore the approach
               </ProductionAction>
               <ProductionAction href="/contact" style="secondary">
-                Plan with CYA
+                Start planning
               </ProductionAction>
             </div>
           </div>
@@ -70,7 +70,7 @@ export default function CaseStudiesPage() {
         candidate="/images/cya-collage-event.jpg"
       />
 
-      <section id="stories" className="bg-[var(--cya-paper)] py-20 lg:py-24">
+      <section id="stories" className="bg-[var(--cya-surface-base)] py-20 lg:py-24">
         <ProductionContainer>
           <ProductionKicker>Decisions in context</ProductionKicker>
           <h2 className="mt-5 max-w-5xl text-4xl font-bold lg:text-5xl">

@@ -11,7 +11,6 @@ export default function WorkplacePilatesPage() {
     <ServiceStructuredData name="Workplace Pilates" description="Mat-based workplace Pilates for Australian teams, available as one-off, recurring, onsite and online sessions tailored to the workplace setup." path="/workplace-pilates" breadcrumbLabel="Workplace Pilates" breadcrumbs={[{ name: "Movement", path: "/movement" }, { name: "Workplace Pilates", path: "/workplace-pilates" }]} />
     <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Movement", href: "/movement" }, { label: "Workplace Pilates" }]} />
     <SpecialistServiceProduction
-      heroTone="field"
       kicker="Fit for here · Workplace Pilates"
       heading="Workplace Pilates for strength, posture and useful movement."
       body="Practical Pilates sessions shaped around the team, available space, equipment, timing and confidence in the room."

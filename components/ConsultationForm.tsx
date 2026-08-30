@@ -153,7 +153,7 @@ export function ConsultationForm({ initialInterest }: { initialInterest?: string
           <button
             type="button"
             onClick={() => setStatus("idle")}
-            className="min-h-12 rounded-[18px] bg-gold px-6 text-[15px] font-bold text-white hover:bg-[var(--cya-gold-hover)]"
+            className="min-h-12 rounded-[4px] bg-[var(--cya-action-primary-bg)] px-6 text-[15px] font-bold text-[var(--cya-action-primary-text)] hover:bg-[var(--cya-teal-dark)]"
           >
             Try again
           </button>
@@ -246,7 +246,7 @@ export function ConsultationForm({ initialInterest }: { initialInterest?: string
         <button
           type="submit"
           disabled={status === "submitting"}
-          className="inline-flex min-h-12 w-full items-center justify-center rounded-[4px] bg-gold px-8 text-[15px] font-bold text-white transition-colors hover:bg-[var(--cya-gold-hover)] disabled:opacity-60 sm:w-auto"
+          className="inline-flex min-h-12 w-full items-center justify-center rounded-[4px] bg-[var(--cya-action-primary-bg)] px-8 text-[15px] font-bold text-[var(--cya-action-primary-text)] transition-colors hover:bg-[var(--cya-teal-dark)] disabled:opacity-60 sm:w-auto"
         >
           {status === "submitting" ? "Sending your enquiry…" : "Send your enquiry"}
         </button>

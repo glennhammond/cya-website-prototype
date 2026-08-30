@@ -66,7 +66,7 @@ export default async function InsightArticlePage({
       />
 
       <article>
-        <Section tone="white" className="pb-10">
+        <Section tone="page" className="pb-10">
           <Container>
             <div className="mx-auto max-w-3xl">
               <Kicker>{article.category}</Kicker>

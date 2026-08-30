@@ -16,13 +16,13 @@ export default function MovementPage() {
       <ServiceStructuredData name="Workplace Movement, Yoga & Pilates" description="Workplace movement including yoga, Pilates, mobility and desk movement, adapted to real teams, spaces and levels of experience." path="/movement" breadcrumbLabel="Movement" />
       <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Movement" }]} />
 
-      <section className="bg-[var(--cya-paper)] py-16 lg:py-20">
+      <section className="bg-[var(--cya-surface-page)] py-16 lg:py-20">
         <ProductionContainer className="grid gap-10 lg:grid-cols-[1.5fr_0.8fr] lg:items-center">
           <div>
             <ProductionKicker>Movement for workplaces</ProductionKicker>
             <h1 className="mt-5 max-w-4xl text-[clamp(2.8rem,5vw,4.5rem)] font-bold leading-[1.05] tracking-[-0.02em]">Find the kind of movement that fits the people, setting and moment.</h1>
             <p className="mt-6 max-w-3xl text-lg leading-8 text-[var(--cya-body)]">Compare workplace yoga, Pilates and adaptable movement through the group, available space and what the working day needs to support.</p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row"><ProductionAction href="#movement-options">Compare movement options</ProductionAction><ProductionAction href="/contact" style="secondary">Plan with CYA</ProductionAction></div>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row"><ProductionAction href="#movement-options">Compare movement options</ProductionAction><ProductionAction href="/contact" style="secondary">Start planning</ProductionAction></div>
           </div>
           <aside className="border border-[var(--cya-divider)] bg-white p-8">
             <ProductionKicker>Start with context</ProductionKicker>
@@ -54,7 +54,7 @@ export default function MovementPage() {
         </ProductionContainer>
       </section>
 
-      <section className="bg-[var(--cya-canvas)] py-20 lg:py-24">
+      <section className="bg-[var(--cya-surface-page)] py-20 lg:py-24">
         <ProductionContainer>
           <ProductionKicker>Choose through context</ProductionKicker>
           <h2 className="mt-5 text-4xl font-bold lg:text-5xl">People, place and moment shape the right format.</h2>
@@ -65,7 +65,7 @@ export default function MovementPage() {
           </div>
         </ProductionContainer>
       </section>
-      <ProductionClosing heading="Not sure which movement experience fits?" body="Tell CYA about the group, space and purpose and we will recommend a useful starting point." action="Plan with CYA" href="/contact?interest=movement" />
+      <ProductionClosing heading="Not sure which movement experience fits?" body="Tell CYA about the group, space and purpose and we will recommend a useful starting point." action="Start planning" href="/contact?interest=movement" />
     </>
   );
 }

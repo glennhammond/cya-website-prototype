@@ -11,7 +11,6 @@ export default function MeditationMindfulnessPage() {
     <ServiceStructuredData name="Workplace Mindfulness & Meditation" description="Practical workplace mindfulness, guided meditation and breathwork for Australian teams." path="/meditation-mindfulness" breadcrumbLabel="Mindfulness & Meditation" />
     <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Mindfulness & Meditation" }]} />
     <SpecialistServiceProduction
-      heroTone="white"
       kicker="Mindfulness without performance"
       heading="A useful pause in the working day."
       body="Guided meditation and mindfulness experiences that respect different levels of confidence, attention and comfort."

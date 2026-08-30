@@ -71,13 +71,13 @@ export default function Home() {
 
       <section className="bg-[var(--cya-surface-subtle)] py-20 lg:py-24">
         <ProductionContainer>
-          <ProductionKicker>Start with what is useful now</ProductionKicker>
-          <h2 className="mt-5 max-w-4xl text-4xl font-bold lg:text-5xl">One session can stay one session.</h2>
-          <p className="mt-5 max-w-4xl text-lg leading-8 text-[var(--cya-body)]">If the need grows, we can repeat what works, connect experiences into a useful rhythm or extend support between live moments. Nothing is forced.</p>
+          <ProductionKicker>One-off or ongoing</ProductionKicker>
+          <h2 className="mt-5 max-w-4xl text-4xl font-bold lg:text-5xl">Start with one session. Build on what works.</h2>
+          <p className="mt-5 max-w-4xl text-lg leading-8 text-[var(--cya-body)]">You can begin with a single session without committing to an ongoing program. If it works for your people, we can repeat it, create a regular program or extend support through Wellbeing Studio.</p>
           <div className="mt-10 grid gap-5 md:grid-cols-3">
-            <ProductionCard number="01" title="One useful experience" body="Start with a moment people can recognise." />
-            <ProductionCard number="02" title="A repeatable rhythm" body="Build continuity around changing work." />
-            <ProductionCard number="03" title="Connected support" body="Use Online Wellbeing where access or scale needs it." />
+            <ProductionCard number="01" title="One-off session" body="Start with workplace yoga, Pilates, mindfulness, a workshop or an event session." />
+            <ProductionCard number="02" title="Ongoing wellbeing program" body="Build successful sessions into a regular program shaped around your people and workplace." />
+            <ProductionCard number="03" title="Support between sessions" body="Add Wellbeing Studio access so participants can return to practical support throughout the working week." />
           </div>
         </ProductionContainer>
       </section>

@@ -10,7 +10,7 @@ const organisationNode = {
   url: origin,
   logo: `${origin}/brand/cya-logo-mark.svg`,
   description:
-    "Human-led workplace Yoga, Pilates, mindfulness, workshops and wellbeing programs for Australian organisations, delivered onsite, online and across locations.",
+    "Human-led workplace yoga, Pilates, mindfulness, workshops and wellbeing programs for Australian organisations, delivered onsite, online and across locations.",
   foundingDate: "2014",
   telephone: "1300 373 363",
   email: "info@corporateyoga.com.au",

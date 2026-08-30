@@ -29,7 +29,7 @@ export const situationLedEntry = {
 export const recognisableExperiences = [
   {
     title: "Workplace Yoga",
-    body: "Accessible Yoga sessions shaped around the team, space, timing and level of experience.",
+    body: "Accessible yoga sessions shaped around the team, space, timing and level of experience.",
     href: "/workplace-yoga",
     cta: "Explore Workplace Yoga",
   },
@@ -167,7 +167,7 @@ export const insightsSignpost = {
   kicker: "Insights",
   heading: "Useful guidance for planning workplace wellbeing.",
   links: [
-    { label: "8 tips to successfully introduce Yoga at work", href: "/blog/8-tips-to-successfully-introduce-yoga-at-work" },
+    { label: "8 tips to successfully introduce yoga at work", href: "/blog/8-tips-to-successfully-introduce-yoga-at-work" },
     { label: "Check in with yourself with this simple technique", href: "/blog/check-in-with-yourself-with-this-simple-technique" },
     { label: "Explore all Insights", href: "/blog" },
   ],
@@ -176,6 +176,6 @@ export const insightsSignpost = {
 export const closingCTA = {
   kicker: "Tell us what you are planning",
   heading: "Tell us what you are planning.",
-  body: "The first conversation can be about one Yoga session, another one-off experience, online continuity or an organised program.",
+  body: "The first conversation can be about one yoga session, another one-off experience, online continuity or an organised program.",
   cta: { label: "Book a wellbeing consultation", href: "/contact", variant: "primary" as const },
 };

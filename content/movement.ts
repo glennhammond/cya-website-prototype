@@ -15,13 +15,13 @@ export const movementHero: PageIntro = {
 export const movementTypes: FeatureItem[] = [
   {
     title: "Workplace Yoga",
-    body: "Accessible Yoga shaped around the people, space, time and purpose of the workplace brief.",
+    body: "Accessible yoga shaped around the people, space, time and purpose of the workplace brief.",
     href: "/workplace-yoga",
     cta: "Explore Workplace Yoga",
   },
   {
     title: "Workplace Pilates",
-    body: "Mat-based Pilates for one-off classes, short series, recurring sessions or mixed Yoga + Pilates rhythms, adapted to the team and available space.",
+    body: "Mat-based Pilates for one-off classes, short series, recurring sessions or mixed yoga and Pilates rhythms, adapted to the team and available space.",
     href: "/workplace-pilates",
     cta: "Explore Workplace Pilates",
   },

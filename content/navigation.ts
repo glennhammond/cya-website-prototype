@@ -8,12 +8,12 @@ export const primaryNav: NavItem[] = [
       {
         label: "Movement",
         href: "/movement",
-        description: "Compare Yoga, Pilates, mobility and other workplace movement formats.",
+        description: "Compare yoga, Pilates, mobility and other workplace movement formats.",
       },
       {
         label: "Workplace Yoga",
         href: "/workplace-yoga",
-        description: "One-off, recurring, onsite and online Yoga adapted to real workplaces.",
+        description: "One-off, recurring, onsite and online yoga adapted to real workplaces.",
       },
       {
         label: "Workplace Pilates",

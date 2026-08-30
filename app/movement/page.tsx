@@ -6,14 +6,14 @@ import { ReviewImageDirection } from "@/components/ReviewImageDirection";
 
 export const metadata: Metadata = {
   title: { absolute: "Workplace Movement Programs | Yoga, Pilates & Desk Sessions" },
-  description: "Workplace movement including Yoga, Pilates, mobility and desk movement, adapted to real teams, spaces and levels of experience.",
+  description: "Workplace movement including yoga, Pilates, mobility and desk movement, adapted to real teams, spaces and levels of experience.",
   alternates: { canonical: "/movement" },
 };
 
 export default function MovementPage() {
   return (
     <>
-      <ServiceStructuredData name="Workplace Movement, Yoga & Pilates" description="Workplace movement including Yoga, Pilates, mobility and desk movement, adapted to real teams, spaces and levels of experience." path="/movement" breadcrumbLabel="Movement" />
+      <ServiceStructuredData name="Workplace Movement, Yoga & Pilates" description="Workplace movement including yoga, Pilates, mobility and desk movement, adapted to real teams, spaces and levels of experience." path="/movement" breadcrumbLabel="Movement" />
       <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Movement" }]} />
 
       <section className="bg-[var(--cya-paper)] py-16 lg:py-20">
@@ -21,7 +21,7 @@ export default function MovementPage() {
           <div>
             <ProductionKicker>Movement for workplaces</ProductionKicker>
             <h1 className="mt-5 max-w-4xl text-[clamp(2.8rem,5vw,4.5rem)] font-bold leading-[1.05] tracking-[-0.02em]">Find the kind of movement that fits the people, setting and moment.</h1>
-            <p className="mt-6 max-w-3xl text-lg leading-8 text-[var(--cya-body)]">Compare workplace Yoga, Pilates and adaptable movement through the group, available space and what the working day needs to support.</p>
+            <p className="mt-6 max-w-3xl text-lg leading-8 text-[var(--cya-body)]">Compare workplace yoga, Pilates and adaptable movement through the group, available space and what the working day needs to support.</p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row"><ProductionAction href="#movement-options">Compare movement options</ProductionAction><ProductionAction href="/contact" style="secondary">Plan with CYA</ProductionAction></div>
           </div>
           <aside className="border border-[var(--cya-divider)] bg-white p-8">

@@ -53,7 +53,7 @@ export const organisationExperience: FeatureItem[] = [
 export const relatedPaths: FeatureItem[] = [
   { title: "Workplace wellbeing programs", body: "Plan live, online and other experiences as one connected program when the organisation needs broader continuity.", href: "/workplace-wellbeing-programs", cta: "Explore programs" },
   { title: "Mindfulness & meditation", body: "Use short live or on-demand mindfulness practices as part of an online or hybrid rhythm.", href: "/meditation-mindfulness", cta: "Explore mindfulness" },
-  { title: "Workplace Yoga", body: "Combine online access with a live Yoga session or recurring class when movement is part of the brief.", href: "/workplace-yoga", cta: "Explore Workplace Yoga" },
+  { title: "Workplace Yoga", body: "Combine online access with a live yoga session or recurring class when movement is part of the brief.", href: "/workplace-yoga", cta: "Explore Workplace Yoga" },
 ];
 
 export const closingCTA = {

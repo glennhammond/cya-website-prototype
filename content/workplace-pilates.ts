@@ -27,14 +27,14 @@ export const sessionFormats: FeatureItem[] = [
   },
   {
     title: "Yoga + Pilates rhythm",
-    body: "Alternate Pilates with Yoga or another movement format when variety is useful for the team or wider program.",
+    body: "Alternate Pilates with yoga or another movement format when variety is useful for the team or wider program.",
   },
 ];
 
 export const workplaceFit: FeatureItem[] = [
   {
     title: "A team wants a strength-focused movement option",
-    body: "Pilates provides a different movement experience from Yoga, centred on controlled mat-based movement and clear instruction.",
+    body: "Pilates provides a different movement experience from yoga, centred on controlled mat-based movement and clear instruction.",
   },
   {
     title: "The workplace can provide clear floor space",
@@ -46,7 +46,7 @@ export const workplaceFit: FeatureItem[] = [
   },
   {
     title: "The organisation wants movement variety",
-    body: "Pilates can stand alone or sit alongside Yoga, mobility and other workplace movement formats.",
+    body: "Pilates can stand alone or sit alongside yoga, mobility and other workplace movement formats.",
   },
 ];
 
@@ -93,19 +93,19 @@ export const facilitatorGate = {
 export const evidenceGate = {
   kicker: "Evidence and claims",
   heading: "Describe the real Pilates service without promising health outcomes.",
-  body: "CYA's current service material supports mat Pilates, one-off and recurring classes, mixed Yoga + Pilates formats, onsite and online delivery, and tailored workplace programs. This page therefore does not need to wait for a case study to exist. It should continue to avoid claims about injury prevention, posture correction, pain relief or guaranteed health outcomes unless stronger evidence is approved for those specific claims.",
+  body: "CYA's current service material supports mat Pilates, one-off and recurring classes, mixed yoga and Pilates formats, onsite and online delivery, and tailored workplace programs. This page therefore does not need to wait for a case study to exist. It should continue to avoid claims about injury prevention, posture correction, pain relief or guaranteed health outcomes unless stronger evidence is approved for those specific claims.",
 };
 
 export const relatedPaths: FeatureItem[] = [
   {
     title: "Movement",
-    body: "Compare Pilates with Workplace Yoga, mobility and other movement formats.",
+    body: "Compare Pilates with workplace yoga, mobility and other movement formats.",
     href: "/movement",
     cta: "Compare movement",
   },
   {
     title: "Workplace Yoga",
-    body: "Choose Yoga when the brief calls for a different mix of movement, breath and mindfulness.",
+    body: "Choose yoga when the brief calls for a different mix of movement, breath and mindfulness.",
     href: "/workplace-yoga",
     cta: "Explore Workplace Yoga",
   },

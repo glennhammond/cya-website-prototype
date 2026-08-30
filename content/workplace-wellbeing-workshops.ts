@@ -41,7 +41,7 @@ export const namedExperts: FeatureItem[] = [
   },
   {
     title: "Chantal — Yoga, Mindfulness & Breathwork",
-    body: "Chantal's current CYA profile identifies Yoga, Mindfulness and Breathwork expertise, making those areas visible as human-led practices rather than anonymous course topics.",
+    body: "Chantal's current CYA profile identifies yoga, mindfulness and breathwork expertise, making those areas visible as human-led practices rather than anonymous course topics.",
   },
   {
     title: "Debby Lewis — Founder, Corporate Yoga Australia",

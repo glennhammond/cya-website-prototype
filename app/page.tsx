@@ -6,7 +6,7 @@ import { ReviewImageDirection } from "@/components/ReviewImageDirection";
 
 export const metadata: Metadata = {
   title: { absolute: "Corporate Yoga Australia | Workplace Wellbeing Programs" },
-  description: "Work wellness into your workday with workplace Yoga, Pilates, mindfulness and tailored wellbeing programs delivered across Australia.",
+  description: "Work wellness into your workday with workplace yoga, Pilates, mindfulness and tailored wellbeing programs delivered across Australia.",
   alternates: { canonical: "/" },
 };
 
@@ -45,7 +45,7 @@ export default function Home() {
         subject="CYA delivering an approachable wellbeing experience in a real Australian workplace, with the facilitator and working environment both visible."
         treatment="Light, contained 3:2 editorial image. Keep the image separate from the hero text and preserve generous white space."
         format="3:2 desktop · adaptable to 4:3 mobile"
-        avoid="A dark full-width hero, studio Yoga, extreme poses, a single warehouse dominating the brand, or text placed over busy faces."
+        avoid="A dark full-width hero, studio yoga, extreme poses, a single warehouse dominating the brand, or text placed over busy faces."
         candidate="/images/selected/cya-workplace-wellbeing-hero-warehouse-group.webp"
       />
 
@@ -62,7 +62,7 @@ export default function Home() {
             <ProductionCard number="01" title="Workplace Yoga" body="Calm, mobility and reset, adapted to the room and confidence of the group." href="/workplace-yoga" />
             <ProductionCard number="02" title="Workplace Pilates" body="Strength, posture and focused movement shaped around a practical workplace set-up." href="/workplace-pilates" />
             <ProductionCard number="03" title="Mindfulness & Meditation" body="Approachable moments of attention, calm and guided pause without pressure to perform." href="/meditation-mindfulness" />
-            <ProductionCard number="04" title="Movement" body="Compare Yoga, Pilates and adaptable movement through the people, place and moment." href="/movement" />
+            <ProductionCard number="04" title="Movement" body="Compare yoga, Pilates and adaptable movement through the people, place and moment." href="/movement" />
             <ProductionCard number="05" title="Workshops & Expert Experiences" body="Practical learning, relevant expertise and useful workplace conversation." href="/workplace-wellbeing-workshops" />
             <ProductionCard number="06" title="Online Wellbeing" body="Human-led continuity for hybrid, remote and distributed teams." href="/online-wellbeing" />
           </div>

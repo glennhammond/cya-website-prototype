@@ -6,7 +6,7 @@ import { ProductionAction, ProductionCard, ProductionClosing, ProductionContaine
 import { ReviewImageDirection } from "@/components/ReviewImageDirection";
 import { insightArticles } from "@/content/insights";
 
-export const metadata: Metadata = { title: "Workplace Wellbeing Insights", description: "Practical Corporate Yoga Australia insights on workplace Yoga, mindfulness and workplace wellbeing program design.", alternates: { canonical: "/blog" } };
+export const metadata: Metadata = { title: "Workplace Wellbeing Insights", description: "Practical Corporate Yoga Australia insights on workplace yoga, mindfulness and workplace wellbeing program design.", alternates: { canonical: "/blog" } };
 const dateFormatter = new Intl.DateTimeFormat("en-AU", { day: "numeric", month: "short", year: "numeric" });
 
 export default function InsightsPage() {

@@ -23,7 +23,7 @@ export default function WorkplacePilatesPage() {
         subject: "A genuine CYA Pilates session showing the confirmed format, equipment, available space and facilitator interaction.",
         treatment: "Bright, service-specific 3:2 image with enough workplace context to distinguish it from a fitness studio.",
         format: "3:2 desktop · adaptable to 4:3 mobile",
-        avoid: "Yoga substituted for Pilates, generic stretching, unsupported desk or standing formats, or a studio fitness aesthetic.",
+        avoid: "Yoga imagery substituted for Pilates, generic stretching, unsupported desk or standing formats, or a studio fitness aesthetic.",
       }}
       evidenceLine="The session format, equipment and room set-up are confirmed around the people, place and purpose."
       firstKicker="Strength without studio assumptions"

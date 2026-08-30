@@ -42,9 +42,9 @@ const refreshed = "2026-08-26";
 export const insightArticles: InsightArticle[] = [
   {
     slug: "8-tips-to-successfully-introduce-yoga-at-work",
-    title: "10 practical steps to introduce Yoga at work",
+    title: "10 practical steps to introduce yoga at work",
     summary:
-      "A practical guide to making workplace Yoga easy to join, realistic to organise and appropriate for people with different levels of experience.",
+      "A practical guide to making workplace yoga easy to join, realistic to organise and appropriate for people with different levels of experience.",
     category: "Workplace Yoga",
     author: "Corporate Yoga Australia",
     editor: "Glenn Hammond",
@@ -52,10 +52,10 @@ export const insightArticles: InsightArticle[] = [
     datePublished: "2025-08-07",
     dateModified: refreshed,
     intro:
-      "Workplace Yoga works best when the organisation designs for participation rather than assuming everybody already feels comfortable with Yoga. The practical challenge is not simply choosing a class: it is choosing the right format, teacher, time, space and invitation for the people who will be asked to join.",
+      "Workplace yoga works best when the organisation designs for participation rather than assuming everybody already feels comfortable with yoga. The practical challenge is not simply choosing a class: it is choosing the right format, teacher, time, space and invitation for the people who will be asked to join.",
     sections: [
       {
-        heading: "Start with the workplace, not the Yoga studio",
+        heading: "Start with the workplace, not the yoga studio",
         paragraphs: [
           "A workplace session may happen in a boardroom, training room, warehouse, shared office or online. It may use mats, chairs, standing movement or a combination. That flexibility is useful because it lets the session fit the actual environment instead of asking the workplace to imitate a studio.",
           "The most useful first question is therefore: what can people realistically join, in the time and space available?",
@@ -64,19 +64,19 @@ export const insightArticles: InsightArticle[] = [
       {
         heading: "Ten practical steps",
         paragraphs: [
-          "These steps preserve the useful planning logic from CYA's long-running Yoga-at-Work guidance while keeping the emphasis on participation and fit rather than promised health or productivity outcomes.",
+          "These steps preserve the useful planning logic from CYA's long-running yoga-at-work guidance while keeping the emphasis on participation and fit rather than promised health or productivity outcomes.",
         ],
         bullets: [
           "Get visible support from leaders without making participation feel compulsory.",
           "Ask employees what formats and times they would genuinely consider joining.",
-          "Offer accessible options for people who do not identify as 'Yoga people'.",
+          "Offer accessible options for people who do not identify as 'yoga people'.",
           "Choose a facilitator who understands workplace groups and can adapt in real time.",
           "Use a one-off session or short trial when you need to learn what fits before committing further.",
           "Nominate an internal contact who can make communication and logistics easy.",
           "Schedule around the working day rather than assuming before- or after-work attendance is convenient.",
           "Match the format to the available budget, space and delivery mode.",
           "Make the invitation clear: what to wear, what to bring, how long it runs and whether beginners are welcome.",
-          "Treat Yoga as one useful part of workplace wellbeing, not the only route into it.",
+          "Treat yoga as one useful part of workplace wellbeing, not the only route into it.",
         ],
       },
       {
@@ -340,7 +340,7 @@ export const insightArticles: InsightArticle[] = [
       {
         heading: "Design for more than one doorway",
         paragraphs: [
-          "Different people enter wellbeing in different ways. Some will join Yoga or Pilates. Others may prefer a short stretch, a practical workshop, mindfulness, a conversation with an expert or an on-demand resource. A connected service can make these options easier to discover without forcing everybody through the same journey.",
+          "Different people enter wellbeing in different ways. Some will join yoga or Pilates. Others may prefer a short stretch, a practical workshop, mindfulness, a conversation with an expert or an on-demand resource. A connected service can make these options easier to discover without forcing everybody through the same journey.",
           "The design should also account for different locations, work patterns, mobility needs and levels of confidence. Clear descriptions, beginner-friendly options and a mix of live and digital access can reduce avoidable friction without promising that every format will suit every person.",
         ],
       },
@@ -361,7 +361,7 @@ export const insightArticles: InsightArticle[] = [
         heading: "Keep wellbeing activity and psychosocial risk management distinct",
         paragraphs: [
           "Workplace wellbeing activities can complement an organisation's broader approach to health, safety and wellbeing. They do not replace the organisation's duty to identify psychosocial hazards, assess and control risks, consult workers, review controls or address harmful work design and workplace behaviour.",
-          "Where a needs assessment identifies workload, low job control, poor support, bullying, harassment or another psychosocial hazard, the organisation must manage that risk through its WHS process. A Yoga class, mindfulness session, workshop or champion network must not be presented as the control for the hazard.",
+          "Where a needs assessment identifies workload, low job control, poor support, bullying, harassment or another psychosocial hazard, the organisation must manage that risk through its WHS process. A yoga class, mindfulness session, workshop or champion network must not be presented as the control for the hazard.",
         ],
       },
       {
@@ -411,7 +411,7 @@ export const insightArticles: InsightArticle[] = [
       {
         heading: "1. Physical wellbeing",
         paragraphs: [
-          "Movement, ergonomics, recovery, suitable breaks and opportunities to change position all matter. CYA contributes through workplace-friendly movement such as Yoga, Pilates, mobility and short resets rather than claiming to solve every aspect of workplace health.",
+          "Movement, ergonomics, recovery, suitable breaks and opportunities to change position all matter. CYA contributes through workplace-friendly movement such as yoga, Pilates, mobility and short resets rather than claiming to solve every aspect of workplace health.",
         ],
       },
       {

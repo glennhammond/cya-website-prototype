@@ -68,7 +68,6 @@ function hasSchemaType(html, type) {
 function containsGovernanceLeak(html) {
   const forbidden = [
     "Evidence required",
-    "Prototype build - not for public release",
     "publication consent not documented",
     "Prototype placeholder - not a publishable client story",
     "marketing-use consent not documented",

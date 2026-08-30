@@ -4,15 +4,9 @@ import Link from "next/link";
 import { useEffect, useRef, useState, type ChangeEvent, type FormEvent } from "react";
 import { ErrorSummary, type FormError } from "@/components/ErrorSummary";
 import { useAnnotation } from "@/lib/annotation";
-import {
-  ATTRIBUTION_STORAGE_KEY,
-  PENDING_LEAD_STORAGE_KEY,
-  type AttributionData,
-} from "@/lib/attribution";
-import {
-  interestOptions,
-  timeframeOptions,
-} from "@/content/consultation";
+import { readAnalyticsConsent } from "@/lib/analytics-consent";
+import { ATTRIBUTION_STORAGE_KEY, type AttributionData } from "@/lib/attribution";
+import { interestOptions, timeframeOptions } from "@/content/consultation";
 
 interface FormState {
   name: string;
@@ -38,10 +32,8 @@ const initialState: FormState = {
   website: "",
 };
 
-type Status = "idle" | "submitting" | "failure";
+type Status = "idle" | "submitting" | "success" | "failure";
 
-// Matches the authorised HubSpot planning form: name, work email and the
-// intended outcome are the only enquiry details required by the website.
 const REQUIRED_FIELDS: { key: keyof FormState; id: string; message: string }[] = [
   { key: "name", id: "name", message: "Enter your name" },
   { key: "workEmail", id: "workEmail", message: "Enter a work email address" },
@@ -51,7 +43,42 @@ const REQUIRED_FIELDS: { key: keyof FormState; id: string; message: string }[] =
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-export function ConsultationForm({ initialInterest }: { initialInterest?: string }) {
+function signalValidatedLead(submissionId?: string) {
+  if (readAnalyticsConsent() !== "granted") return;
+  try {
+    window.dataLayer = window.dataLayer ?? [];
+    window.dataLayer.push({
+      event: "cya_lead_submission",
+      form_id: "746ef219-510f-4faa-a7a3-40288155d936",
+      submission_id: submissionId,
+      source: "start_planning",
+    });
+  } catch {
+    // Analytics must never alter the enquiry result.
+  }
+}
+
+function safePageAddress() {
+  return `${window.location.origin}${window.location.pathname}`.slice(0, 2000);
+}
+
+function safeReferrer() {
+  if (!document.referrer) return "";
+  try {
+    const referrer = new URL(document.referrer);
+    return `${referrer.origin}${referrer.pathname}`.slice(0, 2000);
+  } catch {
+    return "";
+  }
+}
+
+export function ConsultationForm({
+  initialInterest,
+  submissionEnabled,
+}: {
+  initialInterest?: string;
+  submissionEnabled: boolean;
+}) {
   const [values, setValues] = useState<FormState>({
     ...initialState,
     interest: initialInterest && interestOptions.some((o) => o.value === initialInterest) ? initialInterest : "",
@@ -60,12 +87,15 @@ export function ConsultationForm({ initialInterest }: { initialInterest?: string
   const [status, setStatus] = useState<Status>("idle");
   const { enabled: annotateEnabled } = useAnnotation();
   const errorSummaryRef = useRef<HTMLDivElement>(null);
+  const successRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (errors.length > 0) {
-      errorSummaryRef.current?.focus();
-    }
+    if (errors.length > 0) errorSummaryRef.current?.focus();
   }, [errors]);
+
+  useEffect(() => {
+    if (status === "success") successRef.current?.focus();
+  }, [status]);
 
   function update<K extends keyof FormState>(key: K, value: FormState[K]) {
     setValues((prev) => ({ ...prev, [key]: value }));
@@ -87,6 +117,8 @@ export function ConsultationForm({ initialInterest }: { initialInterest?: string
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (!submissionEnabled) return;
+
     const found = validate();
     setErrors(found);
     if (found.length > 0) {
@@ -96,21 +128,13 @@ export function ConsultationForm({ initialInterest }: { initialInterest?: string
 
     setStatus("submitting");
     let attribution: AttributionData = {};
-    try {
-      attribution = JSON.parse(
-        window.sessionStorage.getItem(ATTRIBUTION_STORAGE_KEY) ?? "{}",
-      ) as AttributionData;
-    } catch {
-      attribution = {};
+    if (readAnalyticsConsent() === "granted") {
+      try {
+        attribution = JSON.parse(window.sessionStorage.getItem(ATTRIBUTION_STORAGE_KEY) ?? "{}") as AttributionData;
+      } catch {
+        attribution = {};
+      }
     }
-
-    const hubspotutk = document.cookie
-      .split(";")
-      .map((cookie) => cookie.trim())
-      .find((cookie) => cookie.startsWith("hubspotutk="))
-      ?.split("=")
-      .slice(1)
-      .join("=");
 
     try {
       const response = await fetch("/api/enquiries", {
@@ -118,51 +142,44 @@ export function ConsultationForm({ initialInterest }: { initialInterest?: string
         headers: { "content-type": "application/json" },
         body: JSON.stringify({
           ...values,
-          sourcePage: window.location.href,
-          referrer: document.referrer,
-          hubspotutk,
+          sourcePage: safePageAddress(),
+          referrer: safeReferrer(),
           attribution,
         }),
       });
       const result = (await response.json()) as {
         ok?: boolean;
-        successRoute?: string;
         submissionId?: string;
+        conversionEligible?: boolean;
       };
-      if (!response.ok || !result.ok || !result.successRoute) throw new Error("submission failed");
+      if (!response.ok || !result.ok) throw new Error("submission failed");
 
-      window.sessionStorage.setItem(
-        PENDING_LEAD_STORAGE_KEY,
-        JSON.stringify({ successRoute: result.successRoute, submissionId: result.submissionId }),
-      );
-      window.location.assign(result.successRoute);
+      if (result.conversionEligible) signalValidatedLead(result.submissionId);
+      setErrors([]);
+      setStatus("success");
     } catch {
       setStatus("failure");
     }
+  }
+
+  if (status === "success") {
+    return (
+      <div ref={successRef} tabIndex={-1} role="status" className="border-l-4 border-[var(--cya-ochre)] bg-white py-3 pl-6 focus:outline-none">
+        <h2 className="text-2xl font-bold text-[var(--cya-teal-dark)]">Thanks — we’ve received your enquiry</h2>
+        <p className="mt-3 text-base leading-7 text-[var(--cya-body)]">CYA will review what you have shared and respond within two business days using the details provided.</p>
+      </div>
+    );
   }
 
   if (status === "failure") {
     return (
       <div role="alert" className="rounded-[var(--radius-card)] border-2 border-error bg-white p-8">
         <h2 className="text-2xl text-error">Your enquiry didn&rsquo;t go through</h2>
-        <p className="mt-3 text-base leading-relaxed text-body">
-          Something went wrong submitting this form. Please try again, call CYA on 1300 373 363 or email
-          info@corporateyoga.com.au.
-        </p>
+        <p className="mt-3 text-base leading-relaxed text-body">Something went wrong submitting this form. Please try again, call CYA on 1300 373 363 or email info@corporateyoga.com.au.</p>
         <div className="mt-4 flex flex-wrap gap-3">
-          <button
-            type="button"
-            onClick={() => setStatus("idle")}
-            className="min-h-12 rounded-[4px] bg-[var(--cya-action-primary-bg)] px-6 text-[15px] font-bold text-[var(--cya-action-primary-text)] hover:bg-[var(--cya-teal-dark)]"
-          >
-            Try again
-          </button>
-          <a href="tel:1300373363" className="inline-flex min-h-12 items-center text-sm font-bold text-teal underline underline-offset-4">
-            Call 1300 373 363
-          </a>
-          <a href="mailto:info@corporateyoga.com.au" className="inline-flex min-h-12 items-center text-sm font-bold text-teal underline underline-offset-4">
-            Email CYA
-          </a>
+          <button type="button" onClick={() => setStatus("idle")} className="min-h-12 rounded-[4px] bg-[var(--cya-action-primary-bg)] px-6 text-[15px] font-bold text-[var(--cya-action-primary-text)] hover:bg-[var(--cya-teal-dark)]">Try again</button>
+          <a href="tel:1300373363" className="inline-flex min-h-12 items-center text-sm font-bold text-teal underline underline-offset-4">Call 1300 373 363</a>
+          <a href="mailto:info@corporateyoga.com.au" className="inline-flex min-h-12 items-center text-sm font-bold text-teal underline underline-offset-4">Email CYA</a>
         </div>
       </div>
     );
@@ -173,22 +190,12 @@ export function ConsultationForm({ initialInterest }: { initialInterest?: string
       <ErrorSummary errors={errors} ref={errorSummaryRef} />
 
       {annotateEnabled && (
-        <p className="mb-6 rounded-[var(--radius-control)] bg-mist p-3 text-xs text-body">
-          Production integration: successful validated submissions are sent to the authorised HubSpot form and
-          then routed to the applicable thank-you page.
-        </p>
+        <p className="mb-6 rounded-[var(--radius-control)] bg-mist p-3 text-xs text-body">Release integration: a validated submission is sent to the authorised HubSpot planning form only when the deployment enquiry gate is enabled.</p>
       )}
 
       <div className="absolute -left-[10000px] h-px w-px overflow-hidden" aria-hidden="true">
         <label htmlFor="website">Website</label>
-        <input
-          id="website"
-          name="website"
-          tabIndex={-1}
-          autoComplete="off"
-          value={values.website}
-          onChange={(e) => update("website", e.target.value)}
-        />
+        <input id="website" name="website" tabIndex={-1} autoComplete="off" value={values.website} onChange={(e) => update("website", e.target.value)} />
       </div>
 
       <fieldset className="grid gap-5 sm:grid-cols-2">
@@ -200,15 +207,7 @@ export function ConsultationForm({ initialInterest }: { initialInterest?: string
 
       <fieldset className="mt-6 grid gap-5">
         <legend className="sr-only">Planning context</legend>
-        <TextAreaField
-          id="context"
-          label="What are you trying to make happen?"
-          required
-          value={values.context}
-          onChange={(v) => update("context", v)}
-          errors={errors}
-          helpText="A sentence or two is enough. Please don't include health, medical or other sensitive personal information."
-        />
+        <TextAreaField id="context" label="What are you trying to make happen?" required value={values.context} onChange={(v) => update("context", v)} errors={errors} helpText="A sentence or two is enough. Please don't include health, medical or other sensitive personal information." />
         <div className="grid gap-5 sm:grid-cols-2">
           <TextField id="locations" label="Where will it happen? (optional)" value={values.locations} onChange={(v) => update("locations", v)} errors={errors} placeholder="e.g. Brisbane, Sydney or online" />
           <SelectField id="timeframe" label="When is this for? (optional)" value={values.timeframe} onChange={(v) => update("timeframe", v)} errors={errors} options={timeframeOptions} />
@@ -216,44 +215,19 @@ export function ConsultationForm({ initialInterest }: { initialInterest?: string
       </fieldset>
 
       <fieldset className="mt-8 space-y-3 border-t border-divider pt-6">
-        <legend className="sr-only">Consent</legend>
+        <legend className="sr-only">Privacy acknowledgement</legend>
         <label htmlFor="privacyConsent" className="flex items-start gap-3 text-sm text-body">
-          <input
-            id="privacyConsent"
-            type="checkbox"
-            checked={values.privacyConsent}
-            onChange={(e: ChangeEvent<HTMLInputElement>) => update("privacyConsent", e.target.checked)}
-            aria-describedby={errors.some((e) => e.id === "privacyConsent") ? "privacyConsent-error" : undefined}
-            className="mt-1 h-4 w-4"
-          />
-          <span>
-            I understand CYA will use these details to respond to my enquiry and process them
-            through HubSpot, as described in the{" "}
-            <Link className="font-semibold underline underline-offset-4" href="/privacy">
-              privacy policy
-            </Link>
-            . <span aria-hidden="true">*</span>
-          </span>
+          <input id="privacyConsent" type="checkbox" checked={values.privacyConsent} onChange={(e: ChangeEvent<HTMLInputElement>) => update("privacyConsent", e.target.checked)} aria-describedby={errors.some((e) => e.id === "privacyConsent") ? "privacyConsent-error" : undefined} className="mt-1 h-4 w-4" />
+          <span>Corporate Yoga Australia uses the information you provide here to respond to and manage your workplace wellbeing enquiry. Submitting this form does not subscribe you to marketing communications. See our{" "}<Link className="font-semibold underline underline-offset-4" href="/privacy-policy">Privacy Policy</Link>{" "}for how we handle personal information. <span aria-hidden="true">*</span></span>
         </label>
-        {errors.some((e) => e.id === "privacyConsent") && (
-          <p id="privacyConsent-error" className="pl-7 text-sm font-semibold text-error">
-            Accept the privacy acknowledgement to continue
-          </p>
-        )}
+        {errors.some((e) => e.id === "privacyConsent") && <p id="privacyConsent-error" className="pl-7 text-sm font-semibold text-error">Accept the privacy acknowledgement to continue</p>}
       </fieldset>
 
       <div className="mt-7 flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:gap-4">
-        <button
-          type="submit"
-          disabled={status === "submitting"}
-          className="inline-flex min-h-12 w-full items-center justify-center rounded-[4px] bg-[var(--cya-action-primary-bg)] px-8 text-[15px] font-bold text-[var(--cya-action-primary-text)] transition-colors hover:bg-[var(--cya-teal-dark)] disabled:opacity-60 sm:w-auto"
-        >
-          {status === "submitting" ? "Sending your enquiry…" : "Send your enquiry"}
-        </button>
-        <span aria-live="polite" className="text-sm text-body">
-          {status === "submitting" ? "Submitting, please wait." : ""}
-        </span>
+        <button type="submit" disabled={!submissionEnabled || status === "submitting"} aria-describedby={!submissionEnabled ? "enquiry-release-status" : undefined} className="inline-flex min-h-12 w-full items-center justify-center rounded-[4px] bg-[var(--cya-action-primary-bg)] px-8 text-[15px] font-bold text-[var(--cya-action-primary-text)] transition-colors hover:bg-[var(--cya-teal-dark)] disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto">{status === "submitting" ? "Sending your enquiry…" : "Send your enquiry"}</button>
+        <span aria-live="polite" className="text-sm text-body">{status === "submitting" ? "Submitting, please wait." : ""}</span>
       </div>
+      {!submissionEnabled ? <p id="enquiry-release-status" className="mt-3 max-w-2xl text-sm leading-6 text-[var(--cya-body)]">Online submission is not yet enabled on this pre-launch build. You can still call CYA on 1300 373 363 or email info@corporateyoga.com.au.</p> : null}
     </form>
   );
 }
@@ -262,159 +236,18 @@ function fieldError(errors: FormError[], id: string) {
   return errors.find((e) => e.id === id)?.message;
 }
 
-function TextField({
-  id,
-  label,
-  value,
-  onChange,
-  errors,
-  required,
-  type = "text",
-  autoComplete,
-  placeholder,
-  className = "",
-}: {
-  id: string;
-  label: string;
-  value: string;
-  onChange: (value: string) => void;
-  errors: FormError[];
-  required?: boolean;
-  type?: string;
-  autoComplete?: string;
-  placeholder?: string;
-  className?: string;
-}) {
+function TextField({ id, label, value, onChange, errors, required, type = "text", autoComplete, placeholder, className = "" }: { id: string; label: string; value: string; onChange: (value: string) => void; errors: FormError[]; required?: boolean; type?: string; autoComplete?: string; placeholder?: string; className?: string; }) {
   const error = fieldError(errors, id);
-  return (
-    <div className={className}>
-      <label htmlFor={id} className="mb-1.5 block text-sm font-bold text-teal-dark">
-        {label} {required && <span aria-hidden="true">*</span>}
-      </label>
-      <input
-        id={id}
-        name={id}
-        type={type}
-        value={value}
-        placeholder={placeholder}
-        autoComplete={autoComplete}
-        onChange={(e) => onChange(e.target.value)}
-        aria-required={required}
-        aria-invalid={Boolean(error)}
-        aria-describedby={error ? `${id}-error` : undefined}
-        className={`min-h-12 w-full rounded-[var(--radius-control)] border bg-white px-4 text-base text-ink ${error ? "border-error" : "border-divider"}`}
-      />
-      {error && (
-        <p id={`${id}-error`} className="mt-1.5 text-sm font-semibold text-error">
-          {error}
-        </p>
-      )}
-    </div>
-  );
+  return <div className={className}><label htmlFor={id} className="mb-1.5 block text-sm font-bold text-teal-dark">{label} {required && <span aria-hidden="true">*</span>}</label><input id={id} name={id} type={type} value={value} placeholder={placeholder} autoComplete={autoComplete} onChange={(e) => onChange(e.target.value)} aria-required={required} aria-invalid={Boolean(error)} aria-describedby={error ? `${id}-error` : undefined} className={`min-h-12 w-full rounded-[var(--radius-control)] border bg-white px-4 text-base text-ink ${error ? "border-error" : "border-divider"}`} />{error && <p id={`${id}-error`} className="mt-1.5 text-sm font-semibold text-error">{error}</p>}</div>;
 }
 
-function SelectField({
-  id,
-  label,
-  value,
-  onChange,
-  errors,
-  required,
-  options,
-  valueMap,
-}: {
-  id: string;
-  label: string;
-  value: string;
-  onChange: (value: string) => void;
-  errors: FormError[];
-  required?: boolean;
-  options: string[];
-  valueMap?: { value: string; label: string }[];
-}) {
+function SelectField({ id, label, value, onChange, errors, required, options }: { id: string; label: string; value: string; onChange: (value: string) => void; errors: FormError[]; required?: boolean; options: string[]; }) {
   const error = fieldError(errors, id);
-  return (
-    <div>
-      <label htmlFor={id} className="mb-1.5 block text-sm font-bold text-teal-dark">
-        {label} {required && <span aria-hidden="true">*</span>}
-      </label>
-      <select
-        id={id}
-        name={id}
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        aria-required={required}
-        aria-invalid={Boolean(error)}
-        aria-describedby={error ? `${id}-error` : undefined}
-        className={`min-h-12 w-full rounded-[var(--radius-control)] border bg-white px-4 text-base text-ink ${error ? "border-error" : "border-divider"}`}
-      >
-        <option value="">Select an option</option>
-        {valueMap
-          ? valueMap.map((opt) => (
-              <option key={opt.value} value={opt.value}>
-                {opt.label}
-              </option>
-            ))
-          : options.map((opt) => (
-              <option key={opt} value={opt}>
-                {opt}
-              </option>
-            ))}
-      </select>
-      {error && (
-        <p id={`${id}-error`} className="mt-1.5 text-sm font-semibold text-error">
-          {error}
-        </p>
-      )}
-    </div>
-  );
+  return <div><label htmlFor={id} className="mb-1.5 block text-sm font-bold text-teal-dark">{label} {required && <span aria-hidden="true">*</span>}</label><select id={id} name={id} value={value} onChange={(e) => onChange(e.target.value)} aria-required={required} aria-invalid={Boolean(error)} aria-describedby={error ? `${id}-error` : undefined} className={`min-h-12 w-full rounded-[var(--radius-control)] border bg-white px-4 text-base text-ink ${error ? "border-error" : "border-divider"}`}><option value="">Select an option</option>{options.map((opt) => <option key={opt} value={opt}>{opt}</option>)}</select>{error && <p id={`${id}-error`} className="mt-1.5 text-sm font-semibold text-error">{error}</p>}</div>;
 }
 
-function TextAreaField({
-  id,
-  label,
-  value,
-  onChange,
-  helpText,
-  required,
-  errors,
-}: {
-  id: string;
-  label: string;
-  value: string;
-  onChange: (value: string) => void;
-  helpText?: string;
-  required?: boolean;
-  errors?: FormError[];
-}) {
+function TextAreaField({ id, label, value, onChange, helpText, required, errors }: { id: string; label: string; value: string; onChange: (value: string) => void; helpText?: string; required?: boolean; errors?: FormError[]; }) {
   const error = errors ? fieldError(errors, id) : undefined;
   const describedBy = [helpText ? `${id}-help` : null, error ? `${id}-error` : null].filter(Boolean).join(" ") || undefined;
-  return (
-    <div>
-      <label htmlFor={id} className="mb-1.5 block text-sm font-bold text-teal-dark">
-        {label} {required && <span aria-hidden="true">*</span>}
-      </label>
-      {helpText && (
-        <p id={`${id}-help`} className="mb-1.5 text-sm text-body">
-          {helpText}
-        </p>
-      )}
-      <textarea
-        id={id}
-        name={id}
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        aria-required={required}
-        aria-invalid={Boolean(error)}
-        aria-describedby={describedBy}
-        rows={4}
-        className={`w-full rounded-[var(--radius-control)] border bg-white px-4 py-3 text-base text-ink ${error ? "border-error" : "border-divider"}`}
-      />
-      {error && (
-        <p id={`${id}-error`} className="mt-1.5 text-sm font-semibold text-error">
-          {error}
-        </p>
-      )}
-    </div>
-  );
+  return <div><label htmlFor={id} className="mb-1.5 block text-sm font-bold text-teal-dark">{label} {required && <span aria-hidden="true">*</span>}</label>{helpText && <p id={`${id}-help`} className="mb-1.5 text-sm text-body">{helpText}</p>}<textarea id={id} name={id} value={value} onChange={(e) => onChange(e.target.value)} aria-required={required} aria-invalid={Boolean(error)} aria-describedby={describedBy} rows={4} className={`w-full rounded-[var(--radius-control)] border bg-white px-4 py-3 text-base text-ink ${error ? "border-error" : "border-divider"}`} />{error && <p id={`${id}-error`} className="mt-1.5 text-sm font-semibold text-error">{error}</p>}</div>;
 }

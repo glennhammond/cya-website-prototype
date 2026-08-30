@@ -57,7 +57,7 @@ export function AnalyticsConsentManager({ enabled }: { enabled: boolean }) {
             CYA can use Google analytics tools to understand how the website is used and how people find it. These tools stay off unless you allow analytics. Essential website functions remain available either way.
           </p>
           <p className="mt-2 text-sm leading-6 text-[var(--cya-body)]">
-            See the <Link href="/privacy" className="font-semibold underline underline-offset-4">privacy information</Link> for the current review position.
+            See the <Link href="/privacy-policy" className="font-semibold underline underline-offset-4">Privacy Policy</Link> for the current review position.
           </p>
           <div className="mt-5 flex flex-col gap-3 sm:flex-row">
             <button

@@ -60,15 +60,6 @@ export default function WorkplaceWellbeingProgramsPage() {
               <div className="p-6"><h3 className="text-2xl font-semibold text-[var(--cya-teal-dark)]">Hybrid and online participation</h3><p className="mt-3 leading-7 text-[var(--cya-body)]">Live connection and Wellbeing Studio support between in-person sessions.</p></div>
             </article>
           </div>
-          <div className="mt-20 bg-[var(--cya-surface-subtle)] px-8 py-10 lg:px-12 lg:py-12">
-            <ProductionKicker>How we make it work</ProductionKicker>
-            <h2 className="mt-5 max-w-4xl text-3xl font-bold lg:text-4xl">One program, planned and managed with you</h2>
-            <div className="mt-8 grid gap-5 md:grid-cols-3">
-              <ProductionCard number="01" title="Plan around your workplace" body="Agree the audience, locations, schedule, access needs and program goals." />
-              <ProductionCard number="02" title="Coordinate delivery" body="Match facilitators and formats, organise sessions and support participant communications." />
-              <ProductionCard number="03" title="Review and adapt" body="Use participation, feedback and delivery experience to decide what should continue or change." />
-            </div>
-          </div>
         </ProductionContainer>
       </section>
 

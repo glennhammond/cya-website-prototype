@@ -1,6 +1,13 @@
 import path from "node:path";
 import type { NextConfig } from "next";
 
+const securityHeaders = [
+  { key: "X-Content-Type-Options", value: "nosniff" },
+  { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+  { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
+  { key: "X-Frame-Options", value: "SAMEORIGIN" },
+] as const;
+
 const redirects: NonNullable<NextConfig["redirects"]> = async () => [
   { source: "/home", destination: "/", statusCode: 301 },
   { source: "/getting-started", destination: "/contact", statusCode: 301 },
@@ -33,6 +40,9 @@ const redirects: NonNullable<NextConfig["redirects"]> = async () => [
 const nextConfig: NextConfig = {
   turbopack: {
     root: path.resolve(__dirname),
+  },
+  async headers() {
+    return [{ source: "/:path*", headers: [...securityHeaders] }];
   },
   redirects,
 };

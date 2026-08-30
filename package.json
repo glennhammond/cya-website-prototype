@@ -13,7 +13,8 @@
     "qa:search-visibility-evidence": "node scripts/phase-16-evidence-answers-qa.mjs",
     "qa:search-visibility-evidence-rendered": "node scripts/phase-16-evidence-rendered-qa.mjs",
     "qa:rendered-smoke": "node scripts/phase-11-5-4-rendered-smoke.mjs",
-    "qa:launch": "node scripts/phase-11-5-4-launch-readiness.mjs"
+    "qa:launch": "node scripts/phase-11-5-4-launch-readiness.mjs",
+    "qa:release-controls": "node scripts/check-prelaunch-release-hardening.mjs"
   },
   "dependencies": {
     "@next/third-parties": "16.3.3",

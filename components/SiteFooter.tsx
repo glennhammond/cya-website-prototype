@@ -37,7 +37,7 @@ export function SiteFooter({ analyticsPreferencesEnabled = false }: { analyticsP
           <a href={memberSignInHref} target="_blank" rel="noopener noreferrer" className="text-sm text-white/85 hover:text-white">
             Member sign-in<span className="sr-only"> (opens in a new tab)</span>
           </a>
-          <Link href="/privacy" className="text-sm text-white/85 hover:text-white">Privacy</Link>
+          <Link href="/privacy-policy" className="text-sm text-white/85 hover:text-white">Privacy</Link>
           <Link href="/terms" className="text-sm text-white/85 hover:text-white">Terms</Link>
           {analyticsPreferencesEnabled ? <AnalyticsPreferencesButton /> : null}
         </nav>

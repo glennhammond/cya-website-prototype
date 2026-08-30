@@ -49,7 +49,7 @@ export default function Home() {
           <ProductionKicker>Start with your goal</ProductionKicker>
           <h2 className="mt-5 text-4xl font-bold tracking-[-0.015em] lg:text-5xl">What are you planning for your workplace?</h2>
           <div className="mt-10 border-t border-[var(--cya-divider)]">
-            {needs.map(([number, title, href]) => <Link key={number} href={href} className="grid grid-cols-[auto_1fr_auto] gap-5 border-x border-b border-[var(--cya-divider)] bg-white px-6 py-5 hover:bg-[var(--cya-surface-warm)]"><span className="text-xs font-semibold text-[var(--cya-ochre-ink)]">{number}</span><span className="text-xl font-semibold">{title}</span><span aria-hidden="true">→</span></Link>)}
+            {needs.map(([number, title, href]) => <Link key={number} href={href} className="grid grid-cols-[auto_1fr_auto] gap-5 border-x border-b border-[var(--cya-divider)] bg-white px-6 py-5 hover:bg-[var(--cya-surface-page)]"><span className="text-xs font-semibold text-[var(--cya-ochre-ink)]">{number}</span><span className="text-xl font-semibold">{title}</span><span aria-hidden="true">→</span></Link>)}
           </div>
         </ProductionContainer>
       </section>

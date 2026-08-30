@@ -61,15 +61,14 @@ for (const file of files) {
 }
 
 const home = await readFile(path.join(root, "app/page.tsx"), "utf8");
-if (!/<h1[^>]*>Work Wellness into Your Workday<\/h1>/.test(home)) {
-  failures.push("app/page.tsx: the protected brand line must be the homepage hero H1");
+if (!/<h1[^>]*text-\[var\(--cya-teal\)\][^>]*>Work Wellness into Your Workday<\/h1>/.test(home)) {
+  failures.push("app/page.tsx: the protected brand line must be the Primary Teal homepage hero H1");
 }
-if (/<h1[^>]*>Useful wellbeing, built around real work\.<\/h1>/.test(home)) {
-  failures.push("app/page.tsx: the supporting proposition must not replace the protected brand-line H1");
+if (home.includes("Useful wellbeing, built around real work.")) {
+  failures.push("app/page.tsx: the removed supporting proposition must not appear in the homepage hero");
 }
 for (const required of [
   "Work Wellness into Your Workday",
-  "Useful wellbeing, built around real work.",
   "From corporate yoga and Pilates to workshops, campaign moments and recurring wellbeing",
   "Explore movement",
 ]) {

@@ -33,12 +33,12 @@ The consolidated candidate is now the review surface. Sites 1 and 2 remain evide
 
 ### Home — `/`
 
-- **Site 1 supporting proposition:** Useful wellbeing, built around real work.
+- **Site 1 former supporting proposition:** Useful wellbeing, built around real work.
 - **Site 2 H1:** Work wellness into your workday.
 - **Consolidated H1 / locked brand line:** **Work Wellness into Your Workday**
-- **Supporting proposition:** **Useful wellbeing, built around real work.**
+- **Supporting proposition:** Removed from the consolidated hero.
 - **Consolidated lead:** From corporate yoga and Pilates to workshops, campaign moments and recurring wellbeing, CYA helps organisations shape practical workplace wellbeing around their people, context and working day.
-- **Decision:** The protected CYA brand line is the homepage hero H1. Site 1's useful supporting proposition, lead and decision-led structure are retained beneath it.
+- **Decision:** The protected CYA brand line is the homepage hero H1 in Primary Teal. The former supporting proposition is removed, with the consolidated lead following the H1 directly.
 
 ### Movement — `/movement`
 
@@ -139,7 +139,7 @@ The consolidated candidate is now the review surface. Sites 1 and 2 remain evide
 ## 4. Visual decisions now enforced
 
 - The homepage uses the approved light two-column hero rather than a dark image hero or bordered context card.
-- **Work Wellness into Your Workday** is the locked brand line and homepage hero H1; **Useful wellbeing, built around real work.** is its supporting proposition.
+- **Work Wellness into Your Workday** is the locked brand line and homepage hero H1, set in Primary Teal. The former supporting proposition is not used in the consolidated hero.
 - Primary Teal is `#17535B`.
 - Deep Teal is `#0E434A`.
 - Signal Ochre is `#C99A3E`.

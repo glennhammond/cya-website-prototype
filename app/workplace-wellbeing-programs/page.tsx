@@ -81,40 +81,49 @@ export default function WorkplaceWellbeingProgramsPage() {
         </ProductionContainer>
       </section>
 
-      <section className="bg-[var(--cya-surface-subtle)] py-20 lg:py-24">
-        <ProductionContainer className="grid gap-10 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:items-center lg:gap-14">
-          <figure className="relative aspect-[4/3] overflow-hidden border border-[var(--cya-divider)] bg-[var(--cya-surface-base)]">
-            <Image
-              src="/images/selected/cya-home-hero-workplace-session.webp"
-              alt="Employees take part in an accessible seated workplace yoga session in a meeting room"
-              fill
-              sizes="(min-width: 1024px) 44vw, 100vw"
-              className="object-cover"
-            />
-          </figure>
-          <div>
-            <ProductionKicker>Participation that fits the workday</ProductionKicker>
-            <h2 className="mt-5 max-w-3xl text-4xl font-bold lg:text-5xl">Make it easier for people to take part</h2>
-            <p className="mt-6 max-w-3xl text-lg leading-8 text-[var(--cya-body)]">We help plan delivery around your locations, schedules, access needs and the time people can realistically use. Participation remains voluntary, communications stay clear and review focuses on aggregate information rather than individual wellbeing.</p>
-            <div className="mt-8 border-y border-[var(--cya-divider)]">
-              <div className="grid gap-2 border-b border-[var(--cya-divider)] py-5 sm:grid-cols-[12rem_1fr] sm:gap-6">
-                <h3 className="font-semibold text-[var(--cya-teal-dark)]">Accessible by design</h3>
-                <p className="leading-7 text-[var(--cya-body)]">Choose times, formats and locations that reflect how your people actually work.</p>
-              </div>
-              <div className="grid gap-2 border-b border-[var(--cya-divider)] py-5 sm:grid-cols-[12rem_1fr] sm:gap-6">
-                <h3 className="font-semibold text-[var(--cya-teal-dark)]">Clear before launch</h3>
-                <p className="leading-7 text-[var(--cya-body)]">Give participants practical information about what to expect and how to join.</p>
-              </div>
-              <div className="grid gap-2 py-5 sm:grid-cols-[12rem_1fr] sm:gap-6">
-                <h3 className="font-semibold text-[var(--cya-teal-dark)]">Respectful review</h3>
-                <p className="leading-7 text-[var(--cya-body)]">Use aggregate participation and voluntary feedback to improve delivery without monitoring individual wellbeing.</p>
-              </div>
+      <section className="bg-[var(--cya-surface-page)] py-20 lg:py-24">
+        <ProductionContainer>
+          <ProductionKicker>Designed for participation</ProductionKicker>
+          <h2 className="mt-5 max-w-4xl text-4xl font-bold lg:text-5xl">Make workplace wellbeing practical to join</h2>
+          <p className="mt-6 max-w-4xl text-lg leading-8 text-[var(--cya-body)]">We plan delivery around your locations, schedules, access needs and the time people can realistically use. Participants receive clear information, choose whether to take part and are not individually monitored or assessed.</p>
+          <div className="mt-10 grid gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-center lg:gap-14">
+            <div className="border-y border-[var(--cya-divider)]">
+              <article className="grid grid-cols-[2.5rem_1fr] gap-4 border-b border-[var(--cya-divider)] py-6">
+                <p className="pt-1 text-xs font-semibold text-[var(--cya-ochre-ink)]">01</p>
+                <div>
+                  <h3 className="text-xl font-semibold text-[var(--cya-teal-dark)]">Fits the working day</h3>
+                  <p className="mt-2 leading-7 text-[var(--cya-body)]">Choose times, formats and locations that reflect how your people work.</p>
+                </div>
+              </article>
+              <article className="grid grid-cols-[2.5rem_1fr] gap-4 border-b border-[var(--cya-divider)] py-6">
+                <p className="pt-1 text-xs font-semibold text-[var(--cya-ochre-ink)]">02</p>
+                <div>
+                  <h3 className="text-xl font-semibold text-[var(--cya-teal-dark)]">Clear to participants</h3>
+                  <p className="mt-2 leading-7 text-[var(--cya-body)]">Explain what the experience involves, who it is for and how people can join.</p>
+                </div>
+              </article>
+              <article className="grid grid-cols-[2.5rem_1fr] gap-4 py-6">
+                <p className="pt-1 text-xs font-semibold text-[var(--cya-ochre-ink)]">03</p>
+                <div>
+                  <h3 className="text-xl font-semibold text-[var(--cya-teal-dark)]">Voluntary and privacy-aware</h3>
+                  <p className="mt-2 leading-7 text-[var(--cya-body)]">Use aggregate participation and voluntary feedback to improve delivery without assessing individual wellbeing.</p>
+                </div>
+              </article>
             </div>
+            <figure className="relative aspect-[3/2] overflow-hidden border border-[var(--cya-divider)] bg-[var(--cya-surface-base)]">
+              <Image
+                src="/images/selected/cya-home-hero-workplace-session.webp"
+                alt="Employees take part in an accessible seated workplace yoga session in a meeting room"
+                fill
+                sizes="(min-width: 1280px) 650px, (min-width: 1024px) 52vw, 100vw"
+                className="object-cover"
+              />
+            </figure>
           </div>
         </ProductionContainer>
       </section>
 
-      <section className="bg-[var(--cya-surface-page)] py-20 lg:py-24">
+      <section className="bg-[var(--cya-surface-base)] py-20 lg:py-24">
         <ProductionContainer className="grid gap-10 lg:grid-cols-[minmax(0,1.02fr)_minmax(0,0.98fr)] lg:items-center lg:gap-14">
           <div>
             <ProductionKicker>Experience in practice</ProductionKicker>
@@ -138,7 +147,7 @@ export default function WorkplaceWellbeingProgramsPage() {
         </ProductionContainer>
       </section>
 
-      <section className="bg-[var(--cya-surface-base)] py-20 lg:py-24">
+      <section className="bg-[var(--cya-surface-page)] py-20 lg:py-24">
         <ProductionContainer>
           <ProductionKicker>Practical questions</ProductionKicker>
           <h2 className="mt-5 max-w-4xl text-4xl font-bold lg:text-5xl">Questions organisations ask before getting started</h2>

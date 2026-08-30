@@ -11,12 +11,12 @@ export const metadata: Metadata = {
 };
 
 const needs = [
-  ["01", "Plan a useful wellbeing session", "/movement"],
-  ["02", "Add a reset or energiser to an event", "/conferences-events"],
-  ["03", "Create a meaningful campaign moment", "/contact?interest=one-off"],
-  ["04", "Build an ongoing wellbeing rhythm", "/workplace-wellbeing-programs"],
-  ["05", "Bring in a workshop or expert experience", "/workplace-wellbeing-workshops"],
-  ["06", "Start planning without choosing a package", "/contact"],
+  ["01", "Arrange a one-off workplace yoga, Pilates or mindfulness session", "/workplace-wellbeing-programs"],
+  ["02", "Add movement or mindfulness to a conference or event", "/conferences-events"],
+  ["03", "Plan a wellbeing day or workplace campaign", "/contact?interest=one-off"],
+  ["04", "Create an ongoing workplace wellbeing program", "/workplace-wellbeing-programs"],
+  ["05", "Plan a wellbeing workshop or specialist session", "/workplace-wellbeing-workshops"],
+  ["06", "Discuss what would work for your organisation", "/contact"],
 ] as const;
 
 export default function Home() {
@@ -46,8 +46,8 @@ export default function Home() {
 
       <section id="needs" className="bg-[var(--cya-canvas)] py-20 lg:py-24">
         <ProductionContainer>
-          <ProductionKicker>Start with what you are planning</ProductionKicker>
-          <h2 className="mt-5 text-4xl font-bold tracking-[-0.015em] lg:text-5xl">What needs to happen?</h2>
+          <ProductionKicker>Start with your goal</ProductionKicker>
+          <h2 className="mt-5 text-4xl font-bold tracking-[-0.015em] lg:text-5xl">What are you planning for your workplace?</h2>
           <div className="mt-10 border-t border-[var(--cya-divider)]">
             {needs.map(([number, title, href]) => <Link key={number} href={href} className="grid grid-cols-[auto_1fr_auto] gap-5 border-x border-b border-[var(--cya-divider)] bg-white px-6 py-5 hover:bg-[var(--cya-paper)]"><span className="text-xs font-semibold text-[var(--cya-ochre-ink)]">{number}</span><span className="text-xl font-semibold">{title}</span><span aria-hidden="true">→</span></Link>)}
           </div>

@@ -84,7 +84,7 @@ export default function WorkplaceWellbeingProgramsPage() {
       <section className="bg-[var(--cya-surface-page)] py-20 lg:py-24">
         <ProductionContainer>
           <ProductionKicker>Designed for participation</ProductionKicker>
-          <h2 className="mt-5 max-w-4xl text-4xl font-bold lg:text-5xl">Make workplace wellbeing practical to join</h2>
+          <h2 className="mt-5 text-4xl font-bold lg:text-5xl xl:whitespace-nowrap">Make workplace wellbeing practical to join</h2>
           <p className="mt-6 max-w-4xl text-lg leading-8 text-[var(--cya-body)]">We plan delivery around your locations, schedules, access needs and the time people can realistically use. Participants receive clear information, choose whether to take part and are not individually monitored or assessed.</p>
           <div className="mt-10 grid gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-center lg:gap-14">
             <div className="border-y border-[var(--cya-divider)]">
@@ -112,8 +112,8 @@ export default function WorkplaceWellbeingProgramsPage() {
             </div>
             <figure className="relative aspect-[3/2] overflow-hidden border border-[var(--cya-divider)] bg-[var(--cya-surface-base)]">
               <Image
-                src="/images/selected/cya-home-hero-workplace-session.webp"
-                alt="Employees take part in an accessible seated workplace yoga session in a meeting room"
+                src="/images/selected/cya-programs-participation-outdoor-group.webp"
+                alt="Employees take part in a facilitated outdoor workplace yoga session"
                 fill
                 sizes="(min-width: 1280px) 650px, (min-width: 1024px) 52vw, 100vw"
                 className="object-cover"

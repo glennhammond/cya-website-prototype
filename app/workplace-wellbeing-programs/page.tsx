@@ -74,17 +74,18 @@ export default function WorkplaceWellbeingProgramsPage() {
 
       <section className="bg-[var(--cya-surface-base)] py-20 lg:py-24">
         <ProductionContainer>
-          <ProductionKicker>Procurement confidence</ProductionKicker>
-          <h2 className="mt-5 max-w-4xl text-4xl font-bold lg:text-5xl">Clear enough to approve. Human enough to work</h2>
-          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            <ProductionCard title="Scope" body="Audience, locations, cadence and delivery format agreed before launch." tone="field" />
-            <ProductionCard title="Safeguards" body="Access, consent, facilitator fit and escalation boundaries made explicit." tone="field" />
-            <ProductionCard title="Measurement" body="Useful signals agreed without turning wellbeing into surveillance." tone="field" />
-            <ProductionCard title="Review" body="A visible rhythm for learning, adapting and deciding what continues." tone="field" />
+          <ProductionKicker>What your organisation can expect</ProductionKicker>
+          <h2 className="mt-5 max-w-4xl text-4xl font-bold lg:text-5xl">Clear planning, reliable delivery and useful review</h2>
+          <p className="mt-6 max-w-4xl text-lg leading-8 text-[var(--cya-body)]">Before your program begins, we agree what will be delivered, who it is for and how participation and progress will be reviewed.</p>
+          <div className="mt-10 grid gap-5 md:grid-cols-2">
+            <ProductionCard number="01" title="Agreed scope" body="Audience, locations, schedule, delivery formats and access requirements confirmed before launch." tone="field" />
+            <ProductionCard number="02" title="Facilitator and format fit" body="The right facilitator and experience matched to your workplace, participants and program goals." tone="field" />
+            <ProductionCard number="03" title="Clear participant access" body="Practical communications, voluntary participation and appropriate wellbeing boundaries established from the start." tone="field" />
+            <ProductionCard number="04" title="Proportionate review" body="Aggregate participation, delivery experience and voluntary feedback used to inform what continues or changes." tone="field" />
           </div>
           <div className="mt-8 grid gap-6 border border-[var(--cya-divider)] bg-[var(--cya-surface-subtle)] px-8 py-9 md:grid-cols-[1fr_auto] md:items-center">
-            <div><ProductionKicker>A useful starting point</ProductionKicker><h3 className="mt-4 text-2xl font-semibold">A program does not have to begin as a year-long commitment</h3><p className="mt-3 max-w-3xl text-[var(--cya-body)]">Start with a focused pilot, a recurring rhythm or a broader connected plan when that depth is appropriate.</p></div>
-            <ProductionAction href="/contact?interest=program">Discuss the right starting point</ProductionAction>
+            <div><ProductionKicker>Flexible starting points</ProductionKicker><h3 className="mt-4 text-2xl font-semibold">Start with the level of support your organisation needs</h3><p className="mt-3 max-w-3xl text-[var(--cya-body)]">Begin with a focused pilot, a regular session schedule or a broader ongoing program. We will help you define a practical starting point.</p></div>
+            <ProductionAction href="/contact?interest=program">Start planning</ProductionAction>
           </div>
         </ProductionContainer>
       </section>

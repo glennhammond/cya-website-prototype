@@ -4,7 +4,7 @@ import type { FeatureItem } from "@/components/FeatureGrid";
 export const yogaHero: PageIntro = {
   kicker: "Workplace Yoga",
   heading: "Workplace Yoga Classes for Australian Teams",
-  body: "CYA delivers practical yoga sessions for workplaces without assuming prior experience, studio conditions or a particular level of flexibility. Book one session, a short series or a recurring class, onsite or online.",
+  body: "Corporate Yoga Australia delivers practical yoga sessions for workplaces without assuming prior experience, studio conditions or a particular level of flexibility. Book one session, a short series or a recurring class, onsite or online.",
   actions: [
     { label: "Discuss a yoga session", href: "/contact?interest=one-off", variant: "primary" },
     { label: "Explore workplace wellbeing programs", href: "/workplace-wellbeing-programs", variant: "secondary" },
@@ -36,7 +36,7 @@ export const sessionFits: FeatureItem[] = [
 export const participationFeature = {
   kicker: "Participation",
   heading: "Designed for people who may never choose a yoga studio",
-  body: "CYA does not assume confidence, flexibility or yoga experience. Sessions can be adapted to varied bodies, roles, available space and clothing, with clear options so people can participate at an appropriate level.",
+  body: "Corporate Yoga Australia does not assume confidence, flexibility or yoga experience. Sessions can be adapted to varied bodies, roles, available space and clothing, with clear options so people can participate at an appropriate level.",
 };
 
 export const tailoring: FeatureItem[] = [
@@ -76,7 +76,7 @@ export const deliveryModes: FeatureItem[] = [
 export const facilitatorFeature = {
   kicker: "Facilitator fit",
   heading: "A human-led service, not a class dropped into a calendar",
-  body: "CYA coordinates the brief, facilitator match and delivery details with the workplace. Individual facilitator credentials and profiles are published only when verified; the service model does not rely on unsupported credential or outcome claims.",
+  body: "Corporate Yoga Australia coordinates the brief, facilitator match and delivery details with the workplace. Individual facilitator credentials and profiles are published only when verified; the service model does not rely on unsupported credential or outcome claims.",
 };
 
 export const practicalLogistics: FeatureItem[] = [
@@ -86,7 +86,7 @@ export const practicalLogistics: FeatureItem[] = [
   },
   {
     title: "Room and setup",
-    body: "CYA plans around the space available and confirms any setup requirements before the session.",
+    body: "Corporate Yoga Australia plans around the space available and confirms any setup requirements before the session.",
   },
   {
     title: "Session length",
@@ -101,7 +101,7 @@ export const practicalLogistics: FeatureItem[] = [
 export const authorityResource = {
   kicker: "Planning workplace yoga",
   heading: "Introducing yoga at work without making participation difficult",
-  body: "CYA's established yoga-at-work guidance covers practical considerations for introducing yoga in a workplace. It supports this service page with useful planning context rather than duplicating the same content here.",
+  body: "Corporate Yoga Australia's established yoga-at-work guidance covers practical considerations for introducing yoga in a workplace. It supports this service page with useful planning context rather than duplicating the same content here.",
   cta: {
     label: "Read 8 tips to successfully introduce yoga at work",
     href: "/blog/8-tips-to-successfully-introduce-yoga-at-work",
@@ -127,6 +127,6 @@ export const relatedPaths: FeatureItem[] = [
 export const closingCTA = {
   kicker: "Next step",
   heading: "Planning a workplace yoga session?",
-  body: "Tell CYA about your team, location, timing and what you want the session to do. One session is a perfectly valid place to start - and it can remain one session.",
+  body: "Tell Corporate Yoga Australia about your team, location, timing and what you want the session to do. One session is a perfectly valid place to start - and it can remain one session.",
   cta: { label: "Discuss a yoga session", href: "/contact?interest=one-off", variant: "primary" as const },
 };

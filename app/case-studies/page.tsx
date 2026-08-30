@@ -37,7 +37,7 @@ export default function CaseStudiesPage() {
               The situation matters as much as the session
             </h1>
             <p className="mt-6 max-w-3xl text-lg leading-8 text-[var(--cya-body)]">
-              CYA case studies connect a workplace need with the choices made, the way the
+              Corporate Yoga Australia case studies connect a workplace need with the choices made, the way the
               experience was delivered and what the organisation learned from it.
             </p>
             <div className="mt-8 flex gap-3">
@@ -63,7 +63,7 @@ export default function CaseStudiesPage() {
       <ReviewImageDirection
         id="IMAGE 12"
         job="Evidence"
-        subject="A genuine facilitated CYA workplace moment with visible context and natural participation."
+        subject="A genuine facilitated Corporate Yoga Australia workplace moment with visible context and natural participation."
         treatment="Documentary rather than posed; enough environmental detail to distinguish the workplace setting."
         format="Wide landscape crop with a clear focal point; allow for responsive cropping."
         avoid="Client logos without permission, testimonial-style portraits, staged applause or generic stock wellbeing imagery."
@@ -121,7 +121,7 @@ export default function CaseStudiesPage() {
 
       <ProductionClosing
         heading="Start with the situation you need to solve"
-        body="CYA can help shape the format, delivery and next step around your workplace."
+        body="Corporate Yoga Australia can help shape the format, delivery and next step around your workplace."
       />
     </>
   );

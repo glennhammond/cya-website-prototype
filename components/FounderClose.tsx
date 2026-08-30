@@ -4,7 +4,7 @@ import { ImageMedia } from "@/components/ImageMedia";
 import type { CTA, MediaAsset } from "@/lib/types";
 
 /**
- * Leadership / CYA perspective. Deliberately quieter than the hero it
+ * Leadership / Corporate Yoga Australia perspective. Deliberately quieter than the hero it
  * bookends the page with: the portrait sits in its own box beside generous
  * negative space, not under a full-bleed gradient wash, so the two moments
  * read as open and close rather than the same panel repeated.

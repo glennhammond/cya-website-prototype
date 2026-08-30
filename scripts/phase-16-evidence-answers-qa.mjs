@@ -51,7 +51,7 @@ for (const signal of [
   "Editorial production:",
   "Expert review:",
   "Sources and scope",
-  "do not turn CYA services into WHS advice or controls",
+  "do not turn Corporate Yoga Australia services into WHS advice or controls",
 ]) {
   check(articlePage.includes(signal), `Insight template exposes governed authority signal: ${signal}`);
 }
@@ -88,12 +88,12 @@ for (const source of [
 }
 
 for (const signal of [
-  "Participation and scope",
-  "protected opportunities to participate",
-  "Wellbeing Champion",
-  "do not replace identifying psychosocial hazards",
-  "CYA is a workplace wellbeing provider, not an EAP or psychosocial-compliance service",
-  "Read the participation guide",
+  "Designed for participation",
+  "Participants receive clear information",
+  "not individually",
+  "Voluntary and privacy-aware",
+  "do not replace identifying and controlling psychosocial hazards",
+  "appropriate WHS, clinical or legal advice",
 ]) {
   check(programsPage.includes(signal), `program page states ${signal}`);
 }

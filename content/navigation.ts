@@ -49,11 +49,11 @@ export const primaryNav: NavItem[] = [
     ],
   },
   {
-    label: "Why CYA",
+    label: "Why us",
     href: "/about-us",
     children: [
       {
-        label: "About CYA",
+        label: "About us",
         href: "/about-us",
         description: "Meet the people and principles behind Corporate Yoga Australia.",
       },
@@ -83,7 +83,7 @@ export const primaryCTA: CTA = {
 export const primaryCTAShort = "Start planning";
 
 export const footerLegalNav: NavItem[] = [
-  { label: "Privacy", href: "/privacy" },
+  { label: "Privacy", href: "/privacy-policy" },
   { label: "Terms", href: "/terms" },
   { label: "Member access", href: "/member-access" },
 ];

@@ -4,7 +4,7 @@ import type { MediaAsset } from "@/lib/types";
 
 /**
  * An editorial introduction that pairs the core proposition with a warm,
- * representative CYA session image. The asymmetric split follows the Studio
+ * representative Corporate Yoga Australia session image. The asymmetric split follows the Studio
  * system while keeping the message clear and readable before the pathways.
  */
 export function QuietIntro({ heading, body, image }: { heading: string; body: string; image: MediaAsset }) {

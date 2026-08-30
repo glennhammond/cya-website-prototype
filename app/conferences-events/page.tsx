@@ -30,7 +30,7 @@ export default function ConferencesEventsPage() {
               Build energy, calm and connection into the agenda
             </h1>
             <p className="mt-6 max-w-3xl text-lg leading-8 text-[var(--cya-body)]">
-              From a short activation to morning movement, mindfulness or a practical wellbeing session, CYA designs around the audience, venue and run sheet.
+              From a short activation to morning movement, mindfulness or a practical wellbeing session, Corporate Yoga Australia designs around the audience, venue and run sheet.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <ProductionAction href="/contact?interest=conference">Discuss your conference</ProductionAction>
@@ -43,10 +43,10 @@ export default function ConferencesEventsPage() {
           </aside>
         </ProductionContainer>
       </section>
-      <ReviewImageDirection id="IMAGE 11 · EVENT OR CONFERENCE ACTIVATION" job="Context" subject="A genuine CYA activation within a conference or event, showing how the experience fits the venue, audience and agenda." treatment="Contained 3:2 image with event context and natural participation. Preserve the light-led page rather than turning the photograph into a hero background." format="3:2 desktop · adaptable to 4:3 mobile" avoid="Generic keynote imagery, empty stages, unreadable screens, unapproved event branding or an image that implies an official partnership." candidate="/images/selected/cya-conferences-events-hero.webp" />
+      <ReviewImageDirection id="IMAGE 11 · EVENT OR CONFERENCE ACTIVATION" job="Context" subject="A genuine Corporate Yoga Australia activation within a conference or event, showing how the experience fits the venue, audience and agenda." treatment="Contained 3:2 image with event context and natural participation. Preserve the light-led page rather than turning the photograph into a hero background." format="3:2 desktop · adaptable to 4:3 mobile" avoid="Generic keynote imagery, empty stages, unreadable screens, unapproved event branding or an image that implies an official partnership." candidate="/images/selected/cya-conferences-events-hero.webp" />
       <section className="bg-white py-20 lg:py-24">
         <ProductionContainer>
-          <ProductionKicker>Where CYA fits into the agenda</ProductionKicker>
+          <ProductionKicker>Where Corporate Yoga Australia fits into the agenda</ProductionKicker>
           <h2 className="mt-5 text-4xl font-bold lg:text-5xl">Support the moment the agenda needs</h2>
           <div className="mt-10 grid gap-5 md:grid-cols-3">{agendaMoments.map((item) => <ProductionCard key={item.title} title={item.title} body={item.body} />)}</div>
         </ProductionContainer>
@@ -61,11 +61,11 @@ export default function ConferencesEventsPage() {
       <section className="bg-[var(--cya-surface-page)] py-20 lg:py-24">
         <ProductionContainer>
           <ProductionKicker>Delivery logistics</ProductionKicker>
-          <h2 className="mt-5 text-4xl font-bold lg:text-5xl">What CYA confirms before the day</h2>
+          <h2 className="mt-5 text-4xl font-bold lg:text-5xl">What Corporate Yoga Australia confirms before the day</h2>
           <div className="mt-10 grid gap-5 md:grid-cols-4">{logistics.map((item) => <ProductionCard key={item.title} title={item.title} body={item.body} tone="paper" />)}</div>
         </ProductionContainer>
       </section>
-      <ProductionClosing heading="One activation or a connected event experience" body="Start with the audience, agenda and venue. CYA can shape one useful moment or coordinate several experiences when that helps." href="/contact?interest=conference" action="Discuss your conference" />
+      <ProductionClosing heading="One activation or a connected event experience" body="Start with the audience, agenda and venue. Corporate Yoga Australia can shape one useful moment or coordinate several experiences when that helps." href="/contact?interest=conference" action="Discuss your conference" />
     </>
   );
 }

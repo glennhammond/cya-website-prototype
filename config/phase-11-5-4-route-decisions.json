@@ -1,22 +1,8 @@
 {
-  "version": "1.0",
-  "authority": "CYA SEO Phase 11.5.4 route classification reconciled to the Authoritative Site Architecture and Google Ads evidence 2026-08-28",
+  "version": "2.1",
+  "authority": "Corporate Yoga Australia Website pre-launch migration authority reconciled to Deb lifecycle decisions, Ahrefs exact-URL evidence and the live Squarespace sitemap captured 2026-08-31",
   "canonicalOrigin": "https://www.corporateyoga.com.au",
   "trailingSlash": false,
-  "evidencePeriod": "2026-02-16/2026-08-27",
-  "lockedRedirects": [
-    { "from": "/home", "to": "/", "status": 301 },
-    { "from": "/about", "to": "/about-us", "status": 301 },
-    { "from": "/personalised-wellbeing-programs", "to": "/workplace-wellbeing-programs", "status": 301 },
-    { "from": "/old-about-2", "to": "/about-us", "status": 301 },
-    { "from": "/old-bespoke-services", "to": "/workplace-wellbeing-programs", "status": 301 },
-    { "from": "/old-services", "to": "/workplace-wellbeing-programs", "status": 301 },
-    { "from": "/what-we-offer", "to": "/workplace-wellbeing-programs", "status": 301 },
-    { "from": "/our-instructors", "to": "/about-us", "status": 301 },
-    { "from": "/contact-us", "to": "/contact", "status": 301 },
-    { "from": "/google-ads-lander", "to": "/workplace-yoga-australia", "status": 301 },
-    { "from": "/contact-thank-you-online-1", "to": "/contact-thank-you-online", "status": 301 }
-  ],
   "preservedCanonicalRoutes": [
     "/",
     "/workplace-yoga",
@@ -32,15 +18,34 @@
     "/contact"
   ],
   "campaignRoutes": [
-    { "path": "/workplace-yoga-australia", "outcome": "preserve-noindex-google-ads-lander", "ownerConfirmed": true, "confidence": "confirmed-paid-destination", "clicks": 377, "costAud": 2475.85, "reportedConversions": 16 },
-    { "path": "/online-wellbeing", "outcome": "preserve-indexable-service", "ownerConfirmed": true, "confidence": "confirmed-paid-destination", "clicks": 6, "costAud": 60.94, "reportedConversions": 2 },
-    { "path": "/online-wellbeing-1", "outcome": "preserve-noindex-campaign-non-ads", "ownerConfirmed": true, "confidence": "no-google-ads-landing-evidence" },
-    { "path": "/online-wellbeing-2026", "outcome": "preserve-noindex-campaign-non-ads", "ownerConfirmed": true, "confidence": "no-google-ads-landing-evidence" },
-    { "path": "/online-wellbeing-landing-page", "outcome": "preserve-noindex-campaign-non-ads", "ownerConfirmed": true, "confidence": "no-google-ads-landing-evidence" },
-    { "path": "/online-wellbeing-learn-more-here", "outcome": "preserve-noindex-campaign-non-ads", "ownerConfirmed": true, "confidence": "no-google-ads-landing-evidence" },
-    { "path": "/2026-wellbeing-program-1", "outcome": "preserve-noindex-campaign-non-ads", "ownerConfirmed": true, "confidence": "no-google-ads-landing-evidence" },
-    { "path": "/program-registration", "outcome": "preserve-noindex-operational", "ownerConfirmed": true, "confidence": "confirmed-non-ad-purpose" },
-    { "path": "/contact-thank-you", "outcome": "preserve-noindex-conversion-continuity", "ownerConfirmed": true, "confidence": "confirmed-google-ads-conversion-webpage", "recordedEvents": 20 },
-    { "path": "/contact-thank-you-online", "outcome": "preserve-noindex-conversion-continuity", "ownerConfirmed": true, "confidence": "confirmed-google-ads-conversion-webpage", "recordedEvents": 1 }
-  ]
+    { "path": "/workplace-yoga-australia", "outcome": "redirect-workplace-yoga", "ownerConfirmed": true, "lifecycle": "inactive-paid-destination" },
+    { "path": "/online-wellbeing-1", "outcome": "redirect-online-wellbeing", "ownerConfirmed": true, "lifecycle": "inactive-campaign" },
+    { "path": "/online-wellbeing-2026", "outcome": "redirect-online-wellbeing", "ownerConfirmed": true, "lifecycle": "inactive-campaign" },
+    { "path": "/online-wellbeing-landing-page", "outcome": "redirect-online-wellbeing", "ownerConfirmed": true, "lifecycle": "inactive-campaign" },
+    { "path": "/online-wellbeing-learn-more-here", "outcome": "redirect-online-wellbeing", "ownerConfirmed": true, "lifecycle": "inactive-campaign" },
+    { "path": "/2026-wellbeing-program", "outcome": "redirect-workplace-wellbeing-programs", "ownerConfirmed": true, "lifecycle": "inactive-campaign" },
+    { "path": "/2026-wellbeing-program-1", "outcome": "redirect-workplace-wellbeing-programs", "ownerConfirmed": true, "lifecycle": "inactive-campaign" },
+    { "path": "/2026-wellbeing-program-1-1", "outcome": "redirect-workplace-wellbeing-programs", "ownerConfirmed": true, "lifecycle": "inactive-campaign" }
+  ],
+  "retiredRoutes": [
+    { "path": "/program-registration", "outcome": "410", "ownerConfirmed": true, "ahrefsBacklinks": 0, "ahrefsOrganicTraffic": 0, "ahrefsPaidTraffic": 0 },
+    { "path": "/contact-thank-you", "outcome": "410-after-inpage-conversion", "ownerConfirmed": true, "ahrefsBacklinks": 0, "ahrefsOrganicTraffic": 0, "ahrefsPaidTraffic": 0 },
+    { "path": "/contact-thank-you-online", "outcome": "410-after-inpage-conversion", "ownerConfirmed": true, "ahrefsBacklinks": 0, "ahrefsOrganicTraffic": 0, "ahrefsPaidTraffic": 0 },
+    { "path": "/contact-thank-you-online-1", "outcome": "410-after-inpage-conversion", "ownerConfirmed": true, "ahrefsBacklinks": 0, "ahrefsOrganicTraffic": 0, "ahrefsPaidTraffic": 0 },
+    { "path": "/google-ads-lander", "outcome": "410", "ownerConfirmed": true, "ahrefsBacklinks": 0, "ahrefsOrganicTraffic": 0, "ahrefsPaidTraffic": 0 },
+    { "path": "/cart", "outcome": "410", "ownerConfirmed": true, "reason": "Legacy commerce endpoint is not used by the replacement website." }
+  ],
+  "legacyEditorialRedirects": [
+    { "path": "/blog/wrc3ipsjxi1x5i5ppiiol3vilpm4xy", "destination": "/blog/sleep-and-workplace-productivity-corporate-yoga-australia", "ownerConfirmed": true },
+    { "path": "/blog/6-ways-to-embrace-winter-wellbeing", "destination": "/blog/sleep-and-workplace-productivity-corporate-yoga-australia", "ownerConfirmed": true },
+    { "path": "/blog/12-ways-to-bring-positive-and-lasting-change-to-your-day", "destination": "/blog/mindfulness-everyday", "ownerConfirmed": true },
+    { "path": "/blog/6-essential-strategies-for-thriving-in-a-demanding-world", "destination": "/blog/mindfulness-everyday", "ownerConfirmed": true },
+    { "path": "/blog/5-tips-to-help-keep-your-emotions-from-controlling-you", "destination": "/blog/3-steps-to-reduce-workplace-stress-with-mindfulness", "ownerConfirmed": true },
+    { "path": "/blog/summer-retreat-3d55t", "destination": "/blog/3-steps-to-reduce-workplace-stress-with-mindfulness", "ownerConfirmed": true }
+  ],
+  "retiredRouteFamilies": [
+    { "pattern": "/blog/category/:slug", "outcome": "410", "reason": "Legacy archive sprawl has no equivalent page and must not soft-redirect to the Insights hub." },
+    { "pattern": "/blog/tag/:slug", "outcome": "410", "reason": "Legacy archive sprawl has no equivalent page and must not soft-redirect to the Insights hub." }
+  ],
+  "paidSearchRule": "Google Ads are paused. Any future reactivation must use current governed final URLs before campaigns are enabled."
 }

@@ -17,7 +17,7 @@ export default function WorkplaceYogaAustraliaPage() {
       benefits={[
         "Onsite or online delivery for office, hybrid and distributed teams.",
         "One-off sessions, regular classes and broader wellbeing programs.",
-        "An experienced national facilitator network coordinated by CYA.",
+        "An experienced national facilitator network coordinated by Corporate Yoga Australia.",
       ]}
       ctaHref="/contact?interest=one-off"
       secondaryLabel="Explore workplace yoga"

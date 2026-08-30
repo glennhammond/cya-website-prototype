@@ -34,7 +34,7 @@ export default function MovementPage() {
       <ReviewImageDirection
         id="IMAGE 05 · MOVEMENT IN CONTEXT"
         job="Context"
-        subject="A genuine CYA movement experience showing varied participation and enough of the workplace to understand how the format fits."
+        subject="A genuine Corporate Yoga Australia movement experience showing varied participation and enough of the workplace to understand how the format fits."
         treatment="Light, contained landscape image with a clear facilitator and natural participation."
         format="3:2 desktop · adaptable to 4:3 mobile"
         avoid="Generic fitness imagery, a studio setting, uniform advanced movement or another dominant full-width warehouse band."
@@ -65,7 +65,7 @@ export default function MovementPage() {
           </div>
         </ProductionContainer>
       </section>
-      <ProductionClosing heading="Not sure which movement experience fits?" body="Tell CYA about the group, space and purpose and we will recommend a useful starting point." action="Start planning" href="/contact?interest=movement" />
+      <ProductionClosing heading="Not sure which movement experience fits?" body="Tell Corporate Yoga Australia about the group, space and purpose and we will recommend a useful starting point." action="Start planning" href="/contact?interest=movement" />
     </>
   );
 }

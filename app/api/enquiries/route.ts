@@ -1,10 +1,8 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { interestOptions } from "@/content/consultation";
 import { ATTRIBUTION_KEYS, type AttributionData } from "@/lib/attribution";
+import { enquirySubmissionEnabled } from "@/lib/release";
 
-// HubSpot portal/form identifiers are not secrets. Runtime overrides allow the
-// deployment configuration to stay explicit without breaking the already
-// qualified CYA planning form when an override is absent.
 const HUBSPOT_PORTAL_ID = process.env.CYA_HUBSPOT_PORTAL_ID?.trim() || "14575795";
 const HUBSPOT_FORM_ID = process.env.CYA_HUBSPOT_FORM_ID?.trim() || "746ef219-510f-4faa-a7a3-40288155d936";
 const HUBSPOT_ENDPOINT = `https://api.hsforms.com/submissions/v3/integration/submit/${HUBSPOT_PORTAL_ID}/${HUBSPOT_FORM_ID}`;
@@ -13,21 +11,15 @@ const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 type EnquiryPayload = {
   name?: unknown;
   workEmail?: unknown;
-  phone?: unknown;
   organisation?: unknown;
-  role?: unknown;
-  workforce?: unknown;
   locations?: unknown;
   interest?: unknown;
   timeframe?: unknown;
-  deliveryMode?: unknown;
   context?: unknown;
-  procurement?: unknown;
   privacyConsent?: unknown;
   website?: unknown;
   sourcePage?: unknown;
   referrer?: unknown;
-  hubspotutk?: unknown;
   attribution?: unknown;
 };
 
@@ -60,22 +52,22 @@ function validAttribution(value: unknown): AttributionData {
   return result;
 }
 
-function requestIp(request: NextRequest) {
-  return clean(request.headers.get("x-forwarded-for")?.split(",")[0], 100);
-}
-
 function sameOrigin(request: NextRequest) {
   const origin = request.headers.get("origin");
   if (!origin) return true;
   try {
     const expectedHost = request.headers.get("x-forwarded-host") ?? request.headers.get("host");
-    return new URL(origin).host === expectedHost;
+    return Boolean(expectedHost) && new URL(origin).host === expectedHost;
   } catch {
     return false;
   }
 }
 
 export async function POST(request: NextRequest) {
+  if (!enquirySubmissionEnabled()) {
+    return NextResponse.json({ ok: false, error: "submission-disabled" }, { status: 503 });
+  }
+
   if (!sameOrigin(request)) {
     return NextResponse.json({ ok: false, error: "origin" }, { status: 403 });
   }
@@ -103,22 +95,18 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ ok: false, error: "validation" }, { status: 400 });
   }
 
-  const successRoute = interest === "studio" ? "/contact-thank-you-online" : "/contact-thank-you";
-
-  // Quietly accept honeypot submissions without creating HubSpot records.
+  // Quietly accept honeypot submissions without creating HubSpot records or conversions.
   if (clean(body.website, 200)) {
-    return NextResponse.json({ ok: true, successRoute, submissionId: crypto.randomUUID() });
+    return NextResponse.json({
+      ok: true,
+      conversionEligible: false,
+      submissionId: crypto.randomUUID(),
+    });
   }
 
   const interestLabel = interestOptions.find((option) => option.value === interest)?.label ?? "Not specified";
-  const procurement = clean(body.procurement, 2000);
-  const intention = [planningContext, procurement ? `Procurement context: ${procurement}` : ""]
-    .filter(Boolean)
-    .join("\n\n");
   const timing = clean(body.timeframe, 200) || "Not specified";
-  const location = [clean(body.locations, 500), clean(body.deliveryMode, 100)]
-    .filter(Boolean)
-    .join("; ") || "Not specified";
+  const location = clean(body.locations, 500) || "Not specified";
   const attribution = validAttribution(body.attribution);
   const attributionSummary = ATTRIBUTION_KEYS
     .filter((key) => attribution[key])
@@ -126,8 +114,6 @@ export async function POST(request: NextRequest) {
     .join("; ");
   const discoveryContext = [
     `Interest: ${interestLabel}`,
-    clean(body.role, 200) ? `Role: ${clean(body.role, 200)}` : "",
-    clean(body.workforce, 100) ? `Workforce: ${clean(body.workforce, 100)}` : "",
     attribution.landingPage ? `Landing page: ${attribution.landingPage}` : "",
     attribution.discoveryChannel ? `Discovery channel: ${attribution.discoveryChannel}` : "",
     attribution.discoverySource ? `Discovery source: ${attribution.discoverySource}` : "",
@@ -140,23 +126,17 @@ export async function POST(request: NextRequest) {
   const fields = [
     field("cya_planning_name", name),
     field("email", workEmail),
-    field("cya_planning_intention", intention),
+    field("cya_planning_intention", planningContext),
     field("cya_planning_timing", timing),
     field("cya_planning_location", location),
     field("cya_discovery_context", discoveryContext),
   ];
   if (organisation) fields.push(field("company", organisation));
-  const phone = clean(body.phone, 100);
-  if (phone) fields.push(field("phone", phone));
 
   const context: Record<string, string> = {
     pageName: "Contact / Start planning",
     pageUri: clean(body.sourcePage, 2000) || "https://www.corporateyoga.com.au/contact",
   };
-  const hubspotutk = clean(body.hubspotutk, 200);
-  const ipAddress = requestIp(request);
-  if (hubspotutk) context.hutk = hubspotutk;
-  if (ipAddress) context.ipAddress = ipAddress;
 
   let response: Response;
   try {
@@ -170,7 +150,7 @@ export async function POST(request: NextRequest) {
         legalConsentOptions: {
           consent: {
             consentToProcess: true,
-            text: "I understand CYA will use these details to respond to my enquiry and process them through HubSpot, as described in the privacy policy.",
+            text: "I understand Corporate Yoga Australia will use these details to respond to my enquiry and process them through HubSpot, as described in the privacy policy.",
           },
         },
         skipValidation: true,
@@ -187,5 +167,9 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ ok: false, error: "upstream-rejected" }, { status: 502 });
   }
 
-  return NextResponse.json({ ok: true, successRoute, submissionId: crypto.randomUUID() });
+  return NextResponse.json({
+    ok: true,
+    conversionEligible: true,
+    submissionId: crypto.randomUUID(),
+  });
 }

@@ -11,7 +11,7 @@ export function MemberAccessPanel() {
           <Kicker>Wellbeing Studio members</Kicker>
           <h1 className="mt-3 text-heading-lg">Sign in to Wellbeing Studio</h1>
           <p className="mt-4 text-lg leading-relaxed text-body">
-            Wellbeing Studio member access is handled separately from the CYA consultation process. Sign in
+            Wellbeing Studio member access is handled separately from the Corporate Yoga Australia consultation process. Sign in
             directly at studio.corporateyoga.com.au to reach live sessions, the practice library and your account.
           </p>
           <div className="mt-6 flex justify-center">
@@ -22,7 +22,7 @@ export function MemberAccessPanel() {
           <p className="mt-6 text-sm text-body">
             Not a member yet, or asking on behalf of your organisation?{" "}
             <Link href="/contact?interest=studio" className="font-bold text-teal-dark underline decoration-2 underline-offset-4">
-              Discuss online wellbeing with CYA
+              Discuss online wellbeing with Corporate Yoga Australia
             </Link>{" "}
             instead.
           </p>

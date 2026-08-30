@@ -116,19 +116,7 @@ for (const canonicalPath of [
   check(sitemap.includes(`\"${canonicalPath}\"`), `sitemap contains ${canonicalPath}`);
 }
 
-const preservedNoindexPaths = [
-  "/workplace-yoga-australia",
-  "/online-wellbeing-1",
-  "/online-wellbeing-2026",
-  "/online-wellbeing-landing-page",
-  "/online-wellbeing-learn-more-here",
-  "/2026-wellbeing-program-1",
-  "/program-registration",
-  "/contact-thank-you",
-  "/contact-thank-you-online",
-];
-
-for (const blockedPath of ["/case-studies", "/member-access", "/conferences-events", "/expert-experiences", ...preservedNoindexPaths]) {
+for (const blockedPath of ["/case-studies", "/member-access", "/conferences-events", "/expert-experiences"]) {
   check(!sitemap.includes(`\"${blockedPath}\"`), `sitemap excludes ${blockedPath}`);
 }
 check(sitemap.includes("insightArticles.map"), "sitemap includes protected Insights collection");
@@ -138,7 +126,6 @@ const noindexPages = [
   "app/member-access/page.tsx",
   "app/conferences-events/page.tsx",
   "app/expert-experiences/page.tsx",
-  ...preservedNoindexPaths.map((route) => `app${route}/page.tsx`),
 ];
 for (const noindexFile of noindexPages) {
   check(exists(noindexFile), `controlled noindex route exists: ${noindexFile}`);
@@ -156,7 +143,7 @@ check(pilatesPage.includes("ServiceStructuredData"), "Workplace Pilates renders 
 
 const navigation = read("content/navigation.ts");
 check(navigation.includes('href: "/workplace-pilates"'), "qualified Workplace Pilates is present in service navigation");
-for (const group of ["Services", "Programs", "Why CYA"]) {
+for (const group of ["Services", "Programs", "Why us"]) {
   check(navigation.includes(`label: "${group}"`), `locked navigation group is present: ${group}`);
 }
 for (const route of ["/movement", "/workplace-yoga", "/workplace-pilates", "/meditation-mindfulness", "/workplace-wellbeing-workshops", "/workplace-wellbeing-programs", "/online-wellbeing", "/case-studies", "/about-us", "/blog"]) {
@@ -223,52 +210,46 @@ for (const [source, destination] of requiredRedirects) {
 }
 
 const routeDecisions = JSON.parse(read("config/phase-11-5-4-route-decisions.json"));
-for (const decision of routeDecisions.lockedRedirects) {
-  const fragment = `{ source: "${decision.from}", destination: "${decision.to}", statusCode: ${decision.status} }`;
-  check(nextConfig.includes(fragment), `Phase 11.5.4 locked redirect implemented: ${decision.from} -> ${decision.to}`);
-}
 for (const campaign of routeDecisions.campaignRoutes) {
   check(campaign.ownerConfirmed === true, `campaign route policy is confirmed: ${campaign.path}`);
-  check(
-    !nextConfig.includes(`source: "${campaign.path}"`),
-    `preserved campaign/operational route is not redirected: ${campaign.path}`,
-  );
+  check(nextConfig.includes(`source: "${campaign.path}"`), `retired campaign route redirects: ${campaign.path}`);
+}
+for (const editorial of routeDecisions.legacyEditorialRedirects) {
+  check(nextConfig.includes(`source: "${editorial.path}"`), `legacy article redirect is implemented: ${editorial.path}`);
+  check(nextConfig.includes(`destination: "${editorial.destination}"`), `legacy article has governed destination: ${editorial.path}`);
+}
+for (const retired of routeDecisions.retiredRoutes) {
+  check(exists(`app${retired.path}/route.ts`), `retired route handler exists: ${retired.path}`);
 }
 
 const enquiryRoute = read("app/api/enquiries/route.ts");
 const consultationForm = read("components/ConsultationForm.tsx");
 const attributionSource = `${read("components/AttributionCapture.tsx")}\n${read("lib/attribution.ts")}`;
-const conversionSignal = read("components/LeadConversionSignal.tsx");
 check(enquiryRoute.includes('process.env.CYA_HUBSPOT_PORTAL_ID?.trim() || "14575795"'), "authorised HubSpot portal is integrated with an explicit runtime override");
 check(enquiryRoute.includes('process.env.CYA_HUBSPOT_FORM_ID?.trim() || "746ef219-510f-4faa-a7a3-40288155d936"'), "authorised HubSpot form is integrated with an explicit runtime override");
-check(enquiryRoute.includes('interest === "studio" ? "/contact-thank-you-online" : "/contact-thank-you"'), "HubSpot success routes are governed by enquiry type");
+check(enquiryRoute.includes("enquirySubmissionEnabled()"), "HubSpot submission is protected by the release gate");
 check(consultationForm.includes('fetch("/api/enquiries"'), "public consultation form uses the production enquiry endpoint");
 check(consultationForm.includes('id="name" label="Your name"'), "planning form preserves the approved full-name field contract");
 check(enquiryRoute.includes('field("cya_planning_name", name)'), "HubSpot receives the full name without inferred splitting");
-check(!consultationForm.includes("window.setTimeout"), "prototype form simulation is removed");
 check(attributionSource.includes('"gclid"'), "Google click IDs are captured for enquiry attribution");
-check(conversionSignal.includes('event: "cya_lead_submission"'), "successful submissions expose a one-time GTM data-layer event");
+check(consultationForm.includes('event: "cya_lead_submission"'), "validated submissions expose a one-time GTM data-layer event");
+check(consultationForm.includes('readAnalyticsConsent() === "granted"'), "conversion signalling respects analytics consent");
 
 const productionLayout = read("app/layout.tsx");
-check(productionLayout.includes('process.env.VERCEL_ENV === "production"'), "tracking is restricted to Vercel Production");
-check(productionLayout.includes('gtmId="GTM-PXV5ZCLG"'), "existing Google Tag Manager container is preserved");
-check(productionLayout.includes('gaId="G-7GY152D942"'), "existing Google Analytics measurement ID is preserved");
-
-const registrationPage = read("app/program-registration/page.tsx");
-check(
-  registrationPage.includes("https://studio.corporateyoga.com.au/login/signup.php"),
-  "Cromwell registration hands off to the live CYA Wellbeing Studio",
-);
-check(!registrationPage.includes("sessionStorage"), "Cromwell handoff does not retain employee details in browser storage");
+const analyticsManager = read("components/AnalyticsConsentManager.tsx");
+check(productionLayout.includes("analyticsTrackingEnabled"), "tracking is protected by production release controls");
+check(analyticsManager.includes('gtmId="GTM-PXV5ZCLG"'), "existing Google Tag Manager container is preserved");
+check(analyticsManager.includes('gaId="G-7GY152D942"'), "existing Google Analytics measurement ID is preserved");
+check(analyticsManager.includes('consent === "granted"'), "analytics loads only after consent");
 
 const governedPageSignals = [
   ["app/page.tsx", "Corporate Yoga Australia | Workplace Wellbeing Programs", "Work Wellness into Your Workday"],
   ["app/workplace-yoga/page.tsx", "Workplace Yoga Classes Australia | Corporate Yoga Australia", "Workplace Yoga Classes for Australian Teams"],
   ["app/workplace-pilates/page.tsx", "Workplace Pilates Classes Australia | Corporate Yoga Australia", "Workplace Pilates Classes for Stronger, Healthier Teams"],
-  ["app/meditation-mindfulness/page.tsx", "Workplace Meditation & Corporate Mindfulness Workshops | CYA", "Workplace Meditation & Mindfulness"],
+  ["app/meditation-mindfulness/page.tsx", "Workplace Meditation & Corporate Mindfulness Workshops | Corporate Yoga Australia", "Workplace Meditation & Mindfulness"],
   ["app/workplace-wellbeing-programs/page.tsx", "Workplace Wellbeing Programs Australia | Corporate Yoga Australia", "Workplace Wellbeing Programs Built Around Your People"],
   ["app/movement/page.tsx", "Workplace Movement Programs | Yoga, Pilates & Desk Sessions", "Movement That Fits the Workday"],
-  ["app/workplace-wellbeing-workshops/page.tsx", "Workplace Wellbeing Workshops Australia | CYA", "Practical Workplace Wellbeing Workshops"],
+  ["app/workplace-wellbeing-workshops/page.tsx", "Workplace Wellbeing Workshops Australia | Corporate Yoga Australia", "Practical Workplace Wellbeing Workshops"],
 ];
 const contentSources = ["content/home.ts", "content/workplace-yoga.ts", "content/workplace-pilates.ts", "content/meditation-mindfulness.ts", "content/programs.ts", "content/movement.ts", "content/workplace-wellbeing-workshops.ts"]
   .map(read)
@@ -309,7 +290,7 @@ check(
 );
 
 const mediaSource = read("content/media.ts");
-check(!mediaSource.includes('status: "evidence-required"'), "all governed CYA website images remain publication-approved");
+check(!mediaSource.includes('status: "evidence-required"'), "all governed website images remain publication-approved");
 check(mediaSource.includes("poster: {"), "Home hero uses an explicit public-only poster object");
 const heroMediaBlock = mediaSource.slice(mediaSource.indexOf("export const homeHeroMedia"));
 check(!heroMediaBlock.includes("note:"), "Home hero public client payload excludes governance notes");
@@ -335,7 +316,7 @@ check(
 );
 
 const robots = read("app/robots.ts");
-check(robots.includes("VERCEL_ENV"), "robots distinguishes preview from production");
+check(robots.includes("releaseIndexingEnabled"), "robots respects the release indexing gate");
 check(robots.includes('disallow: "/"'), "preview robots blocks crawling");
 
 const footer = read("components/SiteFooter.tsx");

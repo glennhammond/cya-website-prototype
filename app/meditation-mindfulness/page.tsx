@@ -4,7 +4,7 @@ import { ServiceStructuredData } from "@/components/StructuredData";
 import { SpecialistServiceProduction } from "@/components/SpecialistServiceProduction";
 import { media } from "@/content/media";
 
-export const metadata: Metadata = { title: { absolute: "Workplace Meditation & Corporate Mindfulness Workshops | CYA" }, description: "Practical workplace meditation, mindfulness and breathwork that help Australian teams pause, reset and manage pressure.", alternates: { canonical: "/meditation-mindfulness" } };
+export const metadata: Metadata = { title: { absolute: "Workplace Meditation & Corporate Mindfulness Workshops | Corporate Yoga Australia" }, description: "Practical workplace meditation, mindfulness and breathwork that help Australian teams pause, reset and manage pressure.", alternates: { canonical: "/meditation-mindfulness" } };
 
 export default function MeditationMindfulnessPage() {
   return <>
@@ -26,13 +26,13 @@ export default function MeditationMindfulnessPage() {
       }}
       evidenceLine="Eyes open or closed. Seated or standing. Joining should never depend on prior experience."
       firstKicker="Start with what the need supports"
-      firstHeading="Calm, focus and connection are different jobs."
+      firstHeading="Calm, focus and connection are different jobs"
       firstBody="The experience begins with the workplace need, then selects an appropriate format and facilitator approach."
       firstCards={[{ title: "A reset in a demanding day", body: "Short guided practices that help people pause without pretending work has disappeared." }, { title: "Focus before important work", body: "Attention practices framed for preparation, transition and clarity." }, { title: "Connection without pressure", body: "Shared moments that create permission and presence without forced disclosure." }]}
       secondKicker="Psychological safety is part of the format"
-      secondHeading="Choice and clear boundaries make the experience easier to approach."
+      secondHeading="Choice and clear boundaries make the experience easier to approach"
       secondCards={[{ title: "Choice", body: "Eyes open or closed; seated, standing or simply listening." }, { title: "Language", body: "Invitational, culturally aware and free from therapeutic claims." }, { title: "Boundaries", body: "Clear distinction between workplace wellbeing and clinical support." }]}
-      closingHeading="Create a useful pause without pressure."
+      closingHeading="Create a useful pause without pressure"
       closingBody="Tell us what the workplace needs to support and how people will join."
     />
   </>;

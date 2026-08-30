@@ -4,7 +4,7 @@ import type { FeatureItem } from "@/components/FeatureGrid";
 export const programsHero: PageIntro = {
   kicker: "Workplace wellbeing programs",
   heading: "Workplace Wellbeing Programs Built Around Your People",
-  body: "Begin with a short series, coordinate several wellbeing elements across a defined period, or plan an organised year of support. A program is useful when your organisation needs continuity - it is not a required step before CYA can help.",
+  body: "Begin with a short series, coordinate several wellbeing elements across a defined period, or plan an organised year of support. A program is useful when your organisation needs continuity - it is not a required step before Corporate Yoga Australia can help.",
   actions: [
     { label: "Plan a program", href: "/contact?interest=recurring", variant: "primary" },
     { label: "Start with one yoga session", href: "/workplace-yoga", variant: "secondary" },
@@ -20,15 +20,15 @@ export const organisationalNeeds: FeatureItem[] = [
 ];
 
 export const planningFeature = {
-  kicker: "How CYA plans",
+  kicker: "How Corporate Yoga Australia plans",
   heading: "Start with the organisation, then choose the mix",
-  body: "CYA clarifies the workforce, locations, practical constraints, important dates and purpose before recommending a cadence or collection of experiences. The plan can stay small, change over time or include a broader annual rhythm when that is genuinely useful.",
+  body: "Corporate Yoga Australia clarifies the workforce, locations, practical constraints, important dates and purpose before recommending a cadence or collection of experiences. The plan can stay small, change over time or include a broader annual rhythm when that is genuinely useful.",
 };
 
 export const whyContinuity = {
   kicker: "Why continuity can help",
   heading: "Repeat what is useful, connect what belongs together",
-  body: "Some workplaces need one well-run session. Others benefit from repeated access, several complementary formats or a plan across locations and dates. CYA treats continuity as an organisational option rather than a compulsory upgrade.",
+  body: "Some workplaces need one well-run session. Others benefit from repeated access, several complementary formats or a plan across locations and dates. Corporate Yoga Australia treats continuity as an organisational option rather than a compulsory upgrade.",
 };
 
 export const programLevels: OfferLevel[] = [
@@ -65,7 +65,7 @@ export const experienceMix: FeatureItem[] = [
 ];
 
 export const whatCyaCoordinates: FeatureItem[] = [
-  { title: "Planning", body: "Shaping a calendar of moments around your priorities and dates, with one named CYA contact." },
+  { title: "Planning", body: "Shaping a calendar of moments around your priorities and dates, with one named Corporate Yoga Australia contact." },
   { title: "Facilitator coordination", body: "Matching facilitators to locations, formats and availability against confirmed standards." },
   { title: "Communications support", body: "Practical materials to help your team promote participation." },
   { title: "National delivery", body: "Coordinated scheduling across multiple sites and states, subject to confirmed local capacity." },
@@ -76,13 +76,13 @@ export const whatCyaCoordinates: FeatureItem[] = [
 export const multiSiteFeature = {
   kicker: "Multi-site support",
   heading: "One coordinated plan across several locations",
-  body: "CYA's national facilitator network supports organisations coordinating delivery across multiple sites, with each location and format confirmed against real practitioner capacity rather than a blanket promise of coverage.",
+  body: "Corporate Yoga Australia's national facilitator network supports organisations coordinating delivery across multiple sites, with each location and format confirmed against real practitioner capacity rather than a blanket promise of coverage.",
 };
 
 export const reportingFeature = {
   kicker: "Reporting & evidence",
   heading: "Useful visibility without pretending wellbeing is a dashboard score",
-  body: "For ongoing work, CYA can agree what practical participation, delivery and feedback information is available and useful to review. Reporting remains aggregate and privacy-aware; individual activity or inferred wellbeing status is not exposed to employers.",
+  body: "For ongoing work, Corporate Yoga Australia can agree what practical participation, delivery and feedback information is available and useful to review. Reporting remains aggregate and privacy-aware; individual activity or inferred wellbeing status is not exposed to employers.",
 };
 
 export const investmentFactors: FeatureItem[] = [
@@ -95,16 +95,16 @@ export const investmentFactors: FeatureItem[] = [
 ];
 
 export const procurementQuestions: FeatureItem[] = [
-  { title: "Do we need to commit to a full-year program?", body: "No. CYA can support one session, a short series, recurring delivery or a broader plan. The engagement should match the current need." },
-  { title: "Can a program mix onsite and online delivery?", body: "Yes, where that mix is appropriate for the workforce, locations and available CYA services." },
-  { title: "Can CYA coordinate more than one location?", body: "Yes, subject to the actual locations, timing, facilitator capacity and format requirements being confirmed." },
-  { title: "What evidence can an organisation receive?", body: "The available measures depend on the delivery model. CYA should agree reporting expectations before launch and keep employer reporting aggregate and privacy-aware." },
+  { title: "Do we need to commit to a full-year program?", body: "No. Corporate Yoga Australia can support one session, a short series, recurring delivery or a broader plan. The engagement should match the current need." },
+  { title: "Can a program mix onsite and online delivery?", body: "Yes, where that mix is appropriate for the workforce, locations and available Corporate Yoga Australia services." },
+  { title: "Can Corporate Yoga Australia coordinate more than one location?", body: "Yes, subject to the actual locations, timing, facilitator capacity and format requirements being confirmed." },
+  { title: "What evidence can an organisation receive?", body: "The available measures depend on the delivery model. Corporate Yoga Australia should agree reporting expectations before launch and keep employer reporting aggregate and privacy-aware." },
   { title: "Can we begin with a single service such as yoga?", body: "Yes. One service can remain a complete engagement or become part of a broader program later if that becomes useful." },
 ];
 
 export const closingCTA = {
   kicker: "Next step",
   heading: "Plan the level of continuity that fits",
-  body: "Bring the workforce, locations, dates and current need. CYA can help shape a proportionate program - or tell you when a simpler one-off engagement is enough.",
+  body: "Bring the workforce, locations, dates and current need. Corporate Yoga Australia can help shape a proportionate program - or tell you when a simpler one-off engagement is enough.",
   cta: { label: "Plan a wellbeing program", href: "/contact?interest=recurring", variant: "primary" as const },
 };

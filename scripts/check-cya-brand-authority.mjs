@@ -120,7 +120,6 @@ for (const heroFile of [
   "components/StudioPageHero.tsx",
   "components/SpecialistServiceProduction.tsx",
   "components/CampaignContinuityPage.tsx",
-  "components/ThankYouPage.tsx",
   "app/page.tsx",
   "app/about-us/page.tsx",
   "app/blog/page.tsx",
@@ -129,7 +128,6 @@ for (const heroFile of [
   "app/contact/page.tsx",
   "app/movement/page.tsx",
   "app/online-wellbeing/page.tsx",
-  "app/program-registration/page.tsx",
   "app/workplace-wellbeing-programs/page.tsx",
   "app/workplace-wellbeing-workshops/page.tsx",
 ]) {

@@ -64,7 +64,7 @@ export const insightArticles: InsightArticle[] = [
       {
         heading: "Ten practical steps",
         paragraphs: [
-          "These steps preserve the useful planning logic from CYA's long-running yoga-at-work guidance while keeping the emphasis on participation and fit rather than promised health or productivity outcomes.",
+          "These steps preserve the useful planning logic from Corporate Yoga Australia's long-running yoga-at-work guidance while keeping the emphasis on participation and fit rather than promised health or productivity outcomes.",
         ],
         bullets: [
           "Get visible support from leaders without making participation feel compulsory.",
@@ -129,7 +129,7 @@ export const insightArticles: InsightArticle[] = [
       {
         heading: "Use the practice as a doorway, not a treatment claim",
         paragraphs: [
-          "A body scan can be a useful wellbeing practice, but it is not a substitute for medical or psychological care. CYA uses practices like this as accessible moments of awareness within human-led workplace wellbeing experiences.",
+          "A body scan can be a useful wellbeing practice, but it is not a substitute for medical or psychological care. Corporate Yoga Australia uses practices like this as accessible moments of awareness within human-led workplace wellbeing experiences.",
         ],
       },
     ],
@@ -207,7 +207,7 @@ export const insightArticles: InsightArticle[] = [
       {
         heading: "Three accessible options",
         paragraphs: [
-          "CYA's existing breathwork guidance uses several simple approaches. In a workplace context they can be offered as optional practices rather than performance targets.",
+          "Corporate Yoga Australia's existing breathwork guidance uses several simple approaches. In a workplace context they can be offered as optional practices rather than performance targets.",
         ],
         bullets: [
           "Belly breathing: allow the abdomen to move naturally as you breathe without forcing a very deep breath.",
@@ -224,7 +224,7 @@ export const insightArticles: InsightArticle[] = [
       {
         heading: "Avoid overclaiming",
         paragraphs: [
-          "Breathwork is often discussed using strong physiological or health claims. CYA's website should stay closer to what the service can genuinely promise: guided practice, clear instruction, appropriate options and a useful moment to pause and pay attention.",
+          "Breathwork is often discussed using strong physiological or health claims. Corporate Yoga Australia's website should stay closer to what the service can genuinely promise: guided practice, clear instruction, appropriate options and a useful moment to pause and pay attention.",
         ],
       },
     ],
@@ -348,7 +348,7 @@ export const insightArticles: InsightArticle[] = [
         heading: "Give the program an internal sponsor and a practical contact",
         paragraphs: [
           "Queensland's work health and wellbeing guidance recommends management commitment, worker participation, ongoing feedback and regular communication. It also identifies workplace champions as one way to promote a strategy. In practice, a senior sponsor can protect priority and resources while a well-supported internal contact helps with communication, logistics and feedback.",
-          "A CYA Wellbeing Champion should not become responsible for colleagues' wellbeing, complaints, psychosocial hazards, HR or WHS matters. The role is an activation and communication role with a defined brief, a backup contact and clear escalation boundaries.",
+          "A Corporate Yoga Australia Wellbeing Champion should not become responsible for colleagues' wellbeing, complaints, psychosocial hazards, HR or WHS matters. The role is an activation and communication role with a defined brief, a backup contact and clear escalation boundaries.",
         ],
       },
       {
@@ -411,7 +411,7 @@ export const insightArticles: InsightArticle[] = [
       {
         heading: "1. Physical wellbeing",
         paragraphs: [
-          "Movement, ergonomics, recovery, suitable breaks and opportunities to change position all matter. CYA contributes through workplace-friendly movement such as yoga, Pilates, mobility and short resets rather than claiming to solve every aspect of workplace health.",
+          "Movement, ergonomics, recovery, suitable breaks and opportunities to change position all matter. Corporate Yoga Australia contributes through workplace-friendly movement such as yoga, Pilates, mobility and short resets rather than claiming to solve every aspect of workplace health.",
         ],
       },
       {

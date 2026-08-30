@@ -4,7 +4,7 @@ import { ImageMedia } from "@/components/ImageMedia";
 import type { PathwayCard } from "@/lib/types";
 
 /**
- * Three primary pathways, each a complete way to work with CYA on its own.
+ * Three primary pathways, each a complete way to work with Corporate Yoga Australia on its own.
  * Image and typography each get independent space - photo above, text
  * below, no chrome, no text-over-photo - so this reads distinctly from the
  * single full-bleed text-over-media moment in HumanExperience further down

@@ -58,7 +58,7 @@ export function CaseStudyTemplate({ study }: { study: CaseStudy }) {
               <EvidencedBlock label="Delivery" item={study.delivery} />
               <EvidencedBlock label="Evidence and limitations" item={study.evidence} />
               <EvidencedBlock label="Client voice" item={study.clientVoice} />
-              <EvidencedBlock label="What CYA learned" item={study.cyaReflection} />
+              <EvidencedBlock label="What Corporate Yoga Australia learned" item={study.cyaReflection} />
             </div>
           </div>
         </Container>

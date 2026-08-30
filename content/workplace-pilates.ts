@@ -4,7 +4,7 @@ import type { FeatureItem } from "@/components/FeatureGrid";
 export const pilatesHero: PageIntro = {
   kicker: "Workplace Pilates",
   heading: "Workplace Pilates Classes for Stronger, Healthier Teams",
-  body: "CYA offers mat-based Pilates for workplace teams as a one-off class, short series, recurring session or part of a mixed movement program. The format is adapted to the people, available floor space, timing and delivery mode.",
+  body: "Corporate Yoga Australia offers mat-based Pilates for workplace teams as a one-off class, short series, recurring session or part of a mixed movement program. The format is adapted to the people, available floor space, timing and delivery mode.",
   actions: [
     { label: "Discuss a Pilates session", href: "/contact?interest=one-off", variant: "primary" },
     { label: "Compare movement options", href: "/movement", variant: "secondary" },
@@ -42,7 +42,7 @@ export const workplaceFit: FeatureItem[] = [
   },
   {
     title: "People have mixed experience levels",
-    body: "CYA can plan beginner-friendly options and clear progressions rather than assuming previous Pilates experience.",
+    body: "Corporate Yoga Australia can plan beginner-friendly options and clear progressions rather than assuming previous Pilates experience.",
   },
   {
     title: "The organisation wants movement variety",
@@ -80,20 +80,20 @@ export const deliveryModes: FeatureItem[] = [
   },
   {
     title: "Hybrid / multi-location",
-    body: "CYA can coordinate movement delivery across locations when the participant setup, technology and facilitator plan suit the actual group.",
+    body: "Corporate Yoga Australia can coordinate movement delivery across locations when the participant setup, technology and facilitator plan suit the actual group.",
   },
 ];
 
 export const facilitatorGate = {
   kicker: "Facilitator fit",
   heading: "Match the practitioner to the Pilates brief",
-  body: "CYA's current public material confirms Pilates as part of its facilitator network and identifies current Pilates capability within the team. For an actual booking, CYA confirms the practitioner, location, availability and relevant qualification for the session. Individual credential details are only published where those records have been verified.",
+  body: "Corporate Yoga Australia's current public material confirms Pilates as part of its facilitator network and identifies current Pilates capability within the team. For an actual booking, Corporate Yoga Australia confirms the practitioner, location, availability and relevant qualification for the session. Individual credential details are only published where those records have been verified.",
 };
 
 export const evidenceGate = {
   kicker: "Evidence and claims",
   heading: "Describe the real Pilates service without promising health outcomes",
-  body: "CYA's current service material supports mat Pilates, one-off and recurring classes, mixed yoga and Pilates formats, onsite and online delivery, and tailored workplace programs. This page therefore does not need to wait for a case study to exist. It should continue to avoid claims about injury prevention, posture correction, pain relief or guaranteed health outcomes unless stronger evidence is approved for those specific claims.",
+  body: "Corporate Yoga Australia's current service material supports mat Pilates, one-off and recurring classes, mixed yoga and Pilates formats, onsite and online delivery, and tailored workplace programs. This page therefore does not need to wait for a case study to exist. It should continue to avoid claims about injury prevention, posture correction, pain relief or guaranteed health outcomes unless stronger evidence is approved for those specific claims.",
 };
 
 export const relatedPaths: FeatureItem[] = [
@@ -119,7 +119,7 @@ export const relatedPaths: FeatureItem[] = [
 
 export const closingCTA = {
   kicker: "Next step",
-  heading: "Tell CYA what kind of Pilates session you are considering",
-  body: "Share the team size, location, available room, timing and whether you are planning one session or a recurring class. CYA can confirm the appropriate practitioner and practical setup before anything is booked.",
+  heading: "Tell Corporate Yoga Australia what kind of Pilates session you are considering",
+  body: "Share the team size, location, available room, timing and whether you are planning one session or a recurring class. Corporate Yoga Australia can confirm the appropriate practitioner and practical setup before anything is booked.",
   cta: { label: "Discuss Workplace Pilates", href: "/contact?interest=one-off", variant: "primary" as const },
 };

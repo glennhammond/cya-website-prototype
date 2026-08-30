@@ -141,7 +141,7 @@ export default async function InsightArticlePage({
                   <h2 className="text-heading-sm text-teal-dark">Sources and scope</h2>
                   <p className="mt-3 text-sm leading-relaxed text-body">
                     These sources support the organisational and psychosocial-risk boundaries in this guidance. They
-                    do not turn CYA services into WHS advice or controls.
+                    do not turn Corporate Yoga Australia services into WHS advice or controls.
                   </p>
                   <ul className="mt-5 space-y-3 text-sm leading-relaxed text-body">
                     {article.sources.map((source) => (
@@ -161,7 +161,7 @@ export default async function InsightArticlePage({
               )}
 
               <div className="mt-12 rounded-[var(--radius-card)] border border-divider bg-white p-6 text-sm leading-relaxed text-body">
-                This article is general workplace wellbeing information, not medical or psychological advice. CYA
+                This article is general workplace wellbeing information, not medical or psychological advice. Corporate Yoga Australia
                 refreshes older guidance where needed so service claims remain proportionate to the available evidence.
               </div>
             </div>

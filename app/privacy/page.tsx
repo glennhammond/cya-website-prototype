@@ -10,10 +10,10 @@ export const metadata: Metadata = {
 };
 
 const sections = [
-  { title: "What CYA collects", body: "Contact and organisational details submitted through the consultation form, and aggregate Wellbeing Studio participation data described on the Wellbeing Studio page." },
-  { title: "What CYA does not collect", body: "The public consultation form does not collect health, medical or other sensitive personal information." },
+  { title: "What Corporate Yoga Australia collects", body: "Contact and organisational details submitted through the consultation form, and aggregate Wellbeing Studio participation data described on the Wellbeing Studio page." },
+  { title: "What Corporate Yoga Australia does not collect", body: "The public consultation form does not collect health, medical or other sensitive personal information." },
   { title: "How data is used", body: "To respond to enquiries, coordinate delivery, and - where consented - send occasional planning content." },
-  { title: "Wellbeing Studio data boundary", body: "Employer reporting is aggregate only. CYA does not share individual member activity, names or inferred wellbeing status with employers." },
+  { title: "Wellbeing Studio data boundary", body: "Employer reporting is aggregate only. Corporate Yoga Australia does not share individual member activity, names or inferred wellbeing status with employers." },
   { title: "Data storage and access", body: "Enquiry data is intended to route to HubSpot; access control and retention detail are finalised as part of legal review." },
   { title: "Your rights", body: "Detail on access, correction and complaint pathways is finalised as part of legal review." },
 ];
@@ -30,7 +30,7 @@ export default function PrivacyPage() {
           </div>
           <h1 className="mt-3 text-[32px] sm:text-[42px]">Privacy policy</h1>
           <p className="mt-4 max-w-2xl text-lg leading-relaxed text-body">
-            This page sets out the structure CYA&rsquo;s privacy policy will follow. The wording below is a
+            This page sets out the structure Corporate Yoga Australia&rsquo;s privacy policy will follow. The wording below is a
             working outline, not the final, legally reviewed policy.
           </p>
 

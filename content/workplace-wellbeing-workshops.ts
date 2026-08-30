@@ -4,7 +4,7 @@ import type { FeatureItem } from "@/components/FeatureGrid";
 export const workshopsHero: PageIntro = {
   kicker: "Workplace Wellbeing Workshops & Expert Experiences",
   heading: "Practical Workplace Wellbeing Workshops",
-  body: "CYA delivers practical Lunch & Learns, workshops and expert-led wellbeing sessions for teams. Choose a topic and format that fits the workplace brief; CYA confirms the most appropriate practitioner and scope rather than selling an anonymous training catalogue.",
+  body: "Corporate Yoga Australia delivers practical Lunch & Learns, workshops and expert-led wellbeing sessions for teams. Choose a topic and format that fits the workplace brief; Corporate Yoga Australia confirms the most appropriate practitioner and scope rather than selling an anonymous training catalogue.",
   actions: [
     { label: "Discuss a workshop", href: "/contact?interest=one-off", variant: "primary" },
     { label: "Explore wellbeing programs", href: "/workplace-wellbeing-programs", variant: "secondary" },
@@ -25,27 +25,27 @@ export const featuredTopics: FeatureItem[] = [
   { title: "Nutrition", body: "Practical nutrition education can be delivered by an appropriately qualified practitioner, with scope confirmed before publication or booking." },
   { title: "Mindfulness", body: "Interactive learning and guided practices that make mindfulness approachable in a workplace setting." },
   { title: "Breathwork", body: "A practical expert-led session using guided breathing techniques, either alone or connected with mindfulness or movement." },
-  { title: "Financial wellbeing", body: "A current CYA Lunch & Learn topic. Presenter, scope and any professional-credential requirements must be confirmed for the specific session before publication." },
+  { title: "Financial wellbeing", body: "A current Corporate Yoga Australia Lunch & Learn topic. Presenter, scope and any professional-credential requirements must be confirmed for the specific session before publication." },
 ];
 
 export const expertIntro = {
   kicker: "People behind the sessions",
   heading: "Show the practitioner, not just the topic title",
-  body: "CYA's network includes practitioners with different specialist backgrounds. The examples below are grounded in CYA's current public team information; exact workshop assignment remains subject to topic fit, credentials and availability.",
+  body: "Corporate Yoga Australia's network includes practitioners with different specialist backgrounds. The examples below are grounded in Corporate Yoga Australia's current public team information; exact workshop assignment remains subject to topic fit, credentials and availability.",
 };
 
 export const namedExperts: FeatureItem[] = [
   {
     title: "Val — Wellness Facilitator & qualified Nutritionist",
-    body: "Val brings a nutrition specialism to CYA's practitioner network. Nutrition workshop scope should stay within her verified professional expertise and the agreed workplace brief.",
+    body: "Val brings a nutrition specialism to Corporate Yoga Australia's practitioner network. Nutrition workshop scope should stay within her verified professional expertise and the agreed workplace brief.",
   },
   {
     title: "Chantal — Yoga, Mindfulness & Breathwork",
-    body: "Chantal's current CYA profile identifies yoga, mindfulness and breathwork expertise, making those areas visible as human-led practices rather than anonymous course topics.",
+    body: "Chantal's current Corporate Yoga Australia profile identifies yoga, mindfulness and breathwork expertise, making those areas visible as human-led practices rather than anonymous course topics.",
   },
   {
     title: "Debby Lewis — Founder, Corporate Yoga Australia",
-    body: "Debby founded CYA after working in corporate roles and remains closely involved in the service and facilitator network. Her founder perspective supports CYA's workplace-aware approach; specific expert-session claims should still match the confirmed brief.",
+    body: "Debby founded Corporate Yoga Australia after working in corporate roles and remains closely involved in the service and facilitator network. Her founder perspective supports Corporate Yoga Australia's workplace-aware approach; specific expert-session claims should still match the confirmed brief.",
   },
 ];
 
@@ -77,7 +77,7 @@ export const relatedPaths: FeatureItem[] = [
 
 export const closingCTA = {
   kicker: "Choose the topic, then confirm the right expert",
-  heading: "Tell CYA what your team needs to understand, practise or discuss",
-  body: "CYA can recommend a suitable workshop format and practitioner, or keep the engagement as one focused Lunch & Learn when that is all the workplace needs.",
+  heading: "Tell Corporate Yoga Australia what your team needs to understand, practise or discuss",
+  body: "Corporate Yoga Australia can recommend a suitable workshop format and practitioner, or keep the engagement as one focused Lunch & Learn when that is all the workplace needs.",
   cta: { label: "Discuss a workshop", href: "/contact?interest=one-off", variant: "primary" as const },
 };

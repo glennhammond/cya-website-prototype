@@ -7,12 +7,13 @@ import { site } from "@/content/site";
 export const metadata: Metadata = {
   title: "Terms",
   description: "Terms of use for the Corporate Yoga Australia website - pending final legal review.",
+  alternates: { canonical: "/terms" },
 };
 
 const sections = [
-  { title: "Using this website", body: "This website is provided to help organisations understand and enquire about CYA's services. It is not a booking platform or a Wellbeing Studio member environment." },
+  { title: "Using this website", body: "This website is provided to help organisations understand and enquire about Corporate Yoga Australia's services. It is not a booking platform or a Wellbeing Studio member environment." },
   { title: "Wellbeing Studio member terms", body: "Member terms for Wellbeing Studio are presented separately at studio.corporateyoga.com.au and are not duplicated here." },
-  { title: "No medical or crisis advice", body: "Content on this site is general workplace wellbeing information. It does not replace medical advice, clinical care or crisis support, and CYA is not an Employee Assistance Program." },
+  { title: "No medical or crisis advice", body: "Content on this site is general workplace wellbeing information. It does not replace medical advice, clinical care or crisis support, and Corporate Yoga Australia is not an Employee Assistance Program." },
   { title: "Intellectual property", body: "Site content, brand assets and logos remain the property of Corporate Yoga Australia unless stated otherwise." },
   { title: "Liability", body: "Full liability, warranty and dispute-resolution wording is finalised as part of legal review." },
 ];
@@ -29,7 +30,7 @@ export default function TermsPage() {
           </div>
           <h1 className="mt-3 text-[32px] sm:text-[42px]">Website terms</h1>
           <p className="mt-4 max-w-2xl text-lg leading-relaxed text-body">
-            This page sets out the structure CYA&rsquo;s website terms will follow. The wording below is a working
+            This page sets out the structure Corporate Yoga Australia&rsquo;s website terms will follow. The wording below is a working
             outline, not the final, legally reviewed terms.
           </p>
 

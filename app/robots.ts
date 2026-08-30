@@ -1,13 +1,13 @@
 import type { MetadataRoute } from "next";
+import { releaseIndexingEnabled } from "@/lib/release";
 
 const origin = "https://www.corporateyoga.com.au";
 
 export default function robots(): MetadataRoute.Robots {
-  const isVercelPreview = process.env.VERCEL_ENV && process.env.VERCEL_ENV !== "production";
-
-  if (isVercelPreview) {
+  if (!releaseIndexingEnabled()) {
     return {
       rules: [{ userAgent: "*", disallow: "/" }],
+      sitemap: `${origin}/sitemap.xml`,
     };
   }
 

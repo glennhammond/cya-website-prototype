@@ -16,14 +16,14 @@ export const homeHeroContent: HeroContent = {
 /** Category proposition directly after the hero. Home remains the broad corporate-yoga authority page. */
 export const quietIntro = {
   heading: "Workplace yoga, Pilates, mindfulness and tailored wellbeing programs for Australian organisations",
-  body: "A single session, a conference activation, a short series or a connected program are all valid ways to work with CYA. Book one useful moment, repeat what works, or build a connected year when that becomes helpful - there's no required starting point.",
+  body: "A single session, a conference activation, a short series or a connected program are all valid ways to work with Corporate Yoga Australia. Book one useful moment, repeat what works, or build a connected year when that becomes helpful - there's no required starting point.",
   image: media.programsContinuity,
 };
 
 export const situationLedEntry = {
   kicker: "What is happening at work?",
   heading: "Start with the situation, not a package",
-  body: "CYA can help when you need one useful team moment, a movement or mindfulness session, an expert-led workshop, support across locations, or a more connected wellbeing rhythm.",
+  body: "Corporate Yoga Australia can help when you need one useful team moment, a movement or mindfulness session, an expert-led workshop, support across locations, or a more connected wellbeing rhythm.",
 };
 
 export const recognisableExperiences = [
@@ -54,9 +54,9 @@ export const recognisableExperiences = [
 ];
 
 export const pathwaysHeading = {
-  kicker: "Ways to work with CYA",
-  heading: "Fit CYA to what's happening right now",
-  body: "Each pathway is a complete way to work with CYA on its own - not a step toward the others.",
+  kicker: "Ways to work with Corporate Yoga Australia",
+  heading: "Fit Corporate Yoga Australia to what's happening right now",
+  body: "Each pathway is a complete way to work with Corporate Yoga Australia on its own - not a step toward the others.",
 };
 
 export const pathways: PathwayCard[] = [
@@ -89,7 +89,7 @@ export const pathways: PathwayCard[] = [
 export const humanExperience = {
   kicker: "What a session feels like",
   heading: "A session that meets your team where they are",
-  body: "However people arrive - energised, flat, mid-deadline - a CYA session is shaped around the room on the day: the space available, the mix of people, and the time that's actually free. No experience or particular level of fitness is assumed.",
+  body: "However people arrive - energised, flat, mid-deadline - a Corporate Yoga Australia session is shaped around the room on the day: the space available, the mix of people, and the time that's actually free. No experience or particular level of fitness is assumed.",
   formats: ["Yoga & movement", "Mindfulness", "Workshops", "Lunch & Learns", "Awareness-day sessions", "Conference activations"],
   cta: { label: "Discuss a one-off experience", href: "/contact?interest=one-off" },
   image: media.homeOneOff,
@@ -98,7 +98,7 @@ export const humanExperience = {
 export const progressionHeading = {
   kicker: "Selected programs",
   heading: "Build continuity when useful",
-  body: "There is no required starting point and no compulsory ladder. CYA can support one experience, repeat what works, or coordinate a broader mix across your people and locations.",
+  body: "There is no required starting point and no compulsory ladder. Corporate Yoga Australia can support one experience, repeat what works, or coordinate a broader mix across your people and locations.",
 };
 
 export const offerLevels: OfferLevel[] = [
@@ -141,8 +141,8 @@ export const exampleYear: YearMonthEntry[] = [
 
 export const principalProof = {
   kicker: "Case studies",
-  heading: "See how CYA works in practice",
-  body: "A closer look at the context, decisions and delivery behind CYA engagements. These draft stories remain unpublished until client permission and facts are confirmed.",
+  heading: "See how Corporate Yoga Australia works in practice",
+  body: "A closer look at the context, decisions and delivery behind Corporate Yoga Australia engagements. These draft stories remain unpublished until client permission and facts are confirmed.",
   principalSlug: "flagship-partnership",
   supportingSlugs: ["distributed-delivery", "smaller-organisation"],
 };
@@ -150,7 +150,7 @@ export const principalProof = {
 export const studioPreview = {
   kicker: "Online wellbeing + Wellbeing Studio",
   heading: "Keep useful support available beyond the scheduled session",
-  body: "CYA can connect live online experiences, on-demand practices, expert content and Wellbeing Studio access for remote, hybrid and distributed teams. The Studio supports the service relationship; it is not the whole proposition.",
+  body: "Corporate Yoga Australia can connect live online experiences, on-demand practices, expert content and Wellbeing Studio access for remote, hybrid and distributed teams. The Studio supports the service relationship; it is not the whole proposition.",
   cta: { label: "Explore online wellbeing", href: "/online-wellbeing" },
   image: media.studioEmployeeHome,
 };
@@ -158,8 +158,8 @@ export const studioPreview = {
 export const leadershipPerspective = {
   kicker: "Corporate Yoga Australia",
   heading: "One founder, a national team behind every session",
-  body: "Debby Lewis founded CYA in 2014 from her own experience using movement and meditation in a high-pressure HR role. That practice is now delivered by an experienced national network of facilitators, coordinated so every engagement - from one session to a connected program - carries Debby's own standard of care.",
-  cta: { label: "Meet the team behind CYA", href: "/about-us" },
+  body: "Debby Lewis founded Corporate Yoga Australia in 2014 from her own experience using movement and meditation in a high-pressure HR role. That practice is now delivered by an experienced national network of facilitators, coordinated so every engagement - from one session to a connected program - carries Debby's own standard of care.",
+  cta: { label: "Meet the team behind Corporate Yoga Australia", href: "/about-us" },
   image: media.debbyTeacherPortrait,
 };
 

@@ -19,20 +19,20 @@ export default function WorkplaceYogaPage() {
       imageLabel="IMAGE 02 · WORKPLACE YOGA PARTICIPATION"
       imageBrief={{
         job: "Participation",
-        subject: "An approachable CYA yoga session in a genuine meeting room or workplace, with a visible facilitator and mixed levels of confidence.",
+        subject: "An approachable Corporate Yoga Australia yoga session in a genuine meeting room or workplace, with a visible facilitator and mixed levels of confidence.",
         treatment: "Light, contained 3:2 editorial image. Keep the room legible and allow clear space around the participants.",
         format: "3:2 desktop · adaptable to 4:3 mobile",
         avoid: "Extreme poses, studio settings, tightly cropped bodies, or an image that suggests prior yoga experience is required.",
       }}
       evidenceLine="No assumed experience. The format follows the people, room and working day."
       firstKicker="Designed around the room"
-      firstHeading="Movement people can actually join."
+      firstHeading="Movement people can actually join"
       firstBody="Workplace yoga starts with practical reality: space, clothing, confidence, access and the shape of the working day."
       firstCards={[{ title: "In the room", body: "Chair-based, mat-based or standing formats selected for the space available." }, { title: "For mixed confidence", body: "Clear options and human facilitation make joining feel possible, not performative." }, { title: "Across the working day", body: "A useful reset before work, between meetings or as a regular team rhythm." }]}
       secondKicker="Practical examples"
-      secondHeading="Workplace yoga can meet the room rather than imitate a studio."
+      secondHeading="Workplace yoga can meet the room rather than imitate a studio"
       secondCards={[{ title: "A meeting room at lunch", body: "Chairs stayed in. The session met the room instead of pretending it was a studio." }, { title: "A regular team reset", body: "A small, repeatable session became part of the working week—not another initiative to remember." }, { title: "A broader Working Rhythm", body: "Keep it one-off, repeat it, or connect it only when useful.", href: "/workplace-wellbeing-programs" }]}
-      closingHeading="Find the right yoga format for your workplace."
+      closingHeading="Find the right yoga format for your workplace"
       closingBody="Tell us about the people, place and moment. We’ll recommend a useful starting point."
     />
   </>;

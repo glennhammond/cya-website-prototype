@@ -6,7 +6,7 @@ import type { CTA, MediaAsset } from "@/lib/types";
 /**
  * Wellbeing Studio hero. Denser and card-based rather than full-bleed
  * editorial - the shadowed, rounded product thumbnail is a deliberate
- * departure from the CYA pages' card-free treatment, signalling Studio's
+ * departure from the Corporate Yoga Australia pages' card-free treatment, signalling Studio's
  * utility character while sharing the same tokens. No play affordance is
  * shown: no genuinely playable Studio preview clip is confirmed yet, and a
  * decorative play button that doesn't play anything reads as broken next to

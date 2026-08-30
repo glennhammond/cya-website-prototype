@@ -14,6 +14,10 @@ function check(condition, message) {
   if (!condition) errors.push(message);
 }
 
+function hasNoindex(html) {
+  return /<meta[^>]+(?:name="robots"[^>]+content="[^"]*noindex|content="[^"]*noindex[^>]+name="robots")/i.test(html);
+}
+
 async function request(pathname) {
   return fetch(`${baseUrl}${pathname}`, { redirect: "manual", headers: { "user-agent": "CYA-Phase-16-QA" } });
 }
@@ -51,11 +55,11 @@ try {
   const programsResponse = await request("/workplace-wellbeing-programs");
   const programsHtml = await programsResponse.text();
   check(programsResponse.status === 200, "program commercial owner renders successfully");
-  check(programsHtml.includes("Participation and scope"), "program owner renders the participation answer module");
+  check(programsHtml.includes("Designed for participation"), "program owner renders the participation answer module");
   check(programsHtml.includes("Wellbeing Champion"), "program owner renders the bounded Champion role");
-  check(programsHtml.includes("psychosocial-compliance service"), "program owner renders the psychosocial scope boundary");
+  check(programsHtml.includes("do not replace identifying and controlling psychosocial hazards"), "program owner renders the psychosocial scope boundary");
   check(programsHtml.includes("Read the participation guide"), "program owner links to the supporting participation guide");
-  check(!programsHtml.includes('name="robots" content="noindex"'), "program commercial owner remains index qualified");
+  check(hasNoindex(programsHtml), "program owner remains fail-closed before release approval");
 
   const guidePath = "/blog/the-nervous-system-solution-why-your-wellbeing-program-isnt-working-and-what-to-do-instead";
   const guideResponse = await request(guidePath);
@@ -69,7 +73,7 @@ try {
   check(guideHtml.includes("Editorial production:"), "guide distinguishes editorial production from authorship");
   check(guideHtml.includes('&quot;editor&quot;:{&quot;@type&quot;:&quot;Person&quot;,&quot;name&quot;:&quot;Glenn Hammond&quot;}') || guideHtml.includes('"editor":{"@type":"Person","name":"Glenn Hammond"}'), "Article schema identifies Glenn only as editor");
   check(!guideHtml.includes('"reviewedBy"'), "Article schema does not invent an expert reviewer");
-  check(!guideHtml.includes('name="robots" content="noindex"'), "protected guide remains index qualified");
+  check(hasNoindex(guideHtml), "protected guide remains fail-closed before release approval");
 
   const championResponse = await request("/wellbeing-champion");
   check(championResponse.status === 404, "no premature Wellbeing Champion landing page is public");

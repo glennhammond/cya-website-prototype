@@ -58,7 +58,7 @@ export function CampaignContinuityPage({
             <ul className="mt-10 grid gap-5 md:grid-cols-3">
               {benefits.map((benefit) => (
                 <li key={benefit}>
-                  <ProductionCard title={benefit} body="CYA will shape the detail around your people, timing and delivery context." />
+                  <ProductionCard title={benefit} body="Corporate Yoga Australia will shape the detail around your people, timing and delivery context." />
                 </li>
               ))}
             </ul>

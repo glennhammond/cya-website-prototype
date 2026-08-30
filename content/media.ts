@@ -1,12 +1,12 @@
 import type { HeroMedia, MediaAsset } from "@/lib/types";
 
 /**
- * Curated CYA website photography.
- * Glenn confirmed on 26 August 2026 that all images in the governed CYA
+ * Curated Corporate Yoga Australia website photography.
+ * Glenn confirmed on 26 August 2026 that all images in the governed Corporate Yoga Australia
  * website library are approved for website publication. Asset-level notes
  * below now record only useful production considerations, not permission gaps.
  */
-const APPROVAL_NOTE = "Approved for CYA website publication — confirmed by Glenn Hammond on 26 August 2026.";
+const APPROVAL_NOTE = "Approved for Corporate Yoga Australia website publication — confirmed by Glenn Hammond on 26 August 2026.";
 
 export const media = {
   homeHero: {
@@ -156,7 +156,7 @@ export const media = {
     src: "/images/selected/cya-about-facilitator-representative.webp",
     width: 1080,
     height: 810,
-    alt: "A CYA facilitator, one of the practitioners in the national network.",
+    alt: "A Corporate Yoga Australia facilitator, one of the practitioners in the national network.",
     status: "approved",
     note: APPROVAL_NOTE + " Any public facilitator credential claims remain separately governed and must still be verified.",
   },

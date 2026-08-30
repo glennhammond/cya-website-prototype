@@ -15,7 +15,7 @@ import {
 import { media } from "@/content/media";
 
 export const metadata: Metadata = {
-  title: { absolute: "Expert-Led Workplace Wellbeing Experiences | CYA" },
+  title: { absolute: "Expert-Led Workplace Wellbeing Experiences | Corporate Yoga Australia" },
   description:
     "Expert-led workplace wellbeing talks, Lunch & Learns and facilitated experiences for Australian organisations, delivered onsite or online.",
   alternates: { canonical: "/expert-experiences" },
@@ -45,7 +45,7 @@ export default function ExpertExperiencesPage() {
         compact
       />
       <DividerList
-        kicker="How CYA matches the experience"
+        kicker="How Corporate Yoga Australia matches the experience"
         heading="The person, topic and format need to fit together"
         items={matchingPrinciples}
         tone="mist"

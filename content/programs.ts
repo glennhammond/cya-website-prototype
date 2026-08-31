@@ -4,7 +4,7 @@ import type { FeatureItem } from "@/components/FeatureGrid";
 export const programsHero: PageIntro = {
   kicker: "Workplace wellbeing programs",
   heading: "Workplace Wellbeing Programs Built Around Your People",
-  body: "Begin with a short series, coordinate several wellbeing elements across a defined period, or plan an organised year of support. A program is useful when your organisation needs continuity - it is not a required step before Corporate Yoga Australia can help.",
+  body: "Begin with a short series, coordinate several wellbeing elements across a defined period, or plan an organised year of support. Corporate Yoga Australia starts with what your organisation and people need, then builds only the level of continuity that is useful.",
   actions: [
     { label: "Plan a program", href: "/contact?interest=recurring", variant: "primary" },
     { label: "Start with one yoga session", href: "/workplace-yoga", variant: "secondary" },
@@ -13,22 +13,22 @@ export const programsHero: PageIntro = {
 };
 
 export const organisationalNeeds: FeatureItem[] = [
-  { title: "Create a recurring wellbeing rhythm", body: "Coordinate useful sessions over time so employees know what is available and when." },
+  { title: "Create a recurring wellbeing rhythm", body: "Coordinate useful sessions over time so employees know what is available, why it matters and when they can take part." },
   { title: "Support more than one location", body: "Plan delivery across workplaces, states or remote teams without asking each location to organise its own separate solution." },
   { title: "Connect different wellbeing experiences", body: "Combine movement, mindfulness, expert-led learning and online continuity around a coherent workplace brief." },
-  { title: "Make a campaign last longer", body: "Build preparation, a key moment and follow-up around an awareness day or internal wellbeing initiative." },
+  { title: "Make a campaign last longer", body: "Build preparation, a key moment and follow-up around an awareness day or internal wellbeing initiative so participation does not depend on one event alone." },
 ];
 
 export const planningFeature = {
   kicker: "How Corporate Yoga Australia plans",
   heading: "Start with the organisation, then choose the mix",
-  body: "Corporate Yoga Australia clarifies the workforce, locations, practical constraints, important dates and purpose before recommending a cadence or collection of experiences. The plan can stay small, change over time or include a broader annual rhythm when that is genuinely useful.",
+  body: "Corporate Yoga Australia clarifies the workforce, locations, practical constraints, important dates and purpose before recommending a cadence or collection of experiences. The aim is to make wellbeing easier to organise and easier for people to participate in, whether the plan stays small or develops over time.",
 };
 
 export const whyContinuity = {
   kicker: "Why continuity can help",
   heading: "Repeat what is useful, connect what belongs together",
-  body: "Some workplaces need one well-run session. Others benefit from repeated access, several complementary formats or a plan across locations and dates. Corporate Yoga Australia treats continuity as an organisational option rather than a compulsory upgrade.",
+  body: "Some workplaces need one well-run session. Others benefit from repeated access, several complementary formats or a plan across locations and dates. Continuity should make useful support easier to recognise, access and return to - not create a compulsory upgrade path.",
 };
 
 export const programLevels: OfferLevel[] = [
@@ -65,12 +65,12 @@ export const experienceMix: FeatureItem[] = [
 ];
 
 export const whatCyaCoordinates: FeatureItem[] = [
-  { title: "Planning", body: "Shaping a calendar of moments around your priorities and dates, with one named Corporate Yoga Australia contact." },
+  { title: "Planning", body: "Shaping a calendar of useful moments around your priorities and dates, with one named Corporate Yoga Australia contact." },
   { title: "Facilitator coordination", body: "Matching facilitators to locations, formats and availability against confirmed standards." },
-  { title: "Communications support", body: "Practical materials to help your team promote participation." },
+  { title: "Communications support", body: "Practical materials that help organisers explain what is happening, reduce participation friction and give employees clear reasons to take part." },
   { title: "National delivery", body: "Coordinated scheduling across multiple sites and states, subject to confirmed local capacity." },
-  { title: "Online continuity", body: "Connecting live moments to appropriate digital access and resources where useful." },
-  { title: "Review and reporting", body: "Regular check-ins and aggregate, privacy-safe visibility using measures that are genuinely available." },
+  { title: "Online continuity", body: "Connecting live moments to appropriate digital access and resources so useful support can remain available between scheduled sessions." },
+  { title: "Review and reporting", body: "Regular check-ins and aggregate, privacy-safe visibility using measures that are genuinely available and useful for improving delivery." },
 ];
 
 export const multiSiteFeature = {
@@ -104,7 +104,7 @@ export const procurementQuestions: FeatureItem[] = [
 
 export const closingCTA = {
   kicker: "Next step",
-  heading: "Plan the level of continuity that fits",
-  body: "Bring the workforce, locations, dates and current need. Corporate Yoga Australia can help shape a proportionate program - or tell you when a simpler one-off engagement is enough.",
+  heading: "Build only the continuity that helps",
+  body: "Bring the workforce, locations, dates and current need. Corporate Yoga Australia can help make the program easier to organise, easier for people to participate in and easier to sustain - or tell you when a simpler one-off engagement is enough.",
   cta: { label: "Plan a wellbeing program", href: "/contact?interest=recurring", variant: "primary" as const },
 };

@@ -102,7 +102,7 @@ export default function CaseStudiesPage() {
               ))}
             </div>
           ) : (
-            <div className="mt-12 max-w-3xl border-l-4 border-[var(--cya-coral)] bg-white p-7">
+            <div className="mt-12 max-w-3xl border border-[var(--cya-coral)] bg-white p-7">
               <h3 className="text-2xl font-bold text-[var(--cya-teal-dark)]">
                 Detailed client stories are being prepared
               </h3>

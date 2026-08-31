@@ -110,7 +110,7 @@ export default async function InsightArticlePage({
                       ))}
                     </div>
                     {section.bullets && (
-                      <ul className="mt-5 space-y-3 border-l-2 border-aqua pl-6 text-base leading-7 text-body">
+                      <ul className="mt-5 list-disc space-y-3 pl-6 text-base leading-7 text-body marker:text-aqua">
                         {section.bullets.map((item) => (
                           <li key={item}>{item}</li>
                         ))}

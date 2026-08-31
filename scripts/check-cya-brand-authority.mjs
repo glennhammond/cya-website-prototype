@@ -66,6 +66,14 @@ for (const file of files) {
     });
   }
 
+  const decorativeLeftBorders = [
+    ...source.matchAll(/\bborder-l(?:-[^\s\"'`}>]+)?/g),
+    ...source.matchAll(/\bborder-(?:left|inline-start)\s*:/g),
+  ];
+  for (const match of decorativeLeftBorders) {
+    const line = source.slice(0, match.index).split("\n").length;
+    failures.push(`${relative}:${line}: decorative vertical accent bars are not permitted`);
+  }
   if (source.includes('tone="teal"')) failures.push(`${relative}: legacy teal section tone is not permitted`);
   if (source.includes('style="ochre"')) failures.push(`${relative}: legacy ochre action treatment is not permitted`);
   if (source.includes("Plan with CYA")) failures.push(`${relative}: retired public CTA “Plan with CYA” is not permitted; use “Start planning”`);

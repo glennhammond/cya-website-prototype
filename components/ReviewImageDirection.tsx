@@ -46,7 +46,7 @@ export function ReviewImageDirection({
             <p className="mt-2 text-sm text-[var(--cya-body)]">{format}</p>
           </div>
         </div>
-        <div className="self-center border-l-4 border-[var(--cya-ochre)] bg-white px-6 py-6">
+        <div className="self-center border border-[var(--cya-divider)] bg-white px-6 py-6">
           <p className="text-xs font-semibold uppercase tracking-[0.08em] text-[var(--cya-ochre-ink)]">
             Recommended image direction
           </p>

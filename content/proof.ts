@@ -2,8 +2,8 @@ import type { CaseStudy, PageIntro } from "@/lib/types";
 
 export const proofHero: PageIntro = {
   kicker: "Case studies",
-  heading: "Work shown in context.",
-  body: "Explore the situation, decisions, delivery and evidence behind selected CYA engagements. These draft stories remain unpublished until client permission, dates and facts are confirmed.",
+  heading: "Work shown in context",
+  body: "Explore the situation, decisions, delivery and evidence behind selected Corporate Yoga Australia engagements. These draft stories remain unpublished until client permission, dates and facts are confirmed.",
 };
 
 export const proofPrinciples = [
@@ -48,7 +48,7 @@ export const caseStudies: CaseStudy[] = [
       status: "evidence-required",
     },
     cyaReflection: {
-      value: "Placeholder - what CYA learned and how it applies to a similar buyer.",
+      value: "Placeholder - what Corporate Yoga Australia learned and how it applies to a similar buyer.",
       status: "evidence-required",
     },
     nextStep: { label: "Discuss a similar need", href: "/contact" },
@@ -58,7 +58,7 @@ export const caseStudies: CaseStudy[] = [
     storyRole: "distributed-delivery",
     clientLabel: "Distributed delivery - candidate: Shell Energy",
     headline: "Virtual and distributed participation at scale (placeholder)",
-    summary: "Illustrates how CYA can support a distributed or remote workforce without onsite delivery.",
+    summary: "Illustrates how Corporate Yoga Australia can support a distributed or remote workforce without onsite delivery.",
     sector: "Energy",
     status: "evidence-required",
     context: {
@@ -86,7 +86,7 @@ export const caseStudies: CaseStudy[] = [
       status: "evidence-required",
     },
     cyaReflection: {
-      value: "Placeholder - what CYA learned about distributed delivery.",
+      value: "Placeholder - what Corporate Yoga Australia learned about distributed delivery.",
       status: "evidence-required",
     },
     nextStep: { label: "Ask about distributed delivery", href: "/contact?interest=studio" },
@@ -124,7 +124,7 @@ export const caseStudies: CaseStudy[] = [
       status: "evidence-required",
     },
     cyaReflection: {
-      value: "Placeholder - what CYA learned about smaller-organisation delivery.",
+      value: "Placeholder - what Corporate Yoga Australia learned about smaller-organisation delivery.",
       status: "evidence-required",
     },
     nextStep: { label: "Discuss a proportionate program", href: "/contact?interest=recurring" },

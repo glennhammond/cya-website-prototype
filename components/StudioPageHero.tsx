@@ -6,7 +6,7 @@ import type { CTA, MediaAsset } from "@/lib/types";
 /**
  * Wellbeing Studio hero. Denser and card-based rather than full-bleed
  * editorial - the shadowed, rounded product thumbnail is a deliberate
- * departure from the CYA pages' card-free treatment, signalling Studio's
+ * departure from the Corporate Yoga Australia pages' card-free treatment, signalling Studio's
  * utility character while sharing the same tokens. No play affordance is
  * shown: no genuinely playable Studio preview clip is confirmed yet, and a
  * decorative play button that doesn't play anything reads as broken next to
@@ -26,7 +26,7 @@ export function StudioPageHero({
   image: MediaAsset;
 }) {
   return (
-    <section className="bg-mist py-12 sm:py-16 lg:py-20">
+    <section className="bg-[var(--cya-surface-page)] py-12 sm:py-16 lg:py-20">
       <Container>
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
           <div>

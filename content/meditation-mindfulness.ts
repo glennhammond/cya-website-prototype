@@ -4,7 +4,7 @@ import type { FeatureItem } from "@/components/FeatureGrid";
 export const mindfulnessHero: PageIntro = {
   kicker: "Mindfulness & Meditation",
   heading: "Workplace Meditation & Mindfulness",
-  body: "CYA delivers guided meditation, mindfulness, breathwork and related practices in formats that can fit around meetings, team days, wellbeing programs and distributed work. The emphasis is practical participation, not clinical treatment claims.",
+  body: "Corporate Yoga Australia delivers guided meditation, mindfulness, breathwork and related practices in formats that can fit around meetings, team days, wellbeing programs and distributed work. The emphasis is practical participation, not clinical treatment claims.",
   actions: [
     { label: "Discuss a mindfulness session", href: "/contact?interest=one-off", variant: "primary" },
     { label: "Explore workplace wellbeing programs", href: "/workplace-wellbeing-programs", variant: "secondary" },
@@ -30,8 +30,8 @@ export const sessionTypes: FeatureItem[] = [
 
 export const participationFeature = {
   kicker: "Approach",
-  heading: "Approachable enough for a busy workplace.",
-  body: "The session is shaped around the audience, available time and setting. CYA can keep the practice short and simple, or build a deeper workshop or series when that better matches the organisation's purpose.",
+  heading: "Approachable enough for a busy workplace",
+  body: "The session is shaped around the audience, available time and setting. Corporate Yoga Australia can keep the practice short and simple, or build a deeper workshop or series when that better matches the organisation's purpose.",
 };
 
 export const deliveryModes: FeatureItem[] = [
@@ -42,14 +42,14 @@ export const deliveryModes: FeatureItem[] = [
 
 export const facilitatorFeature = {
   kicker: "Human-led delivery",
-  heading: "The facilitator matters as much as the format.",
-  body: "CYA matches the brief with an appropriate practitioner and coordinates the practical delivery with the client. Named facilitator profiles and credentials should only be published once verified for the specific service being promoted.",
+  heading: "The facilitator matters as much as the format",
+  body: "Corporate Yoga Australia matches the brief with an appropriate practitioner and coordinates the practical delivery with the client. Named facilitator profiles and credentials should only be published once verified for the specific service being promoted.",
 };
 
 export const authorityResource = {
   kicker: "A useful starting point",
-  heading: "Check in with yourself before adding more to the day.",
-  body: "CYA's existing Check In With Yourself article provides a practical editorial pathway into mindfulness. The service page should use that resource to deepen understanding rather than repeating it as sales copy.",
+  heading: "Check in with yourself before adding more to the day",
+  body: "Corporate Yoga Australia's existing Check In With Yourself article provides a practical editorial pathway into mindfulness. The service page should use that resource to deepen understanding rather than repeating it as sales copy.",
   cta: {
     label: "Read Check In With Yourself",
     href: "/blog/check-in-with-yourself-with-this-simple-technique",
@@ -80,7 +80,7 @@ export const relatedPaths: FeatureItem[] = [
 
 export const closingCTA = {
   kicker: "Next step",
-  heading: "Tell CYA what kind of pause or practice would help.",
+  heading: "Tell Corporate Yoga Australia what kind of pause or practice would help",
   body: "The first conversation can be about one short meditation, a workshop, a series or a broader program. There is no required level of commitment.",
   cta: { label: "Discuss mindfulness & meditation", href: "/contact?interest=one-off", variant: "primary" as const },
 };

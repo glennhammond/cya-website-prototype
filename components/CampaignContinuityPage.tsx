@@ -28,7 +28,7 @@ export function CampaignContinuityPage({
 }: CampaignContinuityPageProps) {
   return (
     <>
-      <section className="bg-white py-16 lg:py-24">
+      <section className="bg-[var(--cya-surface-page)] py-16 lg:py-24">
         <ProductionContainer>
           <div className="max-w-5xl">
             <ProductionKicker>{kicker}</ProductionKicker>
@@ -37,7 +37,7 @@ export function CampaignContinuityPage({
             </h1>
             <p className="mt-6 max-w-3xl text-lg leading-8 text-[var(--cya-body)]">{body}</p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <ProductionAction href={ctaHref} style="ochre">{ctaLabel}</ProductionAction>
+              <ProductionAction href={ctaHref}>{ctaLabel}</ProductionAction>
               {secondaryLabel && secondaryHref ? (
                 <ProductionAction href={secondaryHref} style="secondary">
                   {secondaryLabel}
@@ -48,7 +48,7 @@ export function CampaignContinuityPage({
         </ProductionContainer>
       </section>
 
-      <section className="bg-[var(--cya-canvas)] py-16 lg:py-20">
+      <section className="bg-[var(--cya-surface-subtle)] py-16 lg:py-20">
         <ProductionContainer>
           <div className="max-w-6xl">
             <ProductionKicker>Designed around the workplace</ProductionKicker>
@@ -58,7 +58,7 @@ export function CampaignContinuityPage({
             <ul className="mt-10 grid gap-5 md:grid-cols-3">
               {benefits.map((benefit) => (
                 <li key={benefit}>
-                  <ProductionCard title={benefit} body="CYA will shape the detail around your people, timing and delivery context." />
+                  <ProductionCard title={benefit} body="Corporate Yoga Australia will shape the detail around your people, timing and delivery context." />
                 </li>
               ))}
             </ul>

@@ -20,7 +20,7 @@ export const experienceFormats: FeatureItem[] = [
 ];
 
 export const matchingPrinciples: FeatureItem[] = [
-  { title: "Start with the workplace need", body: "CYA clarifies the audience, context and intended takeaway before recommending a topic or practitioner." },
+  { title: "Start with the workplace need", body: "Corporate Yoga Australia clarifies the audience, context and intended takeaway before recommending a topic or practitioner." },
   { title: "Verify the practitioner", body: "Relevant experience, qualifications and scope are confirmed for the actual engagement before publication or booking." },
   { title: "Shape the format", body: "Timing, delivery mode, interaction and practical takeaways are adapted to the event or working day." },
   { title: "Keep claims responsible", body: "Sessions offer credible learning and experience without promising medical, psychological or guaranteed business outcomes." },
@@ -35,6 +35,6 @@ export const expertRelatedPaths: FeatureItem[] = [
 export const expertClosing = {
   kicker: "Next step",
   heading: "What should your team understand, discuss or practise?",
-  body: "Share the audience, topic, timing and delivery context. CYA will recommend a suitable expert experience and confirm the practitioner before the engagement proceeds.",
+  body: "Share the audience, topic, timing and delivery context. Corporate Yoga Australia will recommend a suitable expert experience and confirm the practitioner before the engagement proceeds.",
   cta: { label: "Discuss an expert experience", href: "/contact?interest=one-off", variant: "primary" as const },
 };

@@ -19,7 +19,7 @@ function EvidencedBlock({ label, item }: { label: string; item: Evidenced<string
 export function CaseStudyTemplate({ study }: { study: CaseStudy }) {
   return (
     <article>
-      <Section tone="white" className="pb-0">
+      <Section tone="page" className="pb-0">
         <Container>
           <Kicker>{study.clientLabel}</Kicker>
           <div className="mt-3 flex flex-wrap items-center gap-3">
@@ -58,7 +58,7 @@ export function CaseStudyTemplate({ study }: { study: CaseStudy }) {
               <EvidencedBlock label="Delivery" item={study.delivery} />
               <EvidencedBlock label="Evidence and limitations" item={study.evidence} />
               <EvidencedBlock label="Client voice" item={study.clientVoice} />
-              <EvidencedBlock label="What CYA learned" item={study.cyaReflection} />
+              <EvidencedBlock label="What Corporate Yoga Australia learned" item={study.cyaReflection} />
             </div>
           </div>
         </Container>

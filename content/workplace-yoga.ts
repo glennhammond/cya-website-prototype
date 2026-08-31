@@ -4,9 +4,9 @@ import type { FeatureItem } from "@/components/FeatureGrid";
 export const yogaHero: PageIntro = {
   kicker: "Workplace Yoga",
   heading: "Workplace Yoga Classes for Australian Teams",
-  body: "CYA delivers practical Yoga sessions for workplaces without assuming prior experience, studio conditions or a particular level of flexibility. Book one session, a short series or a recurring class, onsite or online.",
+  body: "Corporate Yoga Australia delivers practical yoga sessions for workplaces without assuming prior experience, studio conditions or a particular level of flexibility. Book one session, a short series or a recurring class, onsite or online.",
   actions: [
-    { label: "Discuss a Yoga session", href: "/contact?interest=one-off", variant: "primary" },
+    { label: "Discuss a yoga session", href: "/contact?interest=one-off", variant: "primary" },
     { label: "Explore workplace wellbeing programs", href: "/workplace-wellbeing-programs", variant: "secondary" },
   ],
   meta: ["One-off or recurring", "Onsite or online", "Adapted to the workplace"],
@@ -15,7 +15,7 @@ export const yogaHero: PageIntro = {
 export const sessionFits: FeatureItem[] = [
   {
     title: "One-off workplace session",
-    body: "A complete Yoga session for a team, office, awareness day or particular workplace moment.",
+    body: "A complete yoga session for a team, office, awareness day or particular workplace moment.",
   },
   {
     title: "Short series",
@@ -26,7 +26,7 @@ export const sessionFits: FeatureItem[] = [
     body: "A regular class coordinated around the working week, location and participation pattern.",
   },
   {
-    title: "Conference or event Yoga",
+    title: "Conference or event yoga",
     body: "A session or short movement break shaped around the event agenda, venue and time available.",
     href: "/conferences-events",
     cta: "Explore conferences and events",
@@ -35,8 +35,8 @@ export const sessionFits: FeatureItem[] = [
 
 export const participationFeature = {
   kicker: "Participation",
-  heading: "Designed for people who may never choose a Yoga studio.",
-  body: "CYA does not assume confidence, flexibility or Yoga experience. Sessions can be adapted to varied bodies, roles, available space and clothing, with clear options so people can participate at an appropriate level.",
+  heading: "Designed for people who may never choose a yoga studio",
+  body: "Corporate Yoga Australia does not assume confidence, flexibility or yoga experience. Sessions can be adapted to varied bodies, roles, available space and clothing, with clear options so people can participate at an appropriate level.",
 };
 
 export const tailoring: FeatureItem[] = [
@@ -75,8 +75,8 @@ export const deliveryModes: FeatureItem[] = [
 
 export const facilitatorFeature = {
   kicker: "Facilitator fit",
-  heading: "A human-led service, not a class dropped into a calendar.",
-  body: "CYA coordinates the brief, facilitator match and delivery details with the workplace. Individual facilitator credentials and profiles are published only when verified; the service model does not rely on unsupported credential or outcome claims.",
+  heading: "A human-led service, not a class dropped into a calendar",
+  body: "Corporate Yoga Australia coordinates the brief, facilitator match and delivery details with the workplace. Individual facilitator credentials and profiles are published only when verified; the service model does not rely on unsupported credential or outcome claims.",
 };
 
 export const practicalLogistics: FeatureItem[] = [
@@ -86,7 +86,7 @@ export const practicalLogistics: FeatureItem[] = [
   },
   {
     title: "Room and setup",
-    body: "CYA plans around the space available and confirms any setup requirements before the session.",
+    body: "Corporate Yoga Australia plans around the space available and confirms any setup requirements before the session.",
   },
   {
     title: "Session length",
@@ -94,16 +94,16 @@ export const practicalLogistics: FeatureItem[] = [
   },
   {
     title: "One session is enough",
-    body: "A one-off Yoga booking is a legitimate engagement. Ongoing support is available when continuity would be useful, not as a condition of booking.",
+    body: "A one-off yoga booking is a legitimate engagement. Ongoing support is available when continuity would be useful, not as a condition of booking.",
   },
 ];
 
 export const authorityResource = {
-  kicker: "Planning workplace Yoga",
-  heading: "Introducing Yoga at work without making participation difficult.",
-  body: "CYA's established Yoga-at-Work guidance covers practical considerations for introducing Yoga in a workplace. It supports this service page with useful planning context rather than duplicating the same content here.",
+  kicker: "Planning workplace yoga",
+  heading: "Introducing yoga at work without making participation difficult",
+  body: "Corporate Yoga Australia's established yoga-at-work guidance covers practical considerations for introducing yoga in a workplace. It supports this service page with useful planning context rather than duplicating the same content here.",
   cta: {
-    label: "Read 8 tips to successfully introduce Yoga at work",
+    label: "Read 8 tips to successfully introduce yoga at work",
     href: "/blog/8-tips-to-successfully-introduce-yoga-at-work",
     variant: "secondary" as const,
   },
@@ -112,13 +112,13 @@ export const authorityResource = {
 export const relatedPaths: FeatureItem[] = [
   {
     title: "Compare movement options",
-    body: "See how Yoga sits alongside Pilates, mobility and desk-based movement.",
+    body: "See how yoga sits alongside Pilates, mobility and desk-based movement.",
     href: "/movement",
     cta: "Explore workplace movement",
   },
   {
     title: "Build a broader program",
-    body: "Combine Yoga with other live, online and expert-led experiences when a connected program suits the brief.",
+    body: "Combine yoga with other live, online and expert-led experiences when a connected program suits the brief.",
     href: "/workplace-wellbeing-programs",
     cta: "Explore workplace wellbeing programs",
   },
@@ -126,7 +126,7 @@ export const relatedPaths: FeatureItem[] = [
 
 export const closingCTA = {
   kicker: "Next step",
-  heading: "Planning a Workplace Yoga session?",
-  body: "Tell CYA about your team, location, timing and what you want the session to do. One session is a perfectly valid place to start - and it can remain one session.",
-  cta: { label: "Discuss a Yoga session", href: "/contact?interest=one-off", variant: "primary" as const },
+  heading: "Planning a workplace yoga session?",
+  body: "Tell Corporate Yoga Australia about your team, location, timing and what you want the session to do. One session is a perfectly valid place to start - and it can remain one session.",
+  cta: { label: "Discuss a yoga session", href: "/contact?interest=one-off", variant: "primary" as const },
 };

@@ -3,8 +3,8 @@ import type { FeatureItem } from "@/components/FeatureGrid";
 
 export const onlineHero: PageIntro = {
   kicker: "Online Wellbeing",
-  heading: "Keep workplace wellbeing useful between rooms, locations and scheduled sessions.",
-  body: "CYA combines live online experiences, on-demand practices, expert content and Wellbeing Studio access to support remote, hybrid and distributed teams. The proposition is an ongoing human-led service relationship, with the Studio providing continuity where it helps.",
+  heading: "Keep workplace wellbeing useful between rooms, locations and scheduled sessions",
+  body: "Corporate Yoga Australia combines live online experiences, on-demand practices, expert content and Wellbeing Studio access to support remote, hybrid and distributed teams. The proposition is an ongoing human-led service relationship, with the Studio providing continuity where it helps.",
   actions: [
     { label: "Discuss online wellbeing", href: "/contact?interest=studio", variant: "primary" },
     { label: "Explore workplace wellbeing programs", href: "/workplace-wellbeing-programs", variant: "secondary" },
@@ -14,7 +14,7 @@ export const onlineHero: PageIntro = {
 
 export const situations: FeatureItem[] = [
   { title: "People work across locations", body: "Give distributed teams access to shared wellbeing experiences without relying on one physical site." },
-  { title: "Live sessions need continuity", body: "Extend the value of scheduled CYA sessions with practical resources and short practices people can return to." },
+  { title: "Live sessions need continuity", body: "Extend the value of scheduled Corporate Yoga Australia sessions with practical resources and short practices people can return to." },
   { title: "A campaign should last longer than one day", body: "Use online access to connect awareness-day activity with preparation, follow-up and related resources." },
   { title: "A program needs a digital layer", body: "Combine online access with onsite delivery, workshops and recurring rhythms when the organisation wants a more connected service." },
 ];
@@ -34,8 +34,8 @@ export const onDemand: FeatureItem[] = [
 
 export const continuityFeature = {
   kicker: "Connected continuity",
-  heading: "Wellbeing Studio is the delivery layer, not the reason to buy CYA.",
-  body: "The Studio gives CYA a practical place to organise live access, on-demand practices, resources and program continuity. It supports the relationship between the organisation, employees and CYA rather than replacing facilitators or turning the service into software procurement.",
+  heading: "Wellbeing Studio is the delivery layer, not the reason to buy Corporate Yoga Australia",
+  body: "The Studio gives Corporate Yoga Australia a practical place to organise live access, on-demand practices, resources and program continuity. It supports the relationship between the organisation, employees and Corporate Yoga Australia rather than replacing facilitators or turning the service into software procurement.",
 };
 
 export const employeeExperience: FeatureItem[] = [
@@ -45,20 +45,20 @@ export const employeeExperience: FeatureItem[] = [
 ];
 
 export const organisationExperience: FeatureItem[] = [
-  { title: "A coordinated launch", body: "CYA can provide access information and communication material to help organisations introduce the service internally." },
-  { title: "Connected with other CYA delivery", body: "Online access can stand alone or sit alongside onsite sessions, campaigns, workshops and broader wellbeing programs." },
+  { title: "A coordinated launch", body: "Corporate Yoga Australia can provide access information and communication material to help organisations introduce the service internally." },
+  { title: "Connected with other Corporate Yoga Australia delivery", body: "Online access can stand alone or sit alongside onsite sessions, campaigns, workshops and broader wellbeing programs." },
   { title: "Privacy-aware reporting", body: "Reporting should stay aggregate and limited to measures that are actually available and approved, without exposing individual activity or inferred wellbeing status." },
 ];
 
 export const relatedPaths: FeatureItem[] = [
   { title: "Workplace wellbeing programs", body: "Plan live, online and other experiences as one connected program when the organisation needs broader continuity.", href: "/workplace-wellbeing-programs", cta: "Explore programs" },
   { title: "Mindfulness & meditation", body: "Use short live or on-demand mindfulness practices as part of an online or hybrid rhythm.", href: "/meditation-mindfulness", cta: "Explore mindfulness" },
-  { title: "Workplace Yoga", body: "Combine online access with a live Yoga session or recurring class when movement is part of the brief.", href: "/workplace-yoga", cta: "Explore Workplace Yoga" },
+  { title: "Workplace Yoga", body: "Combine online access with a live yoga session or recurring class when movement is part of the brief.", href: "/workplace-yoga", cta: "Explore Workplace Yoga" },
 ];
 
 export const closingCTA = {
   kicker: "Plan the right level of continuity",
-  heading: "Start with the service need, then decide what digital support belongs around it.",
-  body: "CYA can discuss one online experience, ongoing access, a hybrid program or how Wellbeing Studio could support an existing workplace wellbeing plan.",
+  heading: "Start with the service need, then decide what digital support belongs around it",
+  body: "Corporate Yoga Australia can discuss one online experience, ongoing access, a hybrid program or how Wellbeing Studio could support an existing workplace wellbeing plan.",
   cta: { label: "Discuss online wellbeing", href: "/contact?interest=studio", variant: "primary" as const },
 };

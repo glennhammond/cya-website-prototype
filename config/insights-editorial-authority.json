@@ -1,0 +1,65 @@
+{
+  "version": "1.0.0",
+  "authority": "CYA Search Visibility — Evidence, Answers & Corroboration 02",
+  "evidenceDate": "2026-08-30",
+  "publicationRule": "No Insight may imply practitioner, clinical, psychosocial or WHS expertise through an editorial byline. Named expert review is displayed only after the reviewer and review are confirmed.",
+  "statusDefinitions": {
+    "source-reviewed": "Material claims and scope boundaries are supported by named primary sources; operational or practitioner approval may still be required.",
+    "editorial-review-required": "The replacement copy remains an implementation candidate until the named subject-matter review gate is completed.",
+    "expert-reviewed": "A named expert has substantively reviewed the copy and approved the displayed attribution."
+  },
+  "articles": [
+    {
+      "slug": "8-tips-to-successfully-introduce-yoga-at-work",
+      "publicAuthor": "Corporate Yoga Australia",
+      "editorialProduction": "Glenn Hammond",
+      "status": "editorial-review-required",
+      "releaseGate": "Debby Lewis practitioner and operational review; decide whether a named practitioner byline or review credit is accurate."
+    },
+    {
+      "slug": "check-in-with-yourself-with-this-simple-technique",
+      "publicAuthor": "Corporate Yoga Australia",
+      "status": "editorial-review-required",
+      "releaseGate": "Debby Lewis or another suitably experienced mindfulness practitioner reviews the practice, safety language and attribution."
+    },
+    {
+      "slug": "3-steps-to-reduce-workplace-stress-with-mindfulness",
+      "publicAuthor": "Corporate Yoga Australia",
+      "editorialProduction": "Glenn Hammond",
+      "status": "editorial-review-required",
+      "releaseGate": "A suitably experienced mindfulness or mental-health professional reviews the stress framing and scope before publication."
+    },
+    {
+      "slug": "harnessing-the-power-of-the-breath",
+      "publicAuthor": "Corporate Yoga Australia",
+      "editorialProduction": "Glenn Hammond",
+      "status": "editorial-review-required",
+      "releaseGate": "A suitably qualified and experienced breathwork practitioner reviews technique, contraindication and safety language."
+    },
+    {
+      "slug": "mindfulness-everyday",
+      "publicAuthor": "Corporate Yoga Australia",
+      "status": "editorial-review-required",
+      "releaseGate": "Debby Lewis or another suitably experienced mindfulness practitioner reviews the refreshed practice guidance."
+    },
+    {
+      "slug": "sleep-and-workplace-productivity-corporate-yoga-australia",
+      "publicAuthor": "Corporate Yoga Australia",
+      "status": "editorial-review-required",
+      "releaseGate": "A suitably qualified sleep or health professional reviews the health guidance; the title and copy must not imply a productivity guarantee."
+    },
+    {
+      "slug": "the-nervous-system-solution-why-your-wellbeing-program-isnt-working-and-what-to-do-instead",
+      "publicAuthor": "Corporate Yoga Australia",
+      "editorialProduction": "Glenn Hammond",
+      "status": "source-reviewed",
+      "releaseGate": "Debby Lewis operational review and final editorial approval. Do not restore the legacy nervous-system claim framing."
+    },
+    {
+      "slug": "5-pillars-of-corporate-wellbeing-to-boost-your-teams-productivity",
+      "publicAuthor": "Corporate Yoga Australia",
+      "status": "editorial-review-required",
+      "releaseGate": "A suitably qualified workplace health or psychosocial specialist reviews the work-design boundary; do not restore the legacy productivity promise."
+    }
+  ]
+}

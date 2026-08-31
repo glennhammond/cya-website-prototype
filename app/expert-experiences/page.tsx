@@ -15,7 +15,7 @@ import {
 import { media } from "@/content/media";
 
 export const metadata: Metadata = {
-  title: { absolute: "Expert-Led Workplace Wellbeing Experiences | CYA" },
+  title: { absolute: "Expert-Led Workplace Wellbeing Experiences | Corporate Yoga Australia" },
   description:
     "Expert-led workplace wellbeing talks, Lunch & Learns and facilitated experiences for Australian organisations, delivered onsite or online.",
   alternates: { canonical: "/expert-experiences" },
@@ -38,21 +38,21 @@ export default function ExpertExperiencesPage() {
       <PageHero intro={expertHero} image={media.workplaceWellbeingLunchLearn} imagePosition="left" />
       <FeatureGrid
         kicker="Experience formats"
-        heading="Make expertise useful inside the working day."
+        heading="Make expertise useful inside the working day"
         items={experienceFormats}
         tone="white"
         columns={4}
         compact
       />
       <DividerList
-        kicker="How CYA matches the experience"
-        heading="The person, topic and format need to fit together."
+        kicker="How Corporate Yoga Australia matches the experience"
+        heading="The person, topic and format need to fit together"
         items={matchingPrinciples}
         tone="mist"
       />
       <DividerList
         kicker="Related pathways"
-        heading="Choose the clearest route for the workplace need."
+        heading="Choose the clearest route for the workplace need"
         items={expertRelatedPaths}
         tone="white"
       />

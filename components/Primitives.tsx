@@ -27,18 +27,20 @@ export function Section({
   id,
 }: {
   children: ReactNode;
-  tone?: "white" | "mist" | "teal";
+  tone?: "white" | "page" | "mist" | "warm";
   className?: string;
   as?: ElementType;
   ariaLabel?: string;
   id?: string;
 }) {
   const toneClass =
-    tone === "mist"
-      ? "bg-mist"
-      : tone === "teal"
-        ? "bg-teal-dark text-white"
-        : "bg-white";
+    tone === "page"
+      ? "bg-[var(--cya-surface-page)]"
+      : tone === "mist"
+        ? "bg-[var(--cya-surface-subtle)]"
+        : tone === "warm"
+          ? "bg-[var(--cya-surface-warm)]"
+          : "bg-[var(--cya-surface-base)]";
   return (
     <Tag
       id={id}
@@ -61,9 +63,9 @@ export function Kicker({
     tone === "gold"
       ? "text-ochre-ink"
       : tone === "aqua"
-        ? "text-aqua"
+        ? "text-teal"
         : tone === "pale"
-          ? "text-logo-pale"
+          ? "text-teal"
           : "text-white/80";
   return (
     <p className={`text-xs font-bold uppercase tracking-[0.08em] ${toneClass} font-[family-name:var(--font-body)]`}>

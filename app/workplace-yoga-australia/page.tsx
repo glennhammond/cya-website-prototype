@@ -12,12 +12,12 @@ export default function WorkplaceYogaAustraliaPage() {
   return (
     <CampaignContinuityPage
       kicker="Workplace yoga across Australia"
-      heading="Help your team feel better, focus better and perform better."
+      heading="Help your team feel better, focus better and perform better"
       body="Bring practical, facilitator-led movement into the working day with a format shaped around your people, locations and timetable."
       benefits={[
         "Onsite or online delivery for office, hybrid and distributed teams.",
         "One-off sessions, regular classes and broader wellbeing programs.",
-        "An experienced national facilitator network coordinated by CYA.",
+        "An experienced national facilitator network coordinated by Corporate Yoga Australia.",
       ]}
       ctaHref="/contact?interest=one-off"
       secondaryLabel="Explore workplace yoga"

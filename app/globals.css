@@ -1,43 +1,55 @@
 @import "tailwindcss";
 
 :root {
-  --cya-canvas: #faf9f5;
-  --cya-paper: #f5f1e8;
-  --cya-field-note: #e8efec;
-  --cya-teal: #0f4f55;
-  --cya-teal-dark: #173f43;
-  --cya-gold: #a35a00;
-  --cya-gold-hover: #8f4e00;
-  --cya-ochre: #b76500;
+  /* CYA Design System v1.0 — semantic production tokens. */
+  --cya-surface-page: #f7f6f1;
+  --cya-surface-base: #ffffff;
+  --cya-surface-subtle: #e7ece8;
+  --cya-surface-warm: #e9e5d8;
+  --cya-text-primary: #0e434a;
+  --cya-text-body: #455154;
+  --cya-text-inverse: #ffffff;
+  --cya-action-primary-bg: #17535b;
+  --cya-action-primary-text: #ffffff;
+
+  /* Compatibility aliases. New work should use the semantic tokens above. */
+  --cya-canvas: var(--cya-surface-page);
+  --cya-paper: #f2f0e9;
+  --cya-field-note: var(--cya-surface-subtle);
+  --cya-warm-neutral: var(--cya-surface-warm);
+  --cya-pale-highlight: #f2f0e9;
+  --cya-teal: #17535b;
+  --cya-teal-dark: #0e434a;
+  --cya-ochre: #c99a3e;
   --cya-ochre-ink: #955000;
-  --cya-logo-teal: #5cb8b2;
-  --cya-logo-pale: #bee3e0;
-  --cya-mist: #e8efec;
-  --cya-white: #ffffff;
-  --cya-ink: #173f43;
-  --cya-body: #5c666b;
-  --cya-divider: #d7e4df;
-  --cya-aqua: #39aeb8;
-  --cya-error: #a33b3b;
+  --cya-logo-teal: #17535b;
+  --cya-logo-pale: #e7ece8;
+  --cya-mist: #e7ece8;
+  --cya-white: var(--cya-surface-base);
+  --cya-ink: #222826;
+  --cya-body: var(--cya-text-body);
+  --cya-divider: var(--cya-surface-subtle);
+  --cya-aqua: #17535b;
+  --cya-error: #b85b4d;
+  --cya-coral: #b85b4d;
+  --cya-mid-neutral: #8d8f8c;
 
   --cya-radius-control: 4px;
   --cya-radius-card: 4px;
   --cya-radius-panel: 18px;
   --cya-shadow-card: none;
-  --cya-focus-ring: 0 0 0 3px #e4b454;
+  --cya-focus-ring: 0 0 0 3px #c99a3e;
   --cya-container-max: 1280px;
   --cya-container-narrow: 720px;
 
-  /* Neutral, near-black scrim for text-over-media - deliberately not teal,
-     so it doesn't colour-grade the photo/video underneath and reads
-     consistently across variable skin tones and frames. */
-  --cya-scrim: 8 18 19;
+  /* Approved charcoal scrim for the few remaining text-over-media contexts. */
+  --cya-scrim: 34 40 38;
 }
 
 @theme inline {
   --color-teal: var(--cya-teal);
   --color-teal-dark: var(--cya-teal-dark);
-  --color-gold: var(--cya-gold);
+  --color-gold: var(--cya-ochre);
   --color-ochre-ink: var(--cya-ochre-ink);
   --color-logo-teal: var(--cya-logo-teal);
   --color-logo-pale: var(--cya-logo-pale);
@@ -48,6 +60,10 @@
   --color-divider: var(--cya-divider);
   --color-aqua: var(--cya-aqua);
   --color-error: var(--cya-error);
+  --color-surface-page: var(--cya-surface-page);
+  --color-surface-base: var(--cya-surface-base);
+  --color-surface-subtle: var(--cya-surface-subtle);
+  --color-surface-warm: var(--cya-surface-warm);
 
   --font-heading: var(--font-instrument-sans), Arial, sans-serif;
   --font-body: var(--font-instrument-sans), Arial, sans-serif;
@@ -88,7 +104,7 @@
   }
 
   body {
-    background: var(--cya-canvas);
+    background: var(--cya-surface-page);
     color: var(--cya-ink);
     font-family: var(--font-body);
     font-size: 16px;
@@ -143,7 +159,7 @@
 /* Intentionally unlayered so the panel inset overrides Container's standard
    page gutters when both classes are present. */
 .studio-panel {
-  border: 1px solid rgba(221, 229, 227, 0.9);
+  border: 1px solid var(--cya-divider);
   border-radius: var(--cya-radius-panel);
   background: var(--cya-white);
   box-shadow: var(--cya-shadow-card);

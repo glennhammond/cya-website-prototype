@@ -1,5 +1,6 @@
 import type { MediaAsset } from "@/lib/types";
-import { ProductionAction, ProductionCard, ProductionClosing, ProductionContainer, ProductionKicker, ProductionPhoto } from "@/components/ProductionPrimitives";
+import { ProductionAction, ProductionCard, ProductionClosing, ProductionContainer, ProductionKicker } from "@/components/ProductionPrimitives";
+import { ReviewImageDirection } from "@/components/ReviewImageDirection";
 
 type ServiceCard = { title: string; body: string; href?: string };
 
@@ -10,6 +11,7 @@ export function SpecialistServiceProduction({
   primaryAction,
   image,
   imageLabel,
+  imageBrief,
   evidenceLine,
   firstKicker,
   firstHeading,
@@ -20,7 +22,6 @@ export function SpecialistServiceProduction({
   secondCards,
   closingHeading,
   closingBody,
-  heroTone = "paper",
 }: {
   kicker: string;
   heading: string;
@@ -28,6 +29,13 @@ export function SpecialistServiceProduction({
   primaryAction: { label: string; href: string };
   image: MediaAsset;
   imageLabel: string;
+  imageBrief: {
+    job: "Context" | "Participation" | "Human trust" | "Evidence";
+    subject: string;
+    treatment: string;
+    format: string;
+    avoid: string;
+  };
   evidenceLine: string;
   firstKicker: string;
   firstHeading: string;
@@ -38,12 +46,10 @@ export function SpecialistServiceProduction({
   secondCards: ServiceCard[];
   closingHeading: string;
   closingBody: string;
-  heroTone?: "paper" | "field" | "white";
 }) {
-  const heroSurface = heroTone === "field" ? "bg-[var(--cya-field-note)]" : heroTone === "white" ? "bg-white" : "bg-[var(--cya-paper)]";
   return (
     <>
-      <section className={`${heroSurface} py-16 lg:py-20`}>
+      <section className="bg-[var(--cya-surface-page)] py-16 lg:py-20">
         <ProductionContainer>
           <ProductionKicker>{kicker}</ProductionKicker>
           <h1 className="mt-5 max-w-5xl text-[clamp(2.8rem,5vw,4.5rem)] font-bold leading-[1.05] tracking-[-0.02em]">{heading}</h1>
@@ -53,9 +59,9 @@ export function SpecialistServiceProduction({
         </ProductionContainer>
       </section>
 
-      <ProductionPhoto asset={image} label={imageLabel} priority />
+      <ReviewImageDirection id={imageLabel} {...imageBrief} candidate={image.src} />
 
-      <section className="bg-[var(--cya-field-note)] py-20 lg:py-24">
+      <section className="bg-[var(--cya-surface-subtle)] py-20 lg:py-24">
         <ProductionContainer>
           <ProductionKicker>{firstKicker}</ProductionKicker>
           <h2 className="mt-5 max-w-5xl text-4xl font-bold lg:text-5xl">{firstHeading}</h2>
@@ -66,7 +72,7 @@ export function SpecialistServiceProduction({
         </ProductionContainer>
       </section>
 
-      <section className="bg-[var(--cya-canvas)] py-20 lg:py-24">
+      <section className="bg-[var(--cya-surface-page)] py-20 lg:py-24">
         <ProductionContainer>
           <ProductionKicker>{secondKicker}</ProductionKicker>
           <h2 className="mt-5 max-w-5xl text-4xl font-bold lg:text-5xl">{secondHeading}</h2>
@@ -75,7 +81,7 @@ export function SpecialistServiceProduction({
           </div>
         </ProductionContainer>
       </section>
-      <ProductionClosing tone="teal" heading={closingHeading} body={closingBody} href={primaryAction.href} action={primaryAction.label} />
+      <ProductionClosing heading={closingHeading} body={closingBody} href={primaryAction.href} action={primaryAction.label} />
     </>
   );
 }

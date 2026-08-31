@@ -5,7 +5,7 @@ import type { CTA } from "@/lib/types";
 /**
  * Proof hero (brief §16 F). Deliberately has no photograph - a generic
  * lifestyle image would undercut the page's argument. Evidence-led instead:
- * heading plus the governance principles that make CYA's proof trustworthy.
+ * heading plus the governance principles that make Corporate Yoga Australia's proof trustworthy.
  */
 export function ProofPageHero({
   kicker,
@@ -21,7 +21,7 @@ export function ProofPageHero({
   actions?: CTA[];
 }) {
   return (
-    <section className="bg-white py-12 sm:py-16 lg:py-20">
+    <section className="bg-[var(--cya-surface-page)] py-12 sm:py-16 lg:py-20">
       <Container>
         <div className="max-w-2xl">
           <Kicker>{kicker}</Kicker>

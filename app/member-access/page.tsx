@@ -4,7 +4,7 @@ import { MemberAccessPanel } from "@/components/MemberAccessPanel";
 
 export const metadata: Metadata = {
   title: "Member Access",
-  description: "Sign in to Wellbeing Studio, kept separate from the CYA corporate consultation journey.",
+  description: "Sign in to Wellbeing Studio, kept separate from the Corporate Yoga Australia corporate consultation journey.",
   alternates: {
     canonical: "/member-access",
   },

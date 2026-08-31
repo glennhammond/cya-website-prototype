@@ -9,16 +9,31 @@ export interface InsightSection {
   bullets?: string[];
 }
 
+export interface InsightSource {
+  title: string;
+  publisher: string;
+  href: string;
+}
+
+export interface InsightReviewer {
+  name: string;
+  role: string;
+}
+
 export interface InsightArticle {
   slug: string;
   title: string;
   summary: string;
   category: string;
   author: string;
+  editor?: string;
+  expertReviewer?: InsightReviewer;
+  evidenceStatus: "editorial-review-required" | "source-reviewed" | "expert-reviewed";
   datePublished: string;
   dateModified: string;
   intro: string;
   sections: InsightSection[];
+  sources?: InsightSource[];
   relatedLinks: InsightLink[];
 }
 
@@ -27,18 +42,20 @@ const refreshed = "2026-08-26";
 export const insightArticles: InsightArticle[] = [
   {
     slug: "8-tips-to-successfully-introduce-yoga-at-work",
-    title: "10 practical steps to introduce Yoga at work",
+    title: "10 practical steps to introduce yoga at work",
     summary:
-      "A practical guide to making workplace Yoga easy to join, realistic to organise and appropriate for people with different levels of experience.",
+      "A practical guide to making workplace yoga easy to join, realistic to organise and appropriate for people with different levels of experience.",
     category: "Workplace Yoga",
-    author: "Glenn Hammond",
+    author: "Corporate Yoga Australia",
+    editor: "Glenn Hammond",
+    evidenceStatus: "editorial-review-required",
     datePublished: "2025-08-07",
     dateModified: refreshed,
     intro:
-      "Workplace Yoga works best when the organisation designs for participation rather than assuming everybody already feels comfortable with Yoga. The practical challenge is not simply choosing a class: it is choosing the right format, teacher, time, space and invitation for the people who will be asked to join.",
+      "Workplace yoga works best when the organisation designs for participation rather than assuming everybody already feels comfortable with yoga. The practical challenge is not simply choosing a class: it is choosing the right format, teacher, time, space and invitation for the people who will be asked to join.",
     sections: [
       {
-        heading: "Start with the workplace, not the Yoga studio",
+        heading: "Start with the workplace, not the yoga studio",
         paragraphs: [
           "A workplace session may happen in a boardroom, training room, warehouse, shared office or online. It may use mats, chairs, standing movement or a combination. That flexibility is useful because it lets the session fit the actual environment instead of asking the workplace to imitate a studio.",
           "The most useful first question is therefore: what can people realistically join, in the time and space available?",
@@ -47,19 +64,19 @@ export const insightArticles: InsightArticle[] = [
       {
         heading: "Ten practical steps",
         paragraphs: [
-          "These steps preserve the useful planning logic from CYA's long-running Yoga-at-Work guidance while keeping the emphasis on participation and fit rather than promised health or productivity outcomes.",
+          "These steps preserve the useful planning logic from Corporate Yoga Australia's long-running yoga-at-work guidance while keeping the emphasis on participation and fit rather than promised health or productivity outcomes.",
         ],
         bullets: [
           "Get visible support from leaders without making participation feel compulsory.",
           "Ask employees what formats and times they would genuinely consider joining.",
-          "Offer accessible options for people who do not identify as 'Yoga people'.",
+          "Offer accessible options for people who do not identify as 'yoga people'.",
           "Choose a facilitator who understands workplace groups and can adapt in real time.",
           "Use a one-off session or short trial when you need to learn what fits before committing further.",
           "Nominate an internal contact who can make communication and logistics easy.",
           "Schedule around the working day rather than assuming before- or after-work attendance is convenient.",
           "Match the format to the available budget, space and delivery mode.",
           "Make the invitation clear: what to wear, what to bring, how long it runs and whether beginners are welcome.",
-          "Treat Yoga as one useful part of workplace wellbeing, not the only route into it.",
+          "Treat yoga as one useful part of workplace wellbeing, not the only route into it.",
         ],
       },
       {
@@ -82,6 +99,7 @@ export const insightArticles: InsightArticle[] = [
       "A short body-awareness practice for noticing how you are arriving in the moment before deciding what you need next.",
     category: "Mindfulness",
     author: "Corporate Yoga Australia",
+    evidenceStatus: "editorial-review-required",
     datePublished: "2025-08-07",
     dateModified: refreshed,
     intro:
@@ -111,7 +129,7 @@ export const insightArticles: InsightArticle[] = [
       {
         heading: "Use the practice as a doorway, not a treatment claim",
         paragraphs: [
-          "A body scan can be a useful wellbeing practice, but it is not a substitute for medical or psychological care. CYA uses practices like this as accessible moments of awareness within human-led workplace wellbeing experiences.",
+          "A body scan can be a useful wellbeing practice, but it is not a substitute for medical or psychological care. Corporate Yoga Australia uses practices like this as accessible moments of awareness within human-led workplace wellbeing experiences.",
         ],
       },
     ],
@@ -126,7 +144,9 @@ export const insightArticles: InsightArticle[] = [
     summary:
       "A practical framework for noticing a stress response, creating a pause and choosing a more deliberate next action.",
     category: "Mindfulness",
-    author: "Glenn Hammond",
+    author: "Corporate Yoga Australia",
+    editor: "Glenn Hammond",
+    evidenceStatus: "editorial-review-required",
     datePublished: "2025-08-07",
     dateModified: refreshed,
     intro:
@@ -170,7 +190,9 @@ export const insightArticles: InsightArticle[] = [
     summary:
       "Three simple breathing practices that can create a deliberate pause during a busy day, with clear comfort and safety boundaries.",
     category: "Breathwork",
-    author: "Glenn Hammond",
+    author: "Corporate Yoga Australia",
+    editor: "Glenn Hammond",
+    evidenceStatus: "editorial-review-required",
     datePublished: "2025-08-07",
     dateModified: refreshed,
     intro:
@@ -185,7 +207,7 @@ export const insightArticles: InsightArticle[] = [
       {
         heading: "Three accessible options",
         paragraphs: [
-          "CYA's existing breathwork guidance uses several simple approaches. In a workplace context they can be offered as optional practices rather than performance targets.",
+          "Corporate Yoga Australia's existing breathwork guidance uses several simple approaches. In a workplace context they can be offered as optional practices rather than performance targets.",
         ],
         bullets: [
           "Belly breathing: allow the abdomen to move naturally as you breathe without forcing a very deep breath.",
@@ -202,7 +224,7 @@ export const insightArticles: InsightArticle[] = [
       {
         heading: "Avoid overclaiming",
         paragraphs: [
-          "Breathwork is often discussed using strong physiological or health claims. CYA's website should stay closer to what the service can genuinely promise: guided practice, clear instruction, appropriate options and a useful moment to pause and pay attention.",
+          "Breathwork is often discussed using strong physiological or health claims. Corporate Yoga Australia's website should stay closer to what the service can genuinely promise: guided practice, clear instruction, appropriate options and a useful moment to pause and pay attention.",
         ],
       },
     ],
@@ -218,6 +240,7 @@ export const insightArticles: InsightArticle[] = [
       "Small, low-friction ways to bring attention, movement and moments away from screens into an ordinary working day.",
     category: "Mindfulness",
     author: "Corporate Yoga Australia",
+    evidenceStatus: "editorial-review-required",
     datePublished: "2019-08-29",
     dateModified: refreshed,
     intro:
@@ -256,6 +279,7 @@ export const insightArticles: InsightArticle[] = [
       "Practical sleep and recovery habits, plus ways workplaces can support healthier boundaries without treating employees' sleep as an employer metric.",
     category: "Workplace Wellbeing",
     author: "Corporate Yoga Australia",
+    evidenceStatus: "editorial-review-required",
     datePublished: "2025-09-26",
     dateModified: refreshed,
     intro:
@@ -298,23 +322,33 @@ export const insightArticles: InsightArticle[] = [
     summary:
       "A buyer-focused look at timing, accessibility and why useful wellbeing support needs to fit the way work actually happens.",
     category: "Workplace Wellbeing Programs",
-    author: "Glenn Hammond",
+    author: "Corporate Yoga Australia",
+    editor: "Glenn Hammond",
+    evidenceStatus: "source-reviewed",
     datePublished: "2025-11-11",
-    dateModified: refreshed,
+    dateModified: "2026-08-30",
     intro:
       "A wellbeing offer can exist on paper and still be difficult to use. The problem is often less about employee motivation than about access: support may be scheduled outside the moments when people can realistically participate, hidden behind friction, or designed without enough attention to the working day.",
     sections: [
       {
-        heading: "The gap between support and the workday",
+        heading: "Begin with fit, access and permission",
         paragraphs: [
-          "Pressure tends to appear inside ordinary work: back-to-back meetings, difficult conversations, changing priorities and deadlines. If every wellbeing activity sits before work, after work or behind a separate platform journey, even a good resource can be hard to reach.",
-          "That suggests a useful design principle: place some support close to the contexts in which people can use it, while keeping deeper experiences available for those who want them.",
+          "A useful activity can still be difficult to join when it sits outside paid time, conflicts with meetings or operational work, requires unfamiliar equipment, or is promoted without enough practical detail. Participation is more likely to be informative when people have a realistic opportunity to attend and the invitation remains genuinely voluntary.",
+          "Start by asking what employees can use, which delivery modes fit the workforce, what access barriers exist and how the organisation will protect time to participate. This is more useful than assuming low attendance means low interest.",
         ],
       },
       {
         heading: "Design for more than one doorway",
         paragraphs: [
-          "Different people enter wellbeing in different ways. Some will join Yoga or Pilates. Others may prefer a short stretch, a practical workshop, mindfulness, a conversation with an expert or an on-demand resource. A connected service can make these options easier to discover without forcing everybody through the same journey.",
+          "Different people enter wellbeing in different ways. Some will join yoga or Pilates. Others may prefer a short stretch, a practical workshop, mindfulness, a conversation with an expert or an on-demand resource. A connected service can make these options easier to discover without forcing everybody through the same journey.",
+          "The design should also account for different locations, work patterns, mobility needs and levels of confidence. Clear descriptions, beginner-friendly options and a mix of live and digital access can reduce avoidable friction without promising that every format will suit every person.",
+        ],
+      },
+      {
+        heading: "Give the program an internal sponsor and a practical contact",
+        paragraphs: [
+          "Queensland's work health and wellbeing guidance recommends management commitment, worker participation, ongoing feedback and regular communication. It also identifies workplace champions as one way to promote a strategy. In practice, a senior sponsor can protect priority and resources while a well-supported internal contact helps with communication, logistics and feedback.",
+          "A Corporate Yoga Australia Wellbeing Champion should not become responsible for colleagues' wellbeing, complaints, psychosocial hazards, HR or WHS matters. The role is an activation and communication role with a defined brief, a backup contact and clear escalation boundaries.",
         ],
       },
       {
@@ -324,16 +358,41 @@ export const insightArticles: InsightArticle[] = [
         ],
       },
       {
+        heading: "Keep wellbeing activity and psychosocial risk management distinct",
+        paragraphs: [
+          "Workplace wellbeing activities can complement an organisation's broader approach to health, safety and wellbeing. They do not replace the organisation's duty to identify psychosocial hazards, assess and control risks, consult workers, review controls or address harmful work design and workplace behaviour.",
+          "Where a needs assessment identifies workload, low job control, poor support, bullying, harassment or another psychosocial hazard, the organisation must manage that risk through its WHS process. A yoga class, mindfulness session, workshop or champion network must not be presented as the control for the hazard.",
+        ],
+      },
+      {
         heading: "Measure what is genuinely available",
         paragraphs: [
-          "Attendance, participation, operational reliability and feedback can be useful when interpreted with context. Avoid converting wellbeing into a single outcome score or making causal claims that the delivery evidence cannot support.",
+          "Agree the program question before choosing measures. Attendance, access by location or format, delivery reliability, repeat participation and voluntary feedback can support operational decisions when interpreted with context.",
+          "Keep employer reporting aggregate and privacy-aware. Avoid inferring an individual's wellbeing from platform activity, converting wellbeing into a single outcome score, or making causal claims about health, productivity or compliance that the delivery evidence cannot support.",
         ],
+      },
+    ],
+    sources: [
+      {
+        title: "Work health and wellbeing toolkit",
+        publisher: "Workplace Health and Safety Queensland",
+        href: "https://www.worksafe.qld.gov.au/safety-and-prevention/health-and-wellbeing/managing-chronic-disease-at-work/work-health-and-wellbeing-toolkit",
+      },
+      {
+        title: "Managing the risk of psychosocial hazards at work Code of Practice 2022",
+        publisher: "Workplace Health and Safety Queensland",
+        href: "https://www.worksafe.qld.gov.au/laws-and-compliance/codes-of-practice/managing-the-risk-of-psychosocial-hazards-at-work-code-of-practice-2022",
+      },
+      {
+        title: "Psychosocial hazards",
+        publisher: "Safe Work Australia",
+        href: "https://www.safeworkaustralia.gov.au/safety-topic/managing-health-and-safety/mental-health/psychosocial-hazards",
       },
     ],
     relatedLinks: [
       { label: "Explore workplace wellbeing programs", href: "/workplace-wellbeing-programs" },
       { label: "Explore Mindfulness & Meditation", href: "/meditation-mindfulness" },
-      { label: "Plan with CYA", href: "/contact?interest=recurring" },
+      { label: "Start planning", href: "/contact?interest=recurring" },
     ],
   },
   {
@@ -343,6 +402,7 @@ export const insightArticles: InsightArticle[] = [
       "A refreshed framework for thinking about physical wellbeing, mental wellbeing, connection, learning and the working environment without reducing wellbeing to a productivity promise.",
     category: "Workplace Wellbeing",
     author: "Corporate Yoga Australia",
+    evidenceStatus: "editorial-review-required",
     datePublished: "2019-05-16",
     dateModified: refreshed,
     intro:
@@ -351,7 +411,7 @@ export const insightArticles: InsightArticle[] = [
       {
         heading: "1. Physical wellbeing",
         paragraphs: [
-          "Movement, ergonomics, recovery, suitable breaks and opportunities to change position all matter. CYA contributes through workplace-friendly movement such as Yoga, Pilates, mobility and short resets rather than claiming to solve every aspect of workplace health.",
+          "Movement, ergonomics, recovery, suitable breaks and opportunities to change position all matter. Corporate Yoga Australia contributes through workplace-friendly movement such as yoga, Pilates, mobility and short resets rather than claiming to solve every aspect of workplace health.",
         ],
       },
       {

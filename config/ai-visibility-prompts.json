@@ -1,0 +1,67 @@
+{
+  "version": "1.0.0",
+  "authority": "CYA Search Visibility — SEO, AEO & GEO Foundation 01",
+  "prepared": "2026-08-30",
+  "locale": "Australia / en-AU",
+  "reviewCadence": "monthly",
+  "methodology": {
+    "principle": "Track recurring inclusion, citation, accuracy and competitive patterns; do not present an AI answer as a stable numerical ranking.",
+    "platforms": ["ChatGPT Search", "Google AI Mode", "Microsoft Copilot"],
+    "record": [
+      "platform and access state",
+      "date, time and Australian location context",
+      "exact prompt",
+      "CYA mentioned",
+      "CYA cited",
+      "cited CYA URL",
+      "description accuracy",
+      "competitors included",
+      "third-party sources cited",
+      "material change from prior review",
+      "commercial implication"
+    ]
+  },
+  "prompts": [
+    {"id":"E01","category":"entity","prompt":"What is Corporate Yoga Australia?","intent":"entity identification","targetOwner":"/about-us","commercialValue":"medium","evidenceRisk":"medium"},
+    {"id":"E02","category":"entity","prompt":"Who founded Corporate Yoga Australia and what does the business provide?","intent":"founder and capability","targetOwner":"/about-us","commercialValue":"medium","evidenceRisk":"high"},
+    {"id":"E03","category":"entity","prompt":"Does Corporate Yoga Australia deliver services nationally?","intent":"coverage validation","targetOwner":"/about-us","commercialValue":"high","evidenceRisk":"high"},
+    {"id":"E04","category":"entity","prompt":"How does Wellbeing Studio relate to Corporate Yoga Australia?","intent":"brand relationship","targetOwner":"/online-wellbeing","commercialValue":"high","evidenceRisk":"high"},
+
+    {"id":"S01","category":"service discovery","prompt":"Who provides workplace yoga programs in Australia?","intent":"provider shortlist","targetOwner":"/workplace-yoga","commercialValue":"high","evidenceRisk":"medium"},
+    {"id":"S02","category":"service discovery","prompt":"Best corporate yoga provider for a national Australian organisation","intent":"national provider comparison","targetOwner":"/workplace-yoga","commercialValue":"high","evidenceRisk":"high"},
+    {"id":"S03","category":"service discovery","prompt":"Workplace yoga classes for beginners delivered onsite or online in Australia","intent":"format and inclusion","targetOwner":"/workplace-yoga","commercialValue":"high","evidenceRisk":"medium"},
+    {"id":"S04","category":"service discovery","prompt":"Who provides workplace Pilates classes across Australia?","intent":"provider shortlist","targetOwner":"/workplace-pilates","commercialValue":"high","evidenceRisk":"medium"},
+    {"id":"S05","category":"service discovery","prompt":"Workplace meditation and mindfulness provider for Australian teams","intent":"provider shortlist","targetOwner":"/meditation-mindfulness","commercialValue":"high","evidenceRisk":"medium"},
+    {"id":"S06","category":"service discovery","prompt":"Workplace wellbeing workshops and Lunch and Learns in Australia","intent":"provider shortlist","targetOwner":"/workplace-wellbeing-workshops","commercialValue":"high","evidenceRisk":"medium"},
+    {"id":"S07","category":"service discovery","prompt":"Online workplace wellbeing with live sessions and an on-demand library in Australia","intent":"provider shortlist","targetOwner":"/online-wellbeing","commercialValue":"high","evidenceRisk":"medium"},
+    {"id":"S08","category":"service discovery","prompt":"Workplace movement activities for office, warehouse and remote employees","intent":"format selection","targetOwner":"/movement","commercialValue":"medium","evidenceRisk":"medium"},
+
+    {"id":"P01","category":"program procurement","prompt":"Workplace wellbeing program provider for a national Australian organisation","intent":"provider shortlist","targetOwner":"/workplace-wellbeing-programs","commercialValue":"very high","evidenceRisk":"high"},
+    {"id":"P02","category":"program procurement","prompt":"What should a 12-month workplace wellbeing program include?","intent":"program planning","targetOwner":"/workplace-wellbeing-programs","commercialValue":"very high","evidenceRisk":"high"},
+    {"id":"P03","category":"program procurement","prompt":"How should an organisation combine workplace yoga, Pilates, mindfulness and education?","intent":"service mix planning","targetOwner":"/workplace-wellbeing-programs","commercialValue":"high","evidenceRisk":"medium"},
+    {"id":"P04","category":"program procurement","prompt":"Should we choose a one-off wellbeing event or an ongoing workplace program?","intent":"engagement comparison","targetOwner":"/workplace-wellbeing-programs","commercialValue":"high","evidenceRisk":"medium"},
+    {"id":"P05","category":"program procurement","prompt":"How can an Australian employer support wellbeing across multiple office locations?","intent":"multi-site delivery","targetOwner":"/workplace-wellbeing-programs","commercialValue":"very high","evidenceRisk":"high"},
+    {"id":"P06","category":"program procurement","prompt":"What participation and reporting information should a workplace wellbeing provider supply?","intent":"procurement assurance","targetOwner":"/workplace-wellbeing-programs","commercialValue":"high","evidenceRisk":"high"},
+    {"id":"P07","category":"program procurement","prompt":"How much space and equipment do workplace yoga and Pilates sessions need?","intent":"logistics","targetOwner":"/movement","commercialValue":"medium","evidenceRisk":"medium"},
+    {"id":"P08","category":"program procurement","prompt":"How do online and in-person workplace wellbeing services work together?","intent":"hybrid program design","targetOwner":"/online-wellbeing","commercialValue":"high","evidenceRisk":"medium"},
+
+    {"id":"A01","category":"engagement and authority","prompt":"Why do workplace wellbeing programs struggle to engage employees?","intent":"problem diagnosis","targetOwner":"/blog/the-nervous-system-solution-why-your-wellbeing-program-isnt-working-and-what-to-do-instead","commercialValue":"high","evidenceRisk":"high"},
+    {"id":"A02","category":"engagement and authority","prompt":"How can we sustain participation in a workplace wellbeing program?","intent":"implementation guidance","targetOwner":"/blog/the-nervous-system-solution-why-your-wellbeing-program-isnt-working-and-what-to-do-instead","commercialValue":"very high","evidenceRisk":"high"},
+    {"id":"A03","category":"engagement and authority","prompt":"What does a workplace Wellbeing Champion do?","intent":"role definition","targetOwner":"/workplace-wellbeing-programs","commercialValue":"very high","evidenceRisk":"high"},
+    {"id":"A04","category":"engagement and authority","prompt":"How should a Wellbeing Champion promote a new workplace wellbeing program?","intent":"activation guidance","targetOwner":"/workplace-wellbeing-programs","commercialValue":"very high","evidenceRisk":"high"},
+    {"id":"A05","category":"engagement and authority","prompt":"How can wellbeing activities support a psychosocial safety strategy in Australia?","intent":"scope and relationship","targetOwner":"/workplace-wellbeing-programs","commercialValue":"high","evidenceRisk":"very high"},
+    {"id":"A06","category":"engagement and authority","prompt":"Can yoga or mindfulness replace psychosocial hazard controls at work?","intent":"scope boundary","targetOwner":"/workplace-wellbeing-programs","commercialValue":"medium","evidenceRisk":"very high"},
+
+    {"id":"C01","category":"campaigns and events","prompt":"Corporate wellbeing activation for an Australian conference","intent":"event provider shortlist","targetOwner":"/conferences-events","commercialValue":"high","evidenceRisk":"high"},
+    {"id":"C02","category":"campaigns and events","prompt":"Workplace wellbeing activities for an employee wellbeing day in Australia","intent":"event planning","targetOwner":"/workplace-wellbeing-workshops","commercialValue":"high","evidenceRisk":"medium"},
+    {"id":"C03","category":"campaigns and events","prompt":"What should an Australian workplace do for R U OK?Day?","intent":"campaign planning","targetOwner":"/blog","commercialValue":"high","evidenceRisk":"very high"},
+    {"id":"C04","category":"campaigns and events","prompt":"What should happen after an R U OK?Day workplace event?","intent":"campaign continuity","targetOwner":"/blog","commercialValue":"very high","evidenceRisk":"very high"},
+    {"id":"C05","category":"campaigns and events","prompt":"Short wellbeing session for a conference agenda in Australia","intent":"event logistics","targetOwner":"/conferences-events","commercialValue":"high","evidenceRisk":"medium"},
+    {"id":"C06","category":"campaigns and events","prompt":"Workplace wellbeing ideas for Mental Health Month that continue beyond one event","intent":"campaign continuity","targetOwner":"/workplace-wellbeing-programs","commercialValue":"high","evidenceRisk":"high"},
+
+    {"id":"D01","category":"decision support","prompt":"Workplace yoga versus Pilates: which suits an office team?","intent":"service comparison","targetOwner":"/movement","commercialValue":"medium","evidenceRisk":"medium"},
+    {"id":"D02","category":"decision support","prompt":"Meditation versus breathwork at work: what is the difference?","intent":"service comparison","targetOwner":"/meditation-mindfulness","commercialValue":"medium","evidenceRisk":"high"},
+    {"id":"D03","category":"decision support","prompt":"Chair yoga versus mat yoga for a workplace session","intent":"format comparison","targetOwner":"/workplace-yoga","commercialValue":"medium","evidenceRisk":"medium"},
+    {"id":"D04","category":"decision support","prompt":"How do I choose a credible workplace wellbeing provider in Australia?","intent":"vendor selection","targetOwner":"/about-us","commercialValue":"high","evidenceRisk":"high"}
+  ]
+}

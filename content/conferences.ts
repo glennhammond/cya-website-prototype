@@ -3,8 +3,8 @@ import type { FeatureItem } from "@/components/FeatureGrid";
 
 export const conferencesHero: PageIntro = {
   kicker: "Conferences and events",
-  heading: "Build energy, calm and connection into the agenda.",
-  body: "From a short activation to morning movement, mindfulness or a practical wellbeing session, CYA designs around the audience, venue and run sheet.",
+  heading: "Build energy, calm and connection into the agenda",
+  body: "From a short activation to morning movement, mindfulness or a practical wellbeing session, Corporate Yoga Australia designs around the audience, venue and run sheet.",
   actions: [
     { label: "Discuss your conference", href: "/contact?interest=conference", variant: "primary" },
     { label: "Explore activation formats", href: "#formats", variant: "secondary" },
@@ -39,20 +39,20 @@ export const eventRhythm: FeatureItem[] = [
 
 export const studioAccessFeature = {
   kicker: "Pre/post-event online wellbeing",
-  heading: "Extend the moment before and after the event.",
-  body: "Where it suits the scope, CYA can discuss online wellbeing or Wellbeing Studio access around the event. This remains subject to the agreed service and current capability, not a standard inclusion.",
+  heading: "Extend the moment before and after the event",
+  body: "Where it suits the scope, Corporate Yoga Australia can discuss online wellbeing or Wellbeing Studio access around the event. This remains subject to the agreed service and current capability, not a standard inclusion.",
 };
 
 export const logistics: FeatureItem[] = [
   { title: "Facilitator travel", body: "Confirmed against the event location and current facilitator availability." },
-  { title: "Equipment and space", body: "CYA advises on room setup, mats and any equipment needed." },
+  { title: "Equipment and space", body: "Corporate Yoga Australia advises on room setup, mats and any equipment needed." },
   { title: "Lead times", body: "Earlier confirmation gives more certainty over facilitator and format availability." },
-  { title: "Run-sheet coordination", body: "CYA works directly with the organiser to slot moments into the agenda." },
+  { title: "Run-sheet coordination", body: "Corporate Yoga Australia works directly with the organiser to slot moments into the agenda." },
 ];
 
 export const closingCTA = {
   kicker: "Next step",
-  heading: "One activation or a connected event experience.",
-  body: "CYA can deliver a single moment or coordinate several experiences, including online support before or after the event where appropriate.",
+  heading: "One activation or a connected event experience",
+  body: "Corporate Yoga Australia can deliver a single moment or coordinate several experiences, including online support before or after the event where appropriate.",
   cta: { label: "Discuss your conference", href: "/contact?interest=conference", variant: "primary" as const },
 };

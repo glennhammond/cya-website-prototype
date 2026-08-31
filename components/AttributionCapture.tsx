@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import {
   ATTRIBUTION_KEYS,
   ATTRIBUTION_STORAGE_KEY,
+  classifyDiscovery,
   type AttributionData,
 } from "@/lib/attribution";
 
@@ -23,6 +24,21 @@ export function AttributionCapture() {
 
       if (!captured.landingPage) captured.landingPage = window.location.href.slice(0, 2000);
       if (!captured.capturedAt) captured.capturedAt = new Date().toISOString();
+      if (!captured.initialReferrer && document.referrer) {
+        captured.initialReferrer = document.referrer.slice(0, 2000);
+      }
+
+      const discovery = classifyDiscovery(
+        captured.initialReferrer ?? "",
+        captured.utm_source,
+      );
+      if (!captured.discoveryChannel && discovery.discoveryChannel) {
+        captured.discoveryChannel = discovery.discoveryChannel;
+      }
+      if (!captured.discoverySource && discovery.discoverySource) {
+        captured.discoverySource = discovery.discoverySource;
+      }
+
       window.sessionStorage.setItem(ATTRIBUTION_STORAGE_KEY, JSON.stringify(captured));
     } catch {
       // Attribution is supplementary; storage restrictions must never block the site.
@@ -31,4 +47,3 @@ export function AttributionCapture() {
 
   return null;
 }
-

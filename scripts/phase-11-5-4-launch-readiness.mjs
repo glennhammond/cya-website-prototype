@@ -37,11 +37,20 @@ const requiredApprovals = [
   ["hostedBrowserQaPassed", "Hosted browser/UX qualification has not been recorded."],
   ["phase1154CampaignRoutePolicyApproved", "Phase 11.5.4 campaign-route policy approval has not been recorded."],
   ["phase1154HostedBrowserQaPassed", "Fresh Phase 11.5.4 hosted browser QA has not been recorded."],
-  ["googleAdsConversionConfigurationChecked", "Google Ads Goals/Conversions configuration has not been checked against the preserved thank-you routes."],
+  ["googleAdsConversionConfigurationChecked", "Google Ads Goals/Conversions configuration has not been checked against the consent-qualified in-page conversion event."],
   ["googleAdsCampaignStatusVerified", "Google Ads still displays the campaign as Enabled/Eligible; intended pause state has not been verified."],
   ["hubspotDebNotificationVerified", "HubSpot submission notification to Deb only has not been verified in the live form settings."],
   ["productionEnquiryFormIntegrated", "The production enquiry form submission path has not been integrated and verified."],
-  ["productionEnquiryFormLiveSubmissionVerified", "A controlled live HubSpot submission and thank-you redirect have not been verified."],
+  ["productionEnquiryFormLiveSubmissionVerified", "A controlled live HubSpot submission and in-page success state have not been verified."],
+  ["privacyPolicyApproved", "The privacy policy and its operational register have not been approved."],
+  ["websiteTermsApproved", "The website terms remain a working legal outline and have not been approved."],
+  ["analyticsConsentQualified", "The hosted analytics-consent allow, deny and preference-change paths have not been qualified."],
+  ["migrationHttpQualified", "The legacy URL migration has not passed the rendered HTTP qualification."],
+  ["currentDesignReconciled", "The current page redesign has not been reconciled and approved for release."],
+  ["externalAccessibilityQualified", "External accessibility qualification has not been completed."],
+  ["performanceQualified", "Hosted performance qualification has not been completed."],
+  ["studioHandoffQualified", "Wellbeing Studio sign-in and handoff qualification has not been completed."],
+  ["releaseIndexingApproved", "Final search-indexing approval has not been recorded."],
 ];
 
 for (const [key, message] of requiredApprovals) {
@@ -59,6 +68,11 @@ if (unresolvedCampaignRoutes.length > 0) {
       .map((route) => route.path)
       .join(", ")}`,
   );
+}
+
+const unresolvedRetiredRoutes = routeDecisions.retiredRoutes.filter((route) => route.ownerConfirmed !== true);
+if (unresolvedRetiredRoutes.length > 0) {
+  block(`Retired route ownership remains unconfirmed for: ${unresolvedRetiredRoutes.map((route) => route.path).join(", ")}`);
 }
 
 const consultationFormSource = read("components/ConsultationForm.tsx");
@@ -162,4 +176,4 @@ if (blockers.length > 0) {
   process.exit(1);
 }
 
-console.log("\nLAUNCH-READY: all Phase 11.5.4 campaign-route, conversion, enquiry-form, publication, security and browser gates are recorded as complete.");
+console.log("\nLAUNCH-READY: migration, conversion, enquiry, legal, publication, security, accessibility, performance, Studio and hosted-browser gates are recorded as complete.");

@@ -4,7 +4,7 @@ import type { FeatureItem } from "@/components/FeatureGrid";
 export const movementHero: PageIntro = {
   kicker: "Movement",
   heading: "Movement That Fits the Workday",
-  body: "Yoga, Pilates, mobility and desk movement don't require prior experience, a studio setting or a particular body type. CYA designs each session around the audience, environment and time available.",
+  body: "Yoga, Pilates, mobility and desk movement don't require prior experience, a studio setting or a particular body type. Corporate Yoga Australia designs each session around the audience, environment and time available.",
   actions: [
     { label: "Discuss a movement session", href: "/contact?interest=one-off", variant: "primary" },
     { label: "Explore mindfulness", href: "/meditation-mindfulness", variant: "secondary" },
@@ -15,13 +15,13 @@ export const movementHero: PageIntro = {
 export const movementTypes: FeatureItem[] = [
   {
     title: "Workplace Yoga",
-    body: "Accessible Yoga shaped around the people, space, time and purpose of the workplace brief.",
+    body: "Accessible yoga shaped around the people, space, time and purpose of the workplace brief.",
     href: "/workplace-yoga",
     cta: "Explore Workplace Yoga",
   },
   {
     title: "Workplace Pilates",
-    body: "Mat-based Pilates for one-off classes, short series, recurring sessions or mixed Yoga + Pilates rhythms, adapted to the team and available space.",
+    body: "Mat-based Pilates for one-off classes, short series, recurring sessions or mixed yoga and Pilates rhythms, adapted to the team and available space.",
     href: "/workplace-pilates",
     cta: "Explore Workplace Pilates",
   },
@@ -31,14 +31,14 @@ export const movementTypes: FeatureItem[] = [
   },
   {
     title: "Other tailored movement",
-    body: "Where the brief calls for something different, CYA can discuss other suitable movement formats and practitioner availability rather than forcing a standard menu.",
+    body: "Where the brief calls for something different, Corporate Yoga Australia can discuss other suitable movement formats and practitioner availability rather than forcing a standard menu.",
   },
 ];
 
 export const whoItsFor = {
   kicker: "Who it's for",
-  heading: "Teams who never expected to try this at work.",
-  body: "CYA works with people who sit for long stretches, travel frequently, stand on their feet all day, or simply want a practical reset between meetings. No mat experience, uniform or particular level of ability is assumed.",
+  heading: "Teams who never expected to try this at work",
+  body: "Corporate Yoga Australia works with people who sit for long stretches, travel frequently, stand on their feet all day, or simply want a practical reset between meetings. No mat experience, uniform or particular level of ability is assumed.",
 };
 
 export const usefulFormats: FeatureItem[] = [
@@ -57,8 +57,8 @@ export const whatToExpect: FeatureItem[] = [
 
 export const inclusionFeature = {
   kicker: "Inclusion and workplace adaptation",
-  heading: "Designed for varied bodies, roles and confidence levels.",
-  body: "CYA does not assume flexibility, fitness or prior practice. Facilitators can offer modifications as part of the session, and formats adapt to boardrooms, warehouses, desks and shared community spaces alike.",
+  heading: "Designed for varied bodies, roles and confidence levels",
+  body: "Corporate Yoga Australia does not assume flexibility, fitness or prior practice. Facilitators can offer modifications as part of the session, and formats adapt to boardrooms, warehouses, desks and shared community spaces alike.",
 };
 
 export const deliveryOptions: FeatureItem[] = [
@@ -76,6 +76,6 @@ export const relatedUseCases: FeatureItem[] = [
 export const closingCTA = {
   kicker: "Next step",
   heading: "Ready to discuss a movement session?",
-  body: "Tell us about your team, space and timing, and CYA will recommend a suitable format.",
+  body: "Tell us about your team, space and timing, and Corporate Yoga Australia will recommend a suitable format.",
   cta: { label: "Discuss a movement session", href: "/contact?interest=one-off", variant: "primary" as const },
 };

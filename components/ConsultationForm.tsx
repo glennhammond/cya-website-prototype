@@ -1,11 +1,12 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useRef, useState, type ChangeEvent, type FormEvent } from "react";
 import { ErrorSummary, type FormError } from "@/components/ErrorSummary";
 import { useAnnotation } from "@/lib/annotation";
+import { readAnalyticsConsent } from "@/lib/analytics-consent";
 import {
   ATTRIBUTION_STORAGE_KEY,
-  PENDING_LEAD_STORAGE_KEY,
   type AttributionData,
 } from "@/lib/attribution";
 import {
@@ -37,10 +38,8 @@ const initialState: FormState = {
   website: "",
 };
 
-type Status = "idle" | "submitting" | "failure";
+type Status = "idle" | "submitting" | "success" | "failure";
 
-// Matches the authorised HubSpot planning form: name, work email and the
-// intended outcome are the only enquiry details required by the website.
 const REQUIRED_FIELDS: { key: keyof FormState; id: string; message: string }[] = [
   { key: "name", id: "name", message: "Enter your name" },
   { key: "workEmail", id: "workEmail", message: "Enter a work email address" },
@@ -50,7 +49,42 @@ const REQUIRED_FIELDS: { key: keyof FormState; id: string; message: string }[] =
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-export function ConsultationForm({ initialInterest }: { initialInterest?: string }) {
+function signalValidatedLead(submissionId?: string) {
+  if (readAnalyticsConsent() !== "granted") return;
+  try {
+    window.dataLayer = window.dataLayer ?? [];
+    window.dataLayer.push({
+      event: "cya_lead_submission",
+      form_id: "746ef219-510f-4faa-a7a3-40288155d936",
+      submission_id: submissionId,
+      source: "plan_with_cya",
+    });
+  } catch {
+    // Analytics must never alter the enquiry result.
+  }
+}
+
+function safePageAddress() {
+  return `${window.location.origin}${window.location.pathname}`.slice(0, 2000);
+}
+
+function safeReferrer() {
+  if (!document.referrer) return "";
+  try {
+    const referrer = new URL(document.referrer);
+    return `${referrer.origin}${referrer.pathname}`.slice(0, 2000);
+  } catch {
+    return "";
+  }
+}
+
+export function ConsultationForm({
+  initialInterest,
+  submissionEnabled,
+}: {
+  initialInterest?: string;
+  submissionEnabled: boolean;
+}) {
   const [values, setValues] = useState<FormState>({
     ...initialState,
     interest: initialInterest && interestOptions.some((o) => o.value === initialInterest) ? initialInterest : "",
@@ -59,12 +93,15 @@ export function ConsultationForm({ initialInterest }: { initialInterest?: string
   const [status, setStatus] = useState<Status>("idle");
   const { enabled: annotateEnabled } = useAnnotation();
   const errorSummaryRef = useRef<HTMLDivElement>(null);
+  const successRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (errors.length > 0) {
-      errorSummaryRef.current?.focus();
-    }
+    if (errors.length > 0) errorSummaryRef.current?.focus();
   }, [errors]);
+
+  useEffect(() => {
+    if (status === "success") successRef.current?.focus();
+  }, [status]);
 
   function update<K extends keyof FormState>(key: K, value: FormState[K]) {
     setValues((prev) => ({ ...prev, [key]: value }));
@@ -86,6 +123,8 @@ export function ConsultationForm({ initialInterest }: { initialInterest?: string
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (!submissionEnabled) return;
+
     const found = validate();
     setErrors(found);
     if (found.length > 0) {
@@ -95,21 +134,15 @@ export function ConsultationForm({ initialInterest }: { initialInterest?: string
 
     setStatus("submitting");
     let attribution: AttributionData = {};
-    try {
-      attribution = JSON.parse(
-        window.sessionStorage.getItem(ATTRIBUTION_STORAGE_KEY) ?? "{}",
-      ) as AttributionData;
-    } catch {
-      attribution = {};
+    if (readAnalyticsConsent() === "granted") {
+      try {
+        attribution = JSON.parse(
+          window.sessionStorage.getItem(ATTRIBUTION_STORAGE_KEY) ?? "{}",
+        ) as AttributionData;
+      } catch {
+        attribution = {};
+      }
     }
-
-    const hubspotutk = document.cookie
-      .split(";")
-      .map((cookie) => cookie.trim())
-      .find((cookie) => cookie.startsWith("hubspotutk="))
-      ?.split("=")
-      .slice(1)
-      .join("=");
 
     try {
       const response = await fetch("/api/enquiries", {
@@ -117,42 +150,56 @@ export function ConsultationForm({ initialInterest }: { initialInterest?: string
         headers: { "content-type": "application/json" },
         body: JSON.stringify({
           ...values,
-          sourcePage: window.location.href,
-          referrer: document.referrer,
-          hubspotutk,
+          sourcePage: safePageAddress(),
+          referrer: safeReferrer(),
           attribution,
         }),
       });
       const result = (await response.json()) as {
         ok?: boolean;
-        successRoute?: string;
         submissionId?: string;
+        conversionEligible?: boolean;
       };
-      if (!response.ok || !result.ok || !result.successRoute) throw new Error("submission failed");
+      if (!response.ok || !result.ok) throw new Error("submission failed");
 
-      window.sessionStorage.setItem(
-        PENDING_LEAD_STORAGE_KEY,
-        JSON.stringify({ successRoute: result.successRoute, submissionId: result.submissionId }),
-      );
-      window.location.assign(result.successRoute);
+      if (result.conversionEligible) signalValidatedLead(result.submissionId);
+      setErrors([]);
+      setStatus("success");
     } catch {
       setStatus("failure");
     }
   }
 
+  if (status === "success") {
+    return (
+      <div
+        ref={successRef}
+        tabIndex={-1}
+        role="status"
+        className="border-l-4 border-[var(--cya-gold)] bg-white py-3 pl-6 focus:outline-none"
+      >
+        <h2 className="text-2xl font-bold text-[var(--cya-teal-dark)]">Thanks — we’ve received your enquiry</h2>
+        <p className="mt-3 text-base leading-7 text-[var(--cya-body)]">
+          Corporate Yoga Australia will review what you have shared and respond within two business days using
+          the details provided.
+        </p>
+      </div>
+    );
+  }
+
   if (status === "failure") {
     return (
       <div role="alert" className="rounded-[var(--radius-card)] border-2 border-error bg-white p-8">
-        <h2 className="text-2xl text-error">Your enquiry didn&rsquo;t go through.</h2>
+        <h2 className="text-2xl text-error">Your enquiry didn&rsquo;t go through</h2>
         <p className="mt-3 text-base leading-relaxed text-body">
-          Something went wrong submitting this form. Please try again, call CYA on 1300 373 363 or email
+          Something went wrong submitting this form. Please try again, call us on 1300 373 363 or email
           info@corporateyoga.com.au.
         </p>
         <div className="mt-4 flex flex-wrap gap-3">
           <button
             type="button"
             onClick={() => setStatus("idle")}
-            className="min-h-12 rounded-[18px] bg-gold px-6 text-[15px] font-bold text-white hover:bg-[var(--cya-gold-hover)]"
+            className="min-h-12 rounded-[4px] bg-[var(--cya-action-primary-bg)] px-6 text-[15px] font-bold text-[var(--cya-action-primary-text)] hover:bg-[var(--cya-teal-dark)]"
           >
             Try again
           </button>
@@ -160,7 +207,7 @@ export function ConsultationForm({ initialInterest }: { initialInterest?: string
             Call 1300 373 363
           </a>
           <a href="mailto:info@corporateyoga.com.au" className="inline-flex min-h-12 items-center text-sm font-bold text-teal underline underline-offset-4">
-            Email CYA
+            Email us
           </a>
         </div>
       </div>
@@ -173,8 +220,7 @@ export function ConsultationForm({ initialInterest }: { initialInterest?: string
 
       {annotateEnabled && (
         <p className="mb-6 rounded-[var(--radius-control)] bg-mist p-3 text-xs text-body">
-          Production integration: successful validated submissions are sent to the authorised HubSpot form and
-          then routed to the applicable thank-you page.
+          Release integration: a validated submission is sent to the authorised HubSpot planning form only when the deployment enquiry gate is enabled.
         </p>
       )}
 
@@ -215,7 +261,7 @@ export function ConsultationForm({ initialInterest }: { initialInterest?: string
       </fieldset>
 
       <fieldset className="mt-8 space-y-3 border-t border-divider pt-6">
-        <legend className="sr-only">Consent</legend>
+        <legend className="sr-only">Privacy acknowledgement</legend>
         <label htmlFor="privacyConsent" className="flex items-start gap-3 text-sm text-body">
           <input
             id="privacyConsent"
@@ -226,7 +272,11 @@ export function ConsultationForm({ initialInterest }: { initialInterest?: string
             className="mt-1 h-4 w-4"
           />
           <span>
-            I understand CYA will process this enquiry in line with its privacy policy. <span aria-hidden="true">*</span>
+            Corporate Yoga Australia uses the information you provide here to respond to and manage your workplace wellbeing enquiry. Submitting this form does not subscribe you to marketing communications. See our{" "}
+            <Link className="font-semibold underline underline-offset-4" href="/privacy-policy">
+              Privacy Policy
+            </Link>{" "}
+            for how we handle personal information. <span aria-hidden="true">*</span>
           </span>
         </label>
         {errors.some((e) => e.id === "privacyConsent") && (
@@ -239,8 +289,9 @@ export function ConsultationForm({ initialInterest }: { initialInterest?: string
       <div className="mt-7 flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:gap-4">
         <button
           type="submit"
-          disabled={status === "submitting"}
-          className="inline-flex min-h-12 w-full items-center justify-center rounded-[4px] bg-gold px-8 text-[15px] font-bold text-white transition-colors hover:bg-[var(--cya-gold-hover)] disabled:opacity-60 sm:w-auto"
+          disabled={!submissionEnabled || status === "submitting"}
+          aria-describedby={!submissionEnabled ? "enquiry-release-status" : undefined}
+          className="inline-flex min-h-12 w-full items-center justify-center rounded-[4px] bg-[var(--cya-action-primary-bg)] px-8 text-[15px] font-bold text-[var(--cya-action-primary-text)] transition-colors hover:bg-[var(--cya-teal-dark)] disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
         >
           {status === "submitting" ? "Sending your enquiry…" : "Send your enquiry"}
         </button>
@@ -248,6 +299,12 @@ export function ConsultationForm({ initialInterest }: { initialInterest?: string
           {status === "submitting" ? "Submitting, please wait." : ""}
         </span>
       </div>
+      {!submissionEnabled ? (
+        <p id="enquiry-release-status" className="mt-3 max-w-2xl text-sm leading-6 text-[var(--cya-body)]">
+          Online submission is not yet enabled on this pre-launch build. You can still call us on 1300 373 363 or
+          email info@corporateyoga.com.au.
+        </p>
+      ) : null}
     </form>
   );
 }

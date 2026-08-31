@@ -41,7 +41,7 @@ export default function WorkplaceWellbeingProgramsPage() {
         <ProductionContainer>
           <ProductionKicker>A flexible approach</ProductionKicker>
           <h2 className="mt-5 max-w-5xl text-4xl font-bold tracking-[-0.015em] lg:text-5xl">Start with what you want to make possible</h2>
-          <p className="mt-6 max-w-4xl text-lg leading-8 text-[var(--cya-body)]">No two workplaces need the same mix of experiences or support. We begin with your people, priorities, locations and internal capacity, then recommend a practical approach shaped around your organisation.</p>
+          <p className="mt-6 max-w-4xl text-lg leading-8 text-[var(--cya-body)]">Every workplace has its own people, priorities and practical considerations. We shape the right mix of experiences and support around yours.</p>
 
           <div className="mt-12 overflow-hidden rounded-[var(--cya-radius-panel)] bg-[var(--cya-surface-page)] lg:grid lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
             <figure className="relative min-h-[320px] overflow-hidden lg:min-h-full">

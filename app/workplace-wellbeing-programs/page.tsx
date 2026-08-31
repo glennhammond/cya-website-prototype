@@ -77,7 +77,7 @@ export default function WorkplaceWellbeingProgramsPage() {
             </div>
           </div>
 
-          <div className="mt-8 grid gap-7 rounded-[var(--cya-radius-panel)] border-l-4 border-[var(--cya-ochre)] bg-[var(--cya-surface-warm)] px-8 py-8 md:grid-cols-[1fr_auto] md:items-center lg:px-10">
+          <div className="mt-8 grid gap-7 rounded-[var(--cya-radius-panel)] border border-[var(--cya-divider)] bg-[var(--cya-surface-warm)] px-8 py-8 md:grid-cols-[1fr_auto] md:items-center lg:px-10">
             <div>
               <h3 className="text-2xl font-bold text-[var(--cya-teal-dark)]">Every organisation starts somewhere different</h3>
               <p className="mt-3 max-w-4xl text-lg leading-8 text-[var(--cya-body)]">Tell us what you are trying to achieve. We will help you identify a useful starting point and shape the right mix of delivery and support around it.</p>
@@ -166,7 +166,7 @@ export default function WorkplaceWellbeingProgramsPage() {
               />
             </figure>
           </div>
-          <aside className="mt-10 border-l-4 border-[var(--cya-ochre)] bg-[var(--cya-surface-page)] px-7 py-6">
+          <aside className="mt-10 border border-[var(--cya-divider)] bg-[var(--cya-surface-page)] px-7 py-6">
             <h3 className="text-2xl font-semibold text-[var(--cya-teal-dark)]">Keep the coordination role clearly bounded</h3>
             <p className="mt-3 max-w-4xl leading-7 text-[var(--cya-body)]">An internal sponsor or Wellbeing Champion can support awareness, practical coordination and feedback. They do not become responsible for colleagues&apos; wellbeing, complaints, HR, WHS or mental-health care.</p>
           </aside>

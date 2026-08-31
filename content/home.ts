@@ -16,14 +16,14 @@ export const homeHeroContent: HeroContent = {
 /** Category proposition directly after the hero. Home remains the broad corporate-yoga authority page. */
 export const quietIntro = {
   heading: "Workplace yoga, Pilates, mindfulness and tailored wellbeing programs for Australian organisations",
-  body: "A single session, a conference activation, a short series or a connected program are all valid ways to work with Corporate Yoga Australia. Book one useful moment, repeat what works, or build a connected year when that becomes helpful - there's no required starting point.",
+  body: "A single session, a conference activation, a short series or a connected program are all valid ways to work with Corporate Yoga Australia. Start with what is happening at work, choose what would be useful, and build continuity only where it helps.",
   image: media.programsContinuity,
 };
 
 export const situationLedEntry = {
   kicker: "What is happening at work?",
   heading: "Start with the situation, not a package",
-  body: "Corporate Yoga Australia can help when you need one useful team moment, a movement or mindfulness session, an expert-led workshop, support across locations, or a more connected wellbeing rhythm.",
+  body: "Corporate Yoga Australia starts with the people, workplace and moment you are trying to support, then shapes the right mix of movement, mindfulness, expert-led learning, delivery support or continuity around it.",
 };
 
 export const recognisableExperiences = [
@@ -55,8 +55,8 @@ export const recognisableExperiences = [
 
 export const pathwaysHeading = {
   kicker: "Ways to work with Corporate Yoga Australia",
-  heading: "Fit Corporate Yoga Australia to what's happening right now",
-  body: "Each pathway is a complete way to work with Corporate Yoga Australia on its own - not a step toward the others.",
+  heading: "Fit wellbeing to what's happening at work",
+  body: "Start with one useful experience or connect several over time. Corporate Yoga Australia helps make workplace wellbeing easier to organise, easier to participate in and easier to sustain without forcing every client into the same model.",
 };
 
 export const pathways: PathwayCard[] = [
@@ -98,7 +98,7 @@ export const humanExperience = {
 export const progressionHeading = {
   kicker: "Selected programs",
   heading: "Build continuity when useful",
-  body: "There is no required starting point and no compulsory ladder. Corporate Yoga Australia can support one experience, repeat what works, or coordinate a broader mix across your people and locations.",
+  body: "Repeat what works, connect experiences that belong together and make it easier for people to know what is available and return. Continuity is an option when it adds value, not a compulsory next step.",
 };
 
 export const offerLevels: OfferLevel[] = [
@@ -150,7 +150,7 @@ export const principalProof = {
 export const studioPreview = {
   kicker: "Online wellbeing + Wellbeing Studio",
   heading: "Keep useful support available beyond the scheduled session",
-  body: "Corporate Yoga Australia can connect live online experiences, on-demand practices, expert content and Wellbeing Studio access for remote, hybrid and distributed teams. The Studio supports the service relationship; it is not the whole proposition.",
+  body: "Corporate Yoga Australia can connect live experiences with on-demand practices, expert content and Wellbeing Studio access so useful support does not disappear when a session ends. The Studio extends the service relationship and gives people practical reasons to return; it is not the whole proposition.",
   cta: { label: "Explore online wellbeing", href: "/online-wellbeing" },
   image: media.studioEmployeeHome,
 };
@@ -175,7 +175,7 @@ export const insightsSignpost = {
 
 export const closingCTA = {
   kicker: "Tell us what you are planning",
-  heading: "Tell us what you are planning",
-  body: "The first conversation can be about one yoga session, another one-off experience, online continuity or an organised program.",
+  heading: "Start with what you need now",
+  body: "Tell us what is happening at work. Corporate Yoga Australia can help shape one useful experience, a recurring rhythm or connected support - without making the solution bigger than it needs to be.",
   cta: { label: "Book a wellbeing consultation", href: "/contact", variant: "primary" as const },
 };

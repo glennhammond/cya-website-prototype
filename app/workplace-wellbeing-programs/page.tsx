@@ -56,8 +56,8 @@ export default function WorkplaceWellbeingProgramsPage() {
 
             <div className="p-7 sm:p-9 lg:p-12">
               <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--cya-ochre-ink)]">A tailored approach, shaped with you</p>
-              <h3 className="mt-4 max-w-2xl text-3xl font-bold leading-tight text-[var(--cya-teal-dark)] lg:text-4xl">The right mix, without forcing your organisation into a fixed package</h3>
-              <p className="mt-5 max-w-2xl text-lg leading-8 text-[var(--cya-body)]">Begin with one experience, establish a regular rhythm or connect workplace wellbeing across the year. We can bring together:</p>
+              <h3 className="mt-4 max-w-2xl text-3xl font-bold leading-tight text-[var(--cya-teal-dark)] lg:text-4xl">The right mix, shaped around your organisation</h3>
+              <p className="mt-5 max-w-2xl text-lg leading-8 text-[var(--cya-body)]">Begin with one experience, establish a regular rhythm or connect workplace wellbeing across the year—without forcing your organisation into a fixed package. We can bring together:</p>
 
               <ul className="mt-7 grid gap-x-8 sm:grid-cols-2">
                 {[

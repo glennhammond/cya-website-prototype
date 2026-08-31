@@ -35,7 +35,7 @@ export default function PrivacyPolicyPage() {
             <h1 className="mt-4 text-[clamp(2.5rem,7vw,4.5rem)] font-bold leading-[1.04] text-[var(--cya-teal-dark)]">
               Corporate Yoga Australia Privacy Policy
             </h1>
-            <div className="mt-7 border-l-4 border-[var(--cya-gold)] bg-white p-5 text-sm leading-6 text-[var(--cya-body)]">
+            <div className="mt-7 border border-[var(--cya-gold)] bg-white p-5 text-sm leading-6 text-[var(--cya-body)]">
               <p className="font-bold text-[var(--cya-teal-dark)]">Working draft — 29 August 2026</p>
               <p className="mt-2">
                 This is a plain-English working draft for business and privacy review. It must not be published as final until the operational checks are complete and the wording is approved by Debby Lewis and the appointed privacy/legal reviewer.

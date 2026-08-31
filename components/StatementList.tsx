@@ -38,7 +38,7 @@ export function StatementList({
         </div>
         <dl className={`mt-10 grid gap-8 ${colClass}`}>
           {items.map((item) => (
-            <div key={item.title} className="border-l-2 border-gold pl-5">
+            <div key={item.title} className="border-t border-divider pt-5">
               <dt className="text-lg font-bold text-teal-dark">{item.title}</dt>
               <dd className="mt-2 text-sm leading-relaxed text-body">{item.body}</dd>
             </div>

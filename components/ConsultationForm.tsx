@@ -176,7 +176,7 @@ export function ConsultationForm({
         ref={successRef}
         tabIndex={-1}
         role="status"
-        className="border-l-4 border-[var(--cya-gold)] bg-white py-3 pl-6 focus:outline-none"
+        className="border border-[var(--cya-gold)] bg-white p-6 focus:outline-none"
       >
         <h2 className="text-2xl font-bold text-[var(--cya-teal-dark)]">Thanks — we’ve received your enquiry</h2>
         <p className="mt-3 text-base leading-7 text-[var(--cya-body)]">

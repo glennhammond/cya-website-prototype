@@ -10,63 +10,6 @@ export const metadata: Metadata = {
   alternates: { canonical: "/workplace-wellbeing-programs" },
 };
 
-const programModels = [
-  {
-    number: "01",
-    name: "Access",
-    eyebrow: "A reliable rhythm",
-    promise: "Make wellbeing a regular part of the working week",
-    introduction: "Give your people recurring, easy-to-join experiences while we take care of the facilitator fit, scheduling and practical delivery.",
-    outcome: "A straightforward way to begin—or sustain—workplace wellbeing without creating another complex program for your team to manage.",
-    features: ["Regular yoga, Pilates, movement or mindfulness", "Onsite, online or hybrid delivery", "Matched facilitators and dependable coordination", "Wellbeing Studio continuity where useful"],
-    fit: "You want consistent, high-quality experiences with straightforward coordination.",
-    action: "Plan an Access program",
-    image: "/images/selected/cya-movement-facilitator-adjustment.webp",
-    imageAlt: "A facilitator supports an employee during an accessible workplace movement session",
-    surface: "bg-[var(--cya-surface-page)]",
-    accent: "border-[var(--cya-ochre)]",
-    layout: "lg:grid-cols-[minmax(280px,0.68fr)_minmax(0,1.32fr)]",
-    imageOrder: "",
-    contentOrder: "",
-  },
-  {
-    number: "02",
-    name: "Engage",
-    eyebrow: "A connected program",
-    promise: "Turn separate activities into a program people can return to",
-    introduction: "Connect live experiences, participant communication and digital support so workplace wellbeing feels coherent across the year—not like a series of unrelated sessions.",
-    outcome: "A thoughtfully planned program with support to help people notice it, join in and keep coming back.",
-    features: ["A curated mix of movement, mindfulness and learning", "Workshops, campaigns and specialist experiences", "Participant communication and activation support", "Wellbeing Studio continuity, review and adaptation"],
-    fit: "You want an actively supported program that encourages participation and continuity.",
-    action: "Build an Engage program",
-    image: "/images/selected/cya-programs-continuity-group-repeat.webp",
-    imageAlt: "A facilitator leads a group through a shared workplace movement experience",
-    surface: "bg-[var(--cya-surface-subtle)]",
-    accent: "border-[var(--cya-teal)]",
-    layout: "lg:grid-cols-[minmax(0,1.32fr)_minmax(280px,0.68fr)]",
-    imageOrder: "lg:order-2",
-    contentOrder: "lg:order-1",
-  },
-  {
-    number: "03",
-    name: "Thrive",
-    eyebrow: "A deeper partnership",
-    promise: "Put a workplace wellbeing partner beside your organisation",
-    introduction: "Give your internal team greater support with the planning, coordination and evolution of workplace wellbeing across locations, priorities and the working year.",
-    outcome: "A closer relationship with experienced support to shape the whole program, coordinate its moving parts and adapt it over time.",
-    features: ["Tailored annual program planning", "Coordinated delivery across teams or locations", "Live sessions, campaigns and specialist expertise", "Closer stewardship, review and forward planning"],
-    fit: "Your organisation needs broader planning, multi-site coordination or a more involved wellbeing partner.",
-    action: "Explore a Thrive partnership",
-    image: "/images/selected/cya-people-debby-teacher-portrait.webp",
-    imageAlt: "Corporate Yoga Australia founder Debby Lewis",
-    surface: "bg-[var(--cya-surface-warm)]",
-    accent: "border-[var(--cya-ochre)]",
-    layout: "lg:grid-cols-[minmax(280px,0.68fr)_minmax(0,1.32fr)]",
-    imageOrder: "",
-    contentOrder: "",
-  },
-];
-
 export default function WorkplaceWellbeingProgramsPage() {
   return (
     <>
@@ -79,7 +22,7 @@ export default function WorkplaceWellbeingProgramsPage() {
             <ProductionKicker>Workplace wellbeing programs</ProductionKicker>
             <h1 className="mt-5 max-w-3xl text-[clamp(2.8rem,4.6vw,4.5rem)] font-bold leading-[1.05] tracking-[-0.02em]">Workplace wellbeing programs shaped around your organisation</h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-[var(--cya-body)]">From regular movement and mindfulness to connected annual programs, we bring together the experiences, expertise and digital support that fit your people, priorities and working environment.</p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row"><ProductionAction href="/contact?interest=program">Start planning</ProductionAction><ProductionAction href="#program-structure" style="secondary">Explore program options</ProductionAction></div>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row"><ProductionAction href="/contact?interest=program">Start planning</ProductionAction><ProductionAction href="#program-structure" style="secondary">Explore what&apos;s possible</ProductionAction></div>
           </div>
           <figure className="relative aspect-[3/2] overflow-hidden border border-[var(--cya-divider)] bg-[var(--cya-surface-base)]">
             <Image
@@ -96,62 +39,50 @@ export default function WorkplaceWellbeingProgramsPage() {
 
       <section id="program-structure" className="bg-[var(--cya-surface-base)] py-20 lg:py-24">
         <ProductionContainer>
-          <ProductionKicker>Flexible ways to work together</ProductionKicker>
-          <h2 className="mt-5 max-w-5xl text-4xl font-bold tracking-[-0.015em] lg:text-5xl">Three ways to shape the right program</h2>
-          <p className="mt-6 max-w-4xl text-lg leading-8 text-[var(--cya-body)]">Whether you want to establish a regular rhythm, connect experiences across the working year or hand more of the planning to a trusted partner, we shape the program around what your organisation needs.</p>
+          <ProductionKicker>A flexible approach</ProductionKicker>
+          <h2 className="mt-5 max-w-5xl text-4xl font-bold tracking-[-0.015em] lg:text-5xl">Start with what you want to make possible</h2>
+          <p className="mt-6 max-w-4xl text-lg leading-8 text-[var(--cya-body)]">No two workplaces need the same mix of experiences or support. We begin with your people, priorities, locations and internal capacity, then recommend a practical approach shaped around your organisation.</p>
 
-          <div className="mt-14 space-y-10">
-            {programModels.map((program) => (
-              <article key={program.name} className={`overflow-hidden rounded-[var(--cya-radius-panel)] border-t-4 ${program.accent} ${program.surface}`}>
-                <div className={`grid ${program.layout}`}>
-                  <figure className={`relative min-h-[280px] overflow-hidden lg:min-h-full ${program.imageOrder}`}>
-                    <Image src={program.image} alt={program.imageAlt} fill sizes="(min-width: 1280px) 420px, (min-width: 1024px) 34vw, 100vw" className="object-cover" />
-                    <span className="absolute left-6 top-6 flex size-12 items-center justify-center rounded-full bg-[var(--cya-surface-base)] text-sm font-bold text-[var(--cya-teal-dark)]" aria-hidden="true">{program.number}</span>
-                  </figure>
+          <div className="mt-12 overflow-hidden rounded-[var(--cya-radius-panel)] bg-[var(--cya-surface-page)] lg:grid lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
+            <figure className="relative min-h-[320px] overflow-hidden lg:min-h-full">
+              <Image
+                src="/images/selected/cya-programs-continuity-group-repeat.webp"
+                alt="A facilitator leads employees through a shared workplace movement experience"
+                fill
+                sizes="(min-width: 1280px) 580px, (min-width: 1024px) 44vw, 100vw"
+                className="object-cover"
+              />
+            </figure>
 
-                  <div className={`flex flex-col p-7 sm:p-9 lg:p-12 ${program.contentOrder}`}>
-                    <p className="text-xs font-semibold uppercase tracking-[0.17em] text-[var(--cya-ochre-ink)]">{program.eyebrow}</p>
-                    <div className="mt-3 grid gap-5 xl:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)] xl:items-start xl:gap-10">
-                      <div>
-                        <h3 className="text-5xl font-bold tracking-[-0.02em] text-[var(--cya-teal-dark)]">{program.name}</h3>
-                        <p className="mt-4 text-2xl font-semibold leading-8 text-[var(--cya-teal-dark)]">{program.promise}</p>
-                      </div>
-                      <p className="border-l-4 border-[var(--cya-ochre)] pl-5 text-xl leading-8 text-[var(--cya-body)]">{program.outcome}</p>
-                    </div>
+            <div className="p-7 sm:p-9 lg:p-12">
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--cya-ochre-ink)]">A tailored approach, shaped with you</p>
+              <h3 className="mt-4 max-w-2xl text-3xl font-bold leading-tight text-[var(--cya-teal-dark)] lg:text-4xl">The right mix, without forcing your organisation into a fixed package</h3>
+              <p className="mt-5 max-w-2xl text-lg leading-8 text-[var(--cya-body)]">Begin with one experience, establish a regular rhythm or connect workplace wellbeing across the year. We can bring together:</p>
 
-                    <p className="mt-6 max-w-4xl text-lg leading-8 text-[var(--cya-body)]">{program.introduction}</p>
-
-                    <div className="mt-7">
-                      <p className="text-xs font-semibold uppercase tracking-[0.15em] text-[var(--cya-teal-dark)]">Included in {program.name}</p>
-                      <ul className="mt-3 grid gap-3 sm:grid-cols-2">
-                        {program.features.map((item) => (
-                          <li key={item} className="flex min-h-20 items-center gap-3 bg-[var(--cya-surface-base)] px-4 py-3 leading-6 text-[var(--cya-body)]">
-                            <span aria-hidden="true" className="flex size-6 shrink-0 items-center justify-center rounded-full bg-[var(--cya-surface-subtle)] text-sm font-bold text-[var(--cya-teal-dark)]">✓</span>
-                            <span>{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    <div className="mt-8 flex flex-col gap-6 border-t border-[var(--cya-divider)] pt-6 md:flex-row md:items-center md:justify-between">
-                      <div className="max-w-2xl">
-                        <p className="text-xs font-semibold uppercase tracking-[0.15em] text-[var(--cya-teal-dark)]">Choose {program.name} if</p>
-                        <p className="mt-2 leading-7 text-[var(--cya-body)]">{program.fit}</p>
-                      </div>
-                      <ProductionAction href="/contact?interest=program">{program.action}</ProductionAction>
-                    </div>
-                  </div>
-                </div>
-              </article>
-            ))}
+              <ul className="mt-7 grid gap-x-8 sm:grid-cols-2">
+                {[
+                  "Workplace yoga, Pilates, movement and mindfulness",
+                  "Workshops, campaigns and specialist experiences",
+                  "Onsite, online and hybrid delivery",
+                  "Participant communication and engagement support",
+                  "Wellbeing Studio access between live experiences",
+                  "Planning, coordination, review and adaptation",
+                ].map((item) => (
+                  <li key={item} className="flex gap-3 border-t border-[var(--cya-divider)] py-4 leading-7 text-[var(--cya-body)]">
+                    <span aria-hidden="true" className="mt-2 size-2 shrink-0 rounded-full bg-[var(--cya-ochre)]" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
 
-          <div className="mt-12 grid gap-7 rounded-[var(--cya-radius-panel)] border border-[var(--cya-divider)] bg-[var(--cya-surface-base)] px-8 py-9 md:grid-cols-[1fr_auto] md:items-center lg:px-10">
+          <div className="mt-8 grid gap-7 rounded-[var(--cya-radius-panel)] border-l-4 border-[var(--cya-ochre)] bg-[var(--cya-surface-warm)] px-8 py-8 md:grid-cols-[1fr_auto] md:items-center lg:px-10">
             <div>
-              <h3 className="text-2xl font-bold text-[var(--cya-teal-dark)]">Start with the outcome, not the package</h3>
-              <p className="mt-3 max-w-4xl text-lg leading-8 text-[var(--cya-body)]">Access, Engage and Thrive are flexible starting points. Tell us what you want to make possible and we will shape the right mix of experiences, delivery and support around your organisation.</p>
+              <h3 className="text-2xl font-bold text-[var(--cya-teal-dark)]">Every organisation starts somewhere different</h3>
+              <p className="mt-3 max-w-4xl text-lg leading-8 text-[var(--cya-body)]">Tell us what you are trying to achieve. We will help you identify a useful starting point and shape the right mix of delivery and support around it.</p>
             </div>
-            <ProductionAction href="/contact?interest=program">Shape your program</ProductionAction>
+            <ProductionAction href="/contact?interest=program">Talk through your needs</ProductionAction>
           </div>
         </ProductionContainer>
       </section>

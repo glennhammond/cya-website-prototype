@@ -30,6 +30,10 @@ export default function Home() {
           <p className="mt-7 max-w-3xl text-[clamp(1.15rem,1.6vw,1.4rem)] leading-[1.55] text-[var(--cya-body)] lg:col-start-1 lg:row-start-2">From workplace yoga and Pilates to workshops, conferences, events and ongoing wellbeing programs, we help organisations make wellbeing part of working life in ways that fit their people, context and working day.</p>
           <figure className="relative mt-10 aspect-[3/2] overflow-hidden border border-[var(--cya-divider)] bg-white lg:col-start-2 lg:row-start-1 lg:row-span-3 lg:mt-0 lg:self-start">
             <Image src="/images/selected/cya-home-hero-debby-workplace-movement.jpg" alt="A Corporate Yoga Australia facilitator leads an approachable movement session with a workplace participant." fill priority sizes="(min-width: 1536px) 672px, (min-width: 1280px) 46vw, (min-width: 1024px) 44vw, 100vw" className="object-cover object-[center_52%]" />
+            <figcaption className="absolute inset-x-0 bottom-0 border-t border-[var(--cya-divider)] bg-[var(--cya-surface-page)] px-5 py-4 sm:flex sm:items-baseline sm:gap-5">
+              <span className="block text-[0.68rem] font-bold uppercase tracking-[0.16em] text-[var(--cya-ochre-ink)]">Observed workday</span>
+              <span className="mt-1 block text-lg font-semibold leading-6 text-[var(--cya-teal-dark)] sm:mt-0">The day was already full</span>
+            </figcaption>
           </figure>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row lg:col-start-1 lg:row-start-3">
             <ProductionAction href="/contact">Start planning</ProductionAction>
@@ -40,7 +44,7 @@ export default function Home() {
 
       <section id="needs" className="bg-[var(--cya-surface-subtle)] py-20 lg:py-24">
         <ProductionContainer>
-          <ProductionKicker>Start with your goal</ProductionKicker>
+          <ProductionKicker>What would help you right now?</ProductionKicker>
           <h2 className="mt-5 text-4xl font-bold tracking-[-0.015em] lg:text-5xl">What are you planning for your workplace?</h2>
           <p className="mt-5 max-w-4xl text-lg leading-8 text-[var(--cya-body)]">You do not need to choose a package first. Start with what needs to happen, who it is for and what working life looks like there.</p>
           <div className="mt-10 border-t border-[var(--cya-divider)]">
@@ -56,8 +60,8 @@ export default function Home() {
           <div>
             <ProductionKicker>What we mean by Work Wellness</ProductionKicker>
             <h2 className="mt-5 max-w-4xl text-4xl font-bold tracking-[-0.015em] lg:text-5xl">Wellbeing that can become part of working life</h2>
-            <p className="mt-6 max-w-4xl text-lg leading-8 text-[var(--cya-body)]">At CYA, Work Wellness is the connective idea behind the different ways we support workplaces: useful opportunities to move, pause, reset, connect and learn in ways that fit the reality of the working day.</p>
-            <p className="mt-4 max-w-4xl text-lg leading-8 text-[var(--cya-body)]">It does not replace workplace wellbeing. Workplace wellbeing is broader and includes work design, leadership, culture, psychosocial safety and working conditions. Work Wellness describes the part CYA helps organisations make tangible and usable in everyday working life.</p>
+            <p className="mt-6 max-w-4xl text-lg leading-8 text-[var(--cya-body)]">Work Wellness is the connective idea behind the different ways we support workplaces: useful opportunities to move, pause, reset, connect and learn in ways that fit the reality of the working day.</p>
+            <p className="mt-4 max-w-4xl text-lg leading-8 text-[var(--cya-body)]">It does not replace workplace wellbeing. Workplace wellbeing is broader and includes work design, leadership, culture, psychosocial safety and working conditions. Work Wellness describes the part we help organisations make tangible and usable in everyday working life.</p>
             <div className="mt-8"><ProductionAction href="/blog/what-is-work-wellness" style="secondary">What is Work Wellness?</ProductionAction></div>
           </div>
           <aside className="border border-[var(--cya-divider)] bg-white px-7 py-8">
@@ -101,7 +105,7 @@ export default function Home() {
           <div>
             <ProductionKicker>Wellbeing Studio by Corporate Yoga Australia</ProductionKicker>
             <h2 className="mt-5 max-w-3xl text-4xl font-bold tracking-[-0.015em] lg:text-5xl">Useful wellbeing support between live moments</h2>
-            <p className="mt-5 max-w-3xl text-lg leading-8 text-[var(--cya-body)]">As part of ongoing support, Wellbeing Studio gives people practical actions, live connection and useful wellbeing resources they can return to across the working week. It extends the CYA relationship rather than replacing the human experience.</p>
+            <p className="mt-5 max-w-3xl text-lg leading-8 text-[var(--cya-body)]">As part of ongoing support, Wellbeing Studio gives people practical actions, live connection and useful wellbeing resources they can return to across the working week. It extends our human-led support rather than replacing the human experience.</p>
             <div className="mt-8"><ProductionAction href="/online-wellbeing" style="secondary">Explore online wellbeing</ProductionAction></div>
           </div>
           <figure className="relative aspect-[2048/970] overflow-hidden border border-[var(--cya-divider)] bg-[var(--cya-surface-page)]">
@@ -115,7 +119,7 @@ export default function Home() {
           <div>
             <ProductionKicker>Experience in practice</ProductionKicker>
             <h2 className="mt-5 max-w-3xl text-4xl font-bold tracking-[-0.015em] lg:text-5xl">Useful enough to take back into the day</h2>
-            <p className="mt-6 max-w-3xl text-lg leading-8 text-[var(--cya-body)]">After a mindfulness, breathing and seated-yoga session for the Australian Veterinary Association, CYA received feedback that employees were already using some of the practices the following day, including during their commute and at home.</p>
+            <p className="mt-6 max-w-3xl text-lg leading-8 text-[var(--cya-body)]">After a mindfulness, breathing and seated-yoga session for the Australian Veterinary Association, Corporate Yoga Australia received feedback that employees were already using some of the practices the following day, including during their commute and at home.</p>
             <p className="mt-4 max-w-3xl text-sm leading-6 text-[var(--cya-body)]">This is client-reported feedback from a specific engagement, not a claim that every session produces the same result.</p>
           </div>
           <div className="border border-[var(--cya-divider)] bg-[var(--cya-surface-warm)] px-7 py-8 sm:px-9">

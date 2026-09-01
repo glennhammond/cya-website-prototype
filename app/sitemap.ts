@@ -13,6 +13,7 @@ const indexableCanonicalPaths = [
   "/workplace-wellbeing-workshops",
   "/online-wellbeing",
   "/blog",
+  "/blog/what-is-work-wellness",
   "/about-us",
   "/contact",
 ] as const;

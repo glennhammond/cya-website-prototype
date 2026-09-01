@@ -51,6 +51,22 @@ export default function Home() {
 
       <HomepageProof />
 
+      <section className="bg-[var(--cya-surface-subtle)] py-20 lg:py-24">
+        <ProductionContainer className="grid gap-10 lg:grid-cols-[minmax(0,1.08fr)_minmax(18rem,0.72fr)] lg:items-start lg:gap-16">
+          <div>
+            <ProductionKicker>What we mean by Work Wellness</ProductionKicker>
+            <h2 className="mt-5 max-w-4xl text-4xl font-bold tracking-[-0.015em] lg:text-5xl">Wellbeing that can become part of working life</h2>
+            <p className="mt-6 max-w-4xl text-lg leading-8 text-[var(--cya-body)]">At CYA, Work Wellness is the connective idea behind the different ways we support workplaces: useful opportunities to move, pause, reset, connect and learn in ways that fit the reality of the working day.</p>
+            <p className="mt-4 max-w-4xl text-lg leading-8 text-[var(--cya-body)]">It does not replace workplace wellbeing. Workplace wellbeing is broader and includes work design, leadership, culture, psychosocial safety and working conditions. Work Wellness describes the part CYA helps organisations make tangible and usable in everyday working life.</p>
+            <div className="mt-8"><ProductionAction href="/blog/what-is-work-wellness" style="secondary">What is Work Wellness?</ProductionAction></div>
+          </div>
+          <aside className="border border-[var(--cya-divider)] bg-white px-7 py-8">
+            <p className="text-xs font-bold uppercase tracking-[0.14em] text-[var(--cya-ochre-ink)]">A useful boundary</p>
+            <p className="mt-5 text-xl font-semibold leading-8 text-[var(--cya-teal-dark)]">Work Wellness complements good work design. It does not substitute for it.</p>
+          </aside>
+        </ProductionContainer>
+      </section>
+
       <section className="bg-[var(--cya-surface-page)] py-20 lg:py-24">
         <ProductionContainer>
           <ProductionKicker>What we offer</ProductionKicker>

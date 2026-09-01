@@ -9,8 +9,18 @@ const organisationNode = {
   legalName: "Deborah Gail Lewis trading as Corporate Yoga Australia",
   url: origin,
   logo: `${origin}/brand/cya-logo-mark.svg`,
+  slogan: "Work Wellness into Your Workday",
   description:
     "Human-led workplace yoga, Pilates, mindfulness, workshops and wellbeing programs for Australian organisations, delivered onsite, online and across locations.",
+  knowsAbout: [
+    "workplace wellbeing",
+    "employee wellbeing",
+    "Work Wellness",
+    "workplace yoga",
+    "workplace Pilates",
+    "workplace mindfulness",
+    "online workplace wellbeing",
+  ],
   foundingDate: "2014",
   telephone: "1300 373 363",
   email: "info@corporateyoga.com.au",
@@ -65,6 +75,34 @@ export function HomeStructuredData() {
             name: "Corporate Yoga Australia",
             publisher: { "@id": organisationId },
             inLanguage: "en-AU",
+          },
+        ],
+      }}
+    />
+  );
+}
+
+export function WorkWellnessStructuredData() {
+  const url = `${origin}/blog/what-is-work-wellness`;
+  return (
+    <JsonLd
+      data={{
+        "@context": "https://schema.org",
+        "@graph": [
+          organisationNode,
+          {
+            "@type": "DefinedTerm",
+            "@id": `${url}#work-wellness`,
+            name: "Work Wellness",
+            description:
+              "Corporate Yoga Australia's way of describing useful wellbeing that becomes part of working life rather than sitting outside it.",
+            url,
+            inDefinedTermSet: {
+              "@type": "DefinedTermSet",
+              name: "Corporate Yoga Australia workplace wellbeing concepts",
+              url,
+            },
+            subjectOf: { "@id": `${url}#article` },
           },
         ],
       }}

@@ -24,15 +24,21 @@ export default function WorkplaceWellbeingProgramsPage() {
             <p className="mt-6 max-w-2xl text-lg leading-8 text-[var(--cya-body)]">Bring together workplace yoga, Pilates, mindfulness, workshops and Wellbeing Studio support in a program shaped around your people, locations, schedules and goals.</p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row"><ProductionAction href="/contact?interest=program">Start planning</ProductionAction><ProductionAction href="#program-structure" style="secondary">See how programs work</ProductionAction></div>
           </div>
-          <figure className="relative aspect-[3/2] overflow-hidden border border-[var(--cya-divider)] bg-[var(--cya-surface-base)]">
-            <Image
-              src="/images/selected/cya-workplace-wellbeing-hero-warehouse-group.webp"
-              alt="Employees take part in a facilitated workplace yoga session in a warehouse"
-              fill
-              priority
-              sizes="(min-width: 1440px) 650px, (min-width: 1024px) 46vw, 100vw"
-              className="object-cover"
-            />
+          <figure className="overflow-hidden border border-[var(--cya-divider)] bg-[var(--cya-surface-base)]">
+            <div className="relative aspect-[3/2]">
+              <Image
+                src="/images/selected/cya-workplace-wellbeing-hero-warehouse-group.webp"
+                alt="Employees take part in a facilitated workplace yoga session in a warehouse"
+                fill
+                priority
+                sizes="(min-width: 1440px) 650px, (min-width: 1024px) 46vw, 100vw"
+                className="object-cover"
+              />
+            </div>
+            <figcaption className="grid gap-2 border-t border-[var(--cya-divider)] bg-white px-5 py-4 sm:grid-cols-[auto_1fr] sm:items-baseline sm:gap-5">
+              <span className="text-[0.68rem] font-bold uppercase tracking-[0.16em] text-[var(--cya-ochre-ink)]">Work context</span>
+              <span className="text-base font-semibold leading-6 text-[var(--cya-teal-dark)]">Different workplaces. Different working days.</span>
+            </figcaption>
           </figure>
         </ProductionContainer>
       </section>
@@ -84,8 +90,8 @@ export default function WorkplaceWellbeingProgramsPage() {
       <section className="bg-[var(--cya-surface-base)] py-20 lg:py-24">
         <ProductionContainer>
           <ProductionKicker>Designed for participation</ProductionKicker>
-          <h2 className="mt-5 text-4xl font-bold lg:text-5xl xl:whitespace-nowrap">Make workplace wellbeing practical to join</h2>
-          <p className="mt-6 max-w-4xl text-lg leading-8 text-[var(--cya-body)]">We plan delivery around your locations, schedules, access needs and the time people can realistically use. Participants receive clear information, choose whether to take part and are not individually <span className="whitespace-nowrap">monitored or assessed.</span></p>
+          <h2 className="mt-5 max-w-5xl text-4xl font-bold lg:text-5xl">Make workplace wellbeing practical to join</h2>
+          <p className="mt-6 max-w-4xl text-lg leading-8 text-[var(--cya-body)]">We plan delivery around your locations, schedules, access needs and the time people can realistically use. Participants receive clear information, choose whether to take part and are not individually monitored or assessed.</p>
           <div className="mt-10 grid gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-center lg:gap-14">
             <div className="border-y border-[var(--cya-divider)]">
               <article className="grid grid-cols-[2.5rem_1fr] gap-4 border-b border-[var(--cya-divider)] py-6">
@@ -102,7 +108,7 @@ export default function WorkplaceWellbeingProgramsPage() {
               </article>
             </div>
             <figure className="relative aspect-[3/2] overflow-hidden border border-[var(--cya-divider)] bg-[var(--cya-surface-base)]">
-              <Image src="/images/selected/cya-programs-participation-outdoor-group.webp" alt="Employees take part in a facilitated outdoor workplace yoga session" fill sizes="(min-width: 1280px) 650px, (min-width: 1024px) 52vw, 100vw" className="object-cover" />
+              <Image src="/images/selected/cya-programs-continuity-group-repeat.webp" alt="Participants stretch together during a facilitator-led workplace wellbeing session" fill sizes="(min-width: 1280px) 650px, (min-width: 1024px) 52vw, 100vw" className="object-cover" />
             </figure>
           </div>
           <div className="mt-8 max-w-4xl border-t border-[var(--cya-divider)] pt-6">

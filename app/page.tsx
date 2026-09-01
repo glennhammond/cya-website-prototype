@@ -29,14 +29,7 @@ export default function Home() {
           <h1 className="max-w-3xl text-[clamp(3rem,4.2vw,4.5rem)] font-bold leading-[1.07] tracking-[-0.02em] text-[var(--cya-teal)] lg:col-start-1 lg:row-start-1">Work Wellness into Your Workday</h1>
           <p className="mt-7 max-w-3xl text-[clamp(1.15rem,1.6vw,1.4rem)] leading-[1.55] text-[var(--cya-body)] lg:col-start-1 lg:row-start-2">From workplace yoga and Pilates to workshops, conferences, events and ongoing wellbeing programs, we help organisations make wellbeing part of working life in ways that fit their people, context and working day.</p>
           <figure className="relative mt-10 aspect-[3/2] overflow-hidden border border-[var(--cya-divider)] bg-white lg:col-start-2 lg:row-start-1 lg:row-span-3 lg:mt-0 lg:self-start">
-            <Image
-              src="/images/selected/cya-home-hero-debby-workplace-movement.jpg"
-              alt="A Corporate Yoga Australia facilitator leads an approachable movement session with a workplace participant."
-              fill
-              priority
-              sizes="(min-width: 1536px) 672px, (min-width: 1280px) 46vw, (min-width: 1024px) 44vw, 100vw"
-              className="object-cover object-[center_52%]"
-            />
+            <Image src="/images/selected/cya-home-hero-debby-workplace-movement.jpg" alt="A Corporate Yoga Australia facilitator leads an approachable movement session with a workplace participant." fill priority sizes="(min-width: 1536px) 672px, (min-width: 1280px) 46vw, (min-width: 1024px) 44vw, 100vw" className="object-cover object-[center_52%]" />
           </figure>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row lg:col-start-1 lg:row-start-3">
             <ProductionAction href="/contact">Start planning</ProductionAction>
@@ -93,19 +86,30 @@ export default function Home() {
             <ProductionKicker>Wellbeing Studio by Corporate Yoga Australia</ProductionKicker>
             <h2 className="mt-5 max-w-3xl text-4xl font-bold tracking-[-0.015em] lg:text-5xl">Useful wellbeing support between live moments</h2>
             <p className="mt-5 max-w-3xl text-lg leading-8 text-[var(--cya-body)]">As part of ongoing support, Wellbeing Studio gives people practical actions, live connection and useful wellbeing resources they can return to across the working week. It extends the CYA relationship rather than replacing the human experience.</p>
-            <div className="mt-8">
-              <ProductionAction href="/online-wellbeing" style="secondary">Explore online wellbeing</ProductionAction>
-            </div>
+            <div className="mt-8"><ProductionAction href="/online-wellbeing" style="secondary">Explore online wellbeing</ProductionAction></div>
           </div>
           <figure className="relative aspect-[2048/970] overflow-hidden border border-[var(--cya-divider)] bg-[var(--cya-surface-page)]">
-            <Image
-              src="/images/selected/wellbeing-studio-placeholder.png"
-              alt="Wellbeing Studio interface showing options for different moments in the working day."
-              fill
-              sizes="(min-width: 1024px) 54vw, 100vw"
-              className="object-contain"
-            />
+            <Image src="/images/selected/wellbeing-studio-placeholder.png" alt="Wellbeing Studio interface showing options for different moments in the working day." fill sizes="(min-width: 1024px) 54vw, 100vw" className="object-contain" />
           </figure>
+        </ProductionContainer>
+      </section>
+
+      <section className="bg-[var(--cya-surface-page)] py-20 lg:py-24">
+        <ProductionContainer className="grid gap-10 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:items-start lg:gap-16">
+          <div>
+            <ProductionKicker>Experience in practice</ProductionKicker>
+            <h2 className="mt-5 max-w-3xl text-4xl font-bold tracking-[-0.015em] lg:text-5xl">Useful enough to take back into the day</h2>
+            <p className="mt-6 max-w-3xl text-lg leading-8 text-[var(--cya-body)]">After a mindfulness, breathing and seated-yoga session for the Australian Veterinary Association, CYA received feedback that employees were already using some of the practices the following day, including during their commute and at home.</p>
+            <p className="mt-4 max-w-3xl text-sm leading-6 text-[var(--cya-body)]">This is client-reported feedback from a specific engagement, not a claim that every session produces the same result.</p>
+          </div>
+          <div className="border border-[var(--cya-divider)] bg-[var(--cya-surface-warm)] px-7 py-8 sm:px-9">
+            <p className="text-xs font-bold uppercase tracking-[0.14em] text-[var(--cya-ochre-ink)]">Different work proves different things</p>
+            <dl className="mt-7 border-t border-[var(--cya-mid-neutral)]/50">
+              <div className="border-b border-[var(--cya-mid-neutral)]/50 py-5"><dt className="text-lg font-semibold text-[var(--cya-teal-dark)]">Around 1,000 participants</dt><dd className="mt-2 leading-7 text-[var(--cya-body)]">Virtual conference delivery for Optometry Australia, followed by repeat engagement.</dd></div>
+              <div className="border-b border-[var(--cya-mid-neutral)]/50 py-5"><dt className="text-lg font-semibold text-[var(--cya-teal-dark)]">Three cities on one day</dt><dd className="mt-2 leading-7 text-[var(--cya-body)]">Coordinated sessions for Valiant Furniture in Brisbane, Melbourne and Sydney.</dd></div>
+              <div className="py-5"><dt className="text-lg font-semibold text-[var(--cya-teal-dark)]">Multi-state continuity</dt><dd className="mt-2 leading-7 text-[var(--cya-body)]">Cromwell Property Group experience spanning Queensland, New South Wales and Victoria, alongside digital support.</dd></div>
+            </dl>
+          </div>
         </ProductionContainer>
       </section>
 

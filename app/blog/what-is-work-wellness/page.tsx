@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
-import { ArticleStructuredData } from "@/components/StructuredData";
+import { ArticleStructuredData, WorkWellnessStructuredData } from "@/components/StructuredData";
 import { ProductionAction, ProductionCard, ProductionClosing, ProductionContainer, ProductionKicker } from "@/components/ProductionPrimitives";
 
 const title = "What is Work Wellness? Making wellbeing part of the workday";
@@ -26,6 +26,7 @@ export default function WorkWellnessInsightPage() {
         datePublished="2026-09-01"
         dateModified="2026-09-01"
       />
+      <WorkWellnessStructuredData />
       <Breadcrumbs
         items={[
           { label: "Home", href: "/" },

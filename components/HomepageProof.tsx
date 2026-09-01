@@ -3,16 +3,16 @@ import { ProductionContainer, ProductionKicker } from "@/components/ProductionPr
 
 const proofPoints = [
   {
-    label: "National delivery",
-    body: "Onsite in major Australian cities and online wherever teams work.",
+    label: "Since 2014",
+    body: "Workplace wellbeing experience built through ongoing delivery with Australian organisations.",
   },
   {
-    label: "One-off to ongoing",
-    body: "From a single session or event to a recurring workplace wellbeing program.",
+    label: "Australia-wide delivery",
+    body: "Onsite in major Australian cities, across multiple locations and online for distributed teams.",
   },
   {
-    label: "Planned around the workplace",
-    body: "Facilitator, format and practical delivery shaped around the people, setting and purpose.",
+    label: "5.0 from 50 Google reviews",
+    body: "Public Google rating checked 25 July 2026. Review counts can change over time.",
   },
 ] as const;
 
@@ -21,7 +21,7 @@ export function HomepageProof() {
     <section aria-labelledby="homepage-proof-heading" className="bg-[var(--cya-surface-base)] py-20 lg:py-24">
       <ProductionContainer>
         <div className="max-w-5xl">
-          <ProductionKicker>Workplace experience since 2014</ProductionKicker>
+          <ProductionKicker>Workplace experience</ProductionKicker>
           <h2 id="homepage-proof-heading" className="mt-5 text-4xl font-bold tracking-[-0.015em] lg:text-5xl">
             Real workplaces. Practical wellbeing. Built around working life
           </h2>
@@ -43,7 +43,7 @@ export function HomepageProof() {
 
           <div className="bg-[var(--cya-surface-warm)] px-7 py-9 sm:px-10 sm:py-11 lg:border-l lg:border-[var(--cya-divider)] lg:px-12 lg:py-14">
             <p className="text-xs font-bold uppercase tracking-[0.14em] text-[var(--cya-ochre-ink)]">
-              Our approach in practice
+              Evidence at a glance
             </p>
             <dl className="mt-8 border-t border-[var(--cya-mid-neutral)]/50">
               {proofPoints.map((point) => (

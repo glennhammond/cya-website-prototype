@@ -41,7 +41,7 @@ export default function WorkplaceWellbeingProgramsPage() {
         <ProductionContainer>
           <ProductionKicker>Built around your workplace</ProductionKicker>
           <h2 className="mt-5 max-w-5xl text-4xl font-bold tracking-[-0.015em] lg:text-5xl">A program that fits different people, places and working patterns</h2>
-          <p className="mt-6 max-w-4xl text-lg leading-8 text-[var(--cya-body)]">The right mix depends on how work happens in your organisation. CYA can connect familiar wellbeing experiences in ways that suit your locations, schedules and workforce.</p>
+          <p className="mt-6 max-w-4xl text-lg leading-8 text-[var(--cya-body)]">The right mix depends on how work happens in your organisation. We can connect familiar wellbeing experiences in ways that suit your locations, schedules and workforce.</p>
           <div className="mt-10 grid gap-6 md:grid-cols-2">
             <article className="overflow-hidden border border-[var(--cya-divider)] bg-[var(--cya-surface-base)]">
               <figure className="relative aspect-[3/2]"><Image src="/images/selected/cya-home-oneoff-desk-stretch.webp" alt="A facilitator guides an employee through an accessible workplace movement session" fill sizes="(min-width: 768px) 50vw, 100vw" className="object-cover" /></figure>
@@ -75,7 +75,7 @@ export default function WorkplaceWellbeingProgramsPage() {
             <ProductionCard number="04" title="Proportionate review" body="Aggregate participation, delivery experience and voluntary feedback used to inform what continues or changes." tone="white" />
           </div>
           <div className="mt-8 grid gap-6 border border-[var(--cya-divider)] bg-[var(--cya-surface-subtle)] px-8 py-9 md:grid-cols-[1fr_auto] md:items-center">
-            <div><ProductionKicker>Flexible starting point</ProductionKicker><h3 className="mt-4 text-2xl font-semibold">Start with what your organisation needs now</h3><p className="mt-3 max-w-3xl text-[var(--cya-body)]">That might be a focused pilot, a regular session rhythm or a broader ongoing program. CYA can help shape a proportionate starting point without asking you to select a package first.</p></div>
+            <div><ProductionKicker>Flexible starting point</ProductionKicker><h3 className="mt-4 text-2xl font-semibold">Start with what your organisation needs now</h3><p className="mt-3 max-w-3xl text-[var(--cya-body)]">That might be a focused pilot, a regular session rhythm or a broader ongoing program. We can help shape a proportionate starting point without asking you to select a package first.</p></div>
             <ProductionAction href="/contact?interest=program">Start planning</ProductionAction>
           </div>
         </ProductionContainer>
@@ -90,40 +90,25 @@ export default function WorkplaceWellbeingProgramsPage() {
             <div className="border-y border-[var(--cya-divider)]">
               <article className="grid grid-cols-[2.5rem_1fr] gap-4 border-b border-[var(--cya-divider)] py-6">
                 <p className="pt-1 text-xs font-semibold text-[var(--cya-ochre-ink)]">01</p>
-                <div>
-                  <h3 className="text-xl font-semibold text-[var(--cya-teal-dark)]">Fits the working day</h3>
-                  <p className="mt-2 leading-7 text-[var(--cya-body)]">Choose times, formats and locations that reflect how your people work.</p>
-                </div>
+                <div><h3 className="text-xl font-semibold text-[var(--cya-teal-dark)]">Fits the working day</h3><p className="mt-2 leading-7 text-[var(--cya-body)]">Choose times, formats and locations that reflect how your people work.</p></div>
               </article>
               <article className="grid grid-cols-[2.5rem_1fr] gap-4 border-b border-[var(--cya-divider)] py-6">
                 <p className="pt-1 text-xs font-semibold text-[var(--cya-ochre-ink)]">02</p>
-                <div>
-                  <h3 className="text-xl font-semibold text-[var(--cya-teal-dark)]">Clear to participants</h3>
-                  <p className="mt-2 leading-7 text-[var(--cya-body)]">Explain what the experience involves, who it is for and how people can join.</p>
-                </div>
+                <div><h3 className="text-xl font-semibold text-[var(--cya-teal-dark)]">Clear to participants</h3><p className="mt-2 leading-7 text-[var(--cya-body)]">Explain what the experience involves, who it is for and how people can join.</p></div>
               </article>
               <article className="grid grid-cols-[2.5rem_1fr] gap-4 py-6">
                 <p className="pt-1 text-xs font-semibold text-[var(--cya-ochre-ink)]">03</p>
-                <div>
-                  <h3 className="text-xl font-semibold text-[var(--cya-teal-dark)]">Voluntary and privacy-aware</h3>
-                  <p className="mt-2 leading-7 text-[var(--cya-body)]">Use aggregate participation and voluntary feedback to improve delivery without assessing individual wellbeing.</p>
-                </div>
+                <div><h3 className="text-xl font-semibold text-[var(--cya-teal-dark)]">Voluntary and privacy-aware</h3><p className="mt-2 leading-7 text-[var(--cya-body)]">Use aggregate participation and voluntary feedback to improve delivery without assessing individual wellbeing.</p></div>
               </article>
             </div>
             <figure className="relative aspect-[3/2] overflow-hidden border border-[var(--cya-divider)] bg-[var(--cya-surface-base)]">
-              <Image
-                src="/images/selected/cya-programs-participation-outdoor-group.webp"
-                alt="Employees take part in a facilitated outdoor workplace yoga session"
-                fill
-                sizes="(min-width: 1280px) 650px, (min-width: 1024px) 52vw, 100vw"
-                className="object-cover"
-              />
+              <Image src="/images/selected/cya-programs-participation-outdoor-group.webp" alt="Employees take part in a facilitated outdoor workplace yoga session" fill sizes="(min-width: 1280px) 650px, (min-width: 1024px) 52vw, 100vw" className="object-cover" />
             </figure>
           </div>
-          <aside className="mt-10 border-l-4 border-[var(--cya-ochre)] bg-[var(--cya-surface-page)] px-7 py-6">
-            <h3 className="text-2xl font-semibold text-[var(--cya-teal-dark)]">A clear role for internal champions</h3>
-            <p className="mt-3 max-w-4xl leading-7 text-[var(--cya-body)]">Where an internal sponsor or Wellbeing Champion is involved, they can support awareness, practical coordination and feedback. They do not become responsible for colleagues&apos; wellbeing, complaints, HR, WHS or mental-health care.</p>
-          </aside>
+          <div className="mt-8 max-w-4xl border-t border-[var(--cya-divider)] pt-6">
+            <p className="text-sm font-semibold text-[var(--cya-teal-dark)]">A clear role for internal champions</p>
+            <p className="mt-2 text-sm leading-6 text-[var(--cya-body)]">Where an internal sponsor or Wellbeing Champion is involved, they can support awareness, practical coordination and feedback. They do not become responsible for colleagues&apos; wellbeing, complaints, HR, WHS or mental-health care.</p>
+          </div>
           <div className="mt-8"><ProductionAction href="/blog/the-nervous-system-solution-why-your-wellbeing-program-isnt-working-and-what-to-do-instead" style="secondary">Read the participation guide</ProductionAction></div>
         </ProductionContainer>
       </section>
@@ -131,23 +116,18 @@ export default function WorkplaceWellbeingProgramsPage() {
       <section className="bg-[var(--cya-surface-page)] py-20 lg:py-24">
         <ProductionContainer className="grid gap-10 lg:grid-cols-[minmax(0,1.02fr)_minmax(0,0.98fr)] lg:items-center lg:gap-14">
           <div>
-            <ProductionKicker>Experience in practice</ProductionKicker>
-            <h2 className="mt-5 max-w-3xl text-4xl font-bold lg:text-5xl">Workplace wellbeing delivered for established organisations</h2>
-            <p className="mt-6 max-w-3xl text-lg leading-8 text-[var(--cya-body)]">Our client relationships include Cromwell Property Group. That experience contributes to how we approach planning, coordination and participant-focused delivery for workplace programs.</p>
-            <p className="mt-4 max-w-3xl text-sm leading-6 text-[var(--cya-body)]">Program details, results and client comments are only published when they have been verified and approved.</p>
+            <ProductionKicker>Program experience in practice</ProductionKicker>
+            <h2 className="mt-5 max-w-3xl text-4xl font-bold lg:text-5xl">Multi-state workplace wellbeing built over time</h2>
+            <p className="mt-6 max-w-3xl text-lg leading-8 text-[var(--cya-body)]">Our work with Cromwell Property Group has included recurring workplace yoga and Pilates, 10- and 20-week programs, workplace activations, Lunch & Learns and digital wellbeing support across Queensland, New South Wales and Victoria.</p>
+            <p className="mt-4 max-w-3xl leading-7 text-[var(--cya-body)]">The relationship shows how a workplace wellbeing program can connect different experiences, locations and periods of support without relying on a fixed package or one standard format.</p>
+            <p className="mt-4 max-w-3xl text-sm leading-6 text-[var(--cya-body)]">Program details and client comments are published only where facts and permissions have been confirmed.</p>
             <div className="mt-8"><ProductionAction href="/contact?interest=program" style="secondary">Discuss a similar need</ProductionAction></div>
           </div>
           <figure className="overflow-hidden border border-[var(--cya-divider)] bg-[var(--cya-surface-base)]">
             <div className="relative aspect-[4/3]">
-              <Image
-                src="/images/selected/cya-workplace-wellbeing-lunch-learn-team.webp"
-                alt="Employees take part in a facilitated movement session at work"
-                fill
-                sizes="(min-width: 1024px) 44vw, 100vw"
-                className="object-cover"
-              />
+              <Image src="/images/selected/cya-workplace-wellbeing-lunch-learn-team.webp" alt="Employees take part in a facilitated movement session at work" fill sizes="(min-width: 1024px) 44vw, 100vw" className="object-cover" />
             </div>
-            <figcaption className="border-t border-[var(--cya-divider)] px-5 py-3 text-sm text-[var(--cya-body)]">Representative workplace delivery</figcaption>
+            <figcaption className="border-t border-[var(--cya-divider)] px-5 py-3 text-sm text-[var(--cya-body)]">Temporary representative image — replace with approved Cromwell-specific photography</figcaption>
           </figure>
         </ProductionContainer>
       </section>
@@ -159,7 +139,6 @@ export default function WorkplaceWellbeingProgramsPage() {
           <div className="mt-10 border-t border-[var(--cya-divider)]">
             {[
               ["What can a workplace wellbeing program include?", "A program can combine workplace yoga, Pilates, mindfulness, workshops, expert-led sessions and Wellbeing Studio support. The mix is shaped around your people, locations, schedules and goals."],
-              ["Can we begin with one session or a pilot?", "Yes. You can begin with one experience, a short series or a focused pilot before deciding whether ongoing support would be useful."],
               ["Can programs support different locations, workforces and hybrid teams?", "Yes. We confirm the people, locations, access needs, available spaces and working patterns before recommending a mix of onsite delivery, live online sessions and Wellbeing Studio support."],
               ["How are facilitators selected?", "Facilitators are matched to the service, participant group, workplace setting and delivery requirements. Availability and suitability are confirmed before launch."],
               ["What participation and reporting information is available?", "This depends on the delivery model. We agree reporting expectations before launch and keep employer reporting aggregate, proportionate and privacy-aware."],
@@ -178,7 +157,7 @@ export default function WorkplaceWellbeingProgramsPage() {
         </ProductionContainer>
       </section>
 
-      <ProductionClosing heading="Plan a workplace wellbeing program that fits" body="Tell us about your people, locations, schedules and goals. We’ll help shape a practical starting point and the amount of continuity that is genuinely useful." />
+      <ProductionClosing heading="Plan a workplace wellbeing program that fits" body="Tell us about your people, locations, schedules and goals. We’ll help shape a practical starting point, whether that is one session, a pilot or an ongoing program." />
     </>
   );
 }

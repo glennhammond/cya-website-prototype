@@ -31,7 +31,7 @@ export default function WorkplaceWellbeingWorkshopsPage() {
     </section>
     <section className="bg-[var(--cya-surface-subtle)] py-16 lg:py-20">
       <ProductionContainer className="grid gap-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-start lg:gap-14">
-        <div><ProductionKicker>What makes it credible</ProductionKicker><h2 className="mt-5 max-w-2xl text-3xl font-bold lg:text-4xl">The expert matters. So does the way the session fits the room.</h2></div>
+        <div><ProductionKicker>What makes it credible</ProductionKicker><h2 className="mt-5 max-w-2xl text-3xl font-bold lg:text-4xl">The expert matters. So does the way the session fits the room</h2></div>
         <div className="border-y border-[var(--cya-divider)]">
           <div className="grid grid-cols-[2.5rem_1fr] gap-4 border-b border-[var(--cya-divider)] py-5"><span className="pt-1 text-xs font-semibold text-[var(--cya-ochre-ink)]">01</span><div><h3 className="text-xl font-semibold text-[var(--cya-teal-dark)]">Topic relevance</h3><p className="mt-2 leading-7 text-[var(--cya-body)]">Begin with the workplace conversation, audience and context rather than a generic catalogue.</p></div></div>
           <div className="grid grid-cols-[2.5rem_1fr] gap-4 border-b border-[var(--cya-divider)] py-5"><span className="pt-1 text-xs font-semibold text-[var(--cya-ochre-ink)]">02</span><div><h3 className="text-xl font-semibold text-[var(--cya-teal-dark)]">Expert authority</h3><p className="mt-2 leading-7 text-[var(--cya-body)]">Relevant knowledge, clear boundaries and an expert whose experience matches the topic.</p></div></div>

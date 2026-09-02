@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { HomeStructuredData } from "@/components/StructuredData";
 import { HomepageProof } from "@/components/HomepageProof";
+import { ExperiencePathway } from "@/components/ExperiencePathway";
 import { ProductionAction, ProductionCard, ProductionClosing, ProductionContainer, ProductionKicker } from "@/components/ProductionPrimitives";
 
 export const metadata: Metadata = {
@@ -52,6 +53,26 @@ export default function Home() {
           </div>
         </ProductionContainer>
       </section>
+
+      <ExperiencePathway
+        kicker="Familiar enough to find fast"
+        heading="Choose an experience directly"
+        body="If you know the kind of experience you are looking for, start there. We can then shape it around your people, place and working day."
+        items={[
+          { label: "Movement", href: "/movement" },
+          { label: "Workplace Yoga", href: "/workplace-yoga" },
+          { label: "Workplace Pilates", href: "/workplace-pilates" },
+          { label: "Meditation & Mindfulness", href: "/meditation-mindfulness" },
+          { label: "Workshops & Expert Experiences", href: "/workplace-wellbeing-workshops" },
+        ]}
+        image={{
+          src: "/images/selected/cya-home-hero-workplace-session.webp",
+          alt: "Workplace participants take part in a guided seated wellbeing session in a meeting room.",
+        }}
+        detailLabel="Human signal detail · Between meetings"
+        detailHeading="The meeting room was already there"
+        detailBody="Movement fits the setting instead of asking people to leave working life behind."
+      />
 
       <HomepageProof />
 

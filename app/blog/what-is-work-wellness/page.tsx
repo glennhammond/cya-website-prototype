@@ -84,7 +84,7 @@ export default function WorkWellnessInsightPage() {
                 Workplace wellbeing initiatives can become another thing employees are expected to find time for. A class before work, a long resource library or a one-off awareness event may still be useful, but only if people can realistically engage with it.
               </p>
               <p>
-                CYA's approach starts with the working context: who the people are, where they work, what the day feels like and what kind of support would be useful in that moment. Sometimes that means a live yoga or Pilates session. Sometimes it is a short mindfulness practice, a workplace campaign, an expert conversation or something people can return to through Wellbeing Studio.
+                Corporate Yoga Australia&apos;s approach starts with the working context: who the people are, where they work, what the day feels like and what kind of support would be useful in that moment. Sometimes that means a live yoga or Pilates session. Sometimes it is a short mindfulness practice, a workplace campaign, an expert conversation or something people can return to through Wellbeing Studio.
               </p>
               <p>
                 The aim is not to make employees responsible for solving organisational problems through self-care. It is to make appropriate wellbeing experiences easier to access and more relevant to everyday working life.
@@ -111,11 +111,11 @@ export default function WorkWellnessInsightPage() {
         <section className="bg-white py-20 lg:py-24">
           <ProductionContainer className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
             <div>
-              <ProductionKicker>The CYA perspective</ProductionKicker>
+              <ProductionKicker>The Corporate Yoga Australia perspective</ProductionKicker>
               <h2 className="mt-5 text-4xl font-bold lg:text-5xl">Work Wellness into Your Workday</h2>
               <div className="mt-6 space-y-5 text-lg leading-8 text-[var(--cya-body)]">
                 <p>
-                  For CYA, Work Wellness is not a new service category. It is the connective idea behind the different ways we help organisations make wellbeing part of working life.
+                  For Corporate Yoga Australia, Work Wellness is not a new service category. It is the connective idea behind the different ways we help organisations make wellbeing part of working life.
                 </p>
                 <p>
                   Workplace yoga, Pilates, mindfulness, workshops, events, campaigns and Wellbeing Studio are different expressions of that idea. The useful question is not which wellbeing activity an organisation should buy first. It is what would genuinely help its people in the context of their working day.
@@ -123,13 +123,13 @@ export default function WorkWellnessInsightPage() {
               </div>
               <div className="mt-8 flex flex-wrap gap-3">
                 <ProductionAction href="/workplace-wellbeing-programs">Explore workplace wellbeing programs</ProductionAction>
-                <ProductionAction href="/contact" style="secondary">Plan with CYA</ProductionAction>
+                <ProductionAction href="/contact" style="secondary">Start planning</ProductionAction>
               </div>
             </div>
             <aside className="border border-[var(--cya-divider)] bg-[var(--cya-surface-subtle)] p-8">
               <ProductionKicker>In one sentence</ProductionKicker>
               <p className="mt-6 text-2xl font-semibold leading-9 text-[var(--cya-teal-dark)]">
-                Work Wellness is CYA's way of describing useful wellbeing that becomes part of working life rather than sitting outside it.
+                Work Wellness is Corporate Yoga Australia&apos;s way of describing useful wellbeing that becomes part of working life rather than sitting outside it.
               </p>
               <p className="mt-6 text-sm leading-6 text-[var(--cya-body)]">
                 The phrase is used by other organisations and is not presented by CYA as a proprietary or academically settled category.
@@ -148,7 +148,7 @@ export default function WorkWellnessInsightPage() {
               <li><Link className="font-semibold underline underline-offset-4" href="/online-wellbeing">Explore online wellbeing and Wellbeing Studio</Link></li>
             </ul>
             <div className="mt-8 border-t border-[var(--cya-divider)] pt-6 text-sm leading-6 text-[var(--cya-body)]">
-              This article is general workplace wellbeing information. Workplace wellbeing initiatives such as yoga, movement and mindfulness do not replace an organisation's obligations to identify and manage psychosocial hazards or other workplace health and safety risks.
+              This article is general workplace wellbeing information. Workplace wellbeing initiatives such as yoga, movement and mindfulness do not replace an organisation&apos;s obligations to identify and manage psychosocial hazards or other workplace health and safety risks.
             </div>
           </ProductionContainer>
         </section>

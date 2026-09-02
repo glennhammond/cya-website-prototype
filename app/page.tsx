@@ -26,24 +26,51 @@ export default function Home() {
     <>
       <HomeStructuredData />
       <section className="bg-[var(--cya-surface-page)] py-16 sm:py-20 lg:py-24">
-        <ProductionContainer className="grid max-w-[1440px] lg:grid-cols-[minmax(0,1.08fr)_minmax(0,0.92fr)] lg:gap-x-14 xl:grid-cols-[minmax(0,1.04fr)_minmax(0,0.96fr)] xl:gap-x-16">
-          <h1 className="max-w-3xl text-[clamp(3rem,4.2vw,4.5rem)] font-bold leading-[1.07] tracking-[-0.02em] text-[var(--cya-teal)] lg:col-start-1 lg:row-start-1">Work Wellness into Your Workday</h1>
-          <p className="mt-7 max-w-3xl text-[clamp(1.15rem,1.6vw,1.4rem)] leading-[1.55] text-[var(--cya-body)] lg:col-start-1 lg:row-start-2">From workplace yoga and Pilates to workshops, conferences, events and ongoing wellbeing programs, we help organisations make wellbeing part of working life in ways that fit their people, context and working day.</p>
-          <figure className="relative mt-10 aspect-[3/2] overflow-hidden border border-[var(--cya-divider)] bg-white lg:col-start-2 lg:row-start-1 lg:row-span-3 lg:mt-0 lg:self-start">
-            <Image src="/images/selected/cya-home-hero-debby-workplace-movement.jpg" alt="A Corporate Yoga Australia facilitator leads an approachable movement session with a workplace participant." fill priority sizes="(min-width: 1536px) 672px, (min-width: 1280px) 46vw, (min-width: 1024px) 44vw, 100vw" className="object-cover object-[center_52%]" />
-            <figcaption className="absolute inset-x-0 bottom-0 border-t border-[var(--cya-divider)] bg-[var(--cya-surface-page)] px-5 py-4 sm:flex sm:items-baseline sm:gap-5">
-              <span className="block text-[0.68rem] font-bold uppercase tracking-[0.16em] text-[var(--cya-ochre-ink)]">Observed workday</span>
-              <span className="mt-1 block text-lg font-semibold leading-6 text-[var(--cya-teal-dark)] sm:mt-0">The day was already full</span>
-            </figcaption>
-          </figure>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row lg:col-start-1 lg:row-start-3">
-            <ProductionAction href="/contact">Start planning</ProductionAction>
-            <ProductionAction href="/workplace-wellbeing-programs" style="secondary">Explore workplace wellbeing programs</ProductionAction>
+        <ProductionContainer className="max-w-[1440px]">
+          <div className="grid gap-10 lg:grid-cols-[minmax(0,1.08fr)_minmax(0,0.92fr)] lg:items-start lg:gap-x-14 xl:grid-cols-[minmax(0,1.04fr)_minmax(0,0.96fr)] xl:gap-x-16">
+            <div>
+              <ProductionKicker>Between meetings</ProductionKicker>
+              <h1 className="mt-5 max-w-3xl text-[clamp(3rem,4.2vw,4.5rem)] font-bold leading-[1.07] tracking-[-0.02em] text-[var(--cya-teal)]">Work Wellness into Your Workday</h1>
+              <p className="mt-7 max-w-2xl text-[clamp(1.15rem,1.6vw,1.4rem)] leading-[1.55] text-[var(--cya-charcoal)]">Workplace yoga, Pilates, mindfulness and tailored wellbeing programs for Australian organisations.</p>
+              <p className="mt-5 max-w-2xl text-lg leading-8 text-[var(--cya-body)]">We help organisations make wellbeing part of working life—through useful experiences designed around the people, pace and realities of the workday.</p>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <ProductionAction href="/contact">Start planning</ProductionAction>
+                <ProductionAction href="#needs" style="secondary">Explore by need</ProductionAction>
+              </div>
+            </div>
+
+            <figure className="overflow-hidden border border-[var(--cya-divider)] bg-white">
+              <div className="relative aspect-[3/2]">
+                <Image src="/images/selected/cya-home-hero-debby-workplace-movement.jpg" alt="A Corporate Yoga Australia facilitator leads an approachable movement session with a workplace participant." fill priority sizes="(min-width: 1536px) 672px, (min-width: 1280px) 46vw, (min-width: 1024px) 44vw, 100vw" className="object-cover object-[center_52%]" />
+              </div>
+              <figcaption className="bg-[var(--cya-teal-dark)] px-6 py-5 sm:px-7 sm:py-6">
+                <span className="block text-[0.68rem] font-bold uppercase tracking-[0.16em] text-[var(--cya-ochre)]">Observed workday</span>
+                <span className="mt-2 block text-2xl font-semibold leading-8 tracking-[-0.015em] text-white">The day was already full</span>
+                <span className="mt-2 block max-w-xl text-sm leading-6 text-[var(--cya-green-grey)]">A useful pause inside ordinary work—then back to the day.</span>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div className="mt-10 grid gap-0 border border-[var(--cya-divider)] bg-white md:grid-cols-[1fr_auto_1fr_auto_1fr] md:items-stretch">
+            <div className="px-6 py-5">
+              <p className="text-[0.68rem] font-bold uppercase tracking-[0.14em] text-[var(--cya-ochre-ink)]">Working moment</p>
+              <p className="mt-2 font-semibold text-[var(--cya-teal-dark)]">Back-to-back meetings</p>
+            </div>
+            <span aria-hidden="true" className="hidden self-center px-3 text-xl text-[var(--cya-ochre-ink)] md:block">→</span>
+            <div className="border-t border-[var(--cya-divider)] px-6 py-5 md:border-l-0 md:border-t-0">
+              <p className="text-[0.68rem] font-bold uppercase tracking-[0.14em] text-[var(--cya-ochre-ink)]">Useful interruption</p>
+              <p className="mt-2 font-semibold text-[var(--cya-teal-dark)]">Short, accessible movement</p>
+            </div>
+            <span aria-hidden="true" className="hidden self-center px-3 text-xl text-[var(--cya-ochre-ink)] md:block">→</span>
+            <div className="border-t border-[var(--cya-divider)] px-6 py-5 md:border-l-0 md:border-t-0">
+              <p className="text-[0.68rem] font-bold uppercase tracking-[0.14em] text-[var(--cya-ochre-ink)]">Return</p>
+              <p className="mt-2 font-semibold text-[var(--cya-teal-dark)]">Back to the workday</p>
+            </div>
           </div>
         </ProductionContainer>
       </section>
 
-      <section id="needs" className="bg-[var(--cya-surface-subtle)] py-20 lg:py-24">
+      <section id="needs" className="scroll-mt-24 bg-[var(--cya-surface-subtle)] py-20 lg:py-24">
         <ProductionContainer>
           <ProductionKicker>What would help you right now?</ProductionKicker>
           <h2 className="mt-5 text-4xl font-bold tracking-[-0.015em] lg:text-5xl">What are you planning for your workplace?</h2>
@@ -89,22 +116,6 @@ export default function Home() {
             <p className="text-xs font-bold uppercase tracking-[0.14em] text-[var(--cya-ochre-ink)]">A useful boundary</p>
             <p className="mt-5 text-xl font-semibold leading-8 text-[var(--cya-teal-dark)]">Work Wellness complements good work design. It does not substitute for it.</p>
           </aside>
-        </ProductionContainer>
-      </section>
-
-      <section className="bg-[var(--cya-surface-page)] py-20 lg:py-24">
-        <ProductionContainer>
-          <ProductionKicker>What we offer</ProductionKicker>
-          <h2 className="mt-5 text-3xl font-bold lg:text-4xl">Explore our workplace wellbeing services</h2>
-          <p className="mt-5 max-w-4xl text-lg leading-8 text-[var(--cya-body)]">Choose a familiar starting point or talk to us about the workplace situation first. These services can stand alone or connect where continuity would be useful.</p>
-          <div className="mt-8 grid gap-5 md:grid-cols-3">
-            <ProductionCard number="01" title="Workplace Yoga" body="Calm, mobility and reset, adapted to the room and confidence of the group." href="/workplace-yoga" />
-            <ProductionCard number="02" title="Workplace Pilates" body="Strength, posture and focused movement shaped around a practical workplace set-up." href="/workplace-pilates" />
-            <ProductionCard number="03" title="Mindfulness & Meditation" body="Approachable moments of attention, calm and guided pause without pressure to perform." href="/meditation-mindfulness" />
-            <ProductionCard number="04" title="Movement" body="Compare yoga, Pilates and adaptable movement through the people, place and moment." href="/movement" />
-            <ProductionCard number="05" title="Workshops & Expert Experiences" body="Practical learning, relevant expertise and useful workplace conversation." href="/workplace-wellbeing-workshops" />
-            <ProductionCard number="06" title="Online Wellbeing" body="Human-led continuity for hybrid, remote and distributed teams." href="/online-wellbeing" />
-          </div>
         </ProductionContainer>
       </section>
 

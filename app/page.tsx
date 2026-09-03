@@ -25,23 +25,23 @@ export default function Home() {
   return (
     <>
       <HomeStructuredData />
-      <section className="bg-[var(--cya-surface-page)] py-14 sm:py-16 lg:py-20 xl:py-24">
-        <ProductionContainer className="max-w-[1440px]">
-          <div className="grid gap-10 lg:grid-cols-[minmax(0,1.08fr)_minmax(0,0.92fr)] lg:items-center lg:gap-x-14 xl:grid-cols-[minmax(0,1.06fr)_minmax(0,0.94fr)] xl:gap-x-20">
-            <div>
-              <h1 className="max-w-[13ch] text-[clamp(3.25rem,5vw,4.75rem)] font-bold leading-[1.03] tracking-[-0.025em] text-[var(--cya-teal)]">Work Wellness into Your Workday</h1>
-              <p className="mt-8 max-w-[42rem] text-[clamp(1.15rem,1.65vw,1.45rem)] leading-[1.5] text-[var(--cya-body)]">From workplace yoga and Pilates to workshops, conferences, events and ongoing wellbeing programs, we help organisations make wellbeing part of working life in ways that fit their people, context and working day.</p>
+      <section className="bg-[var(--cya-surface-page)] py-14 sm:py-16 lg:py-16 xl:py-20">
+        <div className="mx-auto w-full max-w-[1600px] px-6 sm:px-10 lg:px-16">
+          <div className="grid gap-10 lg:grid-cols-[minmax(0,1.04fr)_minmax(0,0.96fr)] lg:items-center lg:gap-x-16 xl:gap-x-20">
+            <div className="max-w-[690px]">
+              <h1 className="max-w-[12ch] text-[clamp(3.4rem,5.15vw,5rem)] font-bold leading-[1.01] tracking-[-0.03em] text-[var(--cya-teal)]">Work Wellness into Your Workday</h1>
+              <p className="mt-8 max-w-[670px] text-[clamp(1.15rem,1.5vw,1.42rem)] leading-[1.5] text-[var(--cya-body)]">From workplace yoga and Pilates to workshops, conferences, events and ongoing wellbeing programs, we help organisations make wellbeing part of working life in ways that fit their people, context and working day.</p>
               <div className="mt-9 flex flex-col gap-3 sm:flex-row">
                 <ProductionAction href="/contact">Start planning</ProductionAction>
                 <ProductionAction href="/workplace-wellbeing-programs" style="secondary">Explore workplace wellbeing programs</ProductionAction>
               </div>
             </div>
 
-            <figure className="relative aspect-[16/9] overflow-hidden bg-white">
-              <Image src="/images/selected/cya-home-hero-debby-workplace-movement.jpg" alt="A Corporate Yoga Australia facilitator leads an approachable movement session with a workplace participant." fill priority sizes="(min-width: 1536px) 672px, (min-width: 1280px) 46vw, (min-width: 1024px) 44vw, 100vw" className="object-cover object-[center_52%]" />
+            <figure className="relative aspect-[3/2] w-full overflow-hidden bg-white">
+              <Image src="/images/selected/cya-home-hero-debby-workplace-movement.jpg" alt="A Corporate Yoga Australia facilitator leads an approachable movement session with a workplace participant." fill priority sizes="(min-width: 1536px) 700px, (min-width: 1280px) 48vw, (min-width: 1024px) 46vw, 100vw" className="object-cover object-[center_52%]" />
             </figure>
           </div>
-        </ProductionContainer>
+        </div>
       </section>
 
       <section id="needs" className="scroll-mt-24 bg-[var(--cya-surface-subtle)] py-20 lg:py-24">

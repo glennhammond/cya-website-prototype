@@ -25,47 +25,21 @@ export default function Home() {
   return (
     <>
       <HomeStructuredData />
-      <section className="bg-[var(--cya-surface-page)] py-16 sm:py-20 lg:py-24">
+      <section className="bg-[var(--cya-surface-page)] py-14 sm:py-16 lg:py-20 xl:py-24">
         <ProductionContainer className="max-w-[1440px]">
-          <div className="grid gap-10 lg:grid-cols-[minmax(0,1.08fr)_minmax(0,0.92fr)] lg:items-start lg:gap-x-14 xl:grid-cols-[minmax(0,1.04fr)_minmax(0,0.96fr)] xl:gap-x-16">
+          <div className="grid gap-10 lg:grid-cols-[minmax(0,1.08fr)_minmax(0,0.92fr)] lg:items-center lg:gap-x-14 xl:grid-cols-[minmax(0,1.06fr)_minmax(0,0.94fr)] xl:gap-x-20">
             <div>
-              <ProductionKicker>Between meetings</ProductionKicker>
-              <h1 className="mt-5 max-w-3xl text-[clamp(3rem,4.2vw,4.5rem)] font-bold leading-[1.07] tracking-[-0.02em] text-[var(--cya-teal)]">Work Wellness into Your Workday</h1>
-              <p className="mt-7 max-w-2xl text-[clamp(1.15rem,1.6vw,1.4rem)] leading-[1.55] text-[var(--cya-charcoal)]">Workplace yoga, Pilates, mindfulness and tailored wellbeing programs for Australian organisations.</p>
-              <p className="mt-5 max-w-2xl text-lg leading-8 text-[var(--cya-body)]">We help organisations make wellbeing part of working life—through useful experiences designed around the people, pace and realities of the workday.</p>
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <h1 className="max-w-[13ch] text-[clamp(3.25rem,5vw,4.75rem)] font-bold leading-[1.03] tracking-[-0.025em] text-[var(--cya-teal)]">Work Wellness into Your Workday</h1>
+              <p className="mt-8 max-w-[42rem] text-[clamp(1.15rem,1.65vw,1.45rem)] leading-[1.5] text-[var(--cya-body)]">From workplace yoga and Pilates to workshops, conferences, events and ongoing wellbeing programs, we help organisations make wellbeing part of working life in ways that fit their people, context and working day.</p>
+              <div className="mt-9 flex flex-col gap-3 sm:flex-row">
                 <ProductionAction href="/contact">Start planning</ProductionAction>
-                <ProductionAction href="#needs" style="secondary">Explore by need</ProductionAction>
+                <ProductionAction href="/workplace-wellbeing-programs" style="secondary">Explore workplace wellbeing programs</ProductionAction>
               </div>
             </div>
 
-            <figure className="overflow-hidden border border-[var(--cya-divider)] bg-white">
-              <div className="relative aspect-[3/2]">
-                <Image src="/images/selected/cya-home-hero-debby-workplace-movement.jpg" alt="A Corporate Yoga Australia facilitator leads an approachable movement session with a workplace participant." fill priority sizes="(min-width: 1536px) 672px, (min-width: 1280px) 46vw, (min-width: 1024px) 44vw, 100vw" className="object-cover object-[center_52%]" />
-              </div>
-              <figcaption className="bg-[var(--cya-teal-dark)] px-6 py-5 sm:px-7 sm:py-6">
-                <span className="block text-[0.68rem] font-bold uppercase tracking-[0.16em] text-[var(--cya-ochre)]">Observed workday</span>
-                <span className="mt-2 block text-2xl font-semibold leading-8 tracking-[-0.015em] text-white">The day was already full</span>
-                <span className="mt-2 block max-w-xl text-sm leading-6 text-[var(--cya-green-grey)]">A useful pause inside ordinary work—then back to the day.</span>
-              </figcaption>
+            <figure className="relative aspect-[16/9] overflow-hidden bg-white">
+              <Image src="/images/selected/cya-home-hero-debby-workplace-movement.jpg" alt="A Corporate Yoga Australia facilitator leads an approachable movement session with a workplace participant." fill priority sizes="(min-width: 1536px) 672px, (min-width: 1280px) 46vw, (min-width: 1024px) 44vw, 100vw" className="object-cover object-[center_52%]" />
             </figure>
-          </div>
-
-          <div className="mt-10 grid gap-0 border border-[var(--cya-divider)] bg-white md:grid-cols-[1fr_auto_1fr_auto_1fr] md:items-stretch">
-            <div className="px-6 py-5">
-              <p className="text-[0.68rem] font-bold uppercase tracking-[0.14em] text-[var(--cya-ochre-ink)]">Working moment</p>
-              <p className="mt-2 font-semibold text-[var(--cya-teal-dark)]">Back-to-back meetings</p>
-            </div>
-            <span aria-hidden="true" className="hidden self-center px-3 text-xl text-[var(--cya-ochre-ink)] md:block">→</span>
-            <div className="border-t border-[var(--cya-divider)] px-6 py-5 md:border-l-0 md:border-t-0">
-              <p className="text-[0.68rem] font-bold uppercase tracking-[0.14em] text-[var(--cya-ochre-ink)]">Useful interruption</p>
-              <p className="mt-2 font-semibold text-[var(--cya-teal-dark)]">Short, accessible movement</p>
-            </div>
-            <span aria-hidden="true" className="hidden self-center px-3 text-xl text-[var(--cya-ochre-ink)] md:block">→</span>
-            <div className="border-t border-[var(--cya-divider)] px-6 py-5 md:border-l-0 md:border-t-0">
-              <p className="text-[0.68rem] font-bold uppercase tracking-[0.14em] text-[var(--cya-ochre-ink)]">Return</p>
-              <p className="mt-2 font-semibold text-[var(--cya-teal-dark)]">Back to the workday</p>
-            </div>
           </div>
         </ProductionContainer>
       </section>

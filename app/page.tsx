@@ -37,7 +37,7 @@ export default function Home() {
               </h1>
               <p className="mt-7 max-w-[39rem] text-[clamp(1rem,1.25vw,1.16rem)] leading-[1.55] text-[var(--cya-charcoal)]">Workplace yoga, Pilates, mindfulness and tailored wellbeing programs for Australian organisations.</p>
               <p className="mt-5 max-w-[39rem] text-[clamp(0.96rem,1.1vw,1.06rem)] leading-[1.6] text-[var(--cya-body)]">We help organisations make wellbeing part of working life—through useful experiences designed around the people, pace and realities of the workday.</p>
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <div className="mt-11 flex flex-col gap-3 sm:flex-row">
                 <ProductionAction href="/contact">Start planning</ProductionAction>
                 <ProductionAction href="/workplace-wellbeing-programs" style="secondary">Explore workplace wellbeing programs</ProductionAction>
               </div>

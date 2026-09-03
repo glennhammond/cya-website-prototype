@@ -30,8 +30,10 @@ export default function Home() {
           <div className="grid gap-8 lg:grid-cols-[minmax(0,1.08fr)_minmax(0,0.92fr)] lg:items-start lg:gap-x-12 xl:gap-x-16">
             <div className="pt-1 lg:pt-2">
               <p className="text-[0.68rem] font-bold uppercase tracking-[0.12em] text-[var(--cya-ochre-ink)]">Workday moment</p>
-              <h1 className="mt-4 text-[clamp(3rem,4.1vw,4.35rem)] font-bold leading-[1.02] tracking-[-0.028em] text-[var(--cya-teal)]">
-                <span className="lg:whitespace-nowrap">Work Wellness into</span><br className="hidden lg:block" /> <span className="lg:whitespace-nowrap">Your Workday</span>
+              <h1 className="mt-4 text-[clamp(2.9rem,3.7vw,4.1rem)] font-bold leading-[1.02] tracking-[-0.028em] text-[var(--cya-teal)]">
+                <span className="hidden lg:block whitespace-nowrap">Work Wellness into</span>
+                <span className="hidden lg:block whitespace-nowrap">Your Workday</span>
+                <span className="lg:hidden">Work Wellness into Your Workday</span>
               </h1>
               <p className="mt-7 max-w-[39rem] text-[clamp(1rem,1.25vw,1.16rem)] leading-[1.55] text-[var(--cya-charcoal)]">Workplace yoga, Pilates, mindfulness and tailored wellbeing programs for Australian organisations.</p>
               <p className="mt-5 max-w-[39rem] text-[clamp(0.96rem,1.1vw,1.06rem)] leading-[1.6] text-[var(--cya-body)]">We help organisations make wellbeing part of working life—through useful experiences designed around the people, pace and realities of the workday.</p>
@@ -161,3 +163,6 @@ export default function Home() {
       </section>
 
       <ProductionClosing heading="Plan something that fits" body="Tell us what needs to happen, who it is for and what working life looks like there. We’ll help shape a practical next step." />
+    </>
+  );
+}

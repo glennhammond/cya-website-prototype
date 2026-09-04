@@ -162,4 +162,13 @@ export default function Home() {
             <dl className="mt-7 border-t border-[var(--cya-mid-neutral)]/50">
               <div className="border-b border-[var(--cya-mid-neutral)]/50 py-5"><dt className="text-lg font-semibold text-[var(--cya-teal-dark)]">Around 1,000 participants</dt><dd className="mt-2 leading-7 text-[var(--cya-body)]">Virtual conference delivery for Optometry Australia, followed by repeat engagement.</dd></div>
               <div className="border-b border-[var(--cya-mid-neutral)]/50 py-5"><dt className="text-lg font-semibold text-[var(--cya-teal-dark)]">Three cities on one day</dt><dd className="mt-2 leading-7 text-[var(--cya-body)]">Coordinated sessions for Valiant Furniture in Brisbane, Melbourne and Sydney.</dd></div>
-              <div className
+              <div className="py-5"><dt className="text-lg font-semibold text-[var(--cya-teal-dark)]">Multi-state continuity</dt><dd className="mt-2 leading-7 text-[var(--cya-body)]">Cromwell Property Group experience spanning Queensland, New South Wales and Victoria, alongside digital support.</dd></div>
+            </dl>
+          </div>
+        </ProductionContainer>
+      </section>
+
+      <ProductionClosing heading="Plan something that fits" body="Tell us what needs to happen, who it is for and what working life looks like there. We’ll help shape a practical next step." />
+    </>
+  );
+}

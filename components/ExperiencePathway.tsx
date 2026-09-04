@@ -16,15 +16,14 @@ type ExperiencePathwayProps = {
     src: string;
     alt: string;
   };
-  detailLabel: string;
-  detailHeading: string;
-  detailBody: string;
+  detailLabel?: string;
+  detailHeading?: string;
+  detailBody?: string;
 };
 
 /**
- * A familiar, direct service route paired with one purposeful workday image.
- * The image and observed detail are deliberately configurable so this pattern
- * can carry a service, program or proof story without becoming a homepage-only layout.
+ * A familiar, direct service route paired with one purposeful workplace image.
+ * The image is intentionally left clean: no caption, label, inset or decorative edge.
  */
 export function ExperiencePathway({
   kicker,
@@ -32,9 +31,6 @@ export function ExperiencePathway({
   body,
   items,
   image,
-  detailLabel,
-  detailHeading,
-  detailBody,
 }: ExperiencePathwayProps) {
   return (
     <section className="bg-[var(--cya-surface-page)] py-20 lg:py-24">
@@ -54,15 +50,8 @@ export function ExperiencePathway({
           </nav>
         </div>
 
-        <figure className="overflow-hidden border border-[var(--cya-divider)] bg-white">
-          <div className="relative aspect-[4/3]">
-            <Image src={image.src} alt={image.alt} fill sizes="(min-width: 1440px) 580px, (min-width: 1024px) 44vw, 100vw" className="object-cover" />
-          </div>
-          <figcaption className="border-l-4 border-[var(--cya-ochre)] px-6 py-6 sm:px-7">
-            <p className="text-[0.68rem] font-bold uppercase tracking-[0.14em] text-[var(--cya-ochre-ink)]">{detailLabel}</p>
-            <p className="mt-3 text-2xl font-semibold leading-8 tracking-[-0.015em] text-[var(--cya-teal-dark)]">{detailHeading}</p>
-            <p className="mt-3 max-w-lg text-sm leading-6 text-[var(--cya-body)]">{detailBody}</p>
-          </figcaption>
+        <figure className="relative aspect-[4/3] overflow-hidden bg-white">
+          <Image src={image.src} alt={image.alt} fill sizes="(min-width: 1440px) 580px, (min-width: 1024px) 44vw, 100vw" className="object-cover" />
         </figure>
       </ProductionContainer>
     </section>

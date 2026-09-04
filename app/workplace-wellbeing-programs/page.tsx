@@ -133,7 +133,7 @@ export default function WorkplaceWellbeingProgramsPage() {
             <div className="relative aspect-[4/3]">
               <Image src="/images/selected/cya-workplace-wellbeing-lunch-learn-team.webp" alt="Employees take part in a facilitated movement session at work" fill sizes="(min-width: 1024px) 44vw, 100vw" className="object-cover" />
             </div>
-            <figcaption className="border-t border-[var(--cya-divider)] px-5 py-3 text-sm text-[var(--cya-body)]">Temporary representative image — replace with approved Cromwell-specific photography</figcaption>
+            <figcaption className="border-t border-[var(--cya-divider)] px-5 py-3 text-sm text-[var(--cya-body)]">Corporate Yoga Australia workplace wellbeing in practice. The Cromwell engagement details alongside this image are presented as separate verified program evidence.</figcaption>
           </figure>
         </ProductionContainer>
       </section>

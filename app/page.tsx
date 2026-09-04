@@ -31,8 +31,8 @@ export default function Home() {
             <div className="pt-1 lg:pt-2">
               <p className="text-[0.68rem] font-bold uppercase tracking-[0.12em] text-[var(--cya-ochre-ink)]">Workday moment</p>
               <h1 className="mt-4 text-[clamp(2.9rem,3.7vw,4.1rem)] font-bold leading-[1.02] tracking-[-0.028em] text-[var(--cya-teal)]">
-                <span className="hidden lg:block whitespace-nowrap">Work Wellness into</span>
-                <span className="hidden lg:block whitespace-nowrap">Your Workday</span>
+                <span className="hidden whitespace-nowrap lg:block">Work Wellness into</span>
+                <span className="hidden whitespace-nowrap lg:block">Your Workday</span>
                 <span className="lg:hidden">Work Wellness into Your Workday</span>
               </h1>
               <p className="mt-7 max-w-[39rem] text-[clamp(1rem,1.25vw,1.16rem)] leading-[1.55] text-[var(--cya-charcoal)]">Workplace yoga, Pilates, mindfulness and tailored wellbeing programs for Australian organisations.</p>
@@ -67,13 +67,19 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="needs" className="scroll-mt-24 bg-[var(--cya-surface-subtle)] py-20 lg:py-24">
+      <section id="needs" className="scroll-mt-24 bg-[var(--cya-surface-base)] py-20 lg:py-24">
         <ProductionContainer>
           <ProductionKicker>What would help you right now?</ProductionKicker>
           <h2 className="mt-5 text-4xl font-bold tracking-[-0.015em] lg:text-5xl">What are you planning for your workplace?</h2>
           <p className="mt-5 max-w-4xl text-lg leading-8 text-[var(--cya-body)]">You do not need to choose a package first. Start with what needs to happen, who it is for and what working life looks like there.</p>
-          <div className="mt-10 border-t border-[var(--cya-divider)]">
-            {needs.map(([number, title, href]) => <Link key={number} href={href} className="grid grid-cols-[auto_1fr_auto] gap-5 border-x border-b border-[var(--cya-divider)] bg-white px-6 py-5 hover:bg-[var(--cya-surface-page)]"><span className="text-xs font-semibold text-[var(--cya-ochre-ink)]">{number}</span><span className="text-xl font-semibold">{title}</span><span aria-hidden="true">→</span></Link>)}
+          <div className="mt-12 border-y border-[var(--cya-divider)]">
+            {needs.map(([number, title, href]) => (
+              <Link key={number} href={href} className="group grid grid-cols-[2.5rem_1fr_auto] items-center gap-4 border-b border-[var(--cya-divider)] px-1 py-6 transition-colors duration-200 last:border-b-0 hover:bg-[var(--cya-surface-page)] sm:grid-cols-[3rem_1fr_auto] sm:px-4">
+                <span className="text-xs font-semibold text-[var(--cya-ochre-ink)]">{number}</span>
+                <span className="text-lg font-semibold text-[var(--cya-charcoal)] transition-all duration-200 group-hover:translate-x-1 group-hover:text-[var(--cya-teal-dark)] sm:text-xl">{title}</span>
+                <span aria-hidden="true" className="text-xl text-[var(--cya-teal-dark)] transition-transform duration-200 group-hover:translate-x-1.5">→</span>
+              </Link>
+            ))}
           </div>
         </ProductionContainer>
       </section>
@@ -156,13 +162,4 @@ export default function Home() {
             <dl className="mt-7 border-t border-[var(--cya-mid-neutral)]/50">
               <div className="border-b border-[var(--cya-mid-neutral)]/50 py-5"><dt className="text-lg font-semibold text-[var(--cya-teal-dark)]">Around 1,000 participants</dt><dd className="mt-2 leading-7 text-[var(--cya-body)]">Virtual conference delivery for Optometry Australia, followed by repeat engagement.</dd></div>
               <div className="border-b border-[var(--cya-mid-neutral)]/50 py-5"><dt className="text-lg font-semibold text-[var(--cya-teal-dark)]">Three cities on one day</dt><dd className="mt-2 leading-7 text-[var(--cya-body)]">Coordinated sessions for Valiant Furniture in Brisbane, Melbourne and Sydney.</dd></div>
-              <div className="py-5"><dt className="text-lg font-semibold text-[var(--cya-teal-dark)]">Multi-state continuity</dt><dd className="mt-2 leading-7 text-[var(--cya-body)]">Cromwell Property Group experience spanning Queensland, New South Wales and Victoria, alongside digital support.</dd></div>
-            </dl>
-          </div>
-        </ProductionContainer>
-      </section>
-
-      <ProductionClosing heading="Plan something that fits" body="Tell us what needs to happen, who it is for and what working life looks like there. We’ll help shape a practical next step." />
-    </>
-  );
-}
+              <div className

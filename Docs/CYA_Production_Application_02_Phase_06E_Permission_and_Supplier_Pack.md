@@ -1,8 +1,10 @@
 # CYA Photography & Motion Pilot — Permission and Supplier Pack
 
 **Status:** Operational draft for pilot production  
-**Date:** 2 September 2026  
-**Use:** Prepare supplier quotes, participant consent and workplace/location approval for the first Workday, Interrupted photography and motion pilot.
+**Reconciled:** 4 September 2026  
+**Use:** Prepare supplier quotes, participant consent and workplace/location approval for the first new Workday, Interrupted photography and motion pilot.
+
+**Existing-image note:** all images already supplied by Glenn Hammond for CYA use are approved. The permissions below apply to the **new pilot shoot** and do not reopen existing supplied-image rights.
 
 > This pack is a practical production template, not legal advice. Review the final release language with appropriate legal/business advisers if Corporate Yoga Australia requires formal legal assurance before signing.
 
@@ -221,7 +223,7 @@ We want documentary-style working life rather than generic corporate-wellness or
 
 ### Priority content
 
-1. Homepage hero sequence: ordinary work → small human signal → brief useful action → return to work.
+1. Homepage expressive sequence: ordinary work → small human signal → brief useful action → return to work.
 2. Human Signal detail library: hands, screens, posture shifts, listening, note-taking and transitions.
 3. Hybrid-work sequence: in-room and remote participants in one credible scene.
 4. Varied participation: seated, standing, adapting or simply listening rather than synchronised performance.
@@ -232,7 +234,7 @@ We want documentary-style working life rather than generic corporate-wellness or
 Please quote for approximately:
 
 - 50–70 final edited stills;
-- 10+ strong hero candidates;
+- 10+ strong hero/expressive candidates;
 - full-resolution masters/finals;
 - landscape 3:2 / 16:9-safe coverage;
 - portrait 4:5 and dedicated 9:16-safe priority compositions;
@@ -245,7 +247,7 @@ Please quote for approximately:
 - 4K capture;
 - 20–30 clean graded modular clips of 6–12 seconds;
 - landscape and dedicated vertical priority takes;
-- one complete 15–25 second homepage four-beat sequence;
+- one complete 15–25 second four-beat sequence;
 - 3–5 additional modular short sequences;
 - clean versions without baked-in text/music.
 
@@ -315,7 +317,7 @@ Score each supplier from **1–5** for each criterion.
 | Rights/licensing clarity | 15% | Broad, unambiguous CYA commercial rights; no hidden usage surprises |
 | Crop/multi-format planning | 10% | Plans landscape, portrait and vertical deliberately at capture |
 | Workplace/confidentiality discipline | 10% | Clear approach to screens, staff consent, site rules and sensitive information |
-| Production efficiency | 5% | Can obtain P0 shots without overshooting generic content |
+| Production efficiency | 5% | Can obtain priority shots without overshooting generic content |
 | Post-production/delivery | 5% | Clear selects, consistent grade, organised delivery and turnaround |
 | Cost/value | 5% | Appropriate cost for useful long-term library, not merely cheapest day rate |
 
@@ -330,7 +332,7 @@ The shoot is ready to book when all boxes below are closed.
 ## Creative
 
 - [ ] Priority page placements confirmed
-- [ ] Sequence A Home hero is non-negotiable
+- [ ] Sequence A work → notice → action → return confirmed
 - [ ] Hybrid Sequence C confirmed
 - [ ] Shot list issued to crew
 - [ ] Avoid list issued to crew
@@ -382,4 +384,4 @@ The shoot is ready to book when all boxes below are closed.
 - [ ] Website `media.ts` ingestion owner confirmed
 - [ ] Archive location confirmed
 
-**Booking gate:** all legal/permission items plus supplier licence must be closed before final shoot confirmation.
+**Booking gate:** all new-shoot legal/permission items plus supplier licence must be closed before final shoot confirmation.

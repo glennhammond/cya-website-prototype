@@ -1,26 +1,31 @@
-# CYA Website — Phase 11.4 Photography Clearance Register v1.0
+# CYA Website — Photography Clearance Register v1.1
 
 **Status:** COMPLETE  
-**Decision date:** 26 August 2026  
-**Authority:** explicit CYA website publication approval confirmed by Glenn Hammond; implemented in `content/media.ts` and `config/launch-approvals.json`.
+**Original decision date:** 26 August 2026  
+**Reconfirmed:** 4 September 2026  
+**Authority:** explicit Corporate Yoga Australia website/use approval confirmed by Glenn Hammond; implemented in `content/media.ts` and `config/launch-approvals.json`.
 
 ## Decision
 
-All images in the governed CYA website image library are approved for CYA website publication.
+All images supplied by Glenn Hammond for Corporate Yoga Australia website and marketing production are approved for CYA use.
 
-This decision supersedes the earlier provisional `evidence-required` image-permission state carried forward from the prototype image audit and mapping work.
+This includes the current Homepage art-direction image:
 
-The repository now records:
+`/images/selected/cya-home-hero-debby-workplace-movement.jpg`
 
-- every governed `media.*` asset as `status: "approved"`;
-- `photographyPublicationApproved: true` in `config/launch-approvals.json`;
-- asset notes only for useful non-permission production considerations, such as the interim Home hero poster or preferred higher-resolution source.
+The current Homepage hero is now the governed `media.homeHero` asset in `content/media.ts` and is no longer a photography-permission blocker.
 
-## Approved governed assets
+This decision continues to supersede the earlier provisional `evidence-required` image-permission state carried forward from prototype image audit and mapping work.
 
-| Media key | Publication status |
+## Governed publication state
+
+The repository records the supplied/curated website photography layer as `status: "approved"`. Asset notes are production considerations rather than permission gaps.
+
+Current governed media keys include:
+
+| Media key | Publication/use status |
 |---|---|
-| `homeHero` | approved |
+| `homeHero` | approved — current Homepage art-direction still |
 | `homeOneOff` | approved |
 | `workplaceWellbeingHero` | approved |
 | `debbyTeacherPortrait` | approved |
@@ -41,19 +46,21 @@ The repository now records:
 | `aboutDelivery` | approved |
 | `proofHero` | approved |
 
-## Boundaries
+## Important evidence boundary
 
-Image publication approval does **not** automatically approve unrelated evidence claims attached to a page or person.
+Image-use approval does **not** automatically make an image evidence for a different factual claim.
 
 For example:
 
+- a supplied workplace image may be used by CYA but should not be presented as a photograph of a named client unless that identification is true;
 - facilitator qualification/credential claims remain subject to their own evidence gate;
-- client case-study facts, quotations, outcomes and permissions remain subject to Case Studies governance;
-- the Home hero image is publication-approved but remains an interim poster until the final commissioned hero still/video is selected;
-- source-resolution improvements may still be made for visual quality without reopening publication permission.
+- client case-study facts, quotations and outcomes remain subject to Case Studies governance;
+- a future commissioned Homepage still/motion pair may supersede the current approved hero for creative reasons without reopening the rights decision.
+
+This distinction protects both creative flexibility and evidence integrity.
 
 ## Launch consequence
 
-Photography permission is **no longer a Phase 11.4 launch blocker**.
+**Supplied-image publication permission is closed as a launch blocker.**
 
-`npm run qa:launch` should now treat the governed photography layer as cleared unless a future asset is added without `approved` status.
+The remaining photography work is therefore about improving coverage, specificity and future creative flexibility — especially hybrid work, Human Signal details, return-to-work sequences and optional named-client-specific proof — rather than obtaining permission for the images Glenn has already supplied.

@@ -32,6 +32,12 @@ export function ExperiencePathway({
   items,
   image,
 }: ExperiencePathwayProps) {
+  const isHomepageExperienceImage = image.src === "/images/selected/cya-home-hero-workplace-session.webp";
+  const imageSrc = isHomepageExperienceImage ? "/images/cya-library/IMG_5701.JPG" : image.src;
+  const imageAlt = isHomepageExperienceImage
+    ? "Workplace participants take part in an outdoor guided movement session on a grassy workplace campus."
+    : image.alt;
+
   return (
     <section className="bg-[var(--cya-surface-page)] py-20 lg:py-24">
       <ProductionContainer className="grid max-w-[1440px] gap-10 lg:grid-cols-[minmax(0,0.96fr)_minmax(24rem,0.84fr)] lg:items-start lg:gap-16">
@@ -51,7 +57,7 @@ export function ExperiencePathway({
         </div>
 
         <figure className="relative aspect-[4/3] overflow-hidden bg-white">
-          <Image src={image.src} alt={image.alt} fill sizes="(min-width: 1440px) 580px, (min-width: 1024px) 44vw, 100vw" className="object-cover" />
+          <Image src={imageSrc} alt={imageAlt} fill sizes="(min-width: 1440px) 580px, (min-width: 1024px) 44vw, 100vw" className="object-cover" />
         </figure>
       </ProductionContainer>
     </section>

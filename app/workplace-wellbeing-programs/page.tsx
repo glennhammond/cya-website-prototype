@@ -82,10 +82,21 @@ export default function WorkplaceWellbeingProgramsPage() {
         </ProductionContainer>
       </section>
 
-      <section className="bg-white py-20 lg:py-24">
-        <ProductionContainer className="grid gap-12 lg:grid-cols-[minmax(0,1.02fr)_minmax(0,0.98fr)] lg:items-center lg:gap-16">
-          <figure className="relative aspect-[4/3] overflow-hidden bg-[var(--cya-surface-page)]"><Image src="/images/selected/cya-programs-continuity-group-repeat.webp" alt="Participants stretch together during a facilitator-led workplace wellbeing session." fill sizes="(min-width: 1280px) 620px, (min-width: 1024px) 48vw, 100vw" className="object-cover" /></figure>
-          <div><ProductionKicker>Designed for participation</ProductionKicker><h2 className="mt-5 max-w-3xl text-4xl font-bold tracking-[-0.018em] text-[var(--cya-teal-dark)] lg:text-5xl">A useful program has to work for the people using it</h2><p className="mt-6 max-w-3xl text-lg leading-8 text-[var(--cya-body)]">Good intentions are not enough. Timing, location, access, communication and choice all affect whether people can realistically take part.</p><div className="mt-9 border-y border-[var(--cya-divider)]"><article className="border-b border-[var(--cya-divider)] py-5"><h3 className="text-xl font-semibold text-[var(--cya-teal-dark)]">Fits the working day</h3><p className="mt-2 leading-7 text-[var(--cya-body)]">Choose times, formats and locations that reflect how your people actually work.</p></article><article className="border-b border-[var(--cya-divider)] py-5"><h3 className="text-xl font-semibold text-[var(--cya-teal-dark)]">Clear to participants</h3><p className="mt-2 leading-7 text-[var(--cya-body)]">Explain what the experience involves, who it is for and how people can join.</p></article><article className="py-5"><h3 className="text-xl font-semibold text-[var(--cya-teal-dark)]">Voluntary and privacy-aware</h3><p className="mt-2 leading-7 text-[var(--cya-body)]">Use aggregate participation and voluntary feedback without assessing individual wellbeing.</p></article></div></div>
+      <section className="bg-white py-16 lg:py-20">
+        <ProductionContainer className="grid gap-10 lg:grid-cols-[minmax(0,1.08fr)_minmax(0,0.92fr)] lg:items-stretch lg:gap-12 xl:gap-14">
+          <figure className="relative min-h-[34rem] overflow-hidden bg-[var(--cya-surface-page)] lg:min-h-[40rem]">
+            <Image src="/images/selected/cya-programs-continuity-group-repeat.webp" alt="Participants stretch together during a facilitator-led workplace wellbeing session." fill sizes="(min-width: 1280px) 700px, (min-width: 1024px) 52vw, 100vw" className="object-cover" />
+          </figure>
+          <div className="flex flex-col justify-center lg:pl-2">
+            <ProductionKicker>Designed for participation</ProductionKicker>
+            <h2 className="mt-5 max-w-2xl text-4xl font-bold tracking-[-0.018em] text-[var(--cya-teal-dark)] lg:text-[2.75rem] xl:text-5xl">A useful program has to work for the people using it</h2>
+            <p className="mt-5 max-w-2xl text-lg leading-8 text-[var(--cya-body)]">Timing, location, access, communication and choice all affect whether people can realistically take part.</p>
+            <div className="mt-8 border-y border-[var(--cya-divider)]">
+              <article className="border-b border-[var(--cya-divider)] py-5"><h3 className="text-[1.35rem] font-semibold leading-7 text-[var(--cya-teal-dark)]">Fits the working day</h3><p className="mt-2 text-[1.05rem] leading-7 text-[var(--cya-body)]">Times, formats and locations that reflect how people actually work.</p></article>
+              <article className="border-b border-[var(--cya-divider)] py-5"><h3 className="text-[1.35rem] font-semibold leading-7 text-[var(--cya-teal-dark)]">Clear to participants</h3><p className="mt-2 text-[1.05rem] leading-7 text-[var(--cya-body)]">People know what the experience involves and how to join.</p></article>
+              <article className="py-5"><h3 className="text-[1.35rem] font-semibold leading-7 text-[var(--cya-teal-dark)]">Voluntary and privacy-aware</h3><p className="mt-2 text-[1.05rem] leading-7 text-[var(--cya-body)]">Participation and feedback without assessing individual wellbeing.</p></article>
+            </div>
+          </div>
         </ProductionContainer>
       </section>
 

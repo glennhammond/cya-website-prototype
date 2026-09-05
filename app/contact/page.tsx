@@ -4,7 +4,6 @@ import { BreadcrumbStructuredData } from "@/components/StructuredData";
 import { ConsultationForm } from "@/components/ConsultationForm";
 import {
   ProductionAction,
-  ProductionCard,
   ProductionContainer,
   ProductionKicker,
 } from "@/components/ProductionPrimitives";
@@ -17,6 +16,12 @@ export const metadata: Metadata = {
     "Tell Corporate Yoga Australia what needs to happen and begin planning a useful workplace wellbeing experience.",
   alternates: { canonical: "/contact" },
 };
+
+const nextSteps = [
+  ["01", "We review what you are planning", "We look at the workplace context, audience, timing and what you would like the experience to support."],
+  ["02", "We clarify what matters", "If we need anything else, we will ask about the practical details that affect the right approach."],
+  ["03", "We suggest a useful next step", "That may be a starting format, a conversation about scope or a recommendation for how to proceed."],
+] as const;
 
 export default async function ContactPage({
   searchParams,
@@ -31,79 +36,71 @@ export default async function ContactPage({
     <>
       <BreadcrumbStructuredData items={[{ name: "Contact", path: "/contact" }]} />
       <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Contact" }]} />
-      <section className="bg-[var(--cya-surface-page)] py-10 sm:py-14 lg:py-16">
-        <ProductionContainer className="grid min-w-0 gap-8 lg:grid-cols-[1.4fr_0.8fr] lg:items-center">
-          <div className="min-w-0">
+
+      <section className="bg-[var(--cya-surface-page)] py-12 sm:py-14 lg:py-16">
+        <ProductionContainer className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(20rem,0.65fr)] lg:items-end lg:gap-16">
+          <div>
             <ProductionKicker>Start planning</ProductionKicker>
-            <h1 className="mt-4 max-w-4xl text-[clamp(2.5rem,11vw,4.5rem)] font-bold leading-[1.02]">
+            <h1 className="mt-5 max-w-4xl text-[clamp(3rem,4.8vw,4.55rem)] font-bold leading-[1.03] tracking-[-0.025em] text-[var(--cya-teal-dark)]">
               {contextualLabel
                 ? `Tell us about ${contextualLabel.toLowerCase()}`
-                : "Tell us what you are trying to make happen"}
+                : "Tell us what would help your workplace"}
             </h1>
-            <p className="mt-5 max-w-3xl text-lg leading-8 text-[var(--cya-body)]">
-              You do not need to arrive with the format or package already solved. A few useful details are enough
-              for Corporate Yoga Australia to understand the context and respond personally.
+            <p className="mt-7 max-w-3xl text-xl leading-8 text-[var(--cya-body)]">
+              You do not need to arrive with the service, format or package already worked out. Tell us what is happening and what you would like to make easier, better or more useful.
             </p>
-            <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <ProductionAction href="#planning-form">Start planning</ProductionAction>
-              <ProductionAction href="mailto:info@corporateyoga.com.au" style="secondary">
-                Email us
-              </ProductionAction>
-              <ProductionAction href="tel:1300373363" style="secondary">
-                Call 1300 373 363
-              </ProductionAction>
+              <ProductionAction href="mailto:info@corporateyoga.com.au" style="secondary">Email us</ProductionAction>
+              <ProductionAction href="tel:1300373363" style="secondary">Call 1300 373 363</ProductionAction>
             </div>
           </div>
-          <aside className="hidden border border-[var(--cya-divider)] bg-[var(--cya-surface-subtle)] p-8 lg:block">
-            <ProductionKicker>Planning starts here</ProductionKicker>
-            <ul className="mt-6 space-y-4">
-              <li>People</li>
-              <li>Workplace context</li>
-              <li>What needs to happen</li>
-            </ul>
+
+          <aside className="border-y border-[var(--cya-divider)] py-6">
+            <p className="text-xs font-semibold uppercase tracking-[0.08em] text-[var(--cya-ochre-ink)]">Useful to include</p>
+            <div className="mt-5 divide-y divide-[var(--cya-divider)]">
+              <p className="py-4 text-lg font-semibold text-[var(--cya-charcoal)]">Who it is for</p>
+              <p className="py-4 text-lg font-semibold text-[var(--cya-charcoal)]">What is happening in the workplace</p>
+              <p className="py-4 text-lg font-semibold text-[var(--cya-charcoal)]">What you would like to achieve</p>
+            </div>
           </aside>
         </ProductionContainer>
       </section>
-      <section
-        id="planning-form"
-        className="scroll-mt-24 bg-white pb-14 pt-4 sm:pb-20 sm:pt-6 lg:py-20"
-      >
-        <ProductionContainer className="min-w-0">
-          <ProductionKicker>Planning form</ProductionKicker>
-          <h2 className="mt-3 max-w-3xl text-2xl font-bold leading-tight sm:text-3xl lg:text-4xl">
-            A short, useful enquiry
-          </h2>
-          <p className="mt-3 max-w-3xl text-base leading-7 text-[var(--cya-body)]">
-            Tell us what you want to make happen. You do not need to know the service name.
-          </p>
-          <div className="mt-7 max-w-3xl border-t border-[var(--cya-divider)] pt-7">
+
+      <section id="planning-form" className="scroll-mt-24 bg-white py-16 sm:py-20 lg:py-24">
+        <ProductionContainer className="grid gap-12 lg:grid-cols-[minmax(18rem,0.7fr)_minmax(0,1.3fr)] lg:gap-20">
+          <div>
+            <ProductionKicker>Planning form</ProductionKicker>
+            <h2 className="mt-5 max-w-xl text-4xl font-bold tracking-[-0.018em] text-[var(--cya-teal-dark)] lg:text-5xl">
+              A few useful details are enough to begin
+            </h2>
+            <p className="mt-6 max-w-xl text-lg leading-8 text-[var(--cya-body)]">
+              Share what you know now. We can work through the rest with you rather than asking you to solve the delivery before you get in touch.
+            </p>
+          </div>
+          <div className="border-t border-[var(--cya-divider)] pt-7">
             <ConsultationForm initialInterest={interest} submissionEnabled={submissionEnabled} />
           </div>
         </ProductionContainer>
       </section>
-      <section className="bg-[var(--cya-surface-page)] py-20 lg:py-24">
+
+      <section className="bg-[var(--cya-surface-page)] py-16 lg:py-20">
         <ProductionContainer>
           <ProductionKicker>What happens next</ProductionKicker>
-          <h2 className="mt-5 text-4xl font-bold lg:text-5xl">A human takes it from here</h2>
-          <p className="mt-5 max-w-3xl text-lg leading-8 text-[var(--cya-body)]">
-            Corporate Yoga Australia will respond to your enquiry within two business days.
-          </p>
-          <div className="mt-10 grid gap-5 md:grid-cols-3">
-            <ProductionCard
-              title="1 · We review the context"
-              body="Your enquiry is considered by a person—not routed through an automated recommendation engine."
-              tone="paper"
-            />
-            <ProductionCard
-              title="2 · We clarify only what matters"
-              body="We may ask about timing, access, format, facilitator needs or internal approval."
-              tone="paper"
-            />
-            <ProductionCard
-              title="3 · You receive a practical next step"
-              body="A recommended starting point, scope or conversation—without pressure to buy a program."
-              tone="paper"
-            />
+          <div className="mt-5 grid gap-8 lg:grid-cols-[minmax(0,0.75fr)_minmax(0,1.25fr)] lg:gap-16">
+            <div>
+              <h2 className="max-w-xl text-4xl font-bold tracking-[-0.018em] text-[var(--cya-teal-dark)] lg:text-5xl">A clear next step, shaped around your workplace</h2>
+              <p className="mt-6 max-w-xl text-lg leading-8 text-[var(--cya-body)]">We aim to respond within two business days and make the next step straightforward.</p>
+            </div>
+            <div className="border-t border-[var(--cya-divider)]">
+              {nextSteps.map(([number, title, body]) => (
+                <article key={number} className="grid gap-3 border-b border-[var(--cya-divider)] py-6 md:grid-cols-[3rem_0.85fr_1.15fr] md:gap-6">
+                  <p className="text-xs font-semibold text-[var(--cya-ochre-ink)]">{number}</p>
+                  <h3 className="text-xl font-semibold leading-7 text-[var(--cya-charcoal)]">{title}</h3>
+                  <p className="leading-7 text-[var(--cya-body)]">{body}</p>
+                </article>
+              ))}
+            </div>
           </div>
         </ProductionContainer>
       </section>

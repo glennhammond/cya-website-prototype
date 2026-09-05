@@ -95,7 +95,7 @@ export default async function InsightArticlePage({
           </Container>
         </Section>
 
-        <Section tone="mist">
+        <Section tone="white">
           <Container>
             <div className="mx-auto max-w-3xl">
               <p className="text-xl leading-relaxed text-ink">{article.intro}</p>
@@ -110,9 +110,9 @@ export default async function InsightArticlePage({
                       ))}
                     </div>
                     {section.bullets && (
-                      <ul className="mt-5 space-y-3 border-l-2 border-aqua pl-6 text-base leading-7 text-body">
+                      <ul className="mt-5 space-y-3 text-base leading-7 text-body">
                         {section.bullets.map((item) => (
-                          <li key={item}>{item}</li>
+                          <li key={item} className="relative pl-5 before:absolute before:left-0 before:top-[0.72em] before:h-1 before:w-1 before:rounded-full before:bg-[var(--cya-ochre)]">{item}</li>
                         ))}
                       </ul>
                     )}
@@ -160,7 +160,7 @@ export default async function InsightArticlePage({
                 </aside>
               )}
 
-              <div className="mt-12 rounded-[var(--radius-card)] border border-divider bg-white p-6 text-sm leading-relaxed text-body">
+              <div className="mt-12 border border-divider bg-[var(--cya-surface-warm)] p-6 text-sm leading-relaxed text-body">
                 This article is general workplace wellbeing information, not medical or psychological advice. Corporate Yoga Australia
                 refreshes older guidance where needed so service claims remain proportionate to the available evidence.
               </div>

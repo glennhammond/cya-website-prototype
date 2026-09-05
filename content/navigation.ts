@@ -67,11 +67,11 @@ export const primaryNav: NavItem[] = [
   { label: "Insights", href: "/blog" },
 ];
 
-export const utilityNav: NavItem[] = [
-  { label: "Member access", href: "/member-access" },
-];
+export const memberSignInHref = "https://wellbeingstudio.com.au";
 
-export const memberSignInHref = "https://studio.corporateyoga.com.au";
+export const utilityNav: NavItem[] = [
+  { label: "Member access", href: memberSignInHref },
+];
 
 export const primaryCTA: CTA = {
   label: "Start planning",
@@ -85,7 +85,7 @@ export const primaryCTAShort = "Start planning";
 export const footerLegalNav: NavItem[] = [
   { label: "Privacy", href: "/privacy-policy" },
   { label: "Terms", href: "/terms" },
-  { label: "Member access", href: "/member-access" },
+  { label: "Member access", href: memberSignInHref },
 ];
 
 /** Matches current-page convention. Exact match or descendant route. */

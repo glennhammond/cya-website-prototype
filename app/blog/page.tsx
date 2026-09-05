@@ -1,25 +1,76 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { BreadcrumbStructuredData } from "@/components/StructuredData";
-import { ProductionAction, ProductionCard, ProductionClosing, ProductionContainer, ProductionKicker } from "@/components/ProductionPrimitives";
-import { ReviewImageDirection } from "@/components/ReviewImageDirection";
+import { ProductionAction, ProductionContainer, ProductionKicker } from "@/components/ProductionPrimitives";
 import { insightArticles } from "@/content/insights";
 
-export const metadata: Metadata = { title: "Workplace Wellbeing Insights", description: "Practical Corporate Yoga Australia insights on workplace wellbeing, Work Wellness, workplace yoga, mindfulness and wellbeing program design.", alternates: { canonical: "/blog" } };
-const dateFormatter = new Intl.DateTimeFormat("en-AU", { day: "numeric", month: "short", year: "numeric" });
+export const metadata: Metadata = {
+  title: "Workplace Wellbeing Insights",
+  description: "Practical thinking and useful guides on workplace wellbeing, movement, mindfulness and making wellbeing part of working life.",
+  alternates: { canonical: "/blog" },
+};
+
+const imageFor = (category: string) => {
+  const value = category.toLowerCase();
+  if (value.includes("yoga") || value.includes("movement")) return "/images/selected/cya-movement-outdoor-group.webp";
+  if (value.includes("mind") || value.includes("breath")) return "/images/selected/cya-about-worldview-group-rest.webp";
+  return "/images/selected/cya-workplace-wellbeing-lunch-learn-team.webp";
+};
+
+const topics = [
+  ["Planning", "Programs, participation and implementation", "/workplace-wellbeing-programs"],
+  ["Movement", "Yoga, Pilates and accessible movement", "/movement"],
+  ["Mindfulness", "Meditation, breathwork and attention", "/meditation-mindfulness"],
+  ["Working life", "Simple practices for real workdays", "/blog/what-is-work-wellness"],
+] as const;
 
 export default function InsightsPage() {
-  const articles = [...insightArticles].sort((a, b) => new Date(b.dateModified).getTime() - new Date(a.dateModified).getTime());
-  const [featured, ...rest] = articles;
-  return <>
-    <BreadcrumbStructuredData items={[{ name: "Insights", path: "/blog" }]} />
-    <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Insights" }]} />
-    <section className="bg-[var(--cya-surface-page)] py-16 lg:py-20"><ProductionContainer className="grid gap-10 lg:grid-cols-[1.4fr_0.8fr] lg:items-center"><div><ProductionKicker>Insights</ProductionKicker><h1 className="mt-5 max-w-4xl text-[clamp(2.8rem,5vw,4.5rem)] font-bold leading-[1.05]">Useful workplace wellbeing thinking that connects back to real decisions</h1><p className="mt-6 max-w-3xl text-lg leading-8 text-[var(--cya-body)]">Practical guidance, observations and expert knowledge to help workplace organisers and participants understand, decide or act.</p>{featured && <div className="mt-8 flex gap-3"><ProductionAction href={`/blog/${featured.slug}`}>Read the latest insight</ProductionAction><ProductionAction href="/movement" style="secondary">Explore workplace wellbeing</ProductionAction></div>}</div><aside className="border border-[var(--cya-divider)] bg-[var(--cya-surface-subtle)] p-8"><ProductionKicker>Each Insight helps you</ProductionKicker><ul className="mt-6 space-y-4"><li>Understand a workplace question</li><li>Make a practical decision</li><li>Find a relevant next step</li></ul></aside></ProductionContainer></section>
-    <section className="border-y border-[var(--cya-divider)] bg-white py-10"><ProductionContainer className="grid gap-6 md:grid-cols-[1fr_auto] md:items-center"><div><ProductionKicker>CYA concept guide</ProductionKicker><h2 className="mt-3 text-2xl font-bold">What is Work Wellness?</h2><p className="mt-3 max-w-3xl leading-7 text-[var(--cya-body)]">How CYA uses Work Wellness to describe useful wellbeing that becomes part of working life — and why it does not replace the broader category of workplace wellbeing.</p></div><ProductionAction href="/blog/what-is-work-wellness" style="secondary">Read the guide</ProductionAction></ProductionContainer></section>
-    <ReviewImageDirection id="IMAGE 10 · INSIGHTS EDITORIAL LEAD" job="Context" subject="A genuine workplace or Corporate Yoga Australia field-note image directly related to the featured Insight, with a clear and factual editorial connection." treatment="One restrained 3:2 lead image. Individual guides may use distinct relevant images later; the index should not become a generic card gallery." format="3:2 desktop · adaptable to 4:3 mobile" avoid="Generic wellness stock, an unrelated group class, repeated imagery from service pages or photographs used only to decorate the index." candidate="/images/selected/cya-insights-field-note.webp" />
-    <section className="bg-white py-20 lg:py-24"><ProductionContainer><ProductionKicker>Start with the decision in front of you</ProductionKicker><h2 className="mt-5 text-4xl font-bold lg:text-5xl">Start with one useful guide</h2>{featured && <article className="mt-10 grid gap-8 border-y border-[var(--cya-divider)] py-8 lg:grid-cols-[1fr_auto] lg:items-center"><div><p className="text-xs font-semibold uppercase text-[var(--cya-ochre-ink)]">{featured.category}</p><h3 className="mt-3 text-3xl"><Link href={`/blog/${featured.slug}`}>{featured.title}</Link></h3><p className="mt-4 max-w-3xl text-[var(--cya-body)]">{featured.summary}</p><p className="mt-4 text-sm text-[var(--cya-body)]">{featured.author} · <time dateTime={featured.datePublished}>{dateFormatter.format(new Date(featured.datePublished))}</time></p></div><ProductionAction href={`/blog/${featured.slug}`} style="secondary">Read insight</ProductionAction></article>}<div className="mt-10 grid gap-5 md:grid-cols-3"><ProductionCard title="Field Notes" body="Observations from real workplace delivery, published with appropriate context." /><ProductionCard title="Expert conversations" body="Credible voices exploring practical wellbeing questions." /><ProductionCard title="Practical guidance" body="Useful explanations connected to workplace decisions and relevant services." /></div>{rest.length > 0 && <div className="mt-12 divide-y divide-[var(--cya-divider)] border-y border-[var(--cya-divider)]">{rest.map(article => <article key={article.slug} className="grid gap-4 py-6 md:grid-cols-[1fr_auto] md:items-center"><div><p className="text-xs font-semibold uppercase text-[var(--cya-ochre-ink)]">{article.category}</p><h3 className="mt-2 text-xl"><Link href={`/blog/${article.slug}`}>{article.title}</Link></h3><p className="mt-2 text-sm text-[var(--cya-body)]">{article.summary}</p></div><Link className="font-semibold underline underline-offset-4" href={`/blog/${article.slug}`}>Read insight</Link></article>)}</div>}</ProductionContainer></section>
-    <section className="bg-[var(--cya-surface-page)] py-20 lg:py-24"><ProductionContainer><ProductionKicker>Useful and responsible guidance</ProductionKicker><h2 className="mt-5 text-4xl font-bold lg:text-5xl">Clear context makes advice more useful</h2><div className="mt-10 grid gap-5 md:grid-cols-3"><ProductionCard title="Who it is for" body="Each guide makes its workplace audience and purpose clear." tone="paper" /><ProductionCard title="When it was reviewed" body="Published and updated dates help readers understand how current the guidance is." tone="paper" /><ProductionCard title="Where to go next" body="Relevant service and planning links make the next useful step easy to find." tone="paper" /></div></ProductionContainer></section>
-    <ProductionClosing heading="Turn useful thinking into a useful next step" body="Continue into the related service, evidence or planning pathway." href={featured ? `/blog/${featured.slug}` : "/blog"} action="Read the latest insight" />
-  </>;
+  const now = Date.now();
+  const articles = [...insightArticles]
+    .filter((article) => new Date(article.datePublished).getTime() <= now)
+    .sort((a, b) => new Date(b.dateModified).getTime() - new Date(a.dateModified).getTime());
+  const featured = articles.find((article) => article.slug.includes("nervous-system")) ?? articles[0];
+  const otherFeatured = articles.filter((article) => article.slug !== featured?.slug && article.slug !== "what-is-work-wellness").slice(0, 2);
+  const featuredCards = [
+    {
+      slug: "what-is-work-wellness",
+      title: "What is Work Wellness?",
+      category: "Working life",
+      image: "/images/selected/cya-home-hero-debby-workplace-movement.jpg",
+    },
+    ...otherFeatured.map((article) => ({
+      slug: article.slug,
+      title: article.title,
+      category: article.category,
+      image: imageFor(article.category),
+    })),
+  ];
+
+  return (
+    <>
+      <BreadcrumbStructuredData items={[{ name: "Insights", path: "/blog" }]} />
+      <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Insights" }]} />
+
+      <section className="bg-[var(--cya-surface-page)] py-12 sm:py-14 lg:py-16">
+        <ProductionContainer className="grid max-w-[1440px] gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-center lg:gap-16">
+          <div><h1 className="max-w-3xl text-[clamp(3rem,4.8vw,4.55rem)] font-bold leading-[1.03] tracking-[-0.025em] text-[var(--cya-teal-dark)]">Ideas for making wellbeing part of working life</h1><p className="mt-7 max-w-2xl text-xl leading-8 text-[var(--cya-body)]">Practical thinking, useful guides and simple ways to bring movement, mindfulness and wellbeing into the workday.</p><nav aria-label="Insight topics" className="mt-9 flex flex-wrap gap-x-8 gap-y-3 text-sm font-semibold text-[var(--cya-teal-dark)]"><Link href="#all-insights">All insights</Link><Link href="#planning">Planning</Link><Link href="#movement">Movement</Link><Link href="#mindfulness">Mindfulness</Link></nav></div>
+          <figure className="relative aspect-[4/3] overflow-hidden bg-white"><Image src="/images/selected/cya-home-hero-debby-workplace-movement.jpg" alt="A workplace wellbeing facilitator in a real working environment." fill priority sizes="(min-width: 1280px) 680px, (min-width: 1024px) 54vw, 100vw" className="object-cover" /></figure>
+        </ProductionContainer>
+      </section>
+
+      {featured && <section className="bg-[var(--cya-surface-page)] pb-20 pt-8 lg:pb-24 lg:pt-12"><ProductionContainer className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-center lg:gap-16"><figure className="relative aspect-[4/3] overflow-hidden bg-white"><Image src="/images/selected/cya-conferences-hero-facilitator-led-group.webp" alt="A workplace group takes part in a facilitated wellbeing experience." fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" /></figure><div><ProductionKicker>Featured insight</ProductionKicker><h2 className="mt-5 max-w-2xl text-4xl font-bold leading-[1.08] tracking-[-0.018em] text-[var(--cya-charcoal)] lg:text-5xl">{featured.title}</h2><p className="mt-6 max-w-2xl text-lg leading-8 text-[var(--cya-body)]">{featured.summary}</p><Link href={`/blog/${featured.slug}`} className="mt-7 inline-flex font-semibold text-[var(--cya-charcoal)] hover:underline">Read the insight →</Link></div></ProductionContainer></section>}
+
+      <section className="bg-white py-20 lg:py-24"><ProductionContainer><div className="flex items-end justify-between gap-6"><h2 className="text-4xl font-bold tracking-[-0.018em] text-[var(--cya-charcoal)] lg:text-5xl">Featured insights</h2><Link href="#all-insights" className="hidden font-semibold text-[var(--cya-teal-dark)] hover:underline sm:inline-flex">View all insights ↓</Link></div><div className="mt-10 flex snap-x snap-mandatory gap-6 overflow-x-auto pb-4 md:grid md:grid-cols-3 md:overflow-visible md:pb-0">{featuredCards.map((article) => <Link key={article.slug} href={`/blog/${article.slug}`} className="group min-w-[84%] snap-start sm:min-w-[60%] md:min-w-0"><article><div className="relative aspect-[16/9] overflow-hidden bg-[var(--cya-surface-page)]"><Image src={article.image} alt="" fill sizes="(min-width: 768px) 33vw, 84vw" className="object-cover transition-transform duration-300 group-hover:scale-[1.015]" /></div><p className="mt-4 text-xs font-bold uppercase tracking-[0.1em] text-[var(--cya-ochre-ink)]">{article.category}</p><h3 className="mt-3 text-2xl font-semibold leading-7 text-[var(--cya-charcoal)] group-hover:text-[var(--cya-teal-dark)]">{article.title}</h3><span className="mt-5 inline-flex font-semibold text-[var(--cya-charcoal)]">Read →</span></article></Link>)}</div><p className="mt-2 text-sm text-[var(--cya-body)] md:hidden">Swipe to explore →</p></ProductionContainer></section>
+
+      <section id="planning" className="bg-[var(--cya-surface-base)] py-20 lg:py-24"><ProductionContainer className="grid gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-start lg:gap-16"><div><ProductionKicker>Practical guide</ProductionKicker><h2 className="mt-5 max-w-2xl text-4xl font-bold tracking-[-0.018em] text-[var(--cya-charcoal)] lg:text-5xl">Workplace Wellbeing Implementation Guide</h2><p className="mt-6 max-w-2xl text-lg leading-8 text-[var(--cya-body)]">Turn a good intention into a practical, sustainable program.</p></div><div className="border-t border-[var(--cya-divider)]">{[["Start with the workplace need","/workplace-wellbeing-programs"],["Make participation easy","/workplace-wellbeing-programs"],["Build a rhythm that can last","/workplace-wellbeing-programs"]].map(([label,href]) => <Link key={label} href={href} className="flex items-center justify-between gap-6 border-b border-[var(--cya-divider)] py-7 text-lg font-semibold text-[var(--cya-charcoal)] hover:text-[var(--cya-teal-dark)]"><span>{label}</span><span aria-hidden="true">→</span></Link>)}</div></ProductionContainer></section>
+
+      <section className="bg-white py-20 lg:py-24"><ProductionContainer><h2 className="text-4xl font-bold tracking-[-0.018em] text-[var(--cya-charcoal)] lg:text-5xl">Explore by topic</h2><div className="mt-10 flex snap-x snap-mandatory gap-0 overflow-x-auto border-y border-[var(--cya-divider)] pb-0 md:grid md:grid-cols-4 md:overflow-visible">{topics.map(([title,body,href], index) => <Link id={title.toLowerCase().replace(" ", "-")} key={title} href={href} className="group min-w-[78%] snap-start border-r border-[var(--cya-divider)] px-6 py-7 transition-colors duration-200 ease-out last:border-r-0 hover:bg-[var(--cya-surface-page)] focus-visible:bg-[var(--cya-surface-page)] focus-visible:outline-none sm:min-w-[50%] md:min-w-0"><article className="h-full"><p className="text-xs font-semibold text-[var(--cya-ochre-ink)]">{String(index + 1).padStart(2, "0")}</p><h3 className="mt-4 text-2xl font-semibold text-[var(--cya-charcoal)]">{title}</h3><p className="mt-3 leading-7 text-[var(--cya-body)]">{body}</p><span className="mt-5 inline-flex font-semibold text-[var(--cya-charcoal)] transition-transform duration-200 ease-out group-hover:translate-x-1 group-focus-visible:translate-x-1">Explore →</span></article></Link>)}</div><p className="mt-3 text-sm text-[var(--cya-body)] md:hidden">Swipe to explore →</p></ProductionContainer></section>
+
+      <section id="all-insights" className="bg-[var(--cya-surface-page)] py-20 lg:py-24"><ProductionContainer><ProductionKicker>All insights</ProductionKicker><h2 className="mt-5 text-4xl font-bold tracking-[-0.018em] text-[var(--cya-charcoal)] lg:text-5xl">Browse the full insights library</h2><div className="mt-10 border-t border-[var(--cya-divider)]">{articles.map((article) => <Link key={article.slug} href={`/blog/${article.slug}`} className="group grid gap-2 border-b border-[var(--cya-divider)] py-5 md:grid-cols-[minmax(0,1fr)_auto] md:items-center md:gap-8"><div><p className="text-xs font-bold uppercase tracking-[0.1em] text-[var(--cya-ochre-ink)]">{article.category}</p><h3 className="mt-2 text-xl font-semibold text-[var(--cya-charcoal)] group-hover:text-[var(--cya-teal-dark)]">{article.title}</h3></div><span className="font-semibold text-[var(--cya-charcoal)]">Read →</span></Link>)}</div></ProductionContainer></section>
+
+      <section className="border-t border-[var(--cya-ochre)] bg-[var(--cya-surface-page)] py-16 lg:py-20"><ProductionContainer className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center"><div><h2 className="max-w-3xl text-4xl font-bold tracking-[-0.018em] text-[var(--cya-teal-dark)] lg:text-5xl">Ready to make wellbeing part of working life?</h2><p className="mt-5 max-w-2xl text-lg leading-8 text-[var(--cya-teal-dark)]">Explore the services or tell us what you are planning.</p></div><ProductionAction href="/contact?interest=program">Tell us what you’re planning</ProductionAction></ProductionContainer></section>
+    </>
+  );
 }

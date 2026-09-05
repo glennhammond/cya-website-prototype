@@ -2,22 +2,23 @@ import type { HeroMedia, MediaAsset } from "@/lib/types";
 
 /**
  * Curated Corporate Yoga Australia website photography.
- * Glenn confirmed on 26 August 2026 that all images in the governed Corporate Yoga Australia
- * website library are approved for website publication. Asset-level notes
- * below now record only useful production considerations, not permission gaps.
+ * Glenn confirmed on 4 September 2026 that all images supplied for the CYA website
+ * are approved for Corporate Yoga Australia use. The current homepage art-direction
+ * hero is therefore governed here alongside the established publication-approved library.
+ * Asset-level notes record production considerations, not permission gaps.
  */
-const APPROVAL_NOTE = "Approved for Corporate Yoga Australia website publication — confirmed by Glenn Hammond on 26 August 2026.";
+const APPROVAL_NOTE = "Approved for Corporate Yoga Australia website publication/use — confirmed by Glenn Hammond; current authority reconfirmed 4 September 2026.";
 
 export const media = {
   homeHero: {
-    src: "/images/selected/cya-home-hero-workplace-session.webp",
-    width: 1080,
-    height: 810,
-    alt: "A diverse group of colleagues in a meeting room, seated with hands together in a shared moment of calm.",
+    src: "/images/selected/cya-home-hero-debby-workplace-movement.jpg",
+    width: 1600,
+    height: 1600,
+    alt: "A Corporate Yoga Australia facilitator leads an approachable movement session with a workplace participant.",
     status: "approved",
-    note: APPROVAL_NOTE + " Temporary poster only - replace with the final approved hero still or video frame when supplied.",
-    focal: "50% 38%",
-    focalDesktop: "50% 32%",
+    note: APPROVAL_NOTE + " Current approved homepage art-direction still. A future commissioned still/motion pair may supersede it without reopening publication permission.",
+    focal: "50% 52%",
+    focalDesktop: "50% 52%",
   },
   homeOneOff: {
     src: "/images/selected/cya-home-oneoff-desk-stretch.webp",
@@ -174,7 +175,7 @@ export const media = {
     height: 1200,
     alt: "A group mid-practice together during a facilitator-led session.",
     status: "approved",
-    note: APPROVAL_NOTE + " Documentary-style image; not evidence for a specific named client case study.",
+    note: APPROVAL_NOTE + " Documentary-style image; publication approval does not make it evidence for a different named client case study.",
     focal: "50% 38%",
   },
 } satisfies Record<string, MediaAsset>;

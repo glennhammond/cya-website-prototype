@@ -5,9 +5,11 @@ on:
     branches:
       - feat/cya-prelaunch-release-hardening-01
       - feat/cya-release-integration-qualification-01
+      - feat/cya-production-application-02
   pull_request:
     branches:
       - main
+      - feat/work-wellness-territory-02
 
 concurrency:
   group: cya-prelaunch-hardening-${{ github.ref }}
@@ -90,5 +92,5 @@ jobs:
         if: always()
         run: |
           echo "Pre-launch evidence run complete."
-          echo "qa:launch is intentionally excluded: privacy approval, final design reconciliation, browser/accessibility/performance, WAF and controlled HubSpot E2E remain release gates."
-          echo "A failing design-sensitive check is expected until the active redesign workbench is reconciled; release-control, dependency, build and other technical failures are not waived."
+          echo "qa:launch is intentionally excluded: privacy/terms approval, interactive browser/accessibility/performance, WAF, production conversion verification and controlled HubSpot E2E remain release gates."
+          echo "The production branch must keep indexing, analytics and live submission fail-closed until those gates are explicitly approved."

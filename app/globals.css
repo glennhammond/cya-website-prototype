@@ -42,6 +42,16 @@
   --cya-container-max: 1280px;
   --cya-container-narrow: 720px;
 
+  /* CYA Motion & Interaction System v1. */
+  --cya-motion-fast: 140ms;
+  --cya-motion-standard: 300ms;
+  --cya-motion-reveal: 560ms;
+  --cya-motion-editorial: 820ms;
+  --cya-motion-ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --cya-motion-ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --cya-motion-ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --cya-motion-reveal-distance: 16px;
+
   /* Approved charcoal scrim for the few remaining text-over-media contexts. */
   --cya-scrim: 34 40 38;
 }
@@ -166,6 +176,74 @@
   padding: clamp(2rem, 1rem + 4vw, 5rem);
 }
 
+/*
+ * Motion system v1 prototype surface.
+ * The controller currently activates this layer only on the three approved
+ * representative experiences. Content remains fully visible without JS.
+ */
+@media (prefers-reduced-motion: no-preference) {
+  html.motion-ready [data-motion="reveal"],
+  html.motion-ready [data-motion="emphasis"] {
+    opacity: 0;
+    transform: translate3d(0, var(--cya-motion-reveal-distance), 0);
+  }
+
+  html.motion-ready [data-motion="reveal"][data-motion-state="visible"],
+  html.motion-ready [data-motion="emphasis"][data-motion-state="visible"] {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    transition:
+      opacity var(--cya-motion-reveal) var(--cya-motion-ease-out),
+      transform var(--cya-motion-reveal) var(--cya-motion-ease-out);
+  }
+
+  html.motion-ready [data-motion="emphasis"] {
+    transform: translate3d(0, 10px, 0);
+  }
+
+  html.motion-ready [data-motion="hero"] [data-motion-child],
+  html.motion-ready [data-motion="guide"] [data-motion-child] {
+    opacity: 0;
+    transform: translate3d(0, 18px, 0);
+  }
+
+  html.motion-ready [data-motion="hero"][data-motion-state="visible"] [data-motion-child],
+  html.motion-ready [data-motion="guide"][data-motion-state="visible"] [data-motion-child] {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    transition:
+      opacity var(--cya-motion-reveal) var(--cya-motion-ease-out),
+      transform var(--cya-motion-reveal) var(--cya-motion-ease-out);
+    transition-delay: calc(var(--motion-child-index, 0) * 55ms);
+  }
+
+  [data-motion-image="drift"] img {
+    transform: scale(1.025) translate3d(0, var(--motion-image-shift, 0px), 0);
+    transform-origin: 50% 50%;
+    transition: transform 90ms linear;
+    will-change: transform;
+  }
+
+  [data-motion-response="row"],
+  [data-motion-response="card"] {
+    transition:
+      transform var(--cya-motion-fast) var(--cya-motion-ease-standard),
+      border-color var(--cya-motion-fast) linear,
+      background-color var(--cya-motion-fast) linear;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    [data-motion-response="row"]:hover {
+      transform: translate3d(0, -1px, 0);
+    }
+
+    [data-motion-response="card"]:hover {
+      transform: translate3d(0, -3px, 0);
+      border-color: color-mix(in srgb, var(--cya-teal) 30%, var(--cya-divider));
+    }
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -178,5 +256,9 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+
+  [data-motion-image="drift"] img {
+    transform: none !important;
   }
 }

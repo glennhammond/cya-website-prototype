@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useLayoutEffect } from "react";
 import { usePathname } from "next/navigation";
 
 const PROTOTYPE_ROUTES = new Set([
@@ -19,7 +19,7 @@ const motionNameForRoute = (pathname: string) => {
 export function MotionController() {
   const pathname = usePathname();
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!PROTOTYPE_ROUTES.has(pathname)) return;
 
     const root = document.getElementById("main-content");

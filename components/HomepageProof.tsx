@@ -1,58 +1,42 @@
 import Image from "next/image";
-import { ProductionContainer, ProductionKicker } from "@/components/ProductionPrimitives";
-
-const proofPoints = [
-  {
-    label: "Since 2014",
-    body: "Workplace wellbeing experience built through ongoing delivery with Australian organisations.",
-  },
-  {
-    label: "Australia-wide delivery",
-    body: "Onsite in major Australian cities, across multiple locations and online for distributed teams.",
-  },
-  {
-    label: "5.0 from 50 Google reviews",
-    body: "Public Google rating checked 25 July 2026. Review counts can change over time.",
-  },
-] as const;
+import { ProductionAction, ProductionContainer, ProductionKicker } from "@/components/ProductionPrimitives";
 
 export function HomepageProof() {
   return (
-    <section aria-labelledby="homepage-proof-heading" className="bg-[var(--cya-surface-base)] py-20 lg:py-24">
-      <ProductionContainer>
-        <div className="max-w-5xl">
-          <ProductionKicker>Workplace experience</ProductionKicker>
-          <h2 id="homepage-proof-heading" className="mt-5 text-4xl font-bold tracking-[-0.015em] lg:text-5xl">
-            Real workplaces. Practical wellbeing. Built around working life
+    <section aria-labelledby="homepage-proof-heading" className="bg-white py-20 lg:py-24">
+      <ProductionContainer className="grid gap-10 lg:grid-cols-[minmax(0,0.96fr)_minmax(0,1.04fr)] lg:items-center lg:gap-16 xl:gap-20">
+        <figure className="relative aspect-[4/3] overflow-hidden bg-[var(--cya-surface-page)] lg:aspect-[1.05/1]">
+          <Image
+            src="/images/selected/cya-proof-hero-group-practice.webp"
+            alt="A Corporate Yoga Australia facilitator guides a group through a shared workplace movement practice."
+            fill
+            sizes="(min-width: 1280px) 620px, (min-width: 1024px) 48vw, 100vw"
+            className="object-cover object-center"
+          />
+        </figure>
+
+        <div>
+          <ProductionKicker>From interruption to rhythm</ProductionKicker>
+          <h2 id="homepage-proof-heading" className="mt-5 max-w-3xl text-4xl font-bold tracking-[-0.02em] text-[var(--cya-teal-dark)] lg:text-5xl">
+            One useful moment can become part of how the week works
           </h2>
-          <p className="mt-6 max-w-4xl text-lg leading-8 text-[var(--cya-body)]">
-            Corporate Yoga Australia plans and delivers workplace yoga, Pilates, mindfulness, workshops and wellbeing programs for Australian organisations — onsite, online and across multiple locations.
+          <p className="mt-6 max-w-2xl text-lg leading-8 text-[var(--cya-body)]">
+            A single session may be enough. Where it helps, we can connect useful experiences into an ongoing workplace wellbeing program with clear planning and continuity.
           </p>
-        </div>
 
-        <div className="mt-12 grid border border-[var(--cya-divider)] lg:grid-cols-[minmax(0,1.15fr)_minmax(22rem,0.85fr)]">
-          <figure className="relative aspect-[4/3] overflow-hidden bg-[var(--cya-surface-page)] sm:aspect-[16/10] lg:aspect-auto lg:min-h-[30rem]">
-            <Image
-              src="/images/selected/cya-proof-hero-group-practice.webp"
-              alt="A Corporate Yoga Australia facilitator guides a group through a shared movement practice."
-              fill
-              sizes="(min-width: 1280px) 720px, (min-width: 1024px) 58vw, 100vw"
-              className="object-cover object-center"
-            />
-          </figure>
+          <div className="mt-8">
+            <ProductionAction href="/workplace-wellbeing-programs" style="secondary">Explore programs</ProductionAction>
+          </div>
 
-          <div className="bg-[var(--cya-surface-warm)] px-7 py-9 sm:px-10 sm:py-11 lg:border-l lg:border-[var(--cya-divider)] lg:px-12 lg:py-14">
-            <p className="text-xs font-bold uppercase tracking-[0.14em] text-[var(--cya-ochre-ink)]">
-              Evidence at a glance
-            </p>
-            <dl className="mt-8 border-t border-[var(--cya-mid-neutral)]/50">
-              {proofPoints.map((point) => (
-                <div key={point.label} className="border-b border-[var(--cya-mid-neutral)]/50 py-6">
-                  <dt className="text-xl font-bold leading-snug text-[var(--cya-teal-dark)] sm:text-2xl">{point.label}</dt>
-                  <dd className="mt-2 leading-7 text-[var(--cya-body)]">{point.body}</dd>
-                </div>
-              ))}
-            </dl>
+          <div className="mt-10 bg-[var(--cya-surface-warm)] px-6 py-6 sm:px-7">
+            <p className="text-xs font-bold uppercase tracking-[0.14em] text-[var(--cya-ochre-ink)]">Interruption → Return → Rhythm</p>
+            <div className="mt-4 flex flex-col gap-3 text-base font-semibold text-[var(--cya-teal-dark)] sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-4">
+              <span>One useful session</span>
+              <span aria-hidden="true">→</span>
+              <span>a repeatable cue</span>
+              <span aria-hidden="true">→</span>
+              <span>ongoing support</span>
+            </div>
           </div>
         </div>
       </ProductionContainer>

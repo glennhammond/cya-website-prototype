@@ -3,6 +3,7 @@ import { Instrument_Sans } from "next/font/google";
 import { AnnotationProvider } from "@/lib/annotation";
 import { AnnotationToggle } from "@/components/AnnotationToggle";
 import { AnalyticsConsentManager } from "@/components/AnalyticsConsentManager";
+import { MotionController } from "@/components/MotionController";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { site } from "@/content/site";
@@ -41,6 +42,7 @@ export default function RootLayout({
       <body className="flex min-h-full flex-col font-[family-name:var(--font-body)] text-ink antialiased">
         <AnnotationProvider>
           <AnalyticsConsentManager enabled={allowAnalytics} />
+          <MotionController />
           <a href="#main-content" className="skip-link">
             Skip to main content
           </a>

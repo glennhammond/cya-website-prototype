@@ -127,15 +127,18 @@ export default function WorkplaceWellbeingProgramsPage() {
       </section>
 
       <section className="bg-[var(--cya-surface-page)] py-20 lg:py-24">
-        <ProductionContainer className="grid gap-12 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:items-center lg:gap-16">
-          <div>
+        <ProductionContainer>
+          <div className="max-w-4xl">
             <ProductionKicker>What a program can include</ProductionKicker>
-            <h2 className="mt-5 max-w-3xl text-4xl font-bold tracking-[-0.018em] text-[var(--cya-teal-dark)] lg:text-5xl">The mix depends on what the workplace needs</h2>
+            <h2 className="mt-5 text-4xl font-bold tracking-[-0.018em] text-[var(--cya-teal-dark)] lg:text-5xl">The mix depends on what the workplace needs</h2>
             <p className="mt-6 max-w-3xl text-lg leading-8 text-[var(--cya-body)]">
               Familiar wellbeing experiences can work on their own or combine into a longer program. The value is in choosing what fits and connecting it deliberately.
             </p>
-            <div className="mt-9 border-y border-[var(--cya-divider)]">
-              {ingredients.map(([number, title, body]) => (
+          </div>
+
+          <div className="mt-11 grid gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-start lg:gap-14">
+            <div className="border-y border-[var(--cya-divider)]">
+              {ingredients.slice(0, 3).map(([number, title, body]) => (
                 <article key={number} className="grid grid-cols-[2.5rem_1fr] gap-4 border-b border-[var(--cya-divider)] py-5 last:border-b-0">
                   <p className="pt-1 text-xs font-semibold text-[var(--cya-ochre-ink)]">{number}</p>
                   <div>
@@ -145,16 +148,28 @@ export default function WorkplaceWellbeingProgramsPage() {
                 </article>
               ))}
             </div>
+            <figure className="relative aspect-[16/10] overflow-hidden bg-white lg:min-h-[25rem]">
+              <Image
+                src="/images/cya-library/IMG_5701.JPG"
+                alt="Employees in high-visibility workwear take part in an outdoor workplace wellbeing session."
+                fill
+                sizes="(min-width: 1280px) 700px, (min-width: 1024px) 54vw, 100vw"
+                className="object-cover"
+              />
+            </figure>
           </div>
-          <figure className="relative aspect-[4/3] overflow-hidden bg-white">
-            <Image
-              src="/images/cya-library/IMG_5701.JPG"
-              alt="Employees in high-visibility workwear take part in an outdoor workplace wellbeing session."
-              fill
-              sizes="(min-width: 1280px) 650px, (min-width: 1024px) 50vw, 100vw"
-              className="object-cover"
-            />
-          </figure>
+
+          <div className="mt-8 grid border-y border-[var(--cya-divider)] md:grid-cols-2">
+            {ingredients.slice(3).map(([number, title, body]) => (
+              <article key={number} className="grid grid-cols-[2.5rem_1fr] gap-4 border-b border-[var(--cya-divider)] px-0 py-6 last:border-b-0 md:border-b-0 md:border-r md:px-7 md:first:pl-0 md:last:border-r-0 md:last:pr-0">
+                <p className="pt-1 text-xs font-semibold text-[var(--cya-ochre-ink)]">{number}</p>
+                <div>
+                  <h3 className="text-lg font-semibold text-[var(--cya-teal-dark)]">{title}</h3>
+                  <p className="mt-2 max-w-xl leading-7 text-[var(--cya-body)]">{body}</p>
+                </div>
+              </article>
+            ))}
+          </div>
         </ProductionContainer>
       </section>
 
@@ -194,34 +209,35 @@ export default function WorkplaceWellbeingProgramsPage() {
       </section>
 
       <section className="bg-[var(--cya-surface-base)] py-20 lg:py-24">
-        <ProductionContainer className="grid gap-12 lg:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)] lg:items-center lg:gap-16">
-          <div>
+        <ProductionContainer className="grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-stretch lg:gap-16">
+          <figure className="relative min-h-[26rem] overflow-hidden bg-white lg:min-h-[34rem]">
+            <Image
+              src="/images/selected/cya-movement-group-industrial.webp"
+              alt="Employees take part in a facilitated wellbeing session in an industrial workplace."
+              fill
+              sizes="(min-width: 1280px) 700px, (min-width: 1024px) 54vw, 100vw"
+              className="object-cover"
+            />
+          </figure>
+
+          <div className="flex flex-col justify-center">
             <ProductionKicker>Different workplaces, different rhythms</ProductionKicker>
             <h2 className="mt-5 max-w-3xl text-4xl font-bold tracking-[-0.018em] text-[var(--cya-teal-dark)] lg:text-5xl">The program changes with the workplace</h2>
-            <p className="mt-6 max-w-3xl text-lg leading-8 text-[var(--cya-body)]">
-              The same wellbeing idea can need a very different delivery approach depending on the environment, workforce and way the day is structured.
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-[var(--cya-body)]">
+              The same wellbeing idea can need a different delivery approach depending on the environment, workforce and way the day is structured.
             </p>
-            <div className="mt-9 border-y border-[var(--cya-divider)]">
+            <div className="mt-8 border-y border-[var(--cya-divider)]">
               {workplaceRhythms.map(([title, body], index) => (
-                <article key={title} className="grid grid-cols-[2.5rem_1fr] gap-4 border-b border-[var(--cya-divider)] py-5 last:border-b-0">
+                <article key={title} className="grid grid-cols-[2.5rem_1fr] gap-4 border-b border-[var(--cya-divider)] py-4 last:border-b-0">
                   <p className="pt-1 text-xs font-semibold text-[var(--cya-ochre-ink)]">{String(index + 1).padStart(2, "0")}</p>
                   <div>
-                    <h3 className="text-lg font-semibold text-[var(--cya-teal-dark)]">{title}</h3>
-                    <p className="mt-2 leading-7 text-[var(--cya-body)]">{body}</p>
+                    <h3 className="text-[1.05rem] font-semibold leading-6 text-[var(--cya-teal-dark)]">{title}</h3>
+                    <p className="mt-1.5 max-w-lg leading-6 text-[var(--cya-body)]">{body}</p>
                   </div>
                 </article>
               ))}
             </div>
           </div>
-          <figure className="relative aspect-[4/3] overflow-hidden bg-white">
-            <Image
-              src="/images/selected/cya-movement-group-industrial.webp"
-              alt="Employees take part in a facilitated wellbeing session in an industrial workplace."
-              fill
-              sizes="(min-width: 1280px) 650px, (min-width: 1024px) 52vw, 100vw"
-              className="object-cover"
-            />
-          </figure>
         </ProductionContainer>
       </section>
 

@@ -46,6 +46,14 @@ export function MotionController() {
       }
     });
 
+    if (pathname === "/blog/what-is-work-wellness") {
+      root.querySelectorAll(":scope > section").forEach((section) => {
+        if (!section.hasAttribute("data-motion")) {
+          mark(section, "data-motion", "reveal");
+        }
+      });
+    }
+
     const hero = pageSections[0] as HTMLElement | undefined;
     if (hero) {
       const copy = pathname === "/blog/what-is-work-wellness"
@@ -101,7 +109,7 @@ export function MotionController() {
         mark(card, "data-motion-response", "card");
       });
 
-      const guardrail = root.querySelector(".border-l-4.border-\[var\(--cya-ochre\)\]");
+      const guardrail = root.querySelector('[class*="border-l-4"]');
       if (guardrail) mark(guardrail, "data-motion", "emphasis");
 
       root.querySelectorAll("article aside").forEach((aside) => {
